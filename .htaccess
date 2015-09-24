@@ -4,6 +4,5 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
 
-    RewriteRule carros/(.*)   api.php?id=$1 [L]
-    RewriteRule carros      api.php [L]
+    # RewriteRule
 </IfModule>
