@@ -5,7 +5,7 @@ Olá Desenvolvedor,
 
 Esse teste consiste em 2 etapas para avaliarmos seu conhecimento em PHP e Front-End (HTML5, CSS e JavaScript)
 
-Para realizar o teste, você deve clonar este repositório na pasta /var/www/html da máquina que está realizando o teste.
+Para realizar o teste, você deve dar um fork neste repositório e depois clona-lo na pasta <document_root> da máquina que está realizando o teste.
 
 Crie um branch com seu nome, e quando finalizar todo o desenvolvimento, você deverá enviar um pull-request com sua versão.
 
@@ -43,7 +43,7 @@ Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Ap
 > **Obs:**
 > - A página deve ser responsiva.
 > - A página deve funcionar 100% via AJAX, sem outros carregamentos de páginas.
-> - Ao criar/editar um carro, a marca deverá ser um `SELECT`
+> - Ao criar/editar um carro, o campo "marca" deverá ser um `SELECT`
 
 
 ### Outras observações
