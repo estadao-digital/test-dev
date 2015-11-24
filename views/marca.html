@@ -1,0 +1,46 @@
+<div class="container">
+    <h2>Marcas</2>
+    <hr/>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Marca</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="marca in marcas">
+                <td>{{marca.Nome}} </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script type="text/ng-template" id="marcaModalTpl">
+
+        <div>
+            <form class=" form-horizontal">
+                <div class="modal-header">
+                    <span ng-if="marca.Id">Editar </span><span ng-if="!marca.Id">Criar </span>Marca
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class=" form-group">
+
+                            <label class="control-label col-md-2">
+                                Marca
+                            </label>
+                            <input type="hidden" ng-model="marca.Id" />
+                            <input type="text" ng-model="marca.Nome" class="form-control col-md-10" autofocus />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="close()" class="btn btn-default">Cancelar</button>
+                    <button type="button" ng-click="save(marca)" class="btn btn-success">Salvar</button>
+                </div>
+            </form>
+        </div>
+
+    </script>
+</div>
+
