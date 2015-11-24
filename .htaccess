@@ -1,8 +1,9 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-
+	RewriteBase /estadao/
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ index.php?_url=$1 [L]
     # RewriteRule
 </IfModule>
