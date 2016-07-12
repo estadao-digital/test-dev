@@ -20,7 +20,7 @@ A primeira etapa será o desenvolvimento **backend/PHP**:
 
 - Você deverá desenvolver uma 'mini api' para que seja possível realizar operações CRUD do objeto Carro.
 > **Obs:**
->  - Você pode usar a sessão como banco de dados.
+>  - Você pode usar a sessão ou arquivo(txt,json) como banco de dados.
 >  - Cada carro deve ter ID, Marca, Modelo, Ano.
 
 - Sugerimos o retorno dessa 'mini api' nas seguinte urls:
