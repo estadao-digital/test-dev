@@ -1,7 +1,7 @@
 Teste para desenvolvedor do Estadão
 ==============================
 
-Olá Desenvolvedor,
+Olá candidato,
 
 Esse teste consiste em 2 etapas para avaliarmos seu conhecimento em PHP e Front-End (HTML5, CSS e JavaScript)
 
@@ -23,8 +23,7 @@ A primeira etapa será o desenvolvimento **backend/PHP**:
 >  - Você pode usar a sessão como banco de dados.
 >  - Cada carro deve ter ID, Marca, Modelo, Ano.
 
-
-- Você deve alterar o arquivo `.htaccess` para criar as seguintes rotas:
+- Sugerimos o retorno dessa 'mini api' nas seguinte urls:
  - `/carros` - [GET] deve retornar todos os carros cadastrados.
  - `/carros` - [POST] deve cadastrar um novo carro.
  - `/carros/{id}`[GET] deve retornar o carro com ID especificado.
@@ -46,10 +45,9 @@ Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Ap
 > - Ao criar/editar um carro, o campo "marca" deverá ser um `SELECT`
 
 
-### Outras observações
+### Observações importantes:
 
  - Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
  - Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.
  - Você pode usar ferramentas de automação (Grunt, Gulp), mas deverá informar o uso completo para funcionamento do teste.
- - Desenvolver em JavaScript puro será considerado um plus.
- - Criar rotinas de teste será considerado um plus.
+ - Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.
