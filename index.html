@@ -1,25 +1,125 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
-
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
-    <body>
-
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
-
-        <script src="js/main.js"></script>
-    </body>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Teste Ibrahim</title>
+	<base href="http://localhost/estadao/" />
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/stylesheet.css">
+	<script type="text/javascript" src="libs/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+  <!-- <script type="text/javascript" src="libs/sass/js/sass.sync.js"></script>
+	<script type="text/javascript" src="libs/sass/js/compile.js"></script> -->
+  <script type="text/javascript" src="libs/angular/angular.min.js"></script>
+  <script type="text/javascript" src="libs/angular/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="libs/angular/pagination/dirPagination.js"></script>
+  <script type="text/javascript" src="libs/angular/i18n/angular-locale_pt-br.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+</head>
+<body data-ng-app="cpm"">
+	<div data-ng-controller="grid">
+		<div class="container-fluid" data-ng-if="model.gridTitle">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div class="col-xs-12 col-sm-4 col-md-6 col-lg-7">
+            <h3 class="panel-title" data-ng-cloak>{{model.gridTitle}}</h3>
+          </div>
+          <div class="col-xs-12 col-sm-8 col-md-6 col-lg-5">
+            <input type="number" class="form-control input-md pull-right pgc" data-ng-model="model.pageSize">
+            <span data-dir-pagination-controls class="pgn pull-right"></span>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="panel-body">
+          <div data-ng-repeat="(index, msg) in model.msgs track by index" data-ng-if="msg" class="alert alert-warning">
+            {{msg}}
+          </div>
+          <span>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#formModal" data-backdrop="static" title="Cadastrar Novo Registro" data-ng-click="model.setRecord()"><span class="glyphicon glyphicon-plus"></span> Adicionar Novo</button>
+            <button type="button" class="btn btn-danger" data-ng-disabled="!model.exBtn[model.currentPage]" title="Excluir Registros Selecionados" data-ng-click="model.deleteRecords()"><span class="glyphicon glyphicon-trash"></span> Excluir Selecionados</button>
+          </span>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>
+                    <button data-ng-click="model.setCheckeds()" data-ng-class="{'btn-default':model.checks[model.currentPage].check==0, 'btn-success':model.checks[model.currentPage].check==1}" class="btn btn-xs btCheck" title="Selecionar Todos">
+                      <span class="glyphicon glyphicon-check"></span>
+                    </button>
+                  </th>
+                  <th>Ação</th>
+                  <th data-ng-repeat="field in model.types">
+                    <span data-ng-init="model.direction[field.name] = false">
+                      <a class="btn btn-default btn-sm" title="Ordenar por" data-ng-click="model.setOrder(field.name)">
+                        {{field.head}} <span class="glyphicon" data-ng-class="{'glyphicon-collapse-down':model.direction[field.name]==false ,'glyphicon-collapse-up':model.direction[field.name]==true}"></span>
+                      </a>
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody data-ng-click="model.delegate($event)">
+                <tr data-dir-paginate="(line, columns) in model.records | filter: model.search: strict | orderBy: model.order | itemsPerPage: model.pageSize" data-current-page="model.currentPage">
+                  <td class="text-center">
+                    <input type="checkbox" data-ng-init="model.checksVal[model.currentPage][line]=model.primaries[line]" data-ng-model="model.checks[model.currentPage][line]" data-ng-change="model.setChecked()">
+                  </td>
+                  <td>
+                    <div class="btwidth">
+                      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#formModal" data-backdrop="static" title="Editar" data-edit="{{columns}}" data-id="{{model.primaries[line]}}">
+                        <span class="glyphicon glyphicon-edit"></span>
+                      </button>
+                      <button class="btn btn-danger btn-sm" title="Excluir" data-ng-click="model.deleteRecord(columns, model.primaries[line])">
+                        <span class="glyphicon glyphicon-remove"></span>
+                      </button>
+                    </div>
+                  </td>
+                  <td data-ng-repeat="column in columns">
+                    <div data-ng-switch data-on="model.types[$index].type">
+                      <div data-ng-switch-when="cor">
+                        <div class="cor" data-ng-if="column !==''" data-ng-style="{'background-color':column}" title="{{column}}"></div>
+                      </div>
+                      <span data-ng-switch-when="dinheiro">
+                        <span class="markable" data-ng-if="column !==''">
+                          {{column.replace('.','').replace(',','.') | currency}}
+                        </span>
+                      </span>
+                      <span data-ng-switch-when="rating">
+                          <input data-ng-if="column !==''" class="rating-loading" data-size="xs" value="{{column}}">
+                      </span>
+                      <div data-ng-switch-default>
+                        <span class="markable" data-ng-if="model.types[$index].type == 'select' && column !==''">
+                          {{model.viewSelects[model.types[$index].name][column]}}
+                        </span>
+                        <span class="markable" data-ng-if="model.types[$index].type != 'select' && column != ''">
+                          {{column}}
+                        </span>
+                        <span data-ng-if="column === ''">
+                          N/D
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="formModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" data-ng-cloak>{{model.modalTitle}}</h4>
+            </div>
+            <div class="modal-body">
+              <span data-ng-include="modalTemplate"></span>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.modal -->
+    </div>
+	</div>
+</body>
 </html>

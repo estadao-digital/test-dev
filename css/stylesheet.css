@@ -1,0 +1,188 @@
+.mt10 {
+  margin-top: 10px;
+}
+
+.mt25 {
+  margin-top: 25px;
+}
+
+.mt50 {
+  margin-top: 50px;
+}
+
+.checkbox.custom {
+  margin-top: 10px;
+}
+
+.panel-info {
+  border-color: #2A4DA5;
+}
+
+.panel-info .panel-heading {
+  color: white;
+  background-color: #4A6DA7;
+  border-color: #2A4DA5;
+}
+
+.panel-info .panel-title {
+  padding-left: 15px;
+}
+
+.navbar-default {
+  background-color: #3498DB;
+  border-color: #2980B9;
+}
+
+.navbar-default .navbar-nav .dropdown a .caret {
+  border-top-color: #2980B9;
+  border-bottom-color: #2980B9;
+}
+
+.navbar-default .navbar-nav .dropdown a:hover .caret {
+  border-top-color: white;
+  border-bottom-color: white;
+}
+
+.navbar-default .navbar-nav .open a {
+  background-color: #2980B9;
+  color: white;
+}
+
+.navbar-default .navbar-nav .open a:hover, .navbar-default .navbar-nav .open a:focus {
+  background-color: #2980B9;
+  color: white;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu li a {
+  background-color: white;
+  color: #333333;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu li a:hover, .navbar-default .navbar-nav .open .dropdown-menu li a:focus {
+  background-color: #3498DB;
+  color: white;
+}
+
+.navbar-default .navbar-nav li a {
+  color: white;
+  text-transform: capitalize;
+}
+
+.navbar-default .navbar-nav li a:hover, .navbar-default .navbar-nav li a:focus {
+  background-color: #2980B9;
+  color: white;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background-color: #2980B9;
+}
+
+.modal .modal-body {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.btwidth {
+  width: 110px;
+}
+
+.panel-primary {
+  border-color: #2980B9;
+}
+
+.panel-primary .panel-heading {
+  background-color: #3498DB;
+  border-color: #2980B9;
+}
+
+.panel-heading {
+  padding: 10px 0;
+}
+
+.panel-heading h3 {
+  padding-top: 9px;
+  text-transform: capitalize;
+}
+
+.frmsearch input {
+  border-right: 0;
+}
+
+.frmsearch .input-group-addon {
+  background-color: white;
+}
+
+.input-group-addon.glyphicon {
+  top: 0px;
+}
+
+.pgn ul {
+  margin: 0px 0px -4px;
+}
+
+.pgc {
+  margin-left: 15px;
+  width: 70px;
+}
+
+.n-cursor {
+  cursor: default;
+}
+
+.l-cursor {
+  cursor: pointer;
+}
+
+.cor {
+  width: 33px;
+  height: 28px;
+  margin: 0 auto;
+}
+
+.htrue {
+  background-color: #398439 !important;
+  border-color: #255625 !important;
+}
+
+.hfalse {
+  background-color: #AC2925 !important;
+  border-color: #761C19 !important;
+}
+
+.relative {
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu li a {
+    background-color: transparent;
+    color: white;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu li a:hover, .navbar-default .navbar-nav .open .dropdown-menu li a:focus {
+    color: #333333;
+  }
+}
+
+@media (max-width: 462px) {
+  .pgc {
+    width: 100%;
+  }
+}
+
+@media (max-width: 516px) {
+  .pgc {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1001px) {
+  .pgc {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}

@@ -1,8 +1,15 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteBase /estadao/
 
-    # RewriteRule
+    RewriteCond %{REQUEST_FILENAME} !\.(js|gif|jpg|png|css|woff|ttf|php|html|json)$
+    RewriteRule ^([^/]*)/([^/]*)$ /estadao/$1.php?instancia=$2 [L]
+
+    RewriteCond %{REQUEST_FILENAME} !\.(js|gif|jpg|png|css|woff|ttf|php|html|json)$
+    RewriteRule ^([^/]*)/([^/]*)/([^/]*)$ /estadao/$1.php?instancia=$2&id=$3 [L]
+
+    RewriteCond %{REQUEST_FILENAME} !-d 
+    RewriteCond %{REQUEST_FILENAME}\.php -f 
+    RewriteRule ^(.*)$ $1.php
 </IfModule>

@@ -1,0 +1,210 @@
+$azuljw: #4A6DA7;
+$azuljwb: #2A4DA5;
+$corbarra: #3498DB;
+$corhover: #2980B9;
+$corborda: #2980B9;
+$corlinks: #333333;
+$corbtsok: #398439;
+$corbrdok: #255625;
+$corbtsno: #AC2925;
+$corbrdno: #761C19;
+$detalhes: white;
+
+.mt10 {
+	margin-top: 10px;
+}
+
+.mt25 {
+	margin-top: 25px;
+}
+
+.mt50 {
+	margin-top: 50px;
+}
+
+.checkbox {
+	&.custom {
+  	margin-top: 10px;
+  }
+}
+
+.panel-info {
+  	border-color: $azuljwb;
+	.panel-heading {
+		color: $detalhes;
+		background-color: $azuljw;
+		border-color: $azuljwb;
+	}
+	.panel-title {
+		padding-left: 15px;
+	}
+}
+
+.navbar-default { 
+	background-color: $corbarra;
+	border-color: $corborda;
+}
+
+.navbar-default .navbar-nav {
+	.dropdown {
+		a .caret { 
+			border-top-color: $corborda; 
+			border-bottom-color: $corborda;
+		}
+		a:hover .caret {
+			border-top-color: $detalhes;
+			border-bottom-color: $detalhes;
+		}
+	}
+	.open {
+		a {
+			background-color: $corhover;
+			color: $detalhes;
+			&:hover, &:focus {
+				background-color: $corhover;
+				color: $detalhes;
+			}
+		}
+		.dropdown-menu { 
+			li {
+				a {
+					background-color: $detalhes;
+					color: $corlinks;
+					&:hover, &:focus {
+						background-color: $corbarra;
+						color: $detalhes;
+					}
+				}
+			}
+		}
+	}
+	li {
+		a {
+			color: $detalhes;
+			text-transform: capitalize;
+			&:hover, &:focus {
+				background-color: $corhover;
+				color: $detalhes;
+			}
+		}
+	}
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: $detalhes;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+	background-color: $corhover; 
+}
+
+.modal .modal-body {
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+.btwidth {
+	width: 110px;
+}
+
+.panel-primary {
+	border-color: $corborda;
+	.panel-heading {
+		background-color: $corbarra;
+		border-color: $corhover;
+	}
+}
+
+.panel-heading {
+	padding: 10px 0;
+	h3 {
+		padding-top: 9px;
+		text-transform: capitalize;
+	}
+}
+
+.frmsearch {
+	input {
+		border-right: 0;
+	}
+	.input-group-addon {
+		background-color: $detalhes;
+	}
+}
+
+.input-group-addon.glyphicon {
+	top: 0px;
+}
+
+.pgn {
+	ul {
+		margin: 0px 0px -4px;
+	}
+}
+
+.pgc {
+	margin-left: 15px;
+	width: 70px;
+}
+
+.n-cursor {
+	cursor: default;
+}
+
+.l-cursor {
+	cursor: pointer;
+}
+
+.cor {
+	width: 33px;
+	height: 28px;
+	margin: 0 auto;
+}
+
+.htrue {
+	background-color: $corbtsok !important;
+	border-color: $corbrdok !important;
+}
+
+.hfalse {
+	background-color: $corbtsno !important;
+	border-color: $corbrdno !important;
+}
+
+.relative {
+	position: relative;
+}
+
+@media (max-width: 767px) { 
+	.navbar-default .navbar-nav .open .dropdown-menu {
+		li {
+			a {
+				background-color: transparent;
+				color: $detalhes;
+				&:hover, &:focus {
+					color: $corlinks;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 462px) {
+.pgc {
+		width: 100%;
+	}
+}
+
+@media (max-width: 516px) {
+	.pgc {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+}
+
+@media (min-width:992px) and (max-width: 1001px) {
+	.pgc {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+}
