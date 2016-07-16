@@ -1,0 +1,20 @@
+[
+  {
+  	"head": "Marca",
+  	"name": "marca",
+  	"type": "select",
+  	"valid": true
+  },
+  {
+  	"head": "Modelo",
+  	"name": "modelo",
+  	"type": "texto",
+  	"valid": true
+  },
+  {
+  	"head": "Ano",
+  	"name": "ano",
+  	"type": "numero",
+  	"valid": true
+  }
+]
