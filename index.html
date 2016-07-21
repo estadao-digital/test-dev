@@ -1,25 +1,812 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+    <!-- Mobile Specific 
+    ========================================================================= -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" />
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
-    <body>
+    <!-- Title Tag
+    ========================================================================= -->
+    <title>SoundPro - Music, Band & Events Template</title>
 
+    <!-- Browser Specical Files
+    ========================================================================= -->
+    <!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    
+    <!-- Site Favicon
+    ========================================================================= -->
+    <link rel="shortcut icon" href="#" title="Favicon" />
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+    <!-- WP HEAD
+    ========================================================================= -->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
 
-        <script src="js/main.js"></script>
-    </body>
+    <link rel="stylesheet" href="assets/css/semantic.min.css">
+    <link rel="stylesheet" href="assets/css/royalslider.css">
+    <link rel="stylesheet" href="assets/css/rs-default.css">
+    <link rel="stylesheet" href="assets/css/music-player.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Header JS -->
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    
+</head>
+<body>
+
+	<div id="page" class="hfeed site">
+		
+		<header id="masthead" class="ui page site-header" role="banner">
+
+            <div id="search-container" class="search-box-wrapper">
+                <div class="container">
+                    <i class="big search icon"></i>
+                    <div class="search-box">
+                        <form action="http://example.com/" class="search-form" role="search" >
+                            <label>
+                                <span class="screen-reader-text">Search for:</span>
+                                <input type="search" name="s" value="" title="Press Enter to submit your search" placeholder="Search…" class="search-field">
+                            </label>
+                            <input type="submit" value="Search" class="search-submit">
+                        </form>
+                    </div>
+                </div>
+            </div><!--/ #search-container -->
+
+            <div class="topbar">
+                <div class="container">
+                    <div class="topbar_left fleft">
+                        <nav class="topbar_menu_left">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="page_band.html">The Band</a></li>
+                                <li><a href="page_artists.html">Artists</a></li>
+                                <li><a href="page_contact.html">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="search-toggle fright">
+                        <i class="search icon link icon"></i>
+                    </div>
+                    <div class="topbar_right fright">
+                        <nav class="topbar_menu_left">
+                            <ul>
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">Cart (2)</a></li>
+                                <li><a href="#">Checkout</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div> <!-- END .topbar -->
+
+            <div class="header">
+                <div class="container">
+                    <div class="logo_area fleft">
+                        <a href="index.html" rel="home">
+                            <img src="assets/images/logo.png" alt="Site Logo">
+                        </a>
+                    </div>
+                    <div class="header_right fright">
+                        <a href="#" class="event_count_wrapper clearfix">
+                            <div class="event_countdown">
+                                
+                            </div>
+                            <span class="next_event_text">Next Event In:</span>
+                        </a>
+                    </div>
+                </div>
+            </div> <!-- END .header -->
+
+		</header><!-- END #masthead -->
+
+        <div id="boxed_content" class="boxed_content">
+            <div class="inner">
+            
+            <nav id="primary-navigation" class="site-navigation primary-navigation clearfix" role="navigation">
+                <button class="menu-toggle">Navigation</button>
+                <a href="#content" class="screen-reader-text skip-link">Skip to content</a>
+                <div class="menu-all-pages-container">
+                    <ul class="nav-menu">
+                        <li class="current-menu-item"><a href="index.html">Home</a></li>
+                        <li class="menu-item-has-children"><a href="page_events.html">Events</a>
+                            <ul class="sub-menu">
+                                <li><a href="page_events.html">Events Page</a></li>
+                                <li><a href="single_event.html">Single Event</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children"><a href="page_albums.html">Discography</a>
+                            <ul class="sub-menu">
+                                <li><a href="page_albums.html">Album Page</a></li>
+                                <li><a href="single_album.html">Single Album</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children"><a href="page_news.html">News</a>
+                            <ul class="sub-menu">
+                                <li><a href="page_news.html">News Page</a></li>
+                                <li><a href="single_new.html">Single News</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children"><a href="page_videos_filterable.html">Videos</a>
+                            <ul class="sub-menu">
+                                <li><a href="page_videos_filterable.html">Videos Filterable</a></li>
+                                <li><a href="page_videos_lightbox.html">Videos Lightbox</a></li>
+                                <li><a href="page_videos_slideshow.html">Videos Slideshow</a></li>
+                                <li><a href="page_videos_embed.html">Videos Embed</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children"><a href="page_gallery_filterable.html">Galleries</a>
+                            <ul class="sub-menu">
+                                <li><a href="page_gallery_filterable.html">Gallery Filterable</a></li>
+                                <li><a href="page_gallery_slideshow.html">Gallery Slideshow</a></li>
+                                <li><a href="page_gallery_grid.html">Gallery Grid</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children"><a href="#">More</a>
+                            <ul class="sub-menu">
+                                <li><a href="page_shortcodes.html">Shortcodes</a></li>
+                                <li><a href="page_contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="header_social">
+                    <li><a href="#" title="Twitter"><i class="large twitter icon popup" data-content="Twitter" data-variation="inverted"></i></a></li>
+                    <li><a href="#" title="Facebook"><i class="large facebook icon popup" data-content="Facebook" data-variation="inverted"></i></a></li>
+                    <li><a href="#" title="Youtube"><i class="large youtube play icon popup" data-content="Youtube" data-variation="inverted"></i></a></li>
+                    <li><a href="#" title="Google Plus"><i class="large google plus icon popup" data-content="Google Plus" data-variation="inverted"></i></a></li>
+                    <li><a href="#" title="SoundCloud"><i class="large soundcloud icon popup" data-content="Soundcloud" data-variation="inverted"></i></a></li>
+                    <li><a href="#" title="Spotify"><i class="large spotify icon popup" data-content="Spotify" data-variation="inverted"></i></a></li>
+                </ul>
+            </nav>
+
+			<div id="content" class="site-content">
+
+				<div id="home-slider-1" class="royalSlider rsMinW">
+
+                  <div class="rsContent slide2">
+                    <a class="rsImg" href="http://placehold.it/1038x500/00aeef/FFFFFF">Slider2</a>
+                    <div class="bContainer">
+                        <div class="rsABlock rs_text rs_text_meta" data-move-effect="top">Richie Unterberger</div>
+                        <div class="rsABlock rs_text_box" data-move-effect="bottom">
+                            <span>Jazz Festival Live Music</span>
+                        </div>
+                        <div class="rsABlock" data-move-effect="bottom">
+                            <a href="#" class="ui huge button colored">Explore the album</a>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="rsContent slide1">
+                    <a class="rsImg" href="http://placehold.it/1038x500/cc7a00/FFFFFF">Slider 1</a>
+                    <div class="bContainer">
+                        <div class="rsABlock rs_text rs_text_meta" data-move-effect="top">Richie Unterberger & John Doe</div>
+                        <div class="rsABlock rs_text_box" data-move-effect="bottom">
+                            <span>Are you Experienced</span>
+                        </div>
+                        <div class="rsABlock" data-move-effect="bottom">
+                            <a href="#" class="ui huge button colored">Explore the Show</a>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="rsContent slide3 rsVideo">
+                    <a class="rsImg" href="http://placehold.it/1038x500/00aeef/FFFFFF" data-rsvideo="https://www.youtube.com/watch?v=mA2bgPYDYvU" data-rsw="1038" data-rsh="500">Slider 3</a>
+                    <div class="bContainer">
+                        <div class="rsABlock rs_text rs_text_meta" data-move-effect="top"> </div>
+                        <div class="rsABlock rs_text_box" data-move-effect="bottom">
+                            <span>Lost & Found (Official Music Video)</span>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="rsContent slide4">
+                    <a class="rsImg" href="http://placehold.it/1038x500/cc7a00/FFFFFF">Slider 3</a>
+                    <div class="bContainer">
+                        <div class="rsABlock rs_text rs_text_meta" data-move-effect="top">Vertical Horizon</div>
+                        <div class="rsABlock rs_text_box" data-move-effect="bottom">
+                            <span>Red Hot Chili Peppers</span>
+                        </div>
+                        <div class="rsABlock" data-move-effect="bottom">
+                            <a href="#" class="ui huge button colored">Explore the album</a>
+                        </div>
+                    </div>
+                  </div>
+                  
+                </div> <!-- END royalSlider -->
+                <script id="addJS">
+                jQuery(document).ready(function($) {
+                        jQuery.rsCSS3Easing.easeOutBack = 'cubic-bezier(0.175, 0.885, 0.320, 1.275)';
+                            $('#home-slider-1').royalSlider({
+                            arrowsNav: true,
+                            arrowsNavAutoHide: true,
+                            fadeinLoadedSlide: false,
+                            controlNavigationSpacing: 0,
+                            controlNavigation: 'bullets',
+                            imageScaleMode: 'none',
+                            imageAlignCenter:false,
+                            blockLoop: true,
+                            loop: true,
+                            numImagesToPreload: 6,
+                            transitionType: 'fade',
+                            keyboardNavEnabled: true,
+                            block: {
+                                delay: 400
+                            }
+                        });
+                });
+                </script>
+
+				<div class="page-inner">
+					<div class="container">
+                        
+                        <section class="top_feature">
+                            <div class="two column stackable ui grid">
+                                <div class="column">
+                                    <div id="favoriteplay" class="box_content_wrapper">
+                                        <h4 class="widget_heading">Favorite Playlist</h4>
+                                        <div class="box_content">
+                                            <div class="player_box dark_shadow">
+                                                <div class="player_area">
+                                                    <script type="text/javascript">
+                                                    jQuery(document).ready(function($) {
+                                                        var myPlaylist = [
+
+                                                            {
+                                                                mp3:'thumb/audio/example.mp3',
+                                                                //oga:'thumb/audio/1.ogg',
+                                                                title:'Rock and Roll',
+                                                                artist:'Artist 1',
+                                                                rating:4,
+                                                                buy:'',
+                                                                price:"<a href='#' target='_blank' title='Download Sample'><i class='cloud download icon'></i></a> <a href='#' target='_blank' title='Purchase'><i class='payment icon'></i></a> <a href='#' target='_blank' title='View On Spotify'><i class='spotify icon'></i></a>  <a href='#' target='_blank' title='View On SoundCloud'><i class='soundcloud icon'></i></a> <a href='#' target='_blank' title='View On Itunes'><i class='apple icon'></i></a>",
+                                                                duration:'3:00'
+                                                                //cover:'mix/1.png'
+                                                            },
+                                                            {
+                                                                mp3:'thumb/audio/example.mp3',
+                                                                //oga:'thumb/audio/1.ogg',
+                                                                title:'Beach Chill Indie Rock ',
+                                                                artist:'Artist 2',
+                                                                rating:4,
+                                                                buy:'',
+                                                                price:"<a href='#' target='_blank' title='Download Sample'><i class='cloud download icon'></i></a> <a href='#' target='_blank' title='Purchase'><i class='payment icon'></i></a> <a href='#' target='_blank' title='View On Spotify'><i class='spotify icon'></i></a> <a href='#' target='_blank' title='View On Itunes'><i class='apple icon'></i></a>",
+                                                                duration:'3:00'
+                                                                //cover:'mix/1.png'
+                                                            },
+                                                            {
+                                                                mp3:'thumb/audio/example.mp3',
+                                                                //oga:'thumb/audio/1.ogg',
+                                                                title:'This Is How You Advertise! ',
+                                                                artist:'Artist 3',
+                                                                rating:4,
+                                                                buy:'',
+                                                                price:"<a href='#' target='_blank' title='Purchase'><i class='payment icon'></i></a> <a href='#' target='_blank' title='View On Itunes'><i class='apple icon'></i></a>",
+                                                                duration:'3:00'
+                                                            },
+                                                            {
+                                                                mp3:'thumb/audio/example.mp3',
+                                                                //oga:'thumb/audio/1.ogg',
+                                                                title:'Taking The Reins ',
+                                                                artist:'Artist 4',
+                                                                rating:4,
+                                                                buy:'',
+                                                                price:"<a href='#' target='_blank' title='Download Sample'><i class='cloud download icon'></i></a> <a href='#' target='_blank' title='Purchase'><i class='payment icon'></i></a> <a href='#' target='_blank' title='View On Itunes'><i class='apple icon'></i></a>",
+                                                                duration:'3:00'
+                                                            },
+                                                            {
+                                                                mp3:'thumb/audio/example.mp3',
+                                                                //oga:'thumb/audio/1.ogg',
+                                                                title:'Elevate the World',
+                                                                artist:'Artist 5',
+                                                                rating:4,
+                                                                buy:'',
+                                                                price:"<a href='#' target='_blank' title='Download Sample'><i class='cloud download icon'></i></a> <a href='#' target='_blank' title='Purchase'><i class='payment icon'></i></a> ",
+                                                                duration:'3:00'
+                                                            },
+                                                            {
+                                                                mp3:'thumb/audio/example.mp3',
+                                                                //oga:'thumb/audio/1.ogg',
+                                                                title:'Driving In My Car',
+                                                                artist:'Artist 6',
+                                                                rating:4,
+                                                                buy:'',
+                                                                price:"<a href='#' target='_blank' title='Download Sample'><i class='cloud download icon'></i></a> <a href='#' target='_blank' title='Purchase'><i class='payment icon'></i></a> <a href='#' target='_blank' title='View On Itunes'><i class='apple icon'></i></a>",
+                                                                duration:'3:00'
+                                                            }
+                                                        ];
+
+                                                        $('.player_area').ttwMusicPlayer(myPlaylist, {
+                                                            autoPlay:false,
+                                                            tracksToShow:2,
+                                                            jPlayer:{
+                                                                swfPath:'assets/js' //You need to override the default swf path any time the directory structure changes
+                                                            }
+                                                        });
+                                                    });
+                                                </script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div id="albums_carousel" class="box_content_wrapper">
+                                        <h4 class="widget_heading">Latest Albums</h4>
+                                        <div class="box_content">
+                                            <div class="home_album_carousel owl-carousel">
+                                                <div class="ac_item dark_shadow">
+                                                    <a href="#">
+                                                        <img src="http://placehold.it/500x500/83b81a/FFFFFF" alt="">
+                                                        <div class="overlay"></div>
+                                                        <div class="overlay_title">
+                                                            <h2>Awaken the Hero</h2>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="ac_item dark_shadow">
+                                                    <a href="#">
+                                                        <img src="http://placehold.it/500x500/83b81a/FFFFFF" alt="">
+                                                        <div class="overlay"></div>
+                                                        <div class="overlay_title">
+                                                            <h2>On a Scooter NYC</h2>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="ac_item dark_shadow">
+                                                    <a href="#">
+                                                        <img src="http://placehold.it/500x500/83b81a/FFFFFF" alt="">
+                                                        <div class="overlay"></div>
+                                                        <div class="overlay_title">
+                                                            <h2>Cody Johnson</h2>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="ac_item dark_shadow">
+                                                    <a href="#">
+                                                        <img src="http://placehold.it/500x500/83b81a/FFFFFF" alt="">
+                                                        <div class="overlay"></div>
+                                                        <div class="overlay_title">
+                                                            <h2>New Ep - Illusion</h2>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <script type="text/javascript">
+                                                jQuery(document).ready(function($) {
+                                                        $(".home_album_carousel").owlCarousel({
+                                                            items : 2,
+                                                            itemsDesktop: [1199,2],
+                                                            itemsDesktopSmall: [979,1],
+                                                            itemsTablet: [768,2],
+                                                            navigationText: ['<i class="angle left icon"></i>','<i class="angle right icon"></i>'],
+                                                            lazyLoad : true,
+                                                            navigation : true
+                                                        });
+                                                });
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+
+                        
+
+						<div id="primary" class="content-area">
+							
+                            <div class="recent_news">
+                                <h4 class="widget_heading">Recent News</h4>
+
+                                <article class="post clearfix">
+                                    <div class="entry-thumb">
+                                        <a href="single_new.html">
+                                            <img class="dark_shadow" src="http://placehold.it/500x500/83b81a/FFFFFF" alt="News3">
+                                        </a>
+                                    </div>
+                                    <div class="entry-detail">
+                                        <div class="entry-header">
+                                            <h2 class="entry-title"><a href="single_new.html">Selah Sue - Always On The Run</a></h2>
+                                            <div class="entry-meta">
+                                                <span class="posted-on">Mar 23, 2014</span>
+                                                <span class="comments-link">
+                                                    <span class="sep">/</span>
+                                                    <a href="#">4 Comments</a>
+                                                </span>
+                                            </div>
+                                            <div class="entry-content">
+                                                <p>What happens next seems almost unreal. Thousands of fans respond to her on the net, attracting the attention of professionals, and the interest of Because Music.</p>
+                                            </div>
+                                            <div class="entry-more">
+                                                <a href="#" class="ui button">Read More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <article class="post clearfix">
+                                    <div class="entry-thumb">
+                                        <a href="single_new.html">
+                                            <img class="dark_shadow" src="http://placehold.it/500x500/83b81a/FFFFFF" alt="News3">
+                                        </a>
+                                    </div>
+                                    <div class="entry-detail">
+                                        <div class="entry-header">
+                                            <h2 class="entry-title"><a href="single_new.html">Tinie Tempah - Disc Overy (Official Album Cover)</a></h2>
+                                            <div class="entry-meta">
+                                                <span class="posted-on">Mar 23, 2014</span>
+                                                <span class="comments-link">
+                                                    <span class="sep">/</span>
+                                                    <a href="#">4 Comments</a>
+                                                </span>
+                                            </div>
+                                            <div class="entry-content">
+                                                <p>What happens next seems almost unreal. Thousands of fans respond to her on the net, attracting the attention of professionals, and the interest of Because Music.</p>
+                                            </div>
+                                            <div class="entry-more">
+                                                <a href="#" class="ui button">Read More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                
+                                <article class="post clearfix">
+                                    <div class="entry-thumb">
+                                        <a href="single_new.html">
+                                            <img class="dark_shadow" src="http://placehold.it/500x500/83b81a/FFFFFF" alt="News3">
+                                        </a>
+                                    </div>
+                                    <div class="entry-detail">
+                                        <div class="entry-header">
+                                            <h2 class="entry-title"><a href="single_new.html">Traps' by Dark Horses - Free MP3</a></h2>
+                                            <div class="entry-meta">
+                                                <span class="posted-on">Mar 23, 2014</span>
+                                                <span class="comments-link">
+                                                    <span class="sep">/</span>
+                                                    <a href="#">4 Comments</a>
+                                                </span>
+                                            </div>
+                                            <div class="entry-content">
+                                                <p>What happens next seems almost unreal. Thousands of fans respond to her on the net, attracting the attention of professionals, and the interest of Because Music.</p>
+                                            </div>
+                                            <div class="entry-more">
+                                                <a href="#" class="ui button">Read More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                
+                                <article class="post clearfix">
+                                    <div class="entry-thumb">
+                                        <a href="single_new.html">
+                                            <img class="dark_shadow" src="http://placehold.it/500x500/83b81a/FFFFFF" alt="News3">
+                                        </a>
+                                    </div>
+                                    <div class="entry-detail">
+                                        <div class="entry-header">
+                                            <h2 class="entry-title"><a href="single_new.html">Preorder our new Album</a></h2>
+                                            <div class="entry-meta">
+                                                <span class="posted-on">Mar 23, 2014</span>
+                                                <span class="comments-link">
+                                                    <span class="sep">/</span>
+                                                    <a href="#">4 Comments</a>
+                                                </span>
+                                            </div>
+                                            <div class="entry-content">
+                                                <p>What happens next seems almost unreal. Thousands of fans respond to her on the net, attracting the attention of professionals, and the interest of Because Music.</p>
+                                            </div>
+                                            <div class="entry-more">
+                                                <a href="#" class="ui button">Read More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                
+                                <article class="post clearfix">
+                                    <div class="entry-thumb">
+                                        <a href="single_new.html">
+                                            <img class="dark_shadow" src="http://placehold.it/500x500/83b81a/FFFFFF" alt="News3">
+                                        </a>
+                                    </div>
+                                    <div class="entry-detail">
+                                        <div class="entry-header">
+                                            <h2 class="entry-title"><a href="single_new.html">Tinie Tempah - Disc Overy (Official Album Cover)</a></h2>
+                                            <div class="entry-meta">
+                                                <span class="posted-on">Mar 23, 2014</span>
+                                                <span class="comments-link">
+                                                    <span class="sep">/</span>
+                                                    <a href="#">4 Comments</a>
+                                                </span>
+                                            </div>
+                                            <div class="entry-content">
+                                                <p>What happens next seems almost unreal. Thousands of fans respond to her on the net, attracting the attention of professionals, and the interest of Because Music.</p>
+                                            </div>
+                                            <div class="entry-more">
+                                                <a href="#" class="ui button">Read More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                
+                            </div>
+
+						</div> <!-- END #primary -->
+
+						<div id="secondary" class="widget-area" role="complementary">
+							<aside class="widget event_widget">
+                                <h4 class="widget-title">Tour Date Events</h4>
+                                <div class="widget-content">
+
+                                    <article class="post">
+                                        <div class="event_left">
+                                            <div class="event_date">18</div>
+                                            <div class="event_month">Feb</div>
+                                        </div>
+                                        <div class="event_detail">
+                                            <h2 class="event_title"><a href="#">Jazz Festival Live Music</a></h2>
+                                            <div class="event_time"><i class="time icon"></i> February 18, 2014 at 9:00 AM</div>
+                                            <div class="event_location"><i class="map marker icon"></i> Mountain View, CA 94043</div>
+                                            <a href="#" class="event_button ui button colored">Buy Tickets</a>
+                                        </div>
+                                    </article>
+                                    <article class="post">
+                                        <div class="event_left">
+                                            <div class="event_date">23</div>
+                                            <div class="event_month">Mar</div>
+                                        </div>
+                                        <div class="event_detail">
+                                            <h2 class="event_title"><a href="#">Are you Experienced Show</a></h2>
+                                            <div class="event_time"><i class="time icon"></i> March 26, 2014 at 8:00 AM</div>
+                                            <div class="event_location"><i class="map marker icon"></i> Mountain View, CA 94043</div>
+                                            <a href="#" class="event_button ui button">Canceled</a>
+                                        </div>
+                                    </article>
+
+                                    <article class="post">
+                                        <div class="event_left">
+                                            <div class="event_date">29</div>
+                                            <div class="event_month">Mar</div>
+                                        </div>
+                                        <div class="event_detail">
+                                            <h2 class="event_title"><a href="#">The New Fathers and Sons</a></h2>
+                                            <div class="event_time"><i class="time icon"></i> March 26, 2014 at 8:00 AM</div>
+                                            <div class="event_location"><i class="map marker icon"></i> Mountain View, CA 94043</div>
+                                            <a href="#" class="event_button ui button">Sold Out</a>
+                                        </div>
+                                    </article>
+
+                                </div>
+                            </aside>
+
+                            <aside class="widget">
+                                <h4 class="widget-title">Highlight Videos</h4>
+                                <div class="widget-content dark_shadow">
+                                    <div class="video_lightbox">
+                                        <a class="popup-vimeo" href="https://vimeo.com/41132461">
+                                            <img src="http://placehold.it/640x360/17ad49/FFFFFF" alt="">
+                                            <span class="video_button"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </aside>
+
+                           <aside class="widget">
+                                <h4 class="widget-title">SoundCloud</h4>
+                                <div class="widget-content dark_shadow">
+                                     <iframe width="280" height="350" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/49372233&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+                                </div>
+                            </aside>
+
+						</div> <!-- END secondary -->
+                                
+
+					</div><!--/.container -->
+                    
+                    <div class="container">
+                        <div id="gallery_carousel">
+                            <h4 class="widget_heading">Recent Galleries</h4>
+                            <div class="box_content">
+                                <div class="gallery_carousel owl-carousel">
+
+                                    <div class="gallery_item ">
+                                        <div class="image-lightbox">
+                                            <a class="popup-image" href="http://placehold.it/1000x1000/83b81a/FFFFFF">
+                                                <img src="http://placehold.it/940x500/00aeef/FFFFFF" alt="">
+                                                <span class="image-button"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="gallery_item ">
+                                        <div class="image-lightbox">
+                                            <a class="popup-image" href="http://placehold.it/1000x1000/83b81a/FFFFFF">
+                                                <img src="http://placehold.it/940x500/00aeef/FFFFFF" alt="">
+                                                <span class="image-button"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="gallery_item ">
+                                        <div class="image-lightbox">
+                                            <a class="popup-image" href="http://placehold.it/1000x1000/83b81a/FFFFFF">
+                                                <img src="http://placehold.it/940x500/00aeef/FFFFFF" alt="">
+                                                <span class="image-button"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="gallery_item ">
+                                        <div class="image-lightbox">
+                                            <a class="popup-image" href="http://placehold.it/1000x1000/83b81a/FFFFFF">
+                                                <img src="http://placehold.it/940x500/00aeef/FFFFFF" alt="">
+                                                <span class="image-button"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="gallery_item ">
+                                        <div class="image-lightbox">
+                                            <a class="popup-image" href="http://placehold.it/1000x1000/83b81a/FFFFFF">
+                                                <img src="http://placehold.it/940x500/00aeef/FFFFFF" alt="">
+                                                <span class="image-button"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="gallery_item ">
+                                        <div class="image-lightbox">
+                                            <a class="popup-image" href="http://placehold.it/1000x1000/83b81a/FFFFFF">
+                                                <img src="http://placehold.it/940x500/00aeef/FFFFFF" alt="">
+                                                <span class="image-button"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="gallery_item ">
+                                        <div class="image-lightbox">
+                                            <a class="popup-image" href="http://placehold.it/1000x1000/83b81a/FFFFFF">
+                                                <img src="http://placehold.it/940x500/00aeef/FFFFFF" alt="">
+                                                <span class="image-button"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="gallery_item ">
+                                        <div class="image-lightbox">
+                                            <a class="popup-image" href="http://placehold.it/1000x1000/83b81a/FFFFFF">
+                                                <img src="http://placehold.it/940x500/00aeef/FFFFFF" alt="">
+                                                <span class="image-button"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="gallery_item ">
+                                        <div class="image-lightbox">
+                                            <a class="popup-image" href="http://placehold.it/1000x1000/83b81a/FFFFFF">
+                                                <img src="http://placehold.it/940x500/00aeef/FFFFFF" alt="">
+                                                <span class="image-button"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <script type="text/javascript">
+                                jQuery(document).ready(function($) {
+                                        $(".gallery_carousel").owlCarousel({
+                                            items : 5,
+                                            itemsDesktop: [1199,5],
+                                            itemsDesktopSmall: [979,4],
+                                            itemsTablet: [768,2],
+                                            navigationText: ['<i class="angle left icon"></i>','<i class="angle right icon"></i>'],
+                                            lazyLoad : true,
+                                            navigation : true
+                                        });
+                                });
+                                </script>
+                            </div>
+                        </div> <!--/.gallery_carousel -->
+                    </div>
+
+				</div> <!-- END .page-inner -->
+
+			</div><!-- END #content -->
+
+            </div>
+		</div> <!-- END #boxed-wrapper -->
+
+        <footer id="colophon" class="site-footer" role="contentinfo">
+			<div class="container">
+                <div class="inner">
+                    <div class="four column stackable doubling ui grid">
+                        <div class="column">
+                            <aside class="widget">
+                                <h4 class="widget_heading">About SoundPro</h4>
+                                <div class="widget_content">
+                                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamconisi</p>
+                                    <a href="#" class="tiny ui twitter button"><i class="twitter icon"></i>Twitter</a>
+                                    <a href="#" class="tiny ui facebook button"><i class="facebook icon"></i>FaceBook</a>
+                                    <a href="#" class="tiny ui spotify button"><i class="spotify icon"></i>Spotify</a>
+                                    <a href="#" class="tiny ui soundcloud button"><i class="soundcloud icon"></i>SoundCloud</a>
+                                </div>
+                            </aside>
+                        </div>
+                        <div class="column">
+                            <aside class="widget widget_nav_menu">
+                                <h4 class="widget_heading">Explore More</h4>
+                                <div class="widget_content">
+                                    <ul>
+                                        <li><a href="#">Our History</a></li>
+                                        <li><a href="#">Products</a></li>
+                                        <li><a href="#">Browse Events</a></li>
+                                        <li><a href="#">All Albums</a></li>
+                                    </ul>
+                                </div>
+                            </aside>
+                        </div>
+                        <div class="column">
+                            <aside class="widget widget_nav_menu">
+                                <h4 class="widget_heading">Explore More</h4>
+                                <div class="widget_content">
+                                    <ul>
+                                        <li><a href="#">Galleries</a></li>
+                                        <li><a href="#">Tour Videos</a></li>
+                                        <li><a href="#">Events Archive</a></li>
+                                        <li><a href="#">Latest Albums</a></li>
+                                    </ul>
+                                </div>
+                            </aside>
+                        </div>
+                        <div class="column">
+                            <aside class="widget widget_twitter">
+                                <h4 class="widget_heading">Twitter Feed</h4>
+                                <div class="widget_content">
+                                    <ul>
+                                        <li>
+                                        Ut enim ad minim veniam <a href="http://t.co/LRyHvAcxeF">http://t.co/LRyHvAcxeF</a><br>
+                                        <small>July 17, 2014 09:07 pm</small>
+                                        </li>
+
+                                        <li>
+                                        Quis nostrud exercitation <a href="http://t.co/LRyHvAcxeF">http://t.co/LRyHvAcxeF</a><br>
+                                        <small>July 17, 2014 09:07 pm</small>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer_copy">
+                    <div class="two column stackable ui grid">
+                        <div class="column copy_left">
+                            <p><a href="#">Music & Band Template</a> Copyright © 2014. All Rights Reserved</p>
+                        </div>
+                        <div class="column copy_right">
+                            <p>SoundPro Music Template by <a href="http://www.wpcharming.com">WPCharming</a>.</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+		</footer><!-- END #colophon-->
+
+	</div><!-- END #page -->
+
+    <!-- Footer JS -->
+    <script src="assets/js/libs/semantic.min.js"></script>
+    <script src="assets/js/libs/fitVids.min.js"></script>
+    <script src="assets/js/libs/retina.min.js"></script>
+    <script src="assets/js/libs/jquery.plugin.min.js"></script>
+    <script src="assets/js/libs/jquery.countdown.min.js"></script>
+    <script src="assets/js/libs/jquery.royalslider.min.js"></script>
+    <script src="assets/js/libs/jquery.easing-1.3.js"></script>
+    <script src="assets/js/libs/jquery.jplayer.js"></script>
+    <script src="assets/js/libs/ttw-music-player.js"></script>
+    <script src="assets/js/libs/owl.carousel.min.js"></script>
+    <script src="assets/js/libs/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/libs/jquery.imagesloaded.min.js"></script>
+    <script src="assets/js/libs/isotope.pkgd.min.js"></script>
+    <script src="assets/js/global.js"></script>
+
+</body>
 </html>
