@@ -15,10 +15,21 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+
+        <form action="./api.php/carros" method="post">
+            <label for="marca">Marca:</label>
+                <input type="text" name="marca" id="marca"/><br />
+
+            <label for="modelo">Modelo:</label>
+                <input type="text" name="modelo" id="modelo"/><br />
+
+            <label for="ano">ano:</label>
+                <input type="text" name="ano" id="ano"/><br />
+
+            <input type="submit" value="Enviar">
+        </form>
 
         <script src="js/main.js"></script>
     </body>
