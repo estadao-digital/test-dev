@@ -1,0 +1,22 @@
+.col-sm-3{
+	background-color:lavender;
+	height:40px;
+	text-align:center;
+	line-height:40px;
+	border-bottom:solid #ccc 1px;
+	padding: 2px 2px;
+}
+.col-sm-3.bold{
+	background-color:#ccc;
+	font-weight:bold;
+}
+.row{
+	margin:2px 2px 2px 2px;
+	border:solid #ccc 1px;
+}
+#painelListadeCarros{
+	display:none;
+}
+button{
+	margin:2px 5px 2px 5px;
+}
