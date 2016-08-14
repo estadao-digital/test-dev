@@ -1,8 +1,6 @@
 <IfModule mod_rewrite.c>
-    RewriteEngine On
 
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteEngine on
+	RewriteRule ^(.+)\/([0-9]*)\/?$ carros/api.php?id=$2
 
-    # RewriteRule
 </IfModule>

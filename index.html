@@ -1,25 +1,146 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Estadão - Marcio Messias</title>
+    <!-- Bootstrap -->
+    <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
-    <body>
+  <body>
 
+    <div class="container">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+      <div class="page-header">
+        <h1>Cadastramento de Carros</h1>
+      </div>
+      
+      <!-- mensagem para caso não haja carros cadastrados no arquivo .json-->
+      <span class="hidden-table"><h4>Não existem carros cadastrados!</h4></span>
+    
+      <!-- mensagem para ocorrer alguma falha na comunicação com a api -->
+      <div class="hidden-error alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Erro:</span>
+        Não foi possível estabalecer conexão com o servidor!
+      </div>
 
-        <script src="js/main.js"></script>
-    </body>
+      <table class="table table-hover" >
+
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Ano</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+          </tr>
+        </thead>
+
+        <tbody class="tbodys">
+
+          <!-- Elementos inseridos dinamicamente com javascript -->
+  
+        </tbody>
+
+      </table>
+
+      <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#cadastroModal" data-whatever="@mdo">
+          <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Cadastrar Carro
+      </button>
+
+      <!-- Modal de cadastro de novos carros - begin-->
+      <div class="modal fade" id="cadastroModal" tabindex="-1" role="dialog" aria-labelledby="cadastroModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="cadastroModalLabel">Cadastrar Carro</h4>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="recipient-name" class="control-label">Marca</label>
+                  <select id="marcas" class="form-control">
+                    <!-- Elementos inseridos dinamicamente com JavaScript -->
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="control-label">Modelo</label>
+                  <input type="text" class="form-control" id="modelo">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="control-label">Ano</label>
+                  <input type="text" class="form-control" id="ano">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+              <button type="button" id="salvar" class="btn btn-primary" data-placement="left" data-toggle="popover" data-content="Necessário o preenchimento de todos os campos antes de salvar!">Salvar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal de cadastro de novos carros - end-->
+
+      <!-- Modal para editar carros - begin-->
+      <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="editarModalLabel">Editar Carro</h4>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="recipient-name" class="control-label">Marca</label>
+                  <select id="marcaID" class="form-control">
+                    <!-- Elemento inserido dinamicamente com JavaScript -->
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="control-label">Modelo</label>
+                  <input type="text" class="form-control" id="modeloID">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="control-label">Ano</label>
+                  <input type="text" class="form-control" id="anoID">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+              <button type="button" id="editar" class="btn btn-primary" data-placement="left" data-toggle="popoverID" data-content="Necessário todos os campos preenchimento antes de atualizar!">Atualizar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal para editar carros - end-->
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main_get.js"></script>
+    <script src="js/post.js"></script>
+    <script src="js/put-delet.js"></script>
+
+  </body>
+
 </html>

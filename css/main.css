@@ -1,0 +1,12 @@
+.btn-cadastrar a:hover, a:visited, a:link, a:active{
+	text-decoration: none;
+}
+body{
+	display: none;
+}
+.hidden-error{
+	display: none;
+}
+.hidden-table{
+	display: none;
+}
