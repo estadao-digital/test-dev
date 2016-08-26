@@ -1,25 +1,52 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Carros</title>
+<meta name="description" content="Carros">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
-    <body>
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript" src=" https://code.jquery.com/jquery-3.1.0.min.js"></script>
 
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
-
-        <script src="js/main.js"></script>
-    </body>
+	<script src="js/main.js"></script>
+	<div id="main">
+	<h1>Carros</h1>
+		<form action="#">
+			<table id="listagem" border="0">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Marca</th>
+						<th>Modelo</th>
+						<th>Ano</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+					<tr class="formulario ativo">
+						<td class="id"><input name="id" type="text" /></td>
+						<td class="marca"><select id="marca" name="marca"><option value=""></option></select></td>
+						<td class="modelo"><input name="modelo" type="text" /></td>
+						<td class="ano"><input name="ano" type="text" /></td>
+						<td><button class="gravar" type="button">Salvar</button></td>
+						<td></td>
+					</tr>
+				</tfoot>
+				<tbody>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</body>
 </html>
