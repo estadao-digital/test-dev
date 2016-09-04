@@ -1,8 +1,22 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
 
-    # RewriteRule
+    RewriteCond %{REQUEST_METHOD} =POST
+    RewriteRule ^carros$ /?action=insert_new_car
+    RewriteRule ^carros/update/([0-9]+)$ /?action=update_car&id=$1
+
+    RewriteCond %{REQUEST_METHOD} =GET
+    RewriteRule ^home$ /?action=home
+    RewriteRule ^carros$ /?action=get_all_cars
+    RewriteRule ^carro$ /?action=new_car
+    RewriteRule ^carros/([0-9]+)$ ?action=get_car&id=$1
+
+    RewriteRule ^carros/buscar$ ?action=pagina_buscar
+    RewriteRule ^carros/atualizar/([0-9]+)$ ?action=pagina_update&id=$1
+    RewriteRule ^carros/delete/([0-9]+)$ ?action=delete_car&id=$1
+    
+    
 </IfModule>
