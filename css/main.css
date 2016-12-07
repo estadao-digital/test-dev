@@ -1,0 +1,59 @@
+div.title {
+
+	position: relative;
+	width: 100%;
+	text-align: center;
+	padding: 17px;
+	font-weight: bolder;
+	color: green;
+	font-size: 26px;
+
+}
+
+div.carros {
+
+	position: relative;
+	width: 70%;
+	margin: auto;
+
+}
+
+img.img-alt-del{
+
+	width: 21px;
+	height: 22px;
+	margin-right: 4px;
+	cursor: pointer;
+
+}
+
+table tr th.id, table tr td.id{
+
+	width: 90px;
+	text-align: center;
+
+}
+
+table tr th.ano, table tr td.ano{
+
+	width: 130px;
+	text-align: center;
+
+}
+
+table tr th.act, table tr td.act{
+
+	width: 100px;
+	text-align: center;
+
+}
+
+
+/******* inclusao *******/
+.id-carro, .ano-carro{
+	width: 100px;
+}
+
+.marca-carro, .modelo-carro{
+	width: 350px;
+}
