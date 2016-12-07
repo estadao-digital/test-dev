@@ -1,0 +1,3 @@
+<?
+	define("CONKEY","ngr123");
+?>

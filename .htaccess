@@ -1,5 +1,26 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    
+RewriteCond %{REQUEST_METHOD} =GET
+RewriteRule ^app/{*.}$ index.php
+RewriteRule ^/app/{*.}$ index.php
+
+RewriteCond %{REQUEST_METHOD} =GET
+RewriteRule ^api/carros$ api.php?action=getAll
+
+RewriteCond %{REQUEST_METHOD} =POST
+RewriteRule ^api/carros$ api.php?action=create
+
+RewriteCond %{REQUEST_METHOD} =GET
+RewriteRule ^api/carros/(\d)$ api.php?action=get&id=$1
+
+RewriteCond %{REQUEST_METHOD} =DELETE
+RewriteRule ^api/carros/(\d)$ api.php?action=delete&id=$1
+
+RewriteCond %{REQUEST_METHOD} =PUT
+RewriteRule ^api/carros/(\d)$ api.php?action=update&id=$1
+
+RewriteRule ^api/marca/([a-zA-Z]*)$ api.php?action=$1
 
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f

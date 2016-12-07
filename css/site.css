@@ -1,0 +1,110 @@
+body, td, th {
+    font-size:16px !important;
+}
+
+.vspace-5{
+    height: 5px !important;
+    clear:both;
+}
+
+.form-padding{
+    padding:50px !important;
+}
+
+.error{
+    
+   font-size:small;
+   color:red;
+}
+
+.form-padding .form-control{
+    width:80%!important;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-top:80px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.ng-touched.ng-invalid {
+    border-color: #b94a48 !important;
+}
+
+/* customizaÃ§Ã£o calendÃ¡rio*/
+.dropdown-menu .btn {
+    background-color: #FFF !important;
+    color: #000 !important;
+    border: 0;
+    padding: 10px;
+}
+
+    .dropdown-menu .btn:hover {
+        background-color: #EEEEEE !important;
+    }
+
+.dropdown-menu small {
+    background-color: #FFF !important;
+    color: #000 !important;
+    padding: 10px;
+}
+
+.dropdown-menu .active {
+    background-color: #5fa6d3 !important;
+}
+
+    .dropdown-menu .active:hover {
+        background-color: #5fa6f3 !important;
+    }
+
+
+.app-modal-pizza .modal-dialog {
+    width: 1000px !important;
+}
+
+.navbar-brand {
+    float: left;
+    height: 40px    !important;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.slider-margin {
+    margin: 5px 0 15px 0;
+}
+
+.format-thumb {
+    min-width: 150px;
+    height: 150px;
+    vertical-align: middle;
+    display: table-cell;
+}

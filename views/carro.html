@@ -1,0 +1,84 @@
+<div class="container">
+    <h2>Carros</2>
+    <hr/>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <button class="btn btn-success" ng-click="open()">Adicionar</button>
+    </div>
+
+    <div class="vspace-5"></div>
+
+    <table class="table table-bordered" ng-if="carros.length>0">
+        <thead>
+            <tr>
+                <th colspan="5">Carro</th>
+            </tr>
+             <tr>
+                <th >Marca</th>
+                <th >Modelo</th>
+                <th >Ano</th> 
+                <th></th>               
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="carro in carros track by $index">
+                <td>{{getMarca(carro.IdMarca)}} </td>
+                <td>{{carro.Modelo}} </td>
+                <td>{{carro.Ano}} </td>                
+                <td>
+                    <button class="btn btn-default" ng-click="open($index,carro)">editar</button> 
+                    <button class="btn btn-danger" ng-click="delete($index)">excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script type="text/ng-template" id="carroModalTpl">
+
+        <div>
+            <form novalidate name="frmCarro" id="frmCarro">
+                <div class="modal-header">
+                    Carro 
+                </div>
+                <div class="modal-body form-padding">
+                <div class="form-horizontal">
+                        <div class=" form-group">
+                            <label class="control-label col-md-2">
+                                Marca
+                            </label>
+                            <select type="number" name="marca" ng-model="carro.IdMarca" class="form-control col-md-10" ng-options="marca.Id as marca.Nome for marca in marcas" autofocus></select>
+                            <small class="error" ng-show="frmCarro.marca.$error.required && frmCarro.marca.$dirty">
+                                Marca requerida
+                            </small>
+                        </div>
+                        <div class=" form-group">
+
+                            <label class="control-label col-md-2">
+                                Modelo
+                            </label>
+                            <input type="text" name="modelo" required ng-model="carro.Modelo" class="form-control col-md-10" />
+                            <small class="error" ng-show="frmCarro.modelo.$error.required && frmCarro.modelo.$dirty">
+                                Modelo requerido
+                            </small>
+                        </div>
+                        <div class=" form-group">
+                            <label class="control-label col-md-2">
+                                Ano
+                            </label>
+                            
+                            <input type="number" name="ano" required ng-model="carro.Ano" class="form-control col-md-10" />
+                            <small class="error" ng-show="frmCarro.ano.$error.required && frmCarro.ano.$dirty">
+                                Ano requerido
+                            </small>
+                        </div>
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="close()" class="btn btn-default">Cancelar</button>
+                    <button type="button" ng-click="save(carro)" class="btn btn-success">Salvar</button>
+                </div>
+            </form>
+        </div>
+
+    </script>
+</div>
+
