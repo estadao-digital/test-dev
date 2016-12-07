@@ -1,3 +1,59 @@
+Introdução
+==============================
+
+Este é um sistema simples de cadastro de carros baseado em PHP com MYSQL.
+Para desenvolvimento em backend foi utilizado o plugin ActiveRecord:
+https://github.com/jpfuentes2/php-activerecord/tree/master
+
+Baseado em PDO
+
+Para FRONTEND foi utilizado bootstrap.
+
+
+
+Instalação
+==============================
+
+ROTAS:
+
+CONFIGURAR REWRITE BASE no arquivo .htacess
+
+se o acesso for http://localhost/estadao
+A configuração deverá ser:
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+	RewriteBase /estadao/
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ index.php?_url=$1 [L]
+    # RewriteRule
+</IfModule>
+
+A condição "RewriteBase /estadao/" poderá ser alterada conforme necessidade
+
+
+
+Configuração:
+
+Arquivo config.php
+#CONSTANTE que define URL base do projeto
+define('BASE_URL', '/estadao' );
+
+#CONEXAO COM BANCO DE DADOS
+$config_database = [
+    'host'=>'127.0.0.1',
+    'driver'=>'mysql',
+    'user' => 'estadao',
+    'password'=>'123456',
+    'default_database'=>'carros',
+];
+
+
+
+
+
 Teste para desenvolvedor do Estadão
 ==============================
 
