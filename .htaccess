@@ -5,6 +5,6 @@
     RewriteCond %{REQUEST_FILENAME} !-f
 
     # API REDIRECT RULES
-    RewriteRule ^/carros/$ api.php
-    RewriteRule ^/carros/([0-9]+)$ api.php?id=$1
+    RewriteRule ^carros/$ api.php
+    RewriteRule ^carros/([0-9]+)$ api.php?id=$1
 </IfModule>

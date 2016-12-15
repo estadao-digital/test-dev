@@ -1,9 +1,8 @@
 <?php
 //session_start();
-include_once 'Carros.class.php';
+include_once 'Carro.class.php';
 
 class TestApi {
-    private $conexao;
     private $classeCarro;
 
     function __construct() {
@@ -22,21 +21,21 @@ class TestApi {
                 break;
             case 'PUT':
                 # Atualiza um carro dado certo id
-                $id = $_GET["id"];
+                $id = (isset($_GET["id"])) ? $_GET["id"] : false;
                 if($id){
-                    $this->mostraJson($this->classeCarro->atualizaCarro($id,$_POST));
+                    $this->mostraJson($this->classeCarro->atualizaCarro($id));
                 }
                 break;
             case 'DELETE':
                 # remove um carro
-                $id = $_GET["id"];
+                $id = (isset($_GET["id"])) ? $_GET["id"] : false;
                 if($id){
                     $this->mostraJson($this->classeCarro->deletaCarro($id));
                 }
                 break;
             default:
                 # Não é um metodo especial, tratar como GET
-                $id = $_GET["id"];
+                $id = (isset($_GET["id"])) ? $_GET["id"] : false;
                 if($id){
                     // tem Id, retorna um carro só
                     $this->mostraJson($this->classeCarro->mostraCarro($id));

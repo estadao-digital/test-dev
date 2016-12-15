@@ -1,0 +1,87 @@
+.conteudo {
+    width: 80%;
+    max-width: 92.3em;
+    margin: 0 auto;
+    padding: 1em 0px;
+    position: relative;
+}
+
+/*  SECTIONS  */
+.sec {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  Colunas  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GRADE  */
+.grade_6_de_6 {
+	width: 100%;
+}
+
+.grade_5_de_6 {
+  	width: 83.06%;
+}
+
+.grade_4_de_6 {
+  	width: 66.13%;
+}
+
+.grade_3_de_6 {
+  	width: 49.2%;
+}
+
+.grade_2_de_6 {
+  	width: 32.26%;
+}
+
+.grade_1_de_6 {
+  	width: 15.33%;
+}
+
+/*  Grupos  */
+.grupo:before,
+.grupo:after { content:""; display:table; }
+.grupo:after { clear:both;}
+.grupo { zoom:1; /* IE 6/7 */ }
+
+.empurra { visibility: hidden; }
+
+/* ESTILIZAÇÃO */
+.caixa_carro {
+    border: 1px solid #ccc;
+    padding: 8px;
+    position: relative;
+}
+
+.caixa_carro .id_carro {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background-color: #ccc;
+    line-height: 30px;
+}
+
+.insere-edita-carro,
+.ultimo-resultado {
+    display: none;
+}
+
+/*  ESTICA COLUNAS QUANDO ABAIXO DE 480px */
+@media only screen and (max-width: 480px)
+{
+    .col {  margin: 1% 0 1% 0%; }
+	.grade_1_de_6, .grade_2_de_6, .grade_3_de_6, .grade_4_de_6, .grade_5_de_6, .grade_6_de_6 { width: 100%; }
+	.empurra { display: none; }
+}
