@@ -1,0 +1,14 @@
+{
+  "require-dev": {
+    "pds/skeleton": "1.0.0-beta1"
+  },
+
+  "require": {
+    "phroute/phroute": "^2.1",
+    "symfony/http-foundation": "^3.2"
+  },
+
+  "autoload": {
+    "psr-4": {"Teste\\": "src/"}
+  }
+}
