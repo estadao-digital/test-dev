@@ -9,6 +9,6 @@
   },
 
   "autoload": {
-    "psr-4": {"Teste\\": "src/"}
+    "psr-4": {"Teste\\": "src/Teste"}
   }
 }
