@@ -49,7 +49,7 @@ window.onload = function() {
             ano: document.getElementById('ano-insert').value
         }, function(retorno) {
             $('#modal-insert').modal('hide');
-            location.reload();
+            alert('Carro incluido com sucesso');
         });
     };
 
@@ -61,7 +61,7 @@ window.onload = function() {
             ano: document.getElementById('ano-update').value
         }, function(retorno) {
             $('#modal-update').modal('hide');
-            location.reload();
+            alert('Carro editado com sucesso');
         });
     };
 
@@ -105,6 +105,6 @@ function editar(id, marca, modelo, ano) {
 
 function excluir(id) {
     makeRequest('delete', '/carros/'+id, { }, function(retorno) {
-        location.reload();
+        alert('Carro excluido com sucesso');
     });
 }
