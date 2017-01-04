@@ -1,6 +1,7 @@
 <?php
+session_start();
 define('__BASE__', __DIR__.'/../');
-define('__SITE_NAME__', '/test-dev');
+define('__SITE_NAME__', '');// /test-dev
 
 include __BASE__.'vendor/autoload.php';
 

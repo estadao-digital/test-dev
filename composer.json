@@ -9,6 +9,7 @@
   },
 
   "autoload": {
-    "psr-4": {"Teste\\": "src/Teste"}
+    "psr-4": {"Teste\\": "src/Teste"},
+    "files": ["src/MinhasFuncoes/Funcoes.php"]
   }
 }

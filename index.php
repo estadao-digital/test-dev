@@ -1,2 +1,2 @@
 <?php
-header("location:{$_SERVER['REQUEST_URI']}index");
+header("location:{$_SERVER['REQUEST_URI']}home");

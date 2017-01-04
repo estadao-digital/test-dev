@@ -1,8 +1,9 @@
-<?php
+<?php namespace Teste;
+
 /**
-* Classe do carro
+* Classe DAO carro
 */
-class Carro {
+class CarroDao {
 
     /**
      * @var integer
@@ -91,5 +92,10 @@ class Carro {
     public function setAno($ano)
     {
         $this->ano = $ano;
+    }
+
+
+    public function toJson() {
+
     }
 }
