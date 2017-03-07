@@ -1,0 +1,69 @@
+{% extends '@layout/default.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron" >
+        <a name="listar"></a>
+        <p>
+            Lista de carros
+            <table class="table">
+                <thead class="thead-inverse">
+                <tr>
+                    <th>#</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Cor</th>
+                    <th>Alterar</th>
+                    <th>Excluir</th>
+                </tr>
+                </thead>
+                <tbody id="tbody-lista">
+
+                </tbody>
+            </table>
+        </p>
+    </div>
+
+    <div class="jumbotron">
+        <a name="cadastrar"></a>
+        <p id="p-label-form-carro"> Cadastrar novo carro </p>
+        <div class="form-group">
+            <label for="select-marca" class="col-2 col-form-label">Marca</label>
+            <div class="col-10">
+                <select class="form-control" id="select-marca">
+                    <option id="Honda" value="Honda">Honda</option>
+                    <option id="Chevrolet" value="Chevrolet">Chevrolet</option>
+                    <option id="Ford" value="Ford">Ford</option>
+                    <option id="Volkswagen" value="Volkswagen">Volkswagen</option>
+                    <option id="Fiat" value="Fiat">Fiat</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="text-modelo" class="col-2 col-form-label">Modelo</label>
+            <div class="col-9">
+                <input class="form-control" type="text" id="text-modelo">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="text-cor" class="col-2 col-form-label">Cor</label>
+            <div class="col-9">
+                <input class="form-control" type="text" id="text-cor">
+            </div>
+        </div>
+        <div class="form-group">
+            <button id="button-cadastrar" type="button" class="btn btn-primary">Cadastrar</button>
+            <button id="button-limpar" type="button" class="btn btn-default">Limpar</button>
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript">
+        var SinglePage = new SinglePage;
+        SinglePage.appendCarrosOnTable();
+        SinglePage.cadastrarCarro();
+    </script>
+{% endblock %}
