@@ -1,0 +1,58 @@
+<div  id="modal-carro"  class="modal fade" tabindex="-1" role="dialog"  >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header new">
+        Cadastrar novo carro
+      </div>
+      <div class="modal-body">
+        <form method="post" id="frmCarro"  name="frmCarro" enctype="multipart/form-data"  class="form-carro" >
+          <ul>
+            <li class="col-md-6">
+              <select id ='marca' class="marca" name="marca" required="required">
+                <option value="">Marca</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Fiat">Fiat</option>
+                <option value="Ford">Ford</option>
+                <option value="Honda">Honda</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="Peugeot">Peugeot</option>
+                <option value="Renoult">Renoult</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Volkswagen">Volkswagen</option>
+              </select>
+            </li>
+            <li class="col-md-6">
+              <input type="text" name="carro"  id ='carro' placeholder="Carro" required="required" />
+            </li>
+            <li class="col-md-6">
+              <input type="text" name="modelo"  id ='modelo' placeholder="Modelo" required="required" />
+            </li>
+            <li class="col-md-6">
+              <div class="col-md-6 padding">
+                <input type="text" name="modelo" id ='data-ano' class="data"  placeholder="Data ano"/>
+              </div>
+              <div class="col-md-6 padding">
+                <input type="text" name="modelo" id ='data-modelo' class="data" placeholder="Data modelo" />
+              </div>
+            </li>
+            <li class="col-md-12">
+              <div class="fileupload fileupload-new" data-provides="fileupload">
+                <span class="btn btn-default btn-file">
+                  <input type="file" id ="foto" />
+                </span>
+                <span class="fileupload-preview"></span>
+              </div>
+            </li>
+          </ul>
+          <div class="btns">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button type="button " onclick="enviar()" class="btn btn-success">Enviar</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
