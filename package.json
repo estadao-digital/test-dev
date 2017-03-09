@@ -1,6 +1,6 @@
 {
   "name": "framework_new",
-  "version": "4.0.0",
+  "version": "0.1.0",
   "description": "gulp",
   "main": "gulpfile.js",
   "dependencies": {
@@ -21,7 +21,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Raniery",
+  "author": "Edilson Dantas Dias",
   "license": "ISC",
   "repository": {
     "type": "git",
