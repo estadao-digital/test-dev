@@ -1,0 +1,30 @@
+{
+  "name": "framework_new",
+  "version": "4.0.0",
+  "description": "gulp",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-install": "^0.6.0"
+  },
+  "devDependencies": {
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-changed": "^1.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-minify": "0.0.14",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-strip-debug": "^1.1.0",
+    "gulp-uglify": "^2.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raniery",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "gsagsa"
+  }
+}
