@@ -9,17 +9,74 @@
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
-
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="js/libs/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
+        <button type="button" class="btn btn-success" data-id="'+i+'" id="incluir">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Incluir
+        </button>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <th>#</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Ano</th>
+                    <th>Ação</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
 
+        <div class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Carro</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="marca" class="col-sm-2 control-label">Marca</label>
+                                <div class="col-sm-10">
+                                    <select name="marca" id=marca>
+                                        <option value="FIAT">FIAT</option>
+                                        <option value="FORD">FORD</option>
+                                        <option value="HONDA">HONDA</option>
+                                        <option value="AUDI">AUDI</option>
+                                        <option value="BMW">BMW</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modelo" class="col-sm-2 control-label">Modelo</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="modelo" id="modelo" placeholder="Modelo">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ano" class="col-sm-2 control-label">Ano</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="ano" id="ano" placeholder="Ano">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" id="salvar">Salvar</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
-
+        <script>window.jQuery || document.write('<script src="js/libs/jquery-1.11.3.min.js"><\/script>')</script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
