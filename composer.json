@@ -1,0 +1,14 @@
+{
+    "require": {
+        "slim/slim": "^3.0",
+        "twbs/bootstrap": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "": ["app/"]
+        }
+    },
+    "scripts": {
+        "post-update-cmd": "cp -R vendor/twbs/bootstrap/dist/ bootstrap/"
+    }
+}
