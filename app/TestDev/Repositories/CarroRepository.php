@@ -20,7 +20,10 @@ class CarroRepository
   public function storeCarro($data) {
     $car = new Carro;
     $car->marca = $data->marca;
-
+    $car->modelo = $data->modelo;
+    $car->ano = $data->ano;
+    $car->save();
+    return $car;
   }
 
   public function updateCarro($request, $id) {

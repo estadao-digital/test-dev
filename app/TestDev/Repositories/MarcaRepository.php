@@ -20,6 +20,8 @@ class MarcaRepository
   public function storeMarca($data) {
     $marca = new Marca;
     $marca->marca = $data->marca;
+    $marca->save();
+    return $marca;
   }
 
   public function updateMarca($request, $id) {

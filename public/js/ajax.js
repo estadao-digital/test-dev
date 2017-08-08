@@ -4,6 +4,7 @@ $(document).ready(function(){
 
     $('.open-modal').click(function(){
         var carro_id = $(this).val();
+       
 
         $.get(url + '/carros/' + carro_id, function (data) {
             
@@ -13,7 +14,6 @@ $(document).ready(function(){
             $('#modelo').val(data.modelo);
             $('#ano').val(data.ano);
             $('#btn-save').val("update");
-
             $('#myModal').modal('show');
         }) 
     });
@@ -95,7 +95,7 @@ $(document).ready(function(){
             success: function (data) {
                 console.log(data);
 
-                var carro = '<tr id="carro' + data.id + '"><td>' + data.id + '</td><td>' + data.carro + '</td><td>' + data.description + '</td><td>' + data.created_at + '</td>';
+                var carro = '<tr id="carro' + data.id + '"><td>' + data.id + '</td><td>' + data.carro + '</td><td>' + data.marca + '</td><td>' + data.modelo + '</td><td>' + data.ano '</td>';
                 carro += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
                 carro += '<button class="btn btn-danger btn-xs btn-delete delete-carro" value="' + data.id + '">Delete</button></td></tr>';
 

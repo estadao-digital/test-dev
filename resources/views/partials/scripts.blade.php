@@ -9,7 +9,9 @@
 
 
     <script type="text/javascript">
+    
     	 $('#marca').on('change',function () {
+
             var idMarca = $(this).val();
             $.get('/modelos/' + idMarca, function (modelos) {
                  $('#modelo').empty();

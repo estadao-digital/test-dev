@@ -16,5 +16,18 @@ class ModeloController extends Controller
         return response()->json(['modelos' => $modelos]);
     }
 
+    public function getCarroModelo($id) {
+        $modeloRepository = new ModeloRepository;
+        $modeloCarro = $modeloRepository->getModeloCarro($id);
+        unset($modeloRepository);
+        return response()->json(['modelo' => $modeloCarro]);
+    }
+
+    public function storeModelo(Request $request) {
+    $modeloRepository = new ModeloRepository;
+    $modelo = $modeloRepository->storeMarca($request);
+    return Response::json($modelo);
+   }
+
  
 }

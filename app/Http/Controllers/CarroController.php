@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use TestDev\Classes\Carro;
 use TestDev\Repositories\CarroRepository;
 use TestDev\Repositories\MarcaRepository;
+use TestDev\Repositories\ModeloRepository;
 use Response;
 
 class CarroController extends Controller
@@ -19,13 +20,18 @@ class CarroController extends Controller
         $carros = $carroRepository->getCarros();
         $marcaRepository = new MarcaRepository;
         $marcas = $marcaRepository->getMarcas();
+        $modeloRepository = new ModeloRepository;
+        $modelos = $modeloRepository->getAll();
         unset($carroRepository);
         unset($marcaRepository);
-        return view('index')->with('carros', $carros)->with('marcas', $marcas);
+        unset($modeloRepository);
+        return view('index')->with('carros', $carros)->with('marcas', $marcas)->with('modelos', $modelos);
     }
 
     public function storeCarro(Request $request) {
-
+        $carroRepository = new CarroRepository;
+        $carros = $carroRepository->storeCarro($request);
+        return Response::json($car);
     }
 
     public function getCarro($id) {
@@ -35,10 +41,12 @@ class CarroController extends Controller
     }
 
     public function updateCarro(Request $request, $id) {
-
+        $carroRepository = new carroRepository;
+        $carro = $carroRepository->updateCarro($request, $id);
     }
 
     public function deleteCarro($id) {
-
+        $carroRepository = new carroRepository;
+        $carro = $carroRepository->deleteCarro($id);
     }
 }

@@ -17,9 +17,20 @@ class ModeloRepository
     return Modelo::select('*')->where('marca', '=', $id)->select('*')->get();
   }
 
+  public function getCarroModelo($id) {
+    return DB::table('carros')->join('modelos', 'modelos.id', '=', 'carros.modelo')->select('modelo.*')->get();
+  }
+
+  public function getAll() {
+    return Modelo::All();
+  }
+
   public function storeModelo($data) {
     $modelo = new Modelo;
-    $modelo->Modelo = $data->modelo;
+     $modelo->marca = $data->marca;
+    $modelo->modelo = $data->modelo;
+    $modelo->save();
+    return $modelo;
   }
 
   public function updateModelo($request, $id) {
