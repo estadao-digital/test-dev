@@ -25,7 +25,7 @@ class ModeloController extends Controller
 
     public function storeModelo(Request $request) {
     $modeloRepository = new ModeloRepository;
-    $modelo = $modeloRepository->storeMarca($request);
+    $modelo = $modeloRepository->storeModelo($request);
     return Response::json($modelo);
    }
 

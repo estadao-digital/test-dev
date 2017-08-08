@@ -11,7 +11,7 @@
                                 <div class="form-group">
                                     <label for="marca" class="col-sm-3 control-label">Marca</label>
                                     <div class="col-sm-9">
-                                        <select name="marca" id="marca" class="form-control" style="width:350px">
+                                        <select name="marca_modelo" id="marca_modelo" class="form-control" style="width:350px">
                                             <option value="">--- Selecione a Marca ---</option>
                                             @foreach ($marcas as $marca)
                                                 <option value="{{ $marca->id }}">{{ $marca->marca }}</option>
@@ -21,7 +21,7 @@
                                 </div>
 
                                 <div class="form-group error">
-                                    <label for="inputcarro" class="col-sm-3 control-label">Modelo</label>
+                                    <label for="modelo" class="col-sm-3 control-label">Modelo</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control has-error" id="modelo" name="modelo" placeholder="Modelo" value="">
                                     </div>

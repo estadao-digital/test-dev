@@ -23,6 +23,7 @@ class CarroRepository
     $car->modelo = $data->modelo;
     $car->ano = $data->ano;
     $car->save();
+    //$carfill = DB::table('carros')->join('marcas', 'marcas.id', '=', $car->marca)->join('modelos', 'modelos.id', '=', $car->modelo)->select('carros.*', 'marcas.marca as marca', 'modelos.modelo as modelo')->get();
     return $car;
   }
 

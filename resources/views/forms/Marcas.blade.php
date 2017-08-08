@@ -11,9 +11,9 @@
                            
 
                                 <div class="form-group error">
-                                    <label for="inputcarro" class="col-sm-3 control-label">Marca</label>
+                                    <label for="marca" class="col-sm-3 control-label">Marca</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control has-error" id="marca" name="marca" placeholder="Marca" value="">
+                                        <input type="text" class="form-control has-error" id="marca" name="marca" placeholder="Marca">
                                     </div>
                                 </div>
 

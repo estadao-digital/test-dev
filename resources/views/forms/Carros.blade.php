@@ -9,9 +9,9 @@
                             <form id="frmcarros" name="frmcarros" class="form-horizontal" novalidate="">
 
                                 <div class="form-group">
-                                    <label for="marca" class="col-sm-3 control-label">Marca</label>
+                                    <label for="marcas" class="col-sm-3 control-label">Marca</label>
                                     <div class="col-sm-9">
-                                        <select name="marca" id="marca" class="form-control" style="width:350px">
+                                        <select name="marcas" id="marcas" class="form-control" style="width:350px">
                                             <option value="">--- Selecione a Marca ---</option>
                                             @foreach ($marcas as $marca)
                                                 <option value="{{ $marca->id }}">{{ $marca->marca }}</option>
@@ -21,18 +21,17 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-3 control-label">Modelo</label>
+                                    <label for="modelos" class="col-sm-3 control-label">Modelo</label>
                                     <div class="col-sm-9">
-                                        <select name="modelo" id="modelo" class="form-control" style="width:350px">
+                                        <select name="modelos" id="modelos" class="form-control" style="width:350px">
                                             <option value="">--- Selecione o Modelo ---</option>
-                                      
                                    
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group error">
-                                    <label for="inputcarro" class="col-sm-3 control-label">Ano</label>
+                                    <label for="ano" class="col-sm-3 control-label">Ano</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control has-error" id="ano" name="ano" placeholder="Ano" value="">
                                     </div>

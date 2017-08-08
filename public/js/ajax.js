@@ -58,13 +58,17 @@ $(document).ready(function(){
 
 
     $("#btn-save").click(function (e) {
-
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        })
 
         e.preventDefault(); 
 
         var formData = {
-            marca: $('#marca').val(),
-            modelo: $('#modelo').val(),
+            marca: $('#marcas').val(),
+            modelo: $('#modelos').val(),
             ano: $('#ano').val(),
         }
 
@@ -111,6 +115,91 @@ $(document).ready(function(){
             }
         });
     });
+
+
+    $("#btn-save-marca").click(function (e) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        })
+
+        e.preventDefault(); 
+
+        var formMarca = {
+            marca: $('#marca').val(),
+        }
+
+        var type = "POST"; 
+
+        var my_url = '/marcas/';
+
+
+
+        console.log(formMarca);
+
+        $.ajax({
+
+            type: type,
+            url: my_url,
+            data: formMarca,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+
+                $('#frmmarca').trigger("reset");
+
+                $('#myModal-marca').modal('hide')
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
+    });
+
+
+
+    $("#btn-save-modelo").click(function (e) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        })
+
+        e.preventDefault(); 
+
+        var formModelo = {
+            marca: $('#marca_modelo').val(),
+            modelo: $('#modelo').val(),
+        }
+
+        var type = "POST"; 
+
+        var my_url = '/modelos/';
+
+
+
+        console.log(formModelo);
+
+        $.ajax({
+
+            type: type,
+            url: my_url,
+            data: formModelo,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+
+                $('#frmmodelo').trigger("reset");
+
+                $('#myModal-modelo').modal('hide')
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
+    });
+
 
 });
 
