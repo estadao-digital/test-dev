@@ -58,11 +58,7 @@ $(document).ready(function(){
 
 
     $("#btn-save").click(function (e) {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-            }
-        })
+
 
         e.preventDefault(); 
 
@@ -77,11 +73,11 @@ $(document).ready(function(){
 
         var type = "POST"; 
         var carro_id = $('#carro_id').val();
-        var my_url = url;
+        var my_url = '/carros/';
 
         if (state == "update"){
             type = "PUT"; 
-            my_url += '/carros/' + carro_id;
+            my_url = '/carros/' + carro_id;
         }
 
         console.log(formData);
@@ -95,9 +91,9 @@ $(document).ready(function(){
             success: function (data) {
                 console.log(data);
 
-                var carro = '<tr id="carro' + data.id + '"><td>' + data.id + '</td><td>' + data.carro + '</td><td>' + data.marca + '</td><td>' + data.modelo + '</td><td>' + data.ano '</td>';
-                carro += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
-                carro += '<button class="btn btn-danger btn-xs btn-delete delete-carro" value="' + data.id + '">Delete</button></td></tr>';
+                var carro = '<tr id="carro' + data.id + '"><td>' + data.id + '</td><td>' + data.marca + '</td><td>' + data.modelo + '</td><td>' +data.ano+ '</td>';
+                carro += '<td><button class="btn btn-success btn-xs btn-detail open-modal" value="' + data.id + '">Editar</button>';
+                carro += '<button class="btn btn-danger btn-xs btn-delete delete-carro" value="' + data.id + '">Deletar</button></td></tr>';
 
                 if (state == "add"){ //if user added a new record
                     $('#carros-list').append(carro);

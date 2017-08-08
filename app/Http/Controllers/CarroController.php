@@ -30,8 +30,8 @@ class CarroController extends Controller
 
     public function storeCarro(Request $request) {
         $carroRepository = new CarroRepository;
-        $carros = $carroRepository->storeCarro($request);
-        return Response::json($car);
+        $carro = $carroRepository->storeCarro($request);
+        return Response::json($carro);
     }
 
     public function getCarro($id) {
