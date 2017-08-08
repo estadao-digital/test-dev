@@ -2,25 +2,6 @@ $(document).ready(function(){
 
     var url = "/index.php";
 
-     $('#marca').on('change',function () {
-            var idMarca = $(this).val();
-            $.get('/modelos/' + idMarca, function (modelos) {
-                 $('#modelos').empty();
-            var i =0;
-      
-                $.each(modelos, function (key, modelo) {
-                    
-                    var size = modelo.length;
-                    while(i < size){
-                        $('#modelo').append('<option value=' + modelo[i].id + '>' + modelo[i].nome + '</option>');
-                        i++;
-                    }          
-                   
-                });
-            });
-        });
-
-    
     $('.open-modal').click(function(){
         var carro_id = $(this).val();
 
@@ -38,10 +19,22 @@ $(document).ready(function(){
     });
 
   
-    $('#btn-add').click(function(){
+    $('#btn-add-carro').click(function(){
         $('#btn-save').val("add");
         $('#frmcarros').trigger("reset");
         $('#myModal').modal('show');
+    });
+
+    $('#btn-add-marca').click(function(){
+        $('#btn-save-marca').val("add");
+        $('#frmmarca').trigger("reset");
+        $('#myModal-marca').modal('show');
+    });
+
+    $('#btn-add-modelo').click(function(){
+        $('#btn-save-modelo').val("add");
+        $('#frmmodelo').trigger("reset");
+        $('#myModal-modelo').modal('show');
     });
 
 
@@ -83,7 +76,7 @@ $(document).ready(function(){
         var state = $('#btn-save').val();
 
         var type = "POST"; 
-        var carro_id = $('#carro_id').val();;
+        var carro_id = $('#carro_id').val();
         var my_url = url;
 
         if (state == "update"){

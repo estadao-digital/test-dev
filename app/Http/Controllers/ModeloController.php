@@ -13,7 +13,7 @@ class ModeloController extends Controller
     	$modeloRepository = new ModeloRepository;
         $modelos = $modeloRepository->getModelos($id);
         unset($modeloRepository);
-        return Response::json($modelos);
+        return response()->json(['modelos' => $modelos]);
     }
 
  

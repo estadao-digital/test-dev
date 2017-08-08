@@ -14,7 +14,7 @@ class ModeloRepository
   }
 
   public function getModelos($id) {
-    return Modelo::select('*')->where('marca', '=', $id)->get();
+    return Modelo::select('*')->where('marca', '=', $id)->select('*')->get();
   }
 
   public function storeModelo($data) {
