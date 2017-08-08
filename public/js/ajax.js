@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var url = "/test-dev/public/cars";
+    var url = "/";
 
     
     $('.open-modal').click(function(){
@@ -55,8 +55,8 @@ $(document).ready(function(){
         e.preventDefault(); 
 
         var formData = {
-            marca: $('#car').val(),
-            modelo: $('#description').val(),
+            marca: $('#marca').val(),
+            modelo: $('#modelo').val(),
             ano: $('#ano').val(),
         }
 

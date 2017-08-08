@@ -23,8 +23,8 @@
                         <td>{{$car->modelo}}</td>
                         <td>{{$car->ano}}</td>
                         <td>
-                            <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$car->id}}">Editar</button>
-                            <button class="btn btn-danger btn-xs btn-delete delete-car" value="{{$car->id}}">Deletar</button>
+                            <button class="btn btn-warning btn-xs btn-detail open-modal" value="/carros/{{ $car->id}}">Editar</button>
+                            <button class="btn btn-danger btn-xs btn-delete delete-car" value="/carros/{{$car->id}}">Deletar</button>
                         </td>
                     </tr>
                     @endforeach

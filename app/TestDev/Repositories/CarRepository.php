@@ -10,7 +10,7 @@ class CarRepository
 {
 
 	public function getCar($id) {
-		return Car::select('*')->where('id', '=', $id)->get();
+		return Car::Find($id);
   }
 
   public function getCars() {

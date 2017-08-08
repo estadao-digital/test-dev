@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use TestDev\Classes\Car;
 use TestDev\Repositories\CarRepository;
+use Response;
 
 class CarController extends Controller
 {
@@ -24,7 +25,9 @@ class CarController extends Controller
     }
 
     public function getCar($id) {
-
+        $carRepository = new CarRepository;
+        $car = $carRepository->getCar($id);
+        return Response::json($car);
     }
 
     public function updateCar(Request $request, $id) {
