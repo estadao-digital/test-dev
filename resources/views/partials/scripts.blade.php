@@ -9,7 +9,7 @@
 
 
     <script type="text/javascript">
-
+       
 
          $('#btn-add-carro').on('click',function () {
 
@@ -17,8 +17,18 @@
                  $('#marcas').empty();
                 $.each(marcas, function (key, marca) {
                         $('#marcas').append('<option value=' + marca.id + '>' + marca.marca + '</option>');
-                            
-                   
+
+                });
+            });
+        });
+
+         $('#btn-add-modelo').on('click',function () {
+
+            $.get('/marcas/', function (marcas) {
+                 $('#marca_modelo').empty();
+                $.each(marcas, function (key, marca) {
+                        $('#marca_modelo').append('<option value=' + marca.id + '>' + marca.marca + '</option>');
+                        
                 });
             });
         });
@@ -41,10 +51,5 @@
                 });
             });
         });
-
-        
-
-
-         
 
     </script>
