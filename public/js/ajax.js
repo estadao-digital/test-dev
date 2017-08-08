@@ -95,9 +95,10 @@ $(document).ready(function(){
             success: function (data) {
                 console.log(data);
 
-                var carro = '<tr id="carro' + data.id + '"><td>' + data.id + '</td><td>' + data.marca + '</td><td>' + data.modelo + '</td><td>' +data.ano+ '</td>';
-                carro += '<td><button class="btn btn-success btn-xs btn-detail open-modal" value="' + data.id + '">Editar</button>';
-                carro += '<button class="btn btn-danger btn-xs btn-delete delete-carro" value="' + data.id + '">Deletar</button></td></tr>';
+
+                var carro = '<tr id="carro' + data["id"] + '"><td>' + data["id"]+ '</td><td>' + data["marca"] + '</td><td>' + data["modelo"] + '</td><td>' +data["ano"]+ '</td>';
+                carro += '<td><button class="btn btn-success btn-xs btn-detail open-modal" value="' + data["id"] + '">Editar</button>';
+                carro += '<button class="btn btn-danger btn-xs btn-delete delete-carro" value="' + data["id"] + '">Deletar</button></td></tr>';
 
                 if (state == "add"){ //if user added a new record
                     $('#carros-list').append(carro);
