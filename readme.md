@@ -17,8 +17,8 @@
 
 - O arquivo de banco de dados se encontra em: database/database.sqlite
 - Se faz necessário executar os comandos abaixo (no terminal) para que o projeto funcione:
--- php artisan migrate (para criar as tabelas)
--- php artisan db:seed (para popular as tabelas)
+* php artisan migrate (para criar as tabelas)
+* php artisan db:seed (para popular as tabelas)
 
 ### Frameworks ###
 
