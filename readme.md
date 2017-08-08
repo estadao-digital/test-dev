@@ -13,6 +13,13 @@
 - O DER se encontra em /#doc
 - Tentei separar ao máximo o código para tornar as queries reutilizaveis
 
+## Para o funcionamento
+
+- O arquivo de banco de dados se encontra em: database/database.sqlite
+- Se faz necessário executar os comandos abaixo (no terminal) para que o projeto funcione:
+-- php artisan migrate (para criar as tabelas)
+-- php artisan db:seed (para popular as tabelas)
+
 ### Frameworks ###
 
 - [Bootstrap](http://getbootstrap.com/)
