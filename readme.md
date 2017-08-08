@@ -25,10 +25,11 @@
 - [Bootstrap](http://getbootstrap.com/)
 - [jQuery](https://jquery.com/)
 
-- Após executar a atualização do composer, é preciso instalar o dusk com "php artisan dusk:install"
+
 
 ### Maintainers:
 * Lucas C. Victor          https://github.com/lukevictor
+* Lucas C. Victor          https://linkedin.com/in/lucas.c.victor
 
 
 
