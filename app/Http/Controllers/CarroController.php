@@ -43,6 +43,7 @@ class CarroController extends Controller
     public function updateCarro(Request $request, $id) {
         $carroRepository = new carroRepository;
         $carro = $carroRepository->updateCarro($request, $id);
+        return Response::json($carro);
     }
 
     public function deleteCarro($id) {

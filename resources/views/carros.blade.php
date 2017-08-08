@@ -25,14 +25,14 @@
                         <td>{{$carro->modelo}}</td>
                         <td>{{$carro->ano}}</td>
                         <td>
-                            <button class="btn btn-success btn-xs btn-detail open-modal" value="{{ $carro->id}}">Editar</button>
+                            <button id="editar" class="btn btn-success btn-xs btn-detail open-modal" value="{{ $carro->id}}">Editar</button>
                             <button class="btn btn-danger btn-xs btn-delete delete-carro" value="{{$carro->id}}">Deletar</button>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-
+            <p> {{ $carros->links() }} </p>
 
             <!-- Final da tabela -->
             <!-- Modal -->

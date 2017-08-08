@@ -11,6 +11,18 @@
     <script type="text/javascript">
        
 
+        $('#editar').on('click',function () {
+
+            $.get('/marcas/', function (marcas) {
+                 $('#marcas').empty();
+                $.each(marcas, function (key, marca) {
+                        $('#marcas').append('<option value=' + marca.id + '>' + marca.marca + '</option>');
+
+                });
+            });
+            
+            
+        });
          $('#btn-add-carro').on('click',function () {
 
             $.get('/marcas/', function (marcas) {
