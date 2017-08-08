@@ -33,7 +33,7 @@
                                 <div class="form-group error">
                                     <label for="ano" class="col-sm-3 control-label">Ano</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control has-error" id="ano" name="ano" placeholder="Ano" value="">
+                                        <input onkeyup="somenteNumeros(this)" type="text" class="form-control has-error" id="ano" name="ano" placeholder="Ano" value="">
                                     </div>
                                 </div>
 

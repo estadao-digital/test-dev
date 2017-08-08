@@ -7,7 +7,18 @@
    	<!-- Ajax customizado -->
     <script src="{{ url('js/ajax.js') }}"></script>
 
-
+    <!--validar o campo somente numeros -->
+    <script>
+        function somenteNumeros(num) {
+            var er = /[^0-9.]/;
+            er.lastIndex = 0;
+            var campo = num;
+            if (er.test(campo.value)) {
+              campo.value = "";
+            }
+        }
+     </script>
+ 
     <script type="text/javascript">
        
 
