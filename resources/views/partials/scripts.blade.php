@@ -9,24 +9,42 @@
 
 
     <script type="text/javascript">
+
+
+         $('#btn-add-carro').on('click',function () {
+
+            $.get('/marcas/', function (marcas) {
+                 $('#marcas').empty();
+                $.each(marcas, function (key, marca) {
+                        $('#marcas').append('<option value=' + marca.id + '>' + marca.marca + '</option>');
+                            
+                   
+                });
+            });
+        });
     
-    	 $('#marca').on('change',function () {
+    	 $('#marcas').on('change',function () {
 
             var idMarca = $(this).val();
             $.get('/modelos/' + idMarca, function (modelos) {
-                 $('#modelo').empty();
+                 $('#modelos').empty();
             var i =0;
       
                 $.each(modelos, function (key, modelo) {
                     
                     var size = modelo.length;
                     while(i < size){
-                        $('#modelo').append('<option value=' + modelo[i].id + '>' + modelo[i].modelo + '</option>');
+                        $('#modelos').append('<option value=' + modelo[i].id + '>' + modelo[i].modelo + '</option>');
                         i++;
                     }          
                    
                 });
             });
         });
+
+        
+
+
+         
 
     </script>

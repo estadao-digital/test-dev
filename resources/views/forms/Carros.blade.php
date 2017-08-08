@@ -13,9 +13,9 @@
                                     <div class="col-sm-9">
                                         <select name="marcas" id="marcas" class="form-control" style="width:350px">
                                             <option value="">--- Selecione a Marca ---</option>
-                                            @foreach ($marcas as $marca)
-                                                <option value="{{ $marca->id }}">{{ $marca->marca }}</option>
-                                            @endforeach
+                                           
+                                                <option value=""></option>
+                                           
                                         </select>
                                     </div>
                                 </div>

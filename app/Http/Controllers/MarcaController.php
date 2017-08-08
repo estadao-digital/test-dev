@@ -15,5 +15,11 @@ class MarcaController extends Controller
     return Response::json($marca);
    }
 
+   public function getMarcas() {
+    $marcaRepository = new MarcaRepository;
+    $marcas = $marcaRepository->getMarcas();
+    return Response::json($marcas);
+   }
+
  
 }

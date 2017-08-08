@@ -23,6 +23,9 @@ Route::delete('/carros/{id}', 'CarroController@deleteCarro')->name('delete');
 
 Route::get('/modelos/{idMarca}', 'ModeloController@getModelos');
 
+Route::post('/modelos/', 'ModeloController@storeModelo');
+
+Route::get('/marcas', 'MarcaController@getMarcas');
+
 Route::post('/marcas/', 'MarcaController@storeMarca');
 
-Route::post('/modelos/', 'ModeloController@storeModelo');
