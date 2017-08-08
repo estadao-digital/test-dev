@@ -15,8 +15,8 @@ class CarsSeeder extends Seeder
         DB::table('carros')->insert([
         	 	0 => [
                     'id'     => 1,
-                    'marca'  => 'Fiat',
-                    'modelo' =>	'Uno',
+                    'marca'  => 1,
+                    'modelo' =>	1,
                     'ano'	 =>	2010,
                 ],
         ]);

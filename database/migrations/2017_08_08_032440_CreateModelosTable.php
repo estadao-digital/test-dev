@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCarsTable extends Migration
+class CreateModelosTable extends Migration
 {
     /**
      * Migration para criação da tabela Carros.
@@ -13,11 +13,10 @@ class CreateCarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('carros', function (Blueprint $table) {
+        Schema::create('modelos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('marca')->unsigned();
-            $table->integer('modelo')->unsigned();
-            $table->integer('ano');
+            $table->string('modelo');
         });
     }
 

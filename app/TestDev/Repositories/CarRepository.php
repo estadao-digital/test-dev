@@ -4,7 +4,7 @@ namespace TestDev\Repositories;
 
 
 use TestDev\Models\Car;
-
+use DB;
 
 class CarRepository
 {
@@ -14,7 +14,7 @@ class CarRepository
   }
 
   public function getCars() {
-    return Car::select('*')->paginate(6);
+    return DB::table('carros')->join('marcas', 'marcas.id', '=', 'carros.marca')->join('modelos', 'modelos.id', '=', 'carros.modelo')->select('carros.*', 'marcas.marca as marca', 'modelos.modelo as modelo')->paginate(6);
   }
 
   public function storeCar($data) {

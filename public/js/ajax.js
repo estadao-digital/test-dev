@@ -6,7 +6,7 @@ $(document).ready(function(){
     $('.open-modal').click(function(){
         var car_id = $(this).val();
 
-        $.get(url + '/' + car_id, function (data) {
+        $.get(url + '/carros/' + car_id, function (data) {
             
             console.log(data);
             $('#car_id').val(data.id);
