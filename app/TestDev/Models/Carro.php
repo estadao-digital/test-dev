@@ -3,7 +3,7 @@
 namespace TestDev\Models;
 use Illuminate\Database\Eloquent\Model;
 
-class Car extends Model
+class Carro extends Model
 {
     /**
      * A variavel a seguir define a tabela utilizada no banco de dados

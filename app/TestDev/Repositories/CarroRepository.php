@@ -3,28 +3,28 @@
 namespace TestDev\Repositories;
 
 
-use TestDev\Models\Car;
+use TestDev\Models\Carro;
 use DB;
 
-class CarRepository
+class CarroRepository
 {
 
-	public function getCar($id) {
-		return Car::Find($id);
+	public function getCarro($id) {
+		return Carro::Find($id);
   }
 
-  public function getCars() {
+  public function getCarros() {
     return DB::table('carros')->join('marcas', 'marcas.id', '=', 'carros.marca')->join('modelos', 'modelos.id', '=', 'carros.modelo')->select('carros.*', 'marcas.marca as marca', 'modelos.modelo as modelo')->paginate(6);
   }
 
-  public function storeCar($data) {
-    $car = new Car;
+  public function storeCarro($data) {
+    $car = new Carro;
     $car->marca = $data->marca;
 
   }
 
-  public function updateCar($request, $id) {
-    return Car::where('id', $id)->update([
+  public function updateCarro($request, $id) {
+    return Carro::where('id', $id)->update([
       'marca' => $request->marca,
       'modelo' => $request->modelo,
       'ano' => $request->ano,
@@ -32,8 +32,8 @@ class CarRepository
   }
 
 
-  public function deleteCar($id) {
-    $car = Car::find($id);
+  public function deleteCarro($id) {
+    $car = Carro::find($id);
     $car->delete();
   }
 

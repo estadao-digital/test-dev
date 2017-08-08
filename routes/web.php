@@ -5,19 +5,21 @@
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Operações de CRUD para o Objeto Carro
+| Operações de CRUD para o Objeto Carroro
 |
 */
 
-Route::get('/', 'CarController@getCars');
+Route::get('/', 'CarroController@getCarros');
 
-Route::get('/carros', 'CarController@getCars')->name('index');
+Route::get('/carros', 'CarroController@getCarros')->name('index');
 
-Route::post('/carros', 'CarController@storeCar')->name('store');
+Route::post('/carros', 'CarroController@storeCarro')->name('store');
 
-Route::get('/carros/{id}', 'CarController@getCar')->name('find');
+Route::get('/carros/{id}', 'CarroController@getCarro')->name('find');
 
-Route::put('/carros/{id}', 'CarController@updateCar')->name('update');
+Route::put('/carros/{id}', 'CarroController@updateCarro')->name('update');
 
-Route::delete('/carros/{id}', 'CarController@deleteCar')->name('delete');
+Route::delete('/carros/{id}', 'CarroController@deleteCarro')->name('delete');
+
+Route::get('/modelos/{idMarca}', 'ModeloController@getModelos');
 

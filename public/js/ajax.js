@@ -1,17 +1,36 @@
 $(document).ready(function(){
 
-    var url = "/";
+    var url = "/index.php";
+
+     $('#marca').on('change',function () {
+            var idMarca = $(this).val();
+            $.get('/modelos/' + idMarca, function (modelos) {
+                 $('#modelos').empty();
+            var i =0;
+      
+                $.each(modelos, function (key, modelo) {
+                    
+                    var size = modelo.length;
+                    while(i < size){
+                        $('#modelo').append('<option value=' + modelo[i].id + '>' + modelo[i].nome + '</option>');
+                        i++;
+                    }          
+                   
+                });
+            });
+        });
 
     
     $('.open-modal').click(function(){
-        var car_id = $(this).val();
+        var carro_id = $(this).val();
 
-        $.get(url + '/carros/' + car_id, function (data) {
+        $.get(url + '/carros/' + carro_id, function (data) {
             
             console.log(data);
-            $('#car_id').val(data.id);
+            $('#carro_id').val(data.id);
             $('#marca').val(data.marca);
             $('#modelo').val(data.modelo);
+            $('#ano').val(data.ano);
             $('#btn-save').val("update");
 
             $('#myModal').modal('show');
@@ -21,22 +40,22 @@ $(document).ready(function(){
   
     $('#btn-add').click(function(){
         $('#btn-save').val("add");
-        $('#frmcars').trigger("reset");
+        $('#frmcarros').trigger("reset");
         $('#myModal').modal('show');
     });
 
 
-    $('.delete-car').click(function(){
-        var car_id = $(this).val();
+    $('.delete-carro').click(function(){
+        var carro_id = $(this).val();
 
         $.ajax({
 
             type: "DELETE",
-            url: url + '/carros/' + car_id,
+            url: url + '/carros/' + carro_id,
             success: function (data) {
                 console.log(data);
 
-                $("#car" + car_id).remove();
+                $("#carro" + carro_id).remove();
             },
             error: function (data) {
                 console.log('Error:', data);
@@ -64,12 +83,12 @@ $(document).ready(function(){
         var state = $('#btn-save').val();
 
         var type = "POST"; 
-        var car_id = $('#car_id').val();;
+        var carro_id = $('#carro_id').val();;
         var my_url = url;
 
         if (state == "update"){
             type = "PUT"; 
-            my_url += '/carros/' + car_id;
+            my_url += '/carros/' + carro_id;
         }
 
         console.log(formData);
@@ -83,18 +102,18 @@ $(document).ready(function(){
             success: function (data) {
                 console.log(data);
 
-                var car = '<tr id="car' + data.id + '"><td>' + data.id + '</td><td>' + data.car + '</td><td>' + data.description + '</td><td>' + data.created_at + '</td>';
-                car += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
-                car += '<button class="btn btn-danger btn-xs btn-delete delete-car" value="' + data.id + '">Delete</button></td></tr>';
+                var carro = '<tr id="carro' + data.id + '"><td>' + data.id + '</td><td>' + data.carro + '</td><td>' + data.description + '</td><td>' + data.created_at + '</td>';
+                carro += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
+                carro += '<button class="btn btn-danger btn-xs btn-delete delete-carro" value="' + data.id + '">Delete</button></td></tr>';
 
                 if (state == "add"){ //if user added a new record
-                    $('#cars-list').append(car);
+                    $('#carros-list').append(carro);
                 }else{ //if user updated an existing record
 
-                    $("#car" + car_id).replaceWith( car );
+                    $("#carro" + carro_id).replaceWith( carro );
                 }
 
-                $('#frmcars').trigger("reset");
+                $('#frmcarros').trigger("reset");
 
                 $('#myModal').modal('hide')
             },
@@ -103,4 +122,9 @@ $(document).ready(function(){
             }
         });
     });
+
 });
+
+
+
+

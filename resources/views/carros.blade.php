@@ -15,16 +15,16 @@
                         <th>Ano</th>
                     </tr>
                 </thead>
-                <tbody id="cars-list" name="cars-list">
-                    @foreach ($cars as $car)
-                    <tr id="car{{$car->id}}">
-                        <td>{{$car->id}}</td>
-                        <td>{{$car->marca}}</td>
-                        <td>{{$car->modelo}}</td>
-                        <td>{{$car->ano}}</td>
+                <tbody id="carros-list" name="carros-list">
+                    @foreach ($carros as $carro)
+                    <tr id="carro{{$carro->id}}">
+                        <td>{{$carro->id}}</td>
+                        <td>{{$carro->marca}}</td>
+                        <td>{{$carro->modelo}}</td>
+                        <td>{{$carro->ano}}</td>
                         <td>
-                            <button class="btn btn-warning btn-xs btn-detail open-modal" value="/carros/{{ $car->id}}">Editar</button>
-                            <button class="btn btn-danger btn-xs btn-delete delete-car" value="/carros/{{$car->id}}">Deletar</button>
+                            <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{ $carro->id}}">Editar</button>
+                            <button class="btn btn-danger btn-xs btn-delete delete-carro" value="{{$carro->id}}">Deletar</button>
                         </td>
                     </tr>
                     @endforeach
@@ -42,26 +42,33 @@
                             <h4 class="modal-title" id="myModalLabel">Carro</h4>
                         </div>
                         <div class="modal-body">
-                            <form id="frmcars" name="frmcars" class="form-horizontal" novalidate="">
+                            <form id="frmcarros" name="frmcarros" class="form-horizontal" novalidate="">
 
-                                <div class="form-group error">
-                                    <label for="inputcar" class="col-sm-3 control-label">Marca</label>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-3 control-label">Marca</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control has-error" id="car" name="car" placeholder="marca" value="">
+                                        <select name="marca" id="marca" class="form-control" style="width:350px">
+                                            <option value="">--- Selecione a Marca ---</option>
+                                            @foreach ($marcas as $marca)
+                                                <option value="{{ $marca->id }}">{{ $marca->marca }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-3 control-label">Modelo</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="description" name="description" placeholder="modelo" value="">
+                                        <select name="modelo" id="modelo" class="form-control" style="width:350px">
+                                            <option value="">--- Selecione o Modelo ---</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-3 control-label">Ano</label>
+                                <div class="form-group error">
+                                    <label for="inputcarro" class="col-sm-3 control-label">Ano</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="description" name="description" placeholder="ano" value="">
+                                        <input type="text" class="form-control has-error" id="ano" name="ano" placeholder="Ano" value="">
                                     </div>
                                 </div>
 
@@ -69,7 +76,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" id="btn-save" value="add">Salvar</button>
-                            <input type="hidden" id="car_id" name="car_id" value="0">
+                            <input type="hidden" id="carro_id" name="carro_id" value="0">
                         </div>
                     </div>
                 </div>
