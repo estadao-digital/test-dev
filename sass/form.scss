@@ -1,0 +1,98 @@
+%button-common {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form {
+    @mixin button($color) {
+        background-color: $color;
+        border-bottom: 3px solid $color - #222;
+
+        &:hover, &:focus {
+            background-color: $color + #222;
+            border-bottom: 3px solid $color;
+        }
+
+        &:active {
+            background-color: $color - #222;
+            border-bottom: 3px solid $color - #444;
+            border-bottom-width: 0;
+            margin-top: 3px;
+        }
+
+        &--left {
+            float: left;
+        }
+
+        &--right {
+            float: right;
+        }
+    }
+
+    &__button {
+        @extend %button-common;
+        @include button($purple);
+    }
+
+    &__button-red {
+        @extend %button-common;
+        @include button($red);
+    }
+
+    &__row {
+        border-bottom: 1px solid $lightgrey;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+
+        &--title {
+            border-bottom-color: $grey;
+        }
+
+        &--button {
+            border: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    &__input__block {
+        float: left;
+        width: 33.3333%;
+        padding-right: 20px;
+        box-sizing: border-box;
+
+        @media screen and (max-width: $phone) {
+            width: 100%;
+        }
+    }
+
+    &__label {
+        margin-right: 5px;
+        width: 100%;
+    }
+
+    &__input {
+        padding: 5px;
+        border-radius: 3px;
+        width: 100%;
+        border: 2px solid $purple;
+    }
+
+    &__error {
+        color: $red;
+        visibility: hidden;
+        font-weight: 600;
+        
+        @include fade(-ms-transform);
+        @include fade(-webkit-transform);
+        @include fade(transform);
+
+        -ms-transform: scale(0, 0);
+        -webkit-transform: scale(0, 0);
+        transform: scale(0, 0);
+    }
+}

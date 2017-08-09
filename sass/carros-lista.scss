@@ -1,0 +1,71 @@
+.carros-lista {
+    list-style: none;
+
+    &__element {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid $lightgrey;
+
+        &__text {
+            margin-top: 5px;
+            width: 25%;
+
+            @media screen and (max-width: $tablet) {
+                width: 33.3333%;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            @media screen and (max-width: $phone) {
+                width: 100%;
+            }
+        }
+
+        &__buttons {
+            width: 25%;
+
+            @media screen and (max-width: $tablet) {
+                width: 100%;
+            }
+        }
+
+        &__button {
+            width: 30%;
+            margin-left: 5%;
+            float: left;
+
+            &--first {
+                margin-left: 35%;
+            }
+
+            @media screen and (max-width: $tablet) {
+                width: 30%;
+                margin-left: 2%;
+
+                &--first {
+                    margin-left: 38%;
+                }
+            }
+
+            @media screen and (max-width: $phone) {
+                width: 49%;
+                margin: 10px 0;
+
+                &--first {
+                    margin-left: 0;
+                    margin-right: 2%;
+                }
+            }
+        }
+    }
+
+    &__title {
+        border-bottom-color: $grey;
+
+        &--blank {
+            border-bottom-color: $lightgrey;
+            padding: 50px 0;
+            text-align: center;
+        }
+    }
+}

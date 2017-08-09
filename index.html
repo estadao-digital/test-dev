@@ -1,25 +1,128 @@
-<!doctype html>
-<html class="no-js" lang="">
+<!DOCTYPE HTML>
+<html lang="pt-BR">
+
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
+        <meta name="description" content="Teste de Bruno Araujo para a empresa Slice TI.">
+        <meta name="keywords" content="teste,desenvolvimento,bruno,araujo,slice,ti">
+        <meta name="author" content="Bruno Araujo <araujo.contato@gmail.com>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+        <title>Teste | Bruno Araujo | Slice TI</title>
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="stylesheet" href="style.css">
     </head>
+
     <body>
+        <article class="container">
 
+                <div class="row">
+                    <ul class="carros-lista">
+                    </ul>
+                </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+                <div class="row">
+                    <div class="col">
+                        <button class="form__button form__button--right" type="button" name="button" onclick="showModal('create')">Adicionar</button>
+                    </div>
+                </div>
 
-        <script src="js/main.js"></script>
+        </article>
+
+        <div class="modal modal--create">
+            <div class="modal__backdrop modal__backdrop--create" onclick="closeModal()">
+            </div>
+
+            <div class="modal__scroll-window modal__scroll-window--create">
+                <div class="modal__scroll-window__content">
+
+                        <form class="form form--create">
+                            <div class="row form__row form__row--title">
+                                <div class="col">
+                                    <h1>Criar</h1>
+                                </div>
+                            </div>
+
+                            <div class="row form__row">
+                                <div class="form__input__block">
+                                    <label class="form__label" for="marca">Marca</label>
+                                    <input class="form__input form__input--marca-create" type="text" name="marca-create" value="" placeholder="Digite a marca">
+                                </div>
+
+                                <div class="form__input__block">
+                                    <label class="form__label" for="marca">Modelo</label>
+                                    <input class="form__input form__input--modelo-create" type="text" name="modelo-create" value="" placeholder="Digite o modelo">
+                                </div>
+
+                                <div class="form__input__block">
+                                    <label class="form__label" for="marca">Ano</label>
+                                    <input class="form__input form__input--ano-create" type="number" name="ano-create" value="" placeholder="Escolha o ano" min="1950" max="2999">
+                                </div>
+                            </div>
+
+                            <div class="row form__row form__row--button">
+                                <div class="col">
+                                    <p class="form__error form__error--create"></p>
+                                    <button class="form__button form__button--right" type="button" onclick="create()">Criar</button>
+                                </div>
+                            </div>
+                        </form>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal modal--edit">
+            <div class="modal__backdrop modal__backdrop--edit" onclick="closeModal()">
+            </div>
+
+            <div class="modal__scroll-window modal__scroll-window--edit">
+                <div class="modal__scroll-window__content">
+                    <div class="row">
+
+                        <form class="form form--edit">
+                            <div class="row form__row form__row--title">
+                                <div class="col">
+                                    <h1>Editar</h1>
+                                </div>
+                            </div>
+
+                            <input class="form__input form__input--id-edit" type="hidden" name="id-edit" value="">
+
+                            <div class="row form__row">
+                                <div class="form__input__block">
+                                    <label class="form__label" for="marca">Marca</label>
+                                    <input class="form__input form__input--marca-edit" type="text" name="marca-edit" value="" placeholder="Digite a marca">
+                                </div>
+
+                                <div class="form__input__block">
+                                    <label class="form__label" for="marca">Modelo</label>
+                                    <input class="form__input form__input--modelo-edit" type="text" name="modelo-edit" value="" placeholder="Digite o modelo">
+                                </div>
+
+                                <div class="form__input__block">
+                                    <label class="form__label" for="marca">Ano</label>
+                                    <input class="form__input form__input--ano-edit" type="number" name="ano-edit" value="" placeholder="Escolha o ano" min="1950" max="2999">
+                                </div>
+                            </div>
+
+                            <div class="row form__row form__row--button">
+                                <div class="col">
+                                    <p class="form__error form__error--edit"></p>
+                                    <button class="form__button form__button--right" type="button" onclick="update()">Aplicar</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
