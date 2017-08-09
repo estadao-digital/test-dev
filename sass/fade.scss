@@ -1,0 +1,5 @@
+@mixin fade($property) {
+    $duration: 0.25s;
+    -webkit-transition: $property $duration ease-in-out;
+    transition: $property $duration ease-in-out;
+}

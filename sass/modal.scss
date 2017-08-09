@@ -1,0 +1,55 @@
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 9;
+    margin: 0;
+    padding: 0;
+    display: block;
+    top: 0;
+
+    @include fade(visibility);
+    visibility: hidden;
+
+    &__backdrop {
+        background-color: black;
+        width: 100%;
+        height: 100%;
+
+        @include fade(opacity);
+        @include fade(filter);
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+    &__scroll-window {
+        top: 20px;
+        left: 25%;
+        width: 50%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.25);
+        position: fixed;
+        overflow: hidden;
+        box-sizing: border-box;
+
+        @include fade(-ms-transform);
+        @include fade(-webkit-transform);
+        @include fade(transform);
+
+        -ms-transform: scale(0, 0);
+        -webkit-transform: scale(0, 0);
+        transform: scale(0, 0);
+
+        @media screen and (max-width: $tablet) {
+            width: 80%;
+            left: 10%;
+        }
+
+        &__content {
+            height: 100%;
+            overflow-y: auto;
+        }
+    }
+}
