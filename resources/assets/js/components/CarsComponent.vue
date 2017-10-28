@@ -1,26 +1,53 @@
+<style>
+    .loader {
+        border: 5px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 5px solid #3498db;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        -webkit-animation: spin 0.5s linear infinite;
+        animation: spin 0.5s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
 <template>
     <div>
         <table class="table">
             <tbody>
             <tr v-for="car in cars">
                 <td>
+                    <div v-if="car.loading" class="loader"></div>
                     {{car.model}}
                 </td>
                 <td class="text-right">
-                    <a v-on:click="editForm = car" data-toggle="modal" data-target="#editModal" class="btn btn-info btn-xs">
+                    <a v-on:click="handleEditForm(car)" data-toggle="modal" data-target="#editModal" class="btn btn-info btn-xs">
                         <i class="fa fa-pencil"></i>
                     </a>
                     <a v-on:click="deleteId = car.id" data-toggle="modal" data-target="#confirmDelete" class="btn btn-danger btn-xs">
                         <i class="fa fa-trash"></i>
                     </a>
-
                 </td>
             </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <a data-toggle="modal" data-target="#createModal" class="btn btn-primary">Criar Novo</a>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
-        <div class="panel-footer text-center">
-            <a data-toggle="modal" data-target="#createModal" class="btn btn-primary">Criar Novo</a>
-        </div>
 
         <!-- Modal Delete -->
         <div class="modal fade" id="confirmDelete" role="dialog">
@@ -73,8 +100,8 @@
                             </div>
 
                             <div class="text-right">
-                                <button type="button" class="btn btn-success" data-dismiss="modal" v-on:click="editCar()">Salvar</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-success" data-dismiss="modal" @click="editCar()">Salvar</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" @click="handleCancel(editForm.id)">Cancelar</button>
                             </div>
                         </form>
                     </div>
@@ -86,7 +113,6 @@
         <!-- Modal Create -->
         <div class="modal fade" id="createModal" role="form">
             <div class="modal-dialog">
-
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
@@ -112,13 +138,12 @@
                             </div>
 
                             <div class="text-right">
-                                <button type="button" class="btn btn-success" data-dismiss="modal" v-on:click="createCar()">Criar</button>
+                                <button type="button" class="btn btn-success" data-dismiss="modal" @click="createCar()">Criar</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                             </div>
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -126,6 +151,11 @@
 </template>
 
 <script>
+    var tempCar = {
+        model:null,
+        year:null,
+        brand_id:null
+    }
     export default {
         /*
          * The component's data.
@@ -133,6 +163,7 @@
         data() {
             return {
                 cars: [],
+                cachedCar: {},
                 brands: [],
                 deleteId: 0,
                 editForm: {
@@ -177,13 +208,18 @@
             getCarros() {
                 axios.get('/api/cars')
                     .then(response => {
-                        this.cars = response.data;
+                        let cars = response.data;
+                        for(let i in cars){
+                            cars[i].loading = false;
+                        }
+                        this.cars = cars;
                     });
             },
             getBrands() {
                 axios.get('/api/brands')
                     .then(response => {
-                        this.brands = response.data;
+                        let brands = response.data;
+                        this.brands = brands;
                     });
             },
             /**
@@ -211,29 +247,56 @@
                     .then(response => {
                         if(response.status === 200){
                             for(let i in this.cars){
-                                if(this.cars[i].id === this.editForm.id){
-                                    this.cars[i].name = response.data.name;
-                                    this.cars[i].description = response.data.description;
+                                let car = this.cars[i];
+                                if(car.id === this.editForm.id){
+                                    car.model = response.data.model;
+                                    car.brand_id = response.data.brand_id;
+                                    car.year = response.data.year;
+                                    car.loading = false;
                                 }
                             }
-                        }else if(response.status === 422 ){
-                            console.log(response.data);
                         }
+                    }).catch(error => {
+                        this.handleError(error.response);
                     });
+            },
+            handleEditForm(car){
+                this.cachedCar = Object.assign({}, car);
+                this.editForm = this.cachedCar;
+                car.loading = true;
+            },
+            handleCancel(id){
+                let cars = this.cars;
+                for(let i in cars){
+                    let car = cars[i];
+                    if(car.id === id){
+                        car.loading = false;
+                    }
+                }
             },
             createCar(){
                 let data = this.createForm;
                 axios.post('/api/cars', data)
                     .then(response => {
-                        if(response.status === 201){
-                            this.cars.push(response.data);
-                        }else if(response.status === 422 ){
-                            console.log(response.data);
-                        }
-                        this.createForm.model = null;
-                        this.createForm.year = null;
-                        this.createForm.brand_id = null;
+                        this.handleCreate(response);
+                    }).catch(error => {
+                        this.handleError(error.response);
                     });
+            },
+            handleCreate(response){
+                if(response.status === 201){
+                    this.cars.push(response.data);
+                }
+                this.createForm.model = null;
+                this.createForm.year = null;
+                this.createForm.brand_id = null;
+            },
+            handleError(response){
+                if(response.status === 422){
+                    alert("Dados inválidos");
+                }else{
+                    alert("Algo deu errado durante a conexão, tente novamente.")
+                }
             }
         }
     }
