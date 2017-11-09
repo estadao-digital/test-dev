@@ -1,0 +1,22 @@
+body {
+	margin 0 auto;
+}
+
+.container {
+	width: 700px;
+	padding: .5rem;
+}
+
+.section {
+	display: inline-block;
+}
+.section.right {
+	float: right;
+}
+
+.input-group-btn {
+	width: 10rem;
+}
+.input-group-btn.last {
+	width: 1rem;
+}
