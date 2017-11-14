@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="theme-color" content="#607D8B" />
+
+    <title>CarroAz</title>
+
+	<link rel="stylesheet" href="assets/stylesheets/material.min.css" />
+	<link rel="stylesheet" href="assets/stylesheets/dialog-polyfill.css" />
+	<link rel="stylesheet" href="assets/stylesheets/style.css" />
+	
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />	
+
+    <script src="assets/javascripts/material.min.js"></script>
+    <script src="assets/javascripts/getmdl-select.min.js"></script>
+    <script src="assets/javascripts/mustache.min.js"></script>
+    <script src="assets/javascripts/dialog-polyfill.js"></script>
+    <script src="assets/javascripts/element-closest.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic'>
+
+</head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row ">
+                <span class="mdl-layout__title">CarrosAz</span>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation mdl-layout--large-screen-only menu">
+                    <a class="mdl-navigation__link menu-carros" href="">
+                        <i class="material-icons">directions_car</i>
+                        Carros
+                    </a>
+                    <a class="mdl-navigation__link menu-marcas" href="">
+                        <i class="material-icons mdl-card_title-icon">copyright</i>
+                        Marcas
+                    </a>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout__title">CarrosAz</span>
+            <nav class="mdl-navigation menu">
+                <a class="mdl-navigation__link menu-carros" href="">
+                    <i class="material-icons">directions_car</i>
+                    &nbsp;Carros
+                </a>
+                <a class="mdl-navigation__link menu-marcas" href="">
+                    <i class="material-icons">copyright</i>
+                    &nbsp;Marcas
+                </a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="mdl-grid list-carros-view">
+            </div>
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored app-fab--absolute dialog-button">
+                <i class="material-icons">add</i>
+            </button>
+
+        </main>
+    </div>
+
+    <dialog id="dialog" class="mdl-dialog">
+        <div class="form-carro">
+            <h3 class="mdl-dialog__title form-title"> Cadastrar Carro </h3>
+            <div class="mdl-dialog__content">
+                <form class="form" data-id="">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input campo-modelo" type="text" id="modelo" pattern="[A-Z,a-z, ,0-9]*" value="">
+                        <label class="mdl-textfield__label" for="modelo">Modelo</label>
+                        <span class="mdl-textfield__error">Informe um Modelo válido</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input campo-ano" type="text" pattern="[0-9]*" id="ano" maxlength="4" value="">
+                        <label class="mdl-textfield__label" for="ano">Ano</label>
+                        <span class="mdl-textfield__error">Informe um ano válido</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height" style="width: 124px;">
+                        <input class="mdl-textfield__input campo-marca" type="text" id="sample2" value="" readonly tabIndex="-1">
+                        <label for="sample2">
+                            <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                        </label>
+                        <label for="sample2" class="mdl-textfield__label">Marca</label>
+                        <ul for="sample2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu select-marcas" style="width: 283px;">
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <div class="mdl-dialog__actions">
+                <button type="button" class="mdl-button mdl-button--raised mdl-js-ripple-effect mdl-js-button button-cancel">Cancelar</button>
+                <button type="button" class="mdl-button mdl-button--raised mdl-js-ripple-effect mdl-js-button mdl-button--primary button-save">Salvar</button>
+            </div>
+        </div>
+    </dialog>
+
+
+    <dialog id="confirm-dialog" class="mdl-dialog">
+        <div>
+            <h3 class="mdl-dialog__title"> Remover Carro </h3>
+            <div class="mdl-dialog__content">
+                <p>Tem certeza que deseja excluir?</p>
+            </div>
+            <div class="mdl-dialog__actions">
+                <button type="button" class="mdl-button mdl-button--raised mdl-js-ripple-effect mdl-js-button button-cancel">Cancelar</button>
+                <button type="button" class="mdl-button mdl-button--raised mdl-js-ripple-effect mdl-js-button mdl-button--primary button-save">Remover</button>
+            </div>
+        </div>
+    </dialog>
+
+    <script id="template-carro-view" type="x-tmpl-mustache">
+        <div class="mdl-layout-spacer"></div>
+        {{# carros }}
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--8-col-phone carro-view" data-id="{{ id }}">
+            <div class="demo-card-square mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand mdl-card--border">
+                    <i class="material-icons">directions_car</i>&nbsp;
+                    <h1 class="mdl-card__title-text carro-modelo">{{ modelo }}</h1>
+                </div>
+                <div class="carro-detalhes">
+                    <ul class="demo-list-icon mdl-list">
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons mdl-list__item-icon mdl-color-text--blue-grey-400">today</i>
+                                <span class="carro-ano">{{ ano }}</span>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons mdl-list__item-icon mdl-color-text--blue-grey-400">copyright</i>
+                                <span class="carro-marca" data-id-marca="{{ marca.id }}">{{ marca.nome }}</span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mdl-card__actions mdl-card--border text-right">
+                    <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdl-js-ripple-effect carro-delete">
+                        <i class="material-icons mdl-color-text--red-400">delete</i>
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored mdl-js-ripple-effect carro-edit">
+                        <i class="material-icons mdl-color-text--indigo-400">edit</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        {{/ carros }}
+        {{^ carros }}
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--8-col-phone carro-view">
+            <p style="text-align: center;">Nenhum carro encontrado!</p>
+        </div>
+        {{/ carros }}
+        <div class="mdl-layout-spacer"></div>
+    </script>
+
+    <script id="template-select-marcas" type="x-tmpl-mustache">
+        {{# marcas }}
+        <li class="mdl-menu__item" data-val="{{ id }}" tabindex="-1"> {{ nome }} </li>
+        {{/ marcas }}
+        {{^ marcas }}
+        <li class="mdl-menu__item" data-val="0" tabindex="-1"> Nenhuma marca encontrada </li>
+        {{/ marcas }}
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <script src="app/models/entity/marca.js"></script>
+    <script src="app/models/entity/carro.js"></script>
+
+    <script src="app/models/model.js"></script>
+
+    <script src="app/controllers/marcasController.js"></script>
+    <script src="app/controllers/carrosController.js"></script>
+
+    <script src="app/application.js"></script>
+
+    <script src="app/boot.js"></script>
+
+
+</body>
+</html>

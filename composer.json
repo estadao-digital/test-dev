@@ -1,0 +1,28 @@
+{
+    "name": "carrosaz",
+    "description": "Sistema Carros AZ",
+    "keywords": ["carrosaz", "carros", "venda de carros", "crud sobre carros"],
+    "authors": [
+        {
+            "name": "gustavobc",
+            "email": "gustavo.b.c@outlook.com",
+            "homepage": "http://gustavobcx.wordpress.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.8",
+        "illuminate/database": "^5.5",
+        "oscarotero/psr7-middlewares": "^3.21",
+        "ext-pdo_sqlite": "*",
+        "slim/php-view": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {"App\\": "./src/app"}
+    },
+    "config": {
+        "process-timeout" : 0
+    },
+    "scripts": {
+        "start": "php -S localhost:8080 -t ../carrosaz/public/"
+    }
+}

@@ -1,0 +1,105 @@
+/*
+ * Animations
+ */
+@keyframes animatetop {
+	from {top:-300px; opacity:0}
+	to {top: 0; opacity:1}
+}
+
+/*
+ * Helpers
+ */
+.text-right {
+	text-align: right;
+}
+
+/*
+ * Layout Drawer
+ */
+.mdl-layout__drawer .mdl-layout__title {
+	box-shadow:
+	0 1px 2px #fff, /*bottom external highlight*/
+	0 -1px 1px #666, /*top external shadow*/
+	inset 0 -1px 1px rgba(0,0,0,0.2), /*bottom internal shadow*/
+	inset 0 1px 1px rgba(255,255,255,0.5); /*top internal highlight*/
+}
+
+.mdl-layout__drawer .mdl-navigation {
+	padding-top: 0;
+}
+
+/*
+ * Card
+ */
+
+.demo-card-square > .mdl-card__title {
+   /*
+   color: #fff;
+  background: center 15% no-repeat #8C9EFF;
+
+  border-bottom: 1px solid #eee;*/
+}
+
+/*
+ * Float Button
+ */
+.app-fab--absolute {
+  position: fixed;
+  bottom: 2.4rem;
+  right: 2.7rem;
+}
+
+/*
+ * Dialog
+ */
+.mdl-dialog {
+	position: fixed;
+	top: 4px;
+	border: none;
+	animation-name: animatetop;
+	animation-duration: 0.4s;
+	box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+	width: 320px;
+}
+
+.mdl-dialog__title {
+	font-size: 1.6em;
+}
+
+/*
+ * Select
+ */
+.getmdl-select .mdl-icon-toggle__label {
+	float: right;
+	margin-top: -30px;
+	color: rgba(0,0,0,0.4);
+}
+
+.getmdl-select__fix-height .mdl-menu__container {
+    max-height: 250px !important;
+}
+
+.getmdl-select .mdl-menu__container {
+    width: 100% !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.mdl-menu__outline {
+	box-shadow: none;
+}
+
+@media (min-width: 768px) {
+	.mdl-dialog {
+		top: 100px;
+	}
+	
+	.mdl-dialog__title {
+		font-size: 2.5em;
+	}
+	
+	@keyframes animatetop {
+		from {top:-300px; opacity:0}
+		to {top: 100px; opacity:1}
+	}
+}
