@@ -25,9 +25,8 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">                                
                 <ul class="nav navbar-nav navbar-right">                                  
-                    <li><a href="<?php echo BASE; ?>vendas">Minhas Vendas</a></li>
-                    <li><a href="javascript:void(0)">Minhas Compras</a></li>
-                    <li><a href="javascript:void(0)">Meus Anúncios</a></li>
+                    <li><a href="javascript:void(0)" class="to-content"  data-href="<?php echo BASE ?>/listar">Home</a></li>
+                    <li><a href="javascript:void(0)" class="to-content"  data-href="<?php echo BASE ?>/novo">Adicionar</a></li>                    
                     <li class="dropdown">                                                      
                         <span class="caret to-content" data-href="<?php echo BASE ?>/listar"></span>                        
                         <ul class="dropdown-menu">
