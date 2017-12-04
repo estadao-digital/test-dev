@@ -1,0 +1,22 @@
+body{padding-bottom:30px}
+table {width: 100%}
+.clear {clear: both}
+.nopadding {padding: 0 !important}
+.button-wraper {margin: 25px 0; padding: 0}
+.button-wraper button { margin-right: 10px; padding: 10px; font-weight: bold; min-width: 110px }
+.blockpage {position: fixed; top: 0;right: 0;left: 0; bottom: 0; background: #333; z-index: 9; opacity: 0.3}
+.blockpage .loading{position: fixed;top: 30%;left: 50%; z-index: 10; height: 39px}
+
+.table-wraper {margin-top: 35px; overflow: auto}
+.table-wraper th,.table-wraper td {white-space: nowrap}
+#pagination-content {text-align: center; margin: 25px 0}
+#pagination-content ul {padding: 0; margin: 0; display: inline-block}
+#pagination-content ul li{display: inline-block; list-style: none; border: 1px solid #ddd;padding: 10px 20px;background: #eee}
+#pagination-content #total-page {display: inline-block; margin-left: 25px}
+#pagination-content #total-page span{ font-weight: bold}
+.add {width: 132px !important; font-weight: bold;}
+.add i {float: right; margin-top: 3px }
+
+@media(max-width:767px){
+	
+}

@@ -1,0 +1,9 @@
+{
+    "carros":[
+        {"marca": "Honda","modelo": "Civic", "ano": "2017","id":1},
+        {"marca": "Toyota","modelo": "Corola", "ano": "2016","id":2},
+        {"marca": "Nissan","modelo": "Sentra", "ano": "2015","id":3},
+        {"marca": "Audi","modelo": "A3", "ano": "2014","id":4},
+        {"marca": "BMW","modelo": "X6", "ano": "2018","id":5} 
+    ]
+}
