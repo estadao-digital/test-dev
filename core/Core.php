@@ -14,10 +14,7 @@ class Core {
         if (!empty($url) && $url != '/') {
             $url = explode('/', $url);
             array_shift($url);
-
-            //$currentController = 'controllers\\'. $url[0] . 'Controller';
-            //array_shift($url);
-
+            
             if (isset($url[0])) {
                 $currentAction = $url[0];
                 array_shift($url);
