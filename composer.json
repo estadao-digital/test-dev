@@ -1,0 +1,7 @@
+{
+    "name": "test-dev",
+    "description": "Teste para desenvolvedor do Estadão",
+    "require": {
+        "slim/slim": "^3.0"
+    }
+}
