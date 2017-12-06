@@ -1,3 +1,10 @@
+Segue teste proposto.
+Para o back-end foi utilizado Slim Framework.
+No front-end foi usado bootstrap e jQuery.
+O teste do codigo pode ser usando o comando
+$[diretorio raiz] php -S localhost:8080 -t public public/index.php
+
+
 Teste para desenvolvedor do Estadão
 ==============================
 
