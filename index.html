@@ -1,25 +1,144 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="pt-br">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
+        <title>Teste Joilson</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+        
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
-
+        <script src="bootstrap/js/bootstrap.js"></script>
         <script src="js/main.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <style type="text/css">
+            .modal-dialog, .modal-content{
+            z-index:1051;
+            }
+        </style>
+        <div class="container" style="margin-top:20px;">
+            <div class="row">
+                <div class="col-lg-12 margin-tb">					
+                    <div class="pull-left">
+                        <h3>Teste Joilson Santana Sodré CRUD</h3>
+                    </div>
+                    <div class="pull-right">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create-item">
+                            Incluir carro
+                    </button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-warning" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <strong>Lista de Carros</strong>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" cellpadding="0" cellspacing="0" border="0">	
+                        <thead style="background: #e8e8e8;">
+                            <tr>              
+                                <th>ID</th>
+                                <th>MARCA</th>
+                                <th>MODELO</th>	
+                                <th>ANO</th>
+                                <th>AÇÃO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <ul id="paginacao" class="pagination-sm"></ul>
+                </div>
+            </div>
+            <div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Incluir carro</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form data-toggle="validator" action="Api.php" method="POST">
+                                <div class="form-group">
+                                    <label class="control-label" for="marca">Marca:</label>
+                                    <select id="marca" name="marca" class="form-control">
+                                        <option value="Chevrolet" selected="">Chevrolet</option>
+                                        <option value="Fiat">Fiat</option>
+                                        <option value="Ford">Ford</option>
+                                        <option value="Citroen">Citroen</option>
+                                        <option value="Nissan">Nissan</option>
+                                    </select>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="modelo">Modelo:</label>
+                                    <input type="text" id="modelo" name="modelo" class="form-control" data-error="Preencher a Modelo." required />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="ano">Ano:</label>
+                                    <input type="text" id="ano" name="ano" class="form-control" data-error="Preencher a Ano." required />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success crud-submit">Gravar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            <div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Edit Item</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form data-toggle="validator" action="Api.php" method="put">
+                                <input type="hidden" name="id" class="edit-id">
+                                <div class="form-group">
+                                    <label class="control-label" for="marca">Marca:</label>
+                                    <select id="marca" name="marca" class="form-control">
+                                        <option value="Chevrolet" selected="">Chevrolet</option>
+                                        <option value="Fiat">Fiat</option>
+                                        <option value="Ford">Ford</option>
+                                        <option value="Citroen">Citroen</option>
+                                        <option value="Nissan">Nissan</option>
+                                    </select>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="modelo">Modelo:</label>
+                                    <input type="text" id="modelo" name="modelo" class="form-control" data-error="Preencher a Modelo." required />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="ano">Ano:</label>
+                                    <input type="text" id="ano" name="ano" class="form-control" data-error="Preencher a Ano." required />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success crud-submit-edit">Gravar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
     </body>
 </html>
