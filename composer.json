@@ -1,0 +1,29 @@
+{
+    "name": "teste/estadao",
+    "description": "Teste para desenvolvedor do Estadão",
+    "authors": [
+        {
+            "name": "Gerlisson Paulino",
+            "email": "gerlisson.paulino@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "doctrine/orm": "<2.5-dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Registry\\": "class",
+
+            "Application\\Model\\": "module/Application/src/Model",
+            "Application\\Controller\\": "module/Application/src/Controller",
+
+            "Vehicle\\Model\\": "module/Vehicle/src/Model",
+            "Vehicle\\Controller\\": "module/Vehicle/src/Controller",
+            "Vehicle\\Entity\\": "module/Vehicle/src/Entity"
+        }
+    }
+}

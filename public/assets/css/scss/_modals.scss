@@ -1,0 +1,13 @@
+body.modal-open {overflow: auto;}
+body.modal-open[style] {padding-right: 0px !important;}
+.modal::-webkit-scrollbar {width: 0 !important;}
+.modal-content{background:$c4;@include borderRadius(0);border:1px solid $c2;
+  strong{color:$c1;font-family:$font-regular;}
+}
+.modal-header{border-bottom:1px solid $c2;padding:0;}
+.modal-body{text-align:center;}
+.modal-footer{border-top:1px solid $c2;text-align:center;font:16px $font-regular;letter-spacing: 2px;}
+.modal-title{font:26px $font-regular;color:$c1;padding:15px 0 15px 15px;}
+.modal-header .close{font-size:40px;color:$c2;text-shadow:none;opacity: 1;@include transition(color .25s cubic-bezier(.17,.67,.83,.67),background-color .25s cubic-bezier(.17,.67,.83,.67));border-left:1px solid $c2;padding: 10px 20px 13px;margin-top: 0;
+	&:hover{color:$c1h;border-color:$c2;background-color: rgba(26,29,33,1);}
+}

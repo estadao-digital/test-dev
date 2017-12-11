@@ -1,0 +1,154 @@
+$bgDefault      : #ffffff;
+$bgHighlight    : #cccccc;
+$colDefault     : #999999;
+$colHighlight   : #a8cf45;
+$dropDown       : true;
+.navbar{border:0;border-bottom:1px solid transparent;}
+.navbar-custom {padding-top:25px;margin-bottom:0;@include borderRadius(0);
+  background-color: $bgDefault;
+  border-color: $bgHighlight;
+  .fa-angle-down{color:$c1;margin-bottom:-1px;}
+  .navbar-brand {
+    color: $colDefault;
+    padding:0;
+    &:hover, &:focus {
+      color: $colHighlight; }}
+  .navbar-text {
+    color: $colDefault; }
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colDefault;
+        font:300 16px $font-regular;
+        padding:15px 15px 30px 15px;
+        border-bottom:4px solid transparent;
+        &.dropdown-toggle{padding-bottom: 29px;}
+        &:hover,  &:focus {
+          color: $colHighlight;border-bottom-color:$colHighlight;background-color:$bgDefault}
+        }
+      @if $dropDown {
+        > .dropdown-menu {
+          @include borderRadius(0);
+          box-shadow: 1px 1px 2px rgba(0,0,0,0.175);
+          background-color: $bgDefault;
+          &.searchBox{min-width:280px;padding:0;
+            .form-control{border:0;}
+          }
+          > li {
+            > a {
+              color: $colDefault;
+              padding:5px 20px;
+              &:hover,  &:focus {
+                color: $colHighlight;
+                /*background-color: $bgHighlight;*/ }
+              }
+            &.divider {
+              background-color: $bgHighlight;}
+            }
+          }
+        }
+      }
+    @if $dropDown {
+      .open .dropdown-menu > .active {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          /*background-color: $bgHighlight;*/ }
+        }
+      }
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgDefault;border-bottom:4px solid $colHighlight }
+      }
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        /*background-color: $bgHighlight;*/ }
+      }
+    }
+  .navbar-toggle {@include borderRadius(0);margin-top:15px;
+    border-color: $colHighlight;
+    &:hover, &:focus {
+      background-color: $colHighlight;color:#ffffff;
+      .icon-bar {
+        background-color: #ffffff;
+      }
+    }
+    .icon-bar {
+      background-color: $colHighlight;
+    }
+  }
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colDefault; }
+  .navbar-link {
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight; }
+    }
+  }
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }
+      }
+    }
+}
+@media (min-width: 768px){
+  .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+  margin-left:0;
+  }
+}
+//Novo breakpoint para o menu
+@media (max-width: 768px) {
+  .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+    .navbar-nav .open .dropdown-menu {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+}

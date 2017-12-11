@@ -1,0 +1,106 @@
+<div class="page__header">
+    <div class="container">
+        <h2>Veículos</h2>
+        <p>Teste para desenvolvedor do Estadão</p>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="breadcrumbs">
+    <div class="container">
+        <ul class="list-inline">
+            <li>
+                <a href="" title="">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li>Veículos</li>
+        </ul>
+    </div>
+</div>
+
+<section id="product__list">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="javascript:void()" data-toggle="modal" data-target="#vehicle" id="add-vehicle" title="Cadastrar novo" class="btn btn-primary">
+                    <i class="fa fa-plus" aria-hidden="true"></i> <strong>CADASTRAR NOVO</strong>
+                </a>
+                <br />
+                <br />
+            </div>
+        </div>
+        <div class="row" id="list-vehicle">
+            <?php foreach($this->bd['vehicles'] as $vehicle): ?>
+                <div class="col-sm-4 col-md-3" id="<?php echo $vehicle->getId(); ?>">
+                    <div class="product__item">
+                        <img src="<?php echo URL_MAIN; ?>/public/assets/images/car.png" alt="<?php echo $vehicle->getBrand()->getName() .' '. $vehicle->getModel(); ?>" title="<?php echo $vehicle->getBrand()->getName() .' '. $vehicle->getModel(); ?>" class="img-responsive">
+                        <div class="product__name"><?php echo $vehicle->getBrand()->getName() .' '. $vehicle->getModel(); ?></div>
+                        <p>Ano: <?php echo $vehicle->getYear().' '.$vehicle->getYearModel(); ?></p>
+
+                        <a href="javascript:void(0)" onclick="edit(<?php echo $vehicle->getId(); ?>)" title="Editar">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0)" onclick="del(<?php echo $vehicle->getId(); ?>)" title="Excluir">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- Modal Add Vehicle -->
+<div class="modal fade" id="vehicle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Cadastrar Veículo</h4>
+            </div>
+            <form method="post" id="form-vehicle">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="hidden" name="edit" id="edit" value="0" />
+                        <select name="brand" id="brand" class="form-control" required="required">
+                            <option value="">- selecione -</option>
+                            <?php foreach($this->bd['brands'] as $brand): ?>
+                            <option value="<?php echo $brand->getId(); ?>"><?php echo $brand->getName(); ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="model">Modelo</label>
+                        <input type="text" name="model" class="form-control" id="model" placeholder="Modelo" required="required" />
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="model">Ano Fabricação</label>
+                            <select name="year" id="year" class="form-control" required="required">
+                                <option>- selecione -</option>
+                                <?php foreach($this->bd['years'] as $year): ?>
+                                <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="model">Ano Modelo</label>
+                            <select name="yearModel" id="yearModel" class="form-control" required="required">
+                                <option>- selecione -</option>
+                                <?php foreach($this->bd['years'] as $year): ?>
+                                    <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div id="message"></div>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

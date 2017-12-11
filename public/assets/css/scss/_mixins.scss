@@ -1,0 +1,54 @@
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+@mixin borderRadius($radius...){
+	border-radius: $radius;
+	-o-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+}
+// rito button style
+@mixin button($font: 400 16px $font-regular,$padding:18px 48px,$mt:0,$mb:0,$ml:0,$mr:0){
+  font:$font;
+  padding:$padding;
+  text-transform:uppercase;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  -webkit-border-image: -webkit-linear-gradient(top,#c3a758,#6b521e) stretch;
+  border-image: linear-gradient(180deg,#c3a758,#6b521e) stretch;
+  border-style: solid;
+  background-color: rgba($c1,.8);
+  border-image-slice: 1;
+  color: #937341;
+  cursor: pointer;
+  letter-spacing: 2px;
+  @if $mt > 0 {margin-top:$mt;}
+  @if $mb > 0 {margin-top:$mb;}
+  @if $ml > 0 {margin-top:$ml;}
+  @if $mr > 0 {margin-top:$mr;}
+}
+@mixin borderRadius($radius...){
+	border-radius: $radius;
+	-o-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+}
+@mixin grayscale($gs){
+  -webkit-filter: grayscale($gs);
+  filter: grayscale($gs);
+}
+@mixin parallax(){
+  background-repeat:no-repeat;
+  background-position:center top;
+  background-size:cover;
+  background-attachment:fixed;
+}

@@ -1,0 +1,67 @@
+//green
+$c1          : #a8cf45; //inicial
+$c1h         : #708c24; //hovers
+$c1a         : #87a92c; //alternativa
+$c1b         : #a6cd45; //alternativa 2
+//blue
+$c2          : #334d8b; //inicial
+$c2h         : #253967; //hover
+$c2a         : #272e39; //headers?
+//gray
+$c3          : #999999;
+$c4          : #666666;
+$c5          : #444444; //footer text
+$c6					 : #141415; //footer bg
+$c6a				 : #0c0c0c; //sub footer
+// Social colors
+$facebook    : #3b5999;
+$messenger   : #0084ff;
+$twitter     : #55acee;
+$linkedin    : #0077B5;
+$skype       : #00AFF0;
+$vimeo       : #1ab7ea;
+$tumblr      : #34465d;
+$google-plus : #dd4b39;
+$pinterest   : #bd081c;
+$youtube     : #cd201f;
+$soundcloud  : #ff3300;
+$whatsapp    : #25D366;
+$instagram   : #e4405f;
+$flickr      : #ff0084;
+$snapchat    : #FFFC00;
+$rss         : #f26522;
+//--
+a{@include transition(all .25s cubic-bezier(.17,.67,.83,.67));
+	&:hover{text-decoration:none;}
+}
+.list-inline{margin:0;}
+::selection {background: $c1;color:#ffffff;}
+::-moz-selection {background: $c1;color:#ffffff;}
+//--
+.btn{
+	&.btn-blue{font:300 20px $font-regular;padding:10px 20px;border:1px solid $c2h;background:$c2;color:#ffffff;display: table; margin: 0 auto;
+		@include borderRadius(0);
+		&:hover,&:focus,&.active{background:$c2h;}
+	}
+	&.btn-green{font:300 20px $font-regular;padding:10px 20px;border:1px solid $c1h;background:$c1;color:#ffffff;display: table; margin: 0 auto;
+		@include borderRadius(0);
+		&:hover,&:focus,&.active{background:$c1h;}
+	}
+}
+// .btn{
+// 	&.default{
+// 		@include button();
+// 	}
+// 	&.goTop{position:fixed;bottom:15px;right:15px;
+// 		@include button($font:400 25px $font-regular,$padding:10px);
+// 	}
+// 	&.submit{@include button($font:400 25px $font-regular,$mb:30px);width:100%;}
+//   &.double{@include button($font:400 14px $font-regular,$padding:13px 18px,$mt:15px,$mb:15px);width:48%;
+//     &.left{float:left;}
+//     &.right{float:right;}
+//   }
+// 	//btn hover/focus
+// 	@include transition(color .25s cubic-bezier(.17,.67,.83,.67),background-color .25s cubic-bezier(.17,.68,.83,.67));
+// 	&:focus,&:hover{outline: none;color:$c1h;background-color:$c1h;}
+// 	&:disabled{cursor:not-allowed;}
+// }
