@@ -26,11 +26,11 @@ new Vue({
             };
             tempCars = axios.post('services/api.php', {car: car})
                 .then((response) => {
-                console.log(response.data);
-            $('#new_car').modal('hide');
-            this.listCars();
-        })
-        .catch(function (error) {console.log(error); });
+                    console.log(response.data);
+                    $('#new_car').modal('hide');
+                    this.listCars();
+                })
+                .catch(function (error) {console.log(error); });
         },
 
         toggleEdit: function (id) {
@@ -45,8 +45,8 @@ new Vue({
                 tempCars = axios.put('services/api.php', {data:{id:id,car:car}})
                     .then((response) => {
                     console.log(response.data);
-                this.listCars();
-                this.toggleEdit(0);
+                    this.listCars();
+                    this.toggleEdit(0);
             })
             .catch(function (error) {console.log(error); });
             }
@@ -65,7 +65,7 @@ new Vue({
                 },
                 function () {
                     extraDelete(car.id);
-                });
+            });
             index = this.cars.indexOf(car);
             if(index > -1) {this.cars.splice(index,1);}
         },
@@ -100,8 +100,8 @@ function extraDelete($id) {
     tempCars = axios.delete('services/api.php', {data: {id:$id}})
         .then((response) => {
         console.log(response.data);
-    swal("Deletado! ", "Ninguém encontra mais esta carroça.", "success");
-    return response.data;
-})
-.catch(function (error) { return 'error';console.log(error); });
+        swal("Deletado! ", "Ninguém encontra mais esta carroça.", "success");
+        return response.data;
+    })
+    .catch(function (error) { return 'error';console.log(error); });
 }

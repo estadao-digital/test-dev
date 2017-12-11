@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="17dacf56-f8e7-49ce-8c46-f1484bfad2fb" name="mrbite" url="http://srv212.teste.website/~mrbite93/estadao">
+        <fileTransfer host="srv212.teste.website" port="21" rootFolder="/public_html/estadao">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

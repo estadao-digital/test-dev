@@ -1,0 +1,4 @@
+[07-Dec-2017 17:49:09 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[07-Dec-2017 18:02:29 America/Chicago] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[07-Dec-2017 18:18:17 America/Chicago] PHP Fatal error:  Cannot use object of type stdClass as array in /home/mrbite93/public_html/estadao/services/carro.class.php on line 18
+[07-Dec-2017 18:19:03 America/Chicago] PHP Fatal error:  Cannot use object of type stdClass as array in /home/mrbite93/public_html/estadao/services/carro.class.php on line 18

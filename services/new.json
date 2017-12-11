@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "marca": "Alfa Romeo",
+    "modelo": "A-464",
+    "ano": 2017
+  },
+  {
+    "id": 2,
+    "marca": "Audi",
+    "modelo": "A3",
+    "ano": 2017
+  },
+  {
+    "id": 3,
+    "marca": "Bmw",
+    "modelo": "X6 M3",
+    "ano": 2017
+  },
+  {
+    "id": 4,
+    "marca": "Chevrolet",
+    "modelo": "Camaro",
+    "ano": 2017
+  },
+  {
+    "id": 5,
+    "marca": "Chrystler",
+    "modelo": "300-M",
+    "ano": 2017
+  },
+  {
+    "id": 6,
+    "marca": "Dodge",
+    "modelo": "Ranger",
+    "ano": 2017
+  },
+  {
+    "id": 7,
+    "marca": "Ferrari",
+    "modelo": "TDF-12",
+    "ano": 2017
+  },
+  {
+    "id": 8,
+    "marca": "Fiat",
+    "modelo": "Toro",
+    "ano": 2017
+  },
+  {
+    "id": 9,
+    "marca": "Ford",
+    "modelo": "GT-40",
+    "ano": 2017
+  },
+  {
+    "id": 10,
+    "marca": "Honda",
+    "modelo": "Civic",
+    "ano": 2017
+  },
+  {
+    "id": 11,
+    "marca": "Hyundai",
+    "modelo": "i35",
+    "ano": 2017
+  },
+  {
+    "id": 12,
+    "marca": "Jaguar",
+    "modelo": "XJ",
+    "ano": 2017
+  },
+  {
+    "id": 13,
+    "marca": "Jeep",
+    "modelo": "Compass",
+    "ano": 2017
+  },
+  {
+    "id": 14,
+    "marca": "Kia",
+    "modelo": "Sorento",
+    "ano": 2017
+  },
+  {
+    "id": 15,
+    "marca": "Mazda",
+    "modelo": "MX-3",
+    "ano": 2017
+  },
+  {
+    "id": 16,
+    "marca": "Mercedez-Benz",
+    "modelo": "C380",
+    "ano": 2017
+  },
+  {
+    "id": 17,
+    "marca": "Mitsubishi",
+    "modelo": "Eclipse",
+    "ano": 2017
+  },
+  {
+    "id": 18,
+    "marca": "Nissan",
+    "modelo": "GTR-34",
+    "ano": 2017
+  },
+  {
+    "id": 19,
+    "marca": "Peugeot",
+    "modelo": "306",
+    "ano": 2017
+  },
+  {
+    "id": 20,
+    "marca": "Porsche",
+    "modelo": "Carrera GT",
+    "ano": 2017
+  },
+  {
+    "id": 21,
+    "marca": "Subaru",
+    "modelo": "Impreza",
+    "ano": 2017
+  },
+  {
+    "id": 22,
+    "marca": "Suzuki",
+    "modelo": "Vitara",
+    "ano": 2017
+  },
+  {
+    "id": 23,
+    "marca": "Toyota",
+    "modelo": "Hilux",
+    "ano": 2017
+  },
+  {
+    "id": 24,
+    "marca": "Volkswagen",
+    "modelo": "Jetta",
+    "ano": 2017
+  },
+  {
+    "id": "e8a21dfe-ee82-45a5-bc36-67d4e33f1e3f",
+    "marca": "Alfa Romeo",
+    "modelo": "A-464x",
+    "ano": 2017
+  }
+]

@@ -24,25 +24,25 @@
 <body>
 <div id="app">
     <div class="jumbotron jb">
-        <div class="container">
-            <div class="col-md-offset-1 col-md-10  col-lg-offset-1 col-lg-10">
-                <h1>GERENCIAMENTO DE FROTA</h1>
-            </div>
-            <div class="searchBar col-xs-12 col-sm-12 col-md-offset-1 col-md-10  col-lg-offset-1 col-lg-10" v-if="!onEditing">
-                <div class="col-md-12 col-lg-12">
-                    <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1">Filtrar</span>
-                        <input id="searchInput" v-model="filterText" type="text" class="form-control" placeholder="Marca ou modelo.. "
-                               aria-label="Marca" aria-describedby="basic-addon1">
-                        <span class="input-group-btn">
+            <div class="container">
+                <div class="col-md-offset-1 col-md-10  col-lg-offset-1 col-lg-10">
+                    <h1>GERENCIAMENTO DE FROTA</h1>
+                </div>
+                <div class="searchBar col-xs-12 col-sm-12 col-md-offset-1 col-md-10  col-lg-offset-1 col-lg-10" v-if="!onEditing">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">Filtrar</span>
+                            <input id="searchInput" v-model="filterText" type="text" class="form-control" placeholder="Marca ou modelo.. "
+                                   aria-label="Marca" aria-describedby="basic-addon1">
+                            <span class="input-group-btn">
                         <button class="btn" @click="filterText=''" title="Limpar filtro"><i class="fa fa-power-off" aria-hidden="true"></i></button></span>&nbsp;
-                        <button class="btn btn-success" @click="onAddCar"><i class="fa fa-plus"></i> Novo</button>&nbsp;
-                        <button class="btn btn-info" @click="listCars" title="Atualizar"><i class="fa fa-refresh"></i></button>
-                    </div>
+                            <button class="btn btn-success" @click="onAddCar"><i class="fa fa-plus"></i> Novo</button>&nbsp;
+                            <button class="btn btn-info" @click="listCars" title="Atualizar"><i class="fa fa-refresh"></i></button>
+                        </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
     <div class="container tiles" v-cloak>
         <div class="row">
