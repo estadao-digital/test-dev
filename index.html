@@ -1,25 +1,142 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Gerenciamento de Fronta</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+    <link rel="stylesheet" href="styles/main.css">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+            crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
-    <body>
+</head>
+<body>
+<div id="app">
+    <div class="jumbotron jb">
+        <div class="container">
+            <div class="col-md-offset-1 col-md-10  col-lg-offset-1 col-lg-10">
+                <h1>GERENCIAMENTO DE FROTA</h1>
+            </div>
+            <div class="searchBar col-xs-12 col-sm-12 col-md-offset-1 col-md-10  col-lg-offset-1 col-lg-10" v-if="!onEditing">
+                <div class="col-md-12 col-lg-12">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Filtrar</span>
+                        <input id="searchInput" v-model="filterText" type="text" class="form-control" placeholder="Marca ou modelo.. "
+                               aria-label="Marca" aria-describedby="basic-addon1">
+                        <span class="input-group-btn">
+                        <button class="btn" @click="filterText=''" title="Limpar filtro"><i class="fa fa-power-off" aria-hidden="true"></i></button></span>&nbsp;
+                        <button class="btn btn-success" @click="onAddCar"><i class="fa fa-plus"></i> Novo</button>&nbsp;
+                        <button class="btn btn-info" @click="listCars" title="Atualizar"><i class="fa fa-refresh"></i></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container tiles" v-cloak>
+        <div class="row">
+            <div v-if="!onEditing || nfEdit == car.id" :class="[clsCard, cardSize]" v-for="car in filteredCars">
+                <img class="card-img-top" src="assets/no-foto.gif" alt="car.modelo">
+                <div class="card-body">
+                    <transition name="fade">
+                        <div v-if="nfEdit == car.id">
+                            <form id="car.id">
+                                <div class="form-group">
+                                    <label for="marca">Marca</label>
+                                    <select class="form-control" v-model="car.marca" name="marca" id="marca">
+                                        <option value="">Selecione a marca...</option>
+                                        <option :value="brand.marca" v-for="brand in cars">{{ brand.marca }}</option>
+                                    </select>
+                                    <small id="Ajuda" class="form-text text-muted">Digita aqui a nova marca.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="modelo-selecionada">Modelo</label>
+                                    <input v-model="car.modelo" type="text" class="form-control" id="modelo-selecionada"
+                                           aria-describedby="Ajuda" placeholder="Digite o modelo">
+                                    <small id="Ajuda" class="form-text text-muted">Digita aqui a novo modelo.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ano-selecionada">Ano</label>
+                                    <input v-model="car.ano" type="text" class="form-control" id="ano-selecionada"
+                                           aria-describedby="Ajuda" placeholder="Digite o ano">
+                                    <small id="Ajuda" class="form-text text-muted">Digita aqui o ano do modelo.</small>
+                                </div>
+                            </form>
+                            <button class="btn btn-success btn-sm btn-block" @click="saveEdit(car.id, car)"> Concluir</button>
+                        </div>
+                        <div v-else>
+                            <h4 class="card-title">{{ car.marca }} {{ car.modelo }}</h4>
+                            <p class="card-text">PRODUZIDO EM {{ car.ano }}.</p>
+                            <hr>
+                            <div class="pull-right">
+                                <button @click="toggleEdit(car.id)" class="btn btn-primary btn-sm" title="Editar"><i class="fa fa-edit"></i></button>
+                                <button @click="onDeleteCar(car)" class="btn btn-danger btn-sm" title="Excluir"><i class="fa fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </transition>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="new_car" tabindex="-1" role="dialog" aria-labelledby="new_car" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Adicionar Veículo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="newCar.id">
+                            <div class="form-group">
+                                <label for="marca">Marca</label>
+                                <select class="form-control" v-model="newCar.marca" name="marca" id="marca">
+                                    <option value="">Selecione a marca...</option>
+                                    <option :value="brand.marca" v-for="brand in cars">{{ brand.marca }}</option>
+                                </select>
+                                <small id="Ajuda" class="form-text text-muted">Digita aqui a nova marca.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="modelo-selecionada">Modelo</label>
+                                <input v-model="newCar.modelo" type="text" class="form-control" id="modelo"
+                                       aria-describedby="Ajuda" placeholder="Digite o modelo">
+                                <small id="Ajuda" class="form-text text-muted">Digita aqui a novo modelo.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="ano-selecionada">Ano</label>
+                                <input v-model="newCar.ano" type="number" class="form-control" id="ano-selecionada"
+                                       aria-describedby="Ajuda" placeholder="Digite o ano">
+                                <small id="Ajuda" class="form-text text-muted">Digita aqui o ano do modelo.</small>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary btn-sm" @click="addCar(newCar)">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/disclaimer.js"></script>
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
-
-        <script src="js/main.js"></script>
-    </body>
+</body>
 </html>
