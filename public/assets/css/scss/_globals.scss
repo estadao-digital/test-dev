@@ -48,20 +48,3 @@ a{@include transition(all .25s cubic-bezier(.17,.67,.83,.67));
 		&:hover,&:focus,&.active{background:$c1h;}
 	}
 }
-// .btn{
-// 	&.default{
-// 		@include button();
-// 	}
-// 	&.goTop{position:fixed;bottom:15px;right:15px;
-// 		@include button($font:400 25px $font-regular,$padding:10px);
-// 	}
-// 	&.submit{@include button($font:400 25px $font-regular,$mb:30px);width:100%;}
-//   &.double{@include button($font:400 14px $font-regular,$padding:13px 18px,$mt:15px,$mb:15px);width:48%;
-//     &.left{float:left;}
-//     &.right{float:right;}
-//   }
-// 	//btn hover/focus
-// 	@include transition(color .25s cubic-bezier(.17,.67,.83,.67),background-color .25s cubic-bezier(.17,.68,.83,.67));
-// 	&:focus,&:hover{outline: none;color:$c1h;background-color:$c1h;}
-// 	&:disabled{cursor:not-allowed;}
-// }

@@ -12,7 +12,8 @@ $dropDown       : true;
     color: $colDefault;
     padding:0;
     &:hover, &:focus {
-      color: $colHighlight; }}
+      color: $colHighlight; }
+  }
   .navbar-text {
     color: $colDefault; }
   .navbar-nav {
@@ -151,4 +152,13 @@ $dropDown       : true;
       -webkit-box-shadow: none;
       box-shadow: none;
     }
+}
+@media (max-width: 575px) {
+  .navbar-brand h1{font-size:20px;}
+}
+@media (max-width: 575px) {
+  .navbar-brand h1{font-size:16px;}
+}
+@media (max-width: 320px) {
+  .navbar-brand h1{font-size:14px;}
 }
