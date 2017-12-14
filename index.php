@@ -20,11 +20,11 @@
     <div class="container">
         <div class="row">
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo right">DeividSantosR</a>
+                <a href="https://github.com/deividsantosr" class="brand-logo right" target="_blank">DeividSantosR</a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/deividsantosr" target="_blank">LiknedIn</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://github.com/deividsantosr" target="_blank">GitHub</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://bitbucket.org/deividsantosr/" target="_blank">BitBucket</a></li>
                 </ul>
             </div>
         </div>
@@ -36,15 +36,18 @@
 </div>
 <div class="section white">
     <div class="row container">
-        <h2 class="header">Parallax</h2>
-        <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
+        <h2 class="header">CRUD de Carros</h2>
+        <p class="grey-text text-darken-3 lighten-3">
+            Abaixo contém a listagem de carros, onde é possível gerenciar cada item pela interface responsiva criada com alguns conceitos do material design com o framework Materialize. Cada ação chama uma rota via
+            JavaScript na API REST contruída em PHP com com auxílio do micro-framework Lumen.
+        </p>
     </div>
 </div>
 
 
 <div class="card-container container">
     <div class="row">
-
+        <!-- Card items will be added here -->
     </div>
 </div>
 
@@ -52,24 +55,23 @@
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <h5 class="white-text">About Me</h5>
+                <p class="grey-text text-lighten-4">Para mais informações acesse minhas redes sociais ao lado</p>
             </div>
             <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
+                <h5 class="white-text">Social Networks</h5>
                 <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/deividsantosr" target="_blank">LiknedIn</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://github.com/deividsantosr" target="_blank">GitHub</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://bitbucket.org/deividsantosr/" target="_blank">BitBucket</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
         <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            © 2016 Copyright
+            <a class="grey-text text-lighten-4 right" href="https://github.com/deividsantosr" target="_blank">DeividSantosR</a>
         </div>
     </div>
 </footer>
@@ -86,21 +88,21 @@
             <div class="row">
                 <div class="input-field col s6">
                     <input id="id" name="id" type="hidden" value="1">
-                    <input placeholder="1181" id="model" name="model" type="text" class="validate">
+                    <input placeholder="1181" id="model" name="model" type="text" class="validate" maxlength="8">
                     <label for="model">Modelo</label>
                 </div>
                 <div class="input-field col s6">
-                    <input placeholder="BMW" id="brand" name="brand" type="text" class="validate">
+                    <input placeholder="BMW" id="brand" name="brand" type="text" class="validate" maxlength="8">
                     <label for="brand">Marca</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input placeholder="2011" id="year" name="year" type="text" class="validate">
+                    <input placeholder="2011" id="year" name="year" type="text" class="validate" maxlength="4">
                     <label for="year">Ano</label>
                 </div>
                 <div class="input-field col s6">
-                    <input placeholder="R$ 49.00,00" id="price" name="price" type="text" class="validate">
+                    <input placeholder="R$ 49.00,00" id="price" name="price" type="text" class="validate" maxlength="10">
                     <label for="price">Preço</label>
                 </div>
             </div>

@@ -13,7 +13,7 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::paginate(6);
+        $cars = Car::orderBy('id', 'desc')->paginate(6);
 
         return response()->json($cars);
     }

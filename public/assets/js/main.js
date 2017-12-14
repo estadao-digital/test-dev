@@ -105,6 +105,8 @@ HomePage.prototype.createCard = function (trigger, self) {
         },
         complete: function (response) {
             self.addCardItem(response.responseJSON);
+
+            Materialize.toast('Carro criado com sucesso', 4000);
         }
     });
 };
@@ -124,6 +126,8 @@ HomePage.prototype.updateCard = function (trigger, self) {
         },
         complete: function (response) {
             self.updateCardItem(response.responseJSON);
+
+            Materialize.toast('Carro atualizado com sucesso', 4000);
         }
     });
 };
@@ -136,6 +140,8 @@ HomePage.prototype.deleteCard = function (trigger, self) {
         url: self.apiURL + 'car/' + form.id.value,
         complete: function () {
             self.deleteCartItem(form.id.value);
+
+            Materialize.toast('Carro excluído com sucesso', 4000);
         }
     });
 };
