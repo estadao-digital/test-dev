@@ -11,12 +11,14 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+$router->group(['prefix' => 'api/v1'], function () use ($router) {
+    $router->get('car', 'CarController@index');
 
-$router->group(['prefix' => 'api/v1/'], function ($router) {
-    $router->get('car', function () {
-        echo 'asdsad';
-    });
+    $router->post('car', 'CarController@createCar');
+
+    $router->get('car/{id}', 'CarController@getCar');
+
+    $router->put('car/{id}', 'CarController@updateCar');
+
+    $router->delete('car/{id}', 'CarController@deleteCar');
 });
