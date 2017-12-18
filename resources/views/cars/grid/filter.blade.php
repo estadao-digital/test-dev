@@ -14,3 +14,4 @@
 <a href="javascript:sendFormDataGrid()" class="btn btn-primary margin-top-20px bg-success">Enviar</a>
 {!! Form::close() !!}
 <a href="javascript:toggleFormDataGrid()" class="btn btn-primary btn-xs" name="Filtros" style="margin:0 40%">< > Filtros</a>
+

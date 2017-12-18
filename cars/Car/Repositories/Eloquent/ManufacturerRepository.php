@@ -16,5 +16,9 @@ class ManufacturerRepository
     {
         return $this->fact->all();
     }
+    public function find( $identify )
+    {
+        return $this->fact->find( $identify );
+    }
 
 }

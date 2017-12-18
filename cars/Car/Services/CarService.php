@@ -66,5 +66,10 @@ class CarService
         $manu = new ManufacturerRepository( new \Cars\Car\Entities\Manufacturer() );
         return $manu->all();
     }
+    public function getManufacturerById( $identify )
+    {
+        $manu = new ManufacturerRepository( new \Cars\Car\Entities\Manufacturer() );
+        return $manu->find( $identify );
+    }
 
 }

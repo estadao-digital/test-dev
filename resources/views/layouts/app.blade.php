@@ -8,6 +8,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/commons.js') }}"></script>
     <script src="{{ asset('jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -39,7 +40,6 @@
         @yield('content')
     </div>
 
-    <!-- Scripts -->
   
 </body>
 </html>

@@ -1,6 +1,8 @@
 <?php
 
 Route::get('/',[ 'as' => 'main', 'uses' => '\Cars\ShowCase\Http\ShowCaseController@index' ]);    
+Route::get('/car/edit/{id}',[ 'as' => 'main', 'uses' => '\Cars\Admin\Http\CarController@editModal' ]);    
+Route::get('/car/create',[ 'as' => 'main', 'uses' => '\Cars\Admin\Http\CarController@createModal' ]);    
 
 
 Route::group(['prefix' => 'services'], function () {
@@ -13,5 +15,6 @@ Route::group(['prefix' => 'services'], function () {
             Route::put('/{id}',[ 'as' => 'update-car', 'uses' => '\Cars\Admin\Http\CarController@update' ]);     
             Route::delete('/{id}',[ 'as' => 'update-car', 'uses' => '\Cars\Admin\Http\CarController@remove' ]);     
         });
+        Route::get('/fabricante/{id}',[ 'as' => 'edit-car', 'uses' => '\Cars\Admin\Http\CarController@fabricanteById' ]);     
     });
 });

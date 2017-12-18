@@ -7,15 +7,47 @@ use Illuminate\Http\Request;
 
 use Cars\Car\Services\CarService;
 use Cars\Car\Exceptions\CarEditException;
+use App\Helpers\ArrayHelper;
 
 class CarController extends Controller
 {
     public function __construct()
     {
-
     }
 
+    public function createModal()
+    {
+        $service = new CarService();
+        $helper = new ArrayHelper();
+        return view( 'cars.admin.create', [ 
+                            'manufacturers' => $helper->generateKeySimpleValueByList( 'id', 
+                                                                                            'name' , 
+                                                                                            $service->getAllManufacturer() ,
+                                                                                            'Selecione')
+                            ] 
+                        );
+    }
+
+    public function fabricanteById( Request $request )
+    {
+        $service = new CarService();
+        return response()->json( $service->getManufacturerById( $request->id ) );
+    }
     
+    public function editModal( Request $request )
+    {
+        $service = new CarService();
+        $helper = new ArrayHelper();
+        return view( 'cars.admin.edit', [ 
+                            'car' => $service->edit( $request->id ),
+                            'manufacturers' => $helper->generateKeySimpleValueByList( 'id', 
+                                                                                            'name' , 
+                                                                                            $service->getAllManufacturer() ,
+                                                                                            'Selecione')
+                            ] 
+                        );
+    }
+
     public function findById( Request $request )
     {
         $service = new CarService();

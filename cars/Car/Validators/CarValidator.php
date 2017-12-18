@@ -57,6 +57,7 @@ class CarValidator{
                             'manufacturer_id.required'=>'Selecione um Fabricante',
                             'year.numeric'=>'O Campo Ano deve ser numérico',
                             'manufacturer_id.numeric'=>'O Campo Fabricante deve ser numérico',
+                            'image_location.required'=>'Preencha o campo Imagem',
                             ];
     }
 
