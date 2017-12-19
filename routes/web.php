@@ -1,9 +1,8 @@
 <?php
 
 Route::get('/',[ 'as' => 'main', 'uses' => '\Cars\ShowCase\Http\ShowCaseController@index' ]);    
-Route::get('/car/edit/{id}',[ 'as' => 'main', 'uses' => '\Cars\Admin\Http\CarController@editModal' ]);    
-Route::get('/car/create',[ 'as' => 'main', 'uses' => '\Cars\Admin\Http\CarController@createModal' ]);    
-
+Route::get('/car/edit/{id}',[ 'as' => 'edit-modal-car', 'uses' => '\Cars\Admin\Http\CarController@editModal' ]);    
+Route::get('/car/create',[ 'as' => 'create-modal-car', 'uses' => '\Cars\Admin\Http\CarController@createModal' ]);    
 
 Route::group(['prefix' => 'services'], function () {
     Route::group(['prefix' => 'v1'], function () {
