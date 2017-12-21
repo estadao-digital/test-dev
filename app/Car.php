@@ -4,10 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Car extends Model
 {
-    protected $table = 'car';
+    use SoftDeletes;
 
+    protected $table = 'car';
 
     /**
      * The attributes that are mass assignable.

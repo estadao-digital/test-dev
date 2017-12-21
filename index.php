@@ -22,7 +22,7 @@
             <div class="nav-wrapper">
                 <a href="https://github.com/deividsantosr" class="brand-logo right" target="_blank">DeividSantosR</a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/deividsantosr" target="_blank">LiknedIn</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/deividsantosr" target="_blank">LinkedIn</a></li>
                     <li><a class="grey-text text-lighten-3" href="https://github.com/deividsantosr" target="_blank">GitHub</a></li>
                     <li><a class="grey-text text-lighten-3" href="https://bitbucket.org/deividsantosr/" target="_blank">BitBucket</a></li>
                 </ul>
@@ -61,7 +61,7 @@
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Social Networks</h5>
                 <ul>
-                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/deividsantosr" target="_blank">LiknedIn</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/deividsantosr" target="_blank">LinkedIn</a></li>
                     <li><a class="grey-text text-lighten-3" href="https://github.com/deividsantosr" target="_blank">GitHub</a></li>
                     <li><a class="grey-text text-lighten-3" href="https://bitbucket.org/deividsantosr/" target="_blank">BitBucket</a></li>
                 </ul>
@@ -98,11 +98,11 @@
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input placeholder="2011" id="year" name="year" type="text" class="validate" maxlength="4">
+                    <input placeholder="2011" id="year" name="year" type="number" class="validate" maxlength="4">
                     <label for="year">Ano</label>
                 </div>
                 <div class="input-field col s6">
-                    <input placeholder="R$ 49.00,00" id="price" name="price" type="text" class="validate" maxlength="10">
+                    <input placeholder="10.00" id="price" name="price" type="number" class="validate" min="0" max="99999999" step="0.01">
                     <label for="price">Preço</label>
                 </div>
             </div>

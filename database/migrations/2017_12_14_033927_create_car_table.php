@@ -17,10 +17,11 @@ class CreateCarTable extends Migration
             $table->increments('id');
             $table->string('model', 100);
             $table->string('brand', 100);
-            $table->double('price');
+            $table->decimal('price');
             $table->string('year', 10);
             $table->string('image', 300);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -84,7 +84,7 @@ HomePage.prototype.loadCardItems = function () {
         dataType: 'json',
         complete: function (response) {
             response.responseJSON.data.forEach(function (card) {
-                self.addCardItem(card);
+                self.addCardItem(card, false);
             });
         }
     });
@@ -146,8 +146,15 @@ HomePage.prototype.deleteCard = function (trigger, self) {
     });
 };
 
-HomePage.prototype.addCardItem = function (cardData) {
-    $('.card-container .row').prepend(this.getCardItem(cardData));
+HomePage.prototype.addCardItem = function (cardData, prepend) {
+    prepend = (typeof prepend !== 'undefined') ? prepend : true;
+
+    if (prepend) {
+        $('.card-container .row').prepend(this.getCardItem(cardData));
+    }
+    else {
+        $('.card-container .row').append(this.getCardItem(cardData));
+    }
 };
 
 HomePage.prototype.updateCardItem = function (cardData) {
