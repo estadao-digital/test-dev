@@ -1,0 +1,42 @@
+[
+	{
+		"id":"1",
+		"nome": "Audi"
+	},
+	{
+		"id":"2",
+		"nome": "Bentley"
+	},
+	{
+		"id":"3",
+		"nome": "BMW"
+	},
+	{
+		"id":"4",
+		"nome": "GM/Chevrolet"
+	},
+	{
+		"id":"5",
+		"nome": "Chrysler"
+	},
+	{
+		"id":"6",
+		"nome": "Dodge"
+	},
+	{
+		"id":"7",
+		"nome": "Fiat"
+	},
+	{
+		"id":"8",
+		"nome": "Ford"
+	},
+	{
+		"id":"9",
+		"nome": "Volkswagen"
+	},
+	{
+		"id":"10",
+		"nome": "Outra..."
+	}
+]
