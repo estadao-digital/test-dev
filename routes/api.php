@@ -20,3 +20,6 @@ Route::put('/carros/{id}', 'API\CarsController@update');
 Route::delete('/carros/{id}', 'API\CarsController@destroy');
 
 
+Route::get('/marcas', 'API\ManufacturerController@index');
+
+

@@ -15,10 +15,12 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('marca');
-            $table->string('modelo');
-            $table->string('ano');
+            $table->integer('manufacturer_id')->unsigned();
+            $table->string('model');
+            $table->string('year');
             $table->timestamps();
+
+            $table->foreign('manufacturer_id')->references('id')->on('manufacturers');
         });
     }
 

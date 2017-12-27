@@ -1,14 +1,18 @@
 var cars = (function() {
     var obj = {};
-    var api = '/api/carros/';
+    var apiCarros = '/api/carros/',
+        apiMarcas = '/api/marcas/',
+        success  = ['#00af66', 'icon-check'],
+        error    = ['#F33f3', 'icon-power_settings_new'];
 
-    obj.error = function (Message, Title) {
+    obj.message  = function (Message, Title, Type) {
         $("#modal-alert").iziModal('destroy');
+
         $("#modal-alert").iziModal({
             title: Title,
             subtitle: Message,
-            icon: 'icon-power_settings_new',
-            headerColor:  '#F33f3',
+            icon: Type[1],
+            headerColor:  Type[0],
             width: 600,
             timeout: 5000,
             timeoutProgressbar: true,
@@ -16,24 +20,7 @@ var cars = (function() {
             transitionOut: 'fadeOutDown',
             pauseOnHover: true
         });
-        $("#modal-alert").iziModal('open');
-    };
 
-
-    obj.alertSuccess = function (Message, Title) {
-        $("#modal-alert").iziModal('destroy');
-        $("#modal-alert").iziModal({
-            title: Title,
-            subtitle: Message,
-            icon: 'icon-check',
-            headerColor:  '#00af66',
-            width: 600,
-            timeout: 5000,
-            timeoutProgressbar: true,
-            transitionIn: 'fadeInDown',
-            transitionOut: 'fadeOutDown',
-            pauseOnHover: true
-        });
         $("#modal-alert").iziModal('open');
     };
 
@@ -50,6 +37,22 @@ var cars = (function() {
 
         $('.modal-cadastro').on('click', function () {
             $('.modal-cadastrar input').val("");
+            var html = '';
+            $.ajax({
+                method: 'GET',
+                url: apiMarcas,
+                dataType: 'json',
+                success: function (r) {
+                    var response = r.content;
+                    for (i in response) {
+                        html += '<option value="' + response[i].id + '">';
+                        html += response[i].name;
+                        html += '</option>';
+                    }
+
+                    $('#marca').html(html);
+                }
+            });
             $("#modal-cadastro").iziModal('open');
         });
 
@@ -69,21 +72,39 @@ var cars = (function() {
 
         $(document).on('opening', '#modal-editar', function (e) {
 
+            var html = '';
+            $.ajax({
+                method: 'GET',
+                url: apiMarcas,
+                dataType: 'json',
+                success: function (r) {
+                    var response = r.content;
+                    for (i in response) {
+                        html += '<option value="' + response[i].id + '">';
+                        html += response[i].name;
+                        html += '</option>';
+                    }
+
+
+                    $('#modal-editar #marca').html(html);
+                }
+            });
+
             $.ajax({
                 method:'GET',
-                url: api + $(this).attr('data-id'),
+                url: apiCarros + $(this).attr('data-id'),
                 dataType: 'json',
                 success: function(r) {
                     var response = r.content;
                     if(response){
-                        $('.modal-alterar #marca').val(response.marca);
+                        $('.modal-alterar #marca option[value="' + response.marca + '"]').attr('selected', 'selected');
                         $('.modal-alterar #modelo').val(response.modelo);
                         $('.modal-alterar #ano').val(response.ano);
                     }
 
                 },
                 error: function(r) {
-                    obj.error('Oops, ocorreu um problema.', 'Desculpe, estamos trabalhando para resolver, tente novamente mais tarde.');
+                    obj.message('Oops, ocorreu um problema.', 'Desculpe, estamos trabalhando para resolver, tente novamente mais tarde.', error);
                 }
             });
 
@@ -105,7 +126,7 @@ var cars = (function() {
 
         $.ajax({
             method:'GET',
-            url: api,
+            url: apiCarros,
             dataType: 'json',
             success: function(r) {
                 var response = r.content;
@@ -136,9 +157,10 @@ var cars = (function() {
 
                 $('ul.carros').html(html);
 
+
             },
             error: function(r) {
-                obj.error('Oops, ocorreu um problema.', 'Desculpe, estamos trabalhando para resolver, tente novamente mais tarde.');
+                obj.message('Oops, ocorreu um problema.', 'Desculpe, estamos trabalhando para resolver, tente novamente mais tarde.', error);
             }
         });
     };
@@ -149,17 +171,17 @@ var cars = (function() {
             var $this = $(this);
             $.ajax({
                 method:'POST',
-                url: api,
+                url: apiCarros,
                 data: $('.modal-cadastrar').serialize(),
                 dataType: 'json',
                 success: function(r) {
                     if(r.content){
                         obj.list();
-                        obj.alertSuccess('Sucesso!', r.message);
+                        obj.message('Sucesso!', r.message, success);
                     }
                 },
                 error: function(r) {
-                    obj.error('Oops, ocorreu um problema.', 'Desculpe, estamos trabalhando para resolver, tente novamente mais tarde.');
+                    obj.message('Oops, ocorreu um problema.', 'Desculpe, estamos trabalhando para resolver, tente novamente mais tarde.', error);
                 }
             });
         });
@@ -172,17 +194,17 @@ var cars = (function() {
             var $this = $(this);
             $.ajax({
                 method:'PUT',
-                url: api + $('#modal-editar').attr('data-id'),
+                url: apiCarros + $('#modal-editar').attr('data-id'),
                 data: $('.modal-alterar').serialize(),
                 dataType: 'json',
                 success: function(r) {
                     if(r.content){
                         obj.list();
-                        obj.alertSuccess('Sucesso!', r.message);
+                        obj.message('Sucesso!', r.message, success);
                     }
                 },
                 error: function(r) {
-                    obj.error('Oops, ocorreu um problema.', 'Desculpe, estamos trabalhando para resolver, tente novamente mais tarde.');
+                    obj.message('Oops, ocorreu um problema.', 'Desculpe, estamos trabalhando para resolver, tente novamente mais tarde.', error);
                 }
             });
         });
@@ -195,18 +217,18 @@ var cars = (function() {
            var $this = $(this);
             $.ajax({
                 method:'DELETE',
-                url: api  + $this.attr('data-id'),
+                url: apiCarros  + $this.attr('data-id'),
                 dataType: 'json',
                 success: function(r) {
                     if(r.content){
                         $this.closest('li').remove();
-                        obj.alertSuccess('Sucesso.', 'Carro excluído com sucesso!');
+                        obj.message('Sucesso.', 'Carro excluído com sucesso!', success);
                     }else{
-                        obj.error('Oops, ocorreu um problema.', 'Desculpe, estamos trabalhando para resolver, tente novamente mais tarde.');
+                        obj.message('Oops, ocorreu um problema.', 'Desculpe, estamos trabalhando para resolver, tente novamente mais tarde.', error);
                     }
                 },
                 error: function(r) {
-                    obj.error('Oops, ocorreu um problema.', 'Desculpe, estamos trabalhando para resolver, tente novamente mais tarde.');
+                    obj.message('Oops, ocorreu um problema.', 'Desculpe, estamos trabalhando para resolver, tente novamente mais tarde.', error);
                 }
             });
         });

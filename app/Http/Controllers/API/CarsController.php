@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Http\Requests\CarsRequest;
 use App\Model\Car;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,7 +25,11 @@ class CarsController extends Controller
      */
     public function index()
     {
-        $cars    = $this->model->all();
+        $cars    = $this->model->query()
+            ->leftJoin('manufacturers as mn', 'mn.id', 'cars.manufacturer_id')
+            ->select(['cars.id','model as modelo', 'year as ano', 'mn.name as marca' ])
+            ->orderBy('cars.id', 'desc')
+            ->get();
 
         if(!$cars) {
             return response()->json([
@@ -42,18 +47,18 @@ class CarsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CarsRequest $request)
     {
-        $data = $request->all();
 
 
-        try{
-            $cars   = $this->model;
-            $cars->fill($data);
-            $cars->save();
-        }catch (\Exception $e){
-            return response()->json(['content' => '', 'message'=>'Erro ao cadastrar imóvel.']);
-        }
+        $cars   = $this->model;
+
+         $cars->create([
+            'manufacturer_id'     => $request['marca'],
+            'model'               => $request['modelo'],
+            'year'                => $request['ano'],
+         ]);
+
 
         return response()->json(['content' => $cars, 'message'=>'Cadastrado com sucesso!']);
     }
@@ -66,7 +71,11 @@ class CarsController extends Controller
      */
     public function show($id)
     {
-        $cars    = $this->model->where('id', $id)->first();
+        $cars    = $this->model->query()
+            ->leftJoin('manufacturers as mn', 'mn.id', 'cars.manufacturer_id')
+            ->select(['cars.id','model as modelo', 'year as ano', 'mn.id as marca' ])
+            ->where('cars.id', $id)->first();
+
 
         if(!$cars) {
             return response()->json([
@@ -85,7 +94,7 @@ class CarsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CarsRequest $request, $id)
     {
         $cars    = $this->model->where('id', $id)->first();
 
@@ -96,8 +105,12 @@ class CarsController extends Controller
             ], 404);
         }
 
-        $cars->fill($request->all());
-        $cars->save();
+        $cars->update([
+            'manufacturer_id'     => $request['marca'],
+            'model'               => $request['modelo'],
+            'year'                => $request['ano'],
+        ]);
+
         return response()->json(['content' => $cars, 'message'=>'Alterado com sucesso!'], 201);
     }
 

@@ -1,40 +1,61 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Informações
+Tecnologias Utilizadas:
+- Laravel 5.4
+- Eloquent
+- MySQL
+- Bootstrap
+- Izimodal
+- Gulp
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+## Como instalar?
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Após clonar o projeto em seu ambiente, siga os seguintes passos:
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+Utilize o composer  
+<pre>
+composer install
+</pre>
 
-## Learning Laravel
+<p>Altere o arquivo .env do seu projeto, mudando as configuraçoes em negrito de acordo com seu banco de dados</p>
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+<pre>
+    DB_CONNECTION=mysql
+     DB_HOST=<b>host</b>
+     DB_PORT=3306
+     DB_DATABASE=<b>database</b>
+     DB_USERNAME=<b>usersname</b>
+     DB_PASSWORD=<b>password</b>
+     </pre>
 
-## Contributing
+Após isso, rode o migrate
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+<pre>
+php artisan migrate
+</pre>
 
-## Security Vulnerabilities
+e Rode seu projeto
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+<pre>
+php artisan serve
+</pre>
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+## Testes API
+
+via Postman
+<pre>
+
+<a href=https://documenter.getpostman.com/collection/view/3434102-2599c12a-393a-d1f3-ce74-e456c1619500">https://documenter.getpostman.com/collection/view/3434102-2599c12a-393a-d1f3-ce74-e456c1619500</a>
+
+</pre>
+
+
+
+## Comentários sobre o projeto
+
+Olá, pelo escopo apresentado fiquei com algumas dúvidas referentes ao projeto teste, por exemplo sobre a possiblidade de utilização de banco de dados, a criação da API em um projeto separado, o select do tipo 'marca' entre outros.
+Finalizei da forma que eu enxergo que é solicitado no teste. Gostaria de me apresentar e bater um papo com a equipe, obrigado desde já. 

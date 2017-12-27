@@ -24,9 +24,10 @@ gulp.task('minify-core', function(cb) {
         gulp.src([
             './resources/assets/js/jquery-3.2.1.min.js',
             './resources/assets/js/bootstrap.js',
+            './resources/assets/js/lib/*.js',
         ]),
         concat('core.js'),
-        //uglify(),
+        uglify(),
         rename({suffix: '.min'}),
         gulp.dest('./public/js')
     ],cb);
@@ -36,10 +37,10 @@ gulp.task('minify-components', function(cb) {
     pump([
         gulp.src([
             './resources/assets/js/components/*.js',
-            './resources/assets/js/lib/*.js',
+
         ]),
         concat('components.js'),
-        //uglify(),
+        uglify(),
         rename({suffix: '.min'}),
         gulp.dest('./public/js')
     ],cb);

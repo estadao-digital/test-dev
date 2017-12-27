@@ -1,24 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>{{ config('app.name') }}</title>
-
     <!-- Core -->
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
-    <!-- Plugin CSS -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-
-    <!-- Custom styles for this template -->
-
 </head>
 
 <body id="page-top">
@@ -68,6 +59,7 @@
     <p>Apresento o projeto desenvolvido em laravel para o Estadão, utilizando:</p>
     <ul>
         <li>Laravel 5.4</li>
+        <li>Eloquent</li>
         <li>MySQL</li>
         <li>Bootstrap</li>
         <li>Gulp</li>
@@ -88,26 +80,28 @@
             <div class="control-group">
                 <label class="control-label"  for="username">Marca</label>
                 <div class="controls">
-                    <input type="text" id="marca" name="marca" placeholder="" class="form-control">
+                    <select id="marca" name="marca" class="form-control">
+
+                    </select>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="email">Modelo</label>
                 <div class="controls" class="form-control">
-                    <input type="text" id="modelo" name="modelo" placeholder="" class="form-control">
+                    <input type="text" id="modelo" name="modelo" placeholder="" class="form-control" required>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="password">Ano</label>
                 <div class="controls" >
-                    <input type="text" id="ano" name="ano" placeholder="" class="form-control">
+                    <input type="text" id="ano" name="ano" placeholder="" class="form-control" required>
                 </div>
             </div>
 
 
-            <div class="control-group pull-right">
+            <div class="control-group pull-right" style="padding-top: 10px">
                 <div class="controls">
                     <button class="btn btn-success">Cadastrar</button>
                 </div>
@@ -125,26 +119,28 @@
                 <div class="control-group">
                     <label class="control-label"  for="username">Marca</label>
                     <div class="controls">
-                        <input type="text" id="marca" name="marca" placeholder="" value="" class="form-control">
+                        <select id="marca" name="marca" class="form-control">
+
+                        </select>
                     </div>
                 </div>
 
                 <div class="control-group">
                     <label class="control-label" for="email">Modelo</label>
                     <div class="controls" class="form-control">
-                        <input type="text" id="modelo" name="modelo" placeholder="" value="" class="form-control">
+                        <input type="text" id="modelo" name="modelo" placeholder="" value="" class="form-control" required>
                     </div>
                 </div>
 
                 <div class="control-group">
                     <label class="control-label" for="password">Ano</label>
                     <div class="controls" >
-                        <input type="text" id="ano" name="ano" placeholder=""  value="" class="form-control">
+                        <input type="text" id="ano" name="ano" placeholder=""  value="" class="form-control" required>
                     </div>
                 </div>
 
 
-                <div class="control-group pull-right">
+                <div class="control-group pull-right" style="padding-top: 10px">
                     <div class="controls">
                         <button class="btn btn-success" >Salvar</button>
                     </div>
@@ -154,26 +150,10 @@
     </div>
 </div>
 
-
-
-
-
 <!-- Bootstrap core JavaScript -->
 <script src="{{ asset('js/core.min.js') }}"></script>
-
 <!-- Plugin JavaScript -->
 <script src="{{ asset('js/components.min.js') }}"></script>
-<script src="https://blackrockdigital.github.io/startbootstrap-creative/vendor/scrollreveal/scrollreveal.min.js"></script>
-
-<script src="{{ asset('js/cars.js') }}"></script>
-
-<script>
-
-
-
-</script>
-
-
 </body>
 
 </html>
