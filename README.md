@@ -18,6 +18,12 @@ Utilize o composer
 composer install
 </pre>
 
+Depos:
+<pre>
+php artisan key:generate
+</pre>
+
+
 <p>Altere o arquivo .env do seu projeto, mudando as configuraçoes em negrito de acordo com seu banco de dados</p>
 
 
@@ -35,6 +41,11 @@ Após isso, rode o migrate
 <pre>
 php artisan migrate
 </pre>
+
+Popule a tabela
+<p>
+php artisan db:seed
+</p>
 
 e Rode seu projeto
 
@@ -57,5 +68,14 @@ via Postman
 
 ## Comentários sobre o projeto
 
-Olá, pelo escopo apresentado fiquei com algumas dúvidas referentes ao projeto teste, por exemplo sobre a possiblidade de utilização de banco de dados, a criação da API em um projeto separado, o select do tipo 'marca' entre outros.
-Finalizei da forma que eu enxergo que é solicitado no teste. Gostaria de me apresentar e bater um papo com a equipe, obrigado desde já. 
+Prezados, 
+
+Pelo escopo apresentado fiquei com algumas dúvidas referentes ao projeto teste, como por exemplo sobre a possiblidade de utilização de banco de dados, a criação da API em um projeto separado, o select do tipo 'marca' e outros. 
+
+Finalizei da forma que eu enxergo que é solicitado no teste. 
+
+Gostaria de me apresentar e bater um papo com a equipe. 
+
+Desde já agradeço. 
+
+No mais estou à disposição!

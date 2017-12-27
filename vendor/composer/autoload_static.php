@@ -279,8 +279,9 @@ class ComposerStaticInit5907193f6ac3615907ba549438c97d7c
     public static $classMap = array (
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
+        'CarsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CarsTableSeeder.php',
         'CreateCarsTable' => __DIR__ . '/../..' . '/database/migrations/2017_12_27_123758_create_cars_table.php',
-        'CreateTableManufacturer' => __DIR__ . '/../..',
+        'CreateTableManufacturer' => __DIR__ . '/../..' . '/database/migrations/2017_12_26_194021_create_table_manufacturer.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'DivisionByZeroError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php',
         'Error' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/Error.php',
@@ -355,6 +356,7 @@ class ComposerStaticInit5907193f6ac3615907ba549438c97d7c
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'ManufacturerTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ManufacturerTableSeeder.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/AssertionFailedError.php',
         'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
