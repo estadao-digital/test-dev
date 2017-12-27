@@ -32,7 +32,7 @@ class Carros_Controller {
 				}
 			}
 
-			$lista .= '<tr data-item="'.$carro['id'].'"><td data-edit="false">'.$carro['id'].'</td><td data-edit="modelo">'.$carro['modelo'].'</td><td data-edit="ano">'.$carro['ano'].'</td><td data-edit="marca" data-select="'.$carro['marca'].'">'.$nomeMarca.'</td><td><button type="button" onclick="editarItem('.$carro['id'].')" class="button button-3d button-blue button-mini" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td></tr>';
+			$lista .= '<tr data-item="'.$carro['id'].'" data-listado="true"><td data-edit="false">'.$carro['id'].'</td><td data-edit="modelo">'.$carro['modelo'].'</td><td data-edit="ano">'.$carro['ano'].'</td><td data-edit="marca" data-select="'.$carro['marca'].'">'.$nomeMarca.'</td><td><button type="button" onclick="editarItem('.$carro['id'].')" class="button button-3d button-blue button-mini" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td></tr>';
 
 		}
 		$dados['lista_carros'] = $lista;
@@ -89,7 +89,7 @@ class Carros_Controller {
 					$nomeMarca = $marca['nome'];
 				}
 			}
-			$lista .= '<tr data-item="'.$carro['id'].'"><td data-edit="false">'.$carro['id'].'</td><td data-edit="modelo">'.$carro['modelo'].'</td><td data-edit="ano">'.$carro['ano'].'</td><td data-edit="marca" data-select="'.$carro['marca'].'">'.$nomeMarca.'</td><td><button type="button" onclick="editarItem('.$carro['id'].')" class="button button-3d button-blue button-mini" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td></tr>';
+			$lista .= '<tr data-item="'.$carro['id'].'" data-listado="true"><td data-edit="false">'.$carro['id'].'</td><td data-edit="modelo">'.$carro['modelo'].'</td><td data-edit="ano">'.$carro['ano'].'</td><td data-edit="marca" data-select="'.$carro['marca'].'">'.$nomeMarca.'</td><td><button type="button" onclick="editarItem('.$carro['id'].')" class="button button-3d button-blue button-mini" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td></tr>';
 		}
 		
 		return $lista;
