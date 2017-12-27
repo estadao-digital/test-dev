@@ -1,0 +1,159 @@
+body{
+    background: #efefef;
+    font-family: 'Roboto', sans-serif;
+}
+
+.background-dark{
+    background: #363636;
+}
+
+
+.background-green{
+    background: #79C2AA;
+}
+
+.text-red{
+    background: #E85E4A;
+}
+
+.text-blue{
+    background: #608096;
+}
+
+.block{
+    display: block;
+}
+
+
+.btn{
+    border-radius: 0 !important;
+    font-size: 12px;
+}
+/*
+Grid
+*/
+
+
+.carros {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.carros-item {
+    display: block;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 2px;
+    background: white;
+    box-shadow: 0 2px 1px rgba(170, 170, 170, 0.25);
+}
+
+.carros-name {
+    font-weight: 400;
+}
+
+
+.stage {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    padding: 0;
+    color: black;
+    line-height: 16px;
+}
+
+.grid .grid-only {
+    display: auto;
+}
+.grid .list-only {
+    display: none !important;
+}
+
+.grid .carros-item {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    height: 200px;
+    width: 250px;
+    margin: 10px;
+}
+@media screen and (max-width: 600px) {
+    .grid .carros-item {
+        display: block;
+        width: auto;
+        height: 210px !important;
+        margin: 10px auto;
+    }
+}
+.grid .thumb{
+    height: 100px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    background: url('../img/carros.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 30px;
+}
+.grid .carros-modelo {
+    display: block;
+    max-width: 80%;
+    font-size: 16px;
+    line-height: 20px;
+}
+.grid .carros-marca {
+    font-size: 11px;
+    line-height: 16px;
+    text-transform: uppercase;
+}
+.grid .carros-ano {
+    font-size: 11px;
+    line-height: 16px;
+    text-transform: uppercase;
+}
+.grid .carros-marca,
+.grid .carros-ano {
+    color: #A1A1A4;
+}
+
+
+.grid .carros-stage {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.grid .carros-stage .stage {
+    display: none;
+}
+.grid .carros-stage .active {
+    display: block;
+}
+
+
+.banner{
+    height: 120px;
+    text-align: center;
+    color: #fff;
+}
+
+.banner h2{
+    padding: 40px;
+}
+
+/* Footer */
+
+.footer{
+    padding-top: 40px;
+    height: 120px;
+    text-align: center;
+    color: #fff;
+}
+
+.footer a, .footer a:active, .footer a:hover{
+    color: #fff;
+    margin-right: 10px;
+}
+
