@@ -51,7 +51,8 @@
 		{
 			$default = explode('/', $rota['default']);
 			$controller = new $default[0]();
-			echo $controller->$default[1]();
+			$function = $default[1];
+			echo $controller->$function();
 		}
 		else
 		{
@@ -63,7 +64,8 @@
 			{
 				$redirect = explode('/', $rota[$url_current]);
 				$controller = new $redirect[0]();
-				echo $controller->$redirect[1]();
+				$function = $redirect[1];
+				echo $controller->$function();
 			}
 			else
 			{
@@ -99,7 +101,8 @@
 									
 									$redirect = explode('/', $rota[$url_set]);
 									$controller = new $redirect[0]();
-									echo $controller->$redirect[1]();
+									$function = new $redirect[0];
+									echo $controller->$function();
 								}								
 							}
 							else if($keyi[$i] == $uri[$i])
