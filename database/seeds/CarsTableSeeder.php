@@ -12,8 +12,6 @@ class CarsTableSeeder extends Seeder
     public function run()
     {
         $modelos    = ['A1', '145', '118i', 'Fusion', 'RX 350', 'C30', 'Golf GTI', 'Corola', 'Creta'];
-
-
         foreach ($modelos as $key=>$model){
             DB::table('cars')->insert([
                 'manufacturer_id' => $key+1,
