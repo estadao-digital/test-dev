@@ -5,7 +5,7 @@
 	
 	function editarItem(item){
 		if(novoAtivo == true){
-			$('table.clean tr:last').remove();
+			$('table.clean tr:last').not('tr[data-listado="true"]').remove();
 			$('button[onclick="montarNovoTr()"]').removeClass('hide-left');
 		}
 		el = $('tr[data-item="'+item+'"]');
