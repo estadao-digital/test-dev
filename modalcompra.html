@@ -1,0 +1,56 @@
+<div class="lightbox-blanket">
+    <div class="pop-up-container">
+        <div class="pop-up-container-vertical">
+            <div class="pop-up-wrapper">
+                <div class="go-back" onclick="GoBack();"><i class="fa fa-arrow-left"></i>
+                </div>
+                <div class="product-details">
+                    <div class="product-left">
+                        <div class="product-info">
+                            <div class="product-manufacturer product-marca" data-marcacode="{marcacode}">{marca}
+                            </div>
+                            <div class="product-title">
+                                {model}
+                            </div>
+                            <div class="product-price" item-data="{year}">
+                                {year}
+                            </div>
+                        </div>
+                        <div class="product-image">
+                            <img src="{img}"/>
+                        </div>
+                    </div>
+                    <div class="product-right">
+                        <div class="product-description">
+                            Valor: "{valor}"<br/>
+                            Marca: "{marca}"<br/>
+                            Modelo: "{model}"<br/>
+                            AnoModelo: {year}<br/>
+                            Combustivel: "{fuel}"<br/>
+                            CodigoFipe: "{fipeCode}"<br/>
+                            MesReferencia: "{refmes}"<br/>
+                            TipoVeiculo: {type}<br/>
+                            SiglaCombustivel: "{fuelCode}"
+                        </div>
+                        <div class="product-available">
+                            Informações obtidas pela Tabela Fipe - Fundação Instituto de Pesquisas Econômicas<br>
+                            Foto obtida por crawler de pesquisa no Google<br>
+                            Codigo das informações da fipe e da imagem no arquivo <b>extra.php<b/>
+                        </div>
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-checkout">
+                            Valor medio
+                            <div class="product-checkout-total">
+                                <i class="fa fa-usd"></i>
+                                <div class="product-checkout-total-amount">
+                                    {valor}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
