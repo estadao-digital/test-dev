@@ -10,15 +10,108 @@ $(document).ready(function () {
     $.get("compra.html", function (data) {
         $('#content').html(data);
         loadCars();
+        loadModal();
     }).fail(function () {
         alert("erro ao carregar atualize a pagina");
     })
 });
 
+function loadModal() {
+    $.get("modal.html", function (data) {
+        /*Coloco o modal junto com o conteudo*/
+        $('#content').append(data);
+        /* Pego todas as marcas existentes */
+        var marcas = JSON.parse(GetMarcaCode());
+        /* Transformo esse objeto em um select*/
+        var selectMarca = objTOSelect(marcas);
+        /*Coloco o select dentro da div*/
+        $('#select-beast').append(selectMarca);
+        /*Inicio o plugin do select para a marca*/
+        $('#select-beast').selectize();
+        /*Incio o plugin do select para o modelo */
+        $('#select-Model').selectize();
+        /*Incio o plugin do select para o ano*/
+        $('#select-year').selectize();
+
+        /*Quando o select da marca muda atualizamos o select*/
+        $('#select-beast').change(function () {
+            /*Pego a marca e coloco como uma variavel*/
+            var marca = $(this).val();
+            /*Pego todas os modelos apartir da marca que foi selecionada*/
+            var models = JSON.parse(GetModelCode(marca, ''));
+            /*transforo esse objeto em um select*/
+            var selectModel = objTOSelect(models.modelos)
+            /*Limpo a div do modelo */
+            $('#modelgroup').html('')
+            /*Faco o update da div no local correto com as informacoes dinamicas*/
+            updatamodal($('#modelgroup'), 'select-Model', 'Modelo', 'Selecione uma marca antes', 'Selecione um modelo...');
+            /*coloco as opcoes obtidas*/
+            $('#select-Model').append(selectModel);
+            /*Incio o plugin do select para o modelo*/
+            $('#select-Model').selectize();
+            /*Quando o select do modelo muda atualizamos o select*/
+            $('#select-Model').change(function () {
+                /*Pego a modelo e coloco como uma variavel*/
+                var model = $(this).val();
+                /*transforo esse objeto em um select*/
+                var selectyears = objTOSelect(models.anos)
+                console.log(models.anos);
+                /*Limpo a div do ano */
+                $('#yeargroup').html('')
+                /*Faco o update da div no local correto com as informacoes dinamicas*/
+                updatamodal($('#yeargroup'), 'select-year', 'Ano', 'Selecione um modelo antes', 'Selecione um ano...');
+                /*coloco as opcoes obtidas*/
+                $('#select-year').append(selectyears);
+                /*Incio o plugin do select para o ano*/
+                $('#select-year').selectize({
+                    delimiter: ',',
+                    persist: false,
+                    create: function (input) {
+                        return {
+                            value: input,
+                            text: input
+                        }
+                    }
+                });
+            })
+        })
+        /***** Quando tudo foi feito vamos salvar esses dados*/
+        $('#saveImage').click(function () {
+            $.post("/api/carros", {
+                'Marca': $('#select-beast').text(),
+                'Modelo': $('#select-Model').text(),
+                'Ano': $('#select-year').val()
+            }, function (result) {
+                alert('salvo id: ' + result);
+                loadCars();
+            });
+        })
+    })
+
+}
+
+function updatamodal(div, id, title, placeholder, first) {
+    var html = '<label for="' + id + '">' + title + '</label>\n' +
+        '<select id="' + id + '" placeholder="' + placeholder + '">\n' +
+        '<option value="">' + first + '</option>\n' +
+        '</select>';
+    div.html(html)
+}
+
+function objTOSelect(obj) {
+    var select = ''
+
+    $.each(obj, function (index, value) {
+        select = select + '<option value="' + value.codigo + '">' + value.nome + '</option>';
+    })
+    return select;
+}
+
 /* A funcao abaixo eu pego todos os carros ja cadastrados e exibo eles na pagina de compra*/
 function loadCars() {
     /* Aqui busco na api de carros todos os carros */
     $.getJSON("/api/carros", function (data) {
+        $('.itemlist').html('');
         var item = '<!--- Lista dinamica --->';
         /* Como a resposta esta em um json faco um each para pegar cada uma*/
         $.each(data, function (index, value) {
@@ -33,10 +126,8 @@ function loadCars() {
                 thisitem = thisitem.replace(new RegExp('{id}', 'g'), index);
                 /*EXTRA eu insiro a imagem obtida pelo Crawler veja a funcao GetCarImg*/
                 thisitem = thisitem.replace(new RegExp('{img}', 'g'), GetCarImg(value.carros.Marca + '+' + value.carros.Modelo + '+' + value.carros.Ano));
-
                 $('.itemlist').append(thisitem)
             })
-            //thisitem = thisitem.replace('{id}', value.carros.id)
         });
 
     });
@@ -94,7 +185,7 @@ function GetModelCode(marcaCode, model) {
 function GetYearCode(marcaCode, model) {
     /*Funcao para obter todos os anos apartir do que for enviado*/
     var result = null;
-    var scriptUrl = "/api/extra.php?marca=" + marcaCode + '&model=' + model + "&year";
+    var scriptUrl = "/api/extra.php?marca=" + marcaCode + '&model=' + model + "&ano";
     $.ajax({
         url: scriptUrl,
         type: 'get',
@@ -110,7 +201,7 @@ function GetYearCode(marcaCode, model) {
 function GetCarDetails(marcaCode, model, year) {
     /*Funcao para obter todos os dados do carro*/
     var result = null;
-    var scriptUrl = "/api/extra.php?marca=" + marcaCode + '&model=' + model + "&year=" + year;
+    var scriptUrl = "/api/extra.php?marca=" + marcaCode + '&model=' + model + "&ano=" + year;
     $.ajax({
         url: scriptUrl,
         type: 'get',
@@ -128,19 +219,29 @@ function GetCarDetails(marcaCode, model, year) {
 /* Abro os produtto que foi clicado*/
 function OpenProduct(i) {
     var thisdiv = '.product-id-' + i;
-    var marca = $('.product-marca-model').data('marca');
+    var marca = $('.product-id-' + i + ' .product-marca-model').data('marca');
     var marcaCode = GetMarcaCode(marca)
-    var model = $('.product-marca-model').data('model');
-    var year = $('.product-year').data('year');
+    var model = $('.product-id-' + i + ' .product-marca-model').data('model');
+    var year = $('.product-id-' + i + ' .product-year').data('year');
     var id = i;
-    var img = $('.product-image').data('img');
+    var img = $('.product-id-' + i + ' .product-image').data('img');
     fillmodal(marca, marcaCode, model, year, id, img)
 }
 
 /*Preencho o modal com os dados do carro*/
 function fillmodal(marca, marcaCode, model, year, id, img) {
     $.get("modalcompra.html", function (data) {
+        var ad = GetCarDetails(marcaCode, GetModelCode(marcaCode, model), year);
+        console.log(ad);
+        var details = JSON.parse(ad);
+
         data = data.replace(new RegExp('{marca}', 'g'), marca);
+        data = data.replace(new RegExp('{valor}', 'g'), details.Valor);
+        data = data.replace(new RegExp('{fuel}', 'g'), details.Combustivel);
+        data = data.replace(new RegExp('{fipeCode}', 'g'), details.CodigoFipe);
+        data = data.replace(new RegExp('{refmes}', 'g'), details.MesReferencia);
+        data = data.replace(new RegExp('{type}', 'g'), details.TipoVeiculo);
+        data = data.replace(new RegExp('{fuelCode}', 'g'), details.SiglaCombustivel);
         data = data.replace(new RegExp('{marcacode}', 'g'), marcaCode);
         data = data.replace(new RegExp('{model}', 'g'), model);
         data = data.replace(new RegExp('{year}', 'g'), year);

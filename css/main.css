@@ -368,3 +368,11 @@ i.fa-star.rating {
 .modal-footer .btn-group:last-child > button {
     border-right: 0;
 }
+.modal-header .close{
+    position: absolute;
+    right: 10px;
+    top: 1px;
+}
+.modal-header .close span{
+    font-size: 30px;
+}
