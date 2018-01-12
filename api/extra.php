@@ -61,7 +61,6 @@ if (isset($_GET['img'])) {
     $apiurl = 'https://fipe.parallelum.com.br/api/v1/carros/marcas/' . $_GET['marca'] . '/modelos/' . $_GET['model'] . '/anos'; #url para obter todos os anos dessa marca e modelo
     $anos = json_decode(file_get_contents($apiurl), true); #transformo o json obtido em array
     echo json_encode($anos, JSON_PRETTY_PRINT);  #Mostro os anos do modelo obitidos
-    echo 'asda';
     /*aqui obtenho todos os dados dos carro apartir do modelo da marca e do ano*/
 } elseif (isset($_GET['ano']) && is_numeric($_GET['model']) && is_numeric($_GET['marca']) && !empty($_GET['ano'])) {
     $apiurl = 'https://fipe.parallelum.com.br/api/v1/carros/marcas/' . $_GET['marca'] . '/modelos/' . $_GET['model'] . '/anos/' . $_GET['ano'];#url para obter todos os dados do carro dessa marca e modelo e ano

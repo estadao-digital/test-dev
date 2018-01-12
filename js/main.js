@@ -77,34 +77,37 @@ function loadModal() {
         })
         /***** Quando tudo foi feito vamos salvar esses dados*/
         $('#saveImage').click(function () {
-            $.post("/api/carros", {
-                'Marca': $('#select-beast').text(),
-                'Modelo': $('#select-Model').text(),
-                'Ano': $('#select-year').val()
-            }, function (result) {
-                alert('salvo id: ' + result);
-                loadCars();
-            });
+            if (sessionStorage.getItem('edit')) {
+                alert(sessionStorage.getItem('edit'));
+                $.ajax({
+                    url: '/api/carros/' + sessionStorage.getItem('edit'),
+                    type: 'PUT',
+                    dataType: 'json',
+                    data: {
+                        'Marca': $('#select-beast').text(),
+                        'Modelo': $('#select-Model').text(),
+                        'Ano': $('#select-year').val()
+                    },
+                    success: function (result) {
+                        alert('carro editado com sucesso');
+                        sessionStorage.removeItem('edit')
+                        loadCars();
+                    }
+
+                });
+            } else {
+                $.post("/api/carros", {
+                    'Marca': $('#select-beast').text(),
+                    'Modelo': $('#select-Model').text(),
+                    'Ano': $('#select-year').val()
+                }, function (result) {
+                    alert('carro criado com sucesso');
+                    loadCars();
+                });
+            }
         })
     })
 
-}
-
-function updatamodal(div, id, title, placeholder, first) {
-    var html = '<label for="' + id + '">' + title + '</label>\n' +
-        '<select id="' + id + '" placeholder="' + placeholder + '">\n' +
-        '<option value="">' + first + '</option>\n' +
-        '</select>';
-    div.html(html)
-}
-
-function objTOSelect(obj) {
-    var select = ''
-
-    $.each(obj, function (index, value) {
-        select = select + '<option value="' + value.codigo + '">' + value.nome + '</option>';
-    })
-    return select;
 }
 
 /* A funcao abaixo eu pego todos os carros ja cadastrados e exibo eles na pagina de compra*/
@@ -129,9 +132,27 @@ function loadCars() {
                 $('.itemlist').append(thisitem)
             })
         });
-
     });
 }
+
+
+function updatamodal(div, id, title, placeholder, first) {
+    var html = '<label for="' + id + '">' + title + '</label>\n' +
+        '<select id="' + id + '" placeholder="' + placeholder + '">\n' +
+        '<option value="">' + first + '</option>\n' +
+        '</select>';
+    div.html(html)
+}
+
+function objTOSelect(obj) {
+    var select = ''
+
+    $.each(obj, function (index, value) {
+        select = select + '<option value="' + value.codigo + '">' + value.nome + '</option>';
+    })
+    return select;
+}
+
 
 function GetCarImg(cardata) {
     /*Função simples que obtem a imagem do carro apartir de uma busca no google com as informacoes do carro*/
@@ -182,22 +203,6 @@ function GetModelCode(marcaCode, model) {
     return result;
 }
 
-function GetYearCode(marcaCode, model) {
-    /*Funcao para obter todos os anos apartir do que for enviado*/
-    var result = null;
-    var scriptUrl = "/api/extra.php?marca=" + marcaCode + '&model=' + model + "&ano";
-    $.ajax({
-        url: scriptUrl,
-        type: 'get',
-        dataType: 'html',
-        async: false,
-        success: function (data) {
-            result = data;
-        }
-    });
-    return result;
-}
-
 function GetCarDetails(marcaCode, model, year) {
     /*Funcao para obter todos os dados do carro*/
     var result = null;
@@ -232,9 +237,8 @@ function OpenProduct(i) {
 function fillmodal(marca, marcaCode, model, year, id, img) {
     $.get("modalcompra.html", function (data) {
         var ad = GetCarDetails(marcaCode, GetModelCode(marcaCode, model), year);
-        console.log(ad);
+        console.log(ad)
         var details = JSON.parse(ad);
-
         data = data.replace(new RegExp('{marca}', 'g'), marca);
         data = data.replace(new RegExp('{valor}', 'g'), details.Valor);
         data = data.replace(new RegExp('{fuel}', 'g'), details.Combustivel);
@@ -249,6 +253,23 @@ function fillmodal(marca, marcaCode, model, year, id, img) {
         data = data.replace(new RegExp('{img}', 'g'), img);
         $('#modal-compra').html(data);
 
+        $('#editar').click(function () {
+            console.log(ad);
+            $('.go-back').click();
+            $('.vender').click();
+            sessionStorage.setItem('edit', id);
+        });
+        $('#apagar').click(function () {
+            $.ajax({
+                url: '/api/carros/' + id,
+                type: 'DELETE',
+                success: function (result) {
+                    alert('removido com sucesso');
+                    $('.go-back').click();
+                    loadCars();
+                }
+            });
+        })
     }).fail(function () {
         alert("erro ao carregar atualize a pagina");
     })

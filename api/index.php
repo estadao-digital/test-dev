@@ -15,6 +15,11 @@ $pages = array_filter(explode('/', $url)); #pego cada parte da url para usa-la
 $preSet = ['id', 'Marca', 'Modelo', 'Ano']; #apenas esses dados serao passados para a base
 //$_POST = array_intersect($preSet, $_POST);
 
+function isJson($string) {
+    json_decode($string);
+    return (json_last_error() == JSON_ERROR_NONE);
+}
+
 if ($pages[1]) {
     $carro = new carro();
 
@@ -39,7 +44,13 @@ if ($pages[1]) {
     #Quando o metodo é um put
     if ($method == 'PUT') {
         #Pego o que foi recebido em formato de json e converto para um array
-        $data = json_decode(file_get_contents("php://input"), true);
+        $recived = file_get_contents("php://input");
+        if(isJson($recived)) {
+            $data = json_decode($recived, true);
+        }else{
+            parse_str($recived, $data);
+        }
+
         #Com o array recebido mando ele e o id do item para a alteracao
         $carro->edit($pages[3], [$pages[2] => $data]);
         #respondo com o id e o status 200
