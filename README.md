@@ -3,7 +3,15 @@ Teste Guilherme Camacho
 
 Olá Avaliador,
 
+Para duvidas 
+
+`guilhermecamachop@gmail.com`
+
 Realizei o teste com inicio dia  10/01/2018 as 20:00
+
+Termidei o testa dia 12/01/2018 as 09:53
+
+O Tempo de programacao gasto foi de 16:53 min
 
 Para verificar o como ficou basta utilizar o proprio microserver do php 
  
@@ -57,7 +65,7 @@ Todos os requisitos estao na aplicacao
 - Ver a lista de carros cadastrados - **Compra**
 - Criar um novo carro - **Venda**
 - Editar um carro existente - **Compra clicando no carro e em editar**
-- Apagar um carro existente - **Compra clicando no carro e em apagar**
+- Apagar um carro existente - **Compra clicando no carro e em comprar**
 
 > **Obs:**
 > - A Pagina esta responsiva e com os requisitos
@@ -66,13 +74,13 @@ Todos os requisitos estao na aplicacao
 
 ### Observações importantes:
 
- - Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
+ - **Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.**
     - Criei outros arquivos e pastas - *Mudei a api para uma pasta api onde contem todo os codigos de backend*
- - Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.
+ - **Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.**
     - Utilizei para o Bront: JQUERY, bootstrap
     - Utilizei para o Back: php "puro" e algumas bibliotecas para a base de dados em json e prara o crawler 
- - Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.
+ - **Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.**
     - Infelizmente não daria para fazer tudo em JS puro como gostaria devido a meu tempo.
- - Será considerado ponto positivo o tempo gasto na realização do teste. Menos tempo e tudo funcionando conforme pedido será
-melhor avaliado.
-    - Fiz tentei fazer todo o processo em menos tempo posssivel nesse teste monitorei o meu tempo de execução que foi de 13:00 Horas de programacao.
+ - **Será considerado ponto positivo o tempo gasto na realização do teste. Menos tempo e tudo funcionando conforme pedido será
+melhor avaliado.**
+    - Fiz tentei fazer todo o processo em menos tempo posssivel nesse teste monitorei o meu tempo de execução.
