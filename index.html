@@ -1,25 +1,98 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
-
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <meta name="description" content="" >
+        <meta name="viewport" content="width=device-width, initial-scale=1" >
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="css/main.css" >
     </head>
-    <body>
+    <body onload="onLoadTabela()">
+            <header>
+                    <div class="nomeHeader">
+                        <h3>PROVA: SULIVAN TAVARES LEITE</h3>
+                    </div>
+                    </header>
+        <div class="container">         
+            <!-- diálogos -->
+            <div class="alert alert-success  alert-dismissible" role="alert" id="alert-success" style="display:none;" >
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true" >&times;</span></button>
+                <p></p>
+            </div>
+            <div class="alert alert-danger  alert-dismissible" role="alert" id="alert-error" style="display:none;" >
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true" >&times;</span></button>
+                <p></p>
+            </div>
+            <div id="confirm" class="modal fade" role="dialog" >
+                <div class="modal-dialog" >
+                    <div class="modal-content">
+                        <div class="modal-body" >
+                            <p>Deletar ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" id="confirmDeletion" >Sim</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" >Não</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- menu -->
+            <!-- botão criado para listar todos os carros (mas se faz desnecessario já que a tabela é carregada com o body)
+            <div class="section" >
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" id="listAll" title="Listar todos" ><span class="glyphicon glyphicon-list" ></span></button>
+                </span>
+            </div>
+            -->
+            <!-- usado para pesquisar códigos, mas se tornou desnecessario já que a tabela esta sempre sendo exibida.
+            <div class="section">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <input type="number" class="form-control" name="carId" placeholder="Cód" >
+                    </span>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" id="findCar" title="Procurar" ><span class="glyphicon glyphicon-search" ></span></button>
+                    </span>
+                </div>
+            </div>
+        -->
+            <div class="criarNovo" >
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <select class="form-control" name="carroMarca" >
+                                <option name="carroMarca-924036" value="Fiat" selected>Fiat</option>
+                                <option name="carroMarca-924077" value="Hyundai">Hyundai</option>
+                                <option name="carroMarca-514830" value="Wolksvagen">Wolksvagen</option>
+                                <option name="carroMarca-798429" value="Toyota">Toyota</option>
+                                <option name="carroMarca-254646" value="Ford">Ford</option>
+                                <option name="carroMarca-707132" value="Nissan">Nissa</option>
+                        </select>
+                    </span>
+                    <span class="input-group-btn">
+                        <input type="text" class="form-control" name="carroModelo" placeholder="Modelo" >
+                    </span>
+                    <span class="input-group-btn">
+                        <input type="number" class="form-control" name="carroAno" placeholder="Ano" >
+                    </span>
+                    <span class="input-group-btn last">
+                        <button type="button" class="btn btn-default" id="addCar" title="Adicionar" ><span class="glyphicon glyphicon-plus" ></span></button>
+                    </span>
+                </div>
+            </div>
+            
+            <br><br>
+            
+            <!-- listagem -->
+            <div id="listings" class="listagem">
+                <h2></h2>
+            </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
-
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
         <script src="js/main.js"></script>
     </body>
 </html>

@@ -1,0 +1,41 @@
+body {
+	margin: 0 auto;
+}
+
+.container {
+	width: 700px;
+	padding: .5rem;
+}
+
+.section {
+	display: inline-block;
+}
+.section.right {
+	float: right;
+}
+
+.input-group-btn {
+	width: 10rem;
+}
+.input-group-btn.last {
+	width: 1rem;
+}
+.btn-group{
+	margin: 0;
+}
+.criarNovo{
+	margin-left: 11em;
+}
+.listagem{
+	margin-left: 5em;
+}
+header{
+	background-color: #777777;
+	padding: 10px 0 5px 10px;
+}
+.nomeHeader{
+	text-align: left;
+	margin-top: -20px;	
+	font-family: Evogria, "Aria black", Arial;	
+	color: #FFF;
+}
