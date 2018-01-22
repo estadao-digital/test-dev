@@ -1,0 +1,24 @@
+<h2>Editar veículo</h2>
+<div class="row">
+    <div class="col-md-6">
+        <form novalidate ng-repeat="car in cars" name="AddForm" id="add-form" method="post" action="">
+            <input type="hidden" ng-model="car.id" value="{{car.id}}" />
+            <div class="form-group">
+                <label for="brand">Marca:</label>
+                <select class="form-control" ng-model="car.brand" ng-options="x for x in brands">
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="model">Modelo:</label>
+                <input class="form-control" type="text" ng-model="car.model" value="{{car.model}}" required />
+            </div>
+            <div class="form-group">
+                <label for="Year">Ano:</label>
+                <input class="form-control" type="text" ng-model="car.year" value="{{car.year}}" required />
+            </div>
+            <button class="btn btn-primary" ng-disabled="AddForm.$invalid || isUnchanged(car)" id="add-btn" ng-click="update(car)">Atualizar <span class="glyphicon glyphicon-floppy-disk"></span></button>
+            <button class="btn btn-danger" ng-click="delete(car)">Excluir <span class="glyphicon glyphicon-trash"></span></button>
+            <a href="#/" class="btn">Cancelar</a>
+        </form>
+    </div>
+</div>

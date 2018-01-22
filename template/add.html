@@ -1,0 +1,22 @@
+<h2>Adicionar novo veículo</h2>
+<div class="row">
+    <div class="col-md-6">
+        <form novalidate name="AddForm" id="add-form" method="post" action="">
+            <div class="form-group">
+                <label for="brand">Marca:</label>
+                <select class="form-control" ng-model="car.brand" ng-options="x for x in brands">
+                </select>
+            </div>
+            <div class="form-group">
+              <label for="model">Modelo:</label>
+              <input class="form-control" type="text" ng-model="car.model" required />
+            </div>
+            <div class="form-group">
+              <label for="year">Ano:</label>
+              <input class="form-control" type="text" ng-model="car.year" required />
+            </div>
+            <button class="btn btn-primary" ng-disabled="AddForm.$invalid || isUnchanged(car)" id="add-btn" ng-click="add(car)">Salvar</button>
+            <a href="#/" class="btn">Cancelar</a>
+        </form>
+    </div>
+</div>

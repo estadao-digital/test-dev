@@ -1,0 +1,25 @@
+<h2>Veículos</h2>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Ano</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="car in cars">
+      <td>{{car.brand}}</td>
+      <td>{{car.model}}</td>
+      <td>{{car.year}}</td>
+      <td>
+            <a class="btn btn-primary" href="#/cars/{{car.id}}">
+                <i class="fa fa-pencil-square-o fa-sm"></i> Editar</a>
+            <a class="btn btn-danger" href="#/cars/{{car.id}}">
+                <i class="fa fa-trash-o fa-sm"></i> Excluir</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<a class="btn btn-primary" href="#/cars">Adicionar novo carro</a>
