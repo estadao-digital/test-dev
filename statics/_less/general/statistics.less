@@ -1,0 +1,211 @@
+//
+// Statistics
+// --------------------------------------------------
+
+/* * * * * * * * * * * *
+ * Stats List
+ * * * * * * * * * * * */
+
+ul.stats {
+	display: table;
+	table-layout: fixed;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	.box-sizing(border-box);
+
+	&:not(.no-dividers) li {
+		border-right: 1px solid @grayLightBorder;
+	}
+
+	li {
+		display: table-cell;
+		padding: 15px;
+
+		&:last-child {
+			border-right: none;
+		}
+
+		strong, small {
+			padding: 5px 0;
+			display: block;
+			text-align: center;
+		}
+
+		strong {
+			font-size: 25px;
+			font-weight: bold;
+		}
+
+		small {
+			//padding-top: 10px;
+			font-size: 11px;
+			color: @gray;
+		}
+
+		> div {
+			margin: 5px auto;
+		}
+
+		strong + div {
+			//margin-top: 15px;
+		}
+
+		.title {
+			display: block;
+			text-align: center;
+			font-size: 15px;
+			padding-top: 5px;
+			color: @grayDark;
+
+			&:hover {
+				text-decoration: none;
+				color: @grayDarker;
+			}
+		}
+
+		.description {
+			display: inline-block;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+
+			font-size: 11px;
+			text-align: center;
+			vertical-align: middle;
+			text-transform: uppercase;
+			font-weight: bold;
+			margin-left: 5px;
+		}
+
+		&.light {
+			strong {
+				color: lighten(@grayDark, 20%);
+			}
+		}
+	}
+}
+
+.circular-chart-inline {
+	text-align: center;
+
+	.easyPieChart {
+		display: inline-block;
+	}
+}
+
+.widget:not(.box) {
+	ul.stats {
+		margin-top: 10px;
+	}
+}
+
+
+/* * * * * * * * * * * *
+ * Progressbar Stats
+ * * * * * * * * * * * */
+
+.progress-stats {
+	display: block;
+	margin-bottom: 15px;
+
+	.title {
+		display: block;
+		margin-bottom: 4px;
+
+		span {
+			float: right;
+		}
+	}
+
+	.progress {
+		margin: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+
+/* * * * * * * * * * * *
+ * Sparkline
+ * * * * * * * * * * * */
+
+.jqstooltip {
+	border: 1px solid #000 !important;
+	.box-sizing(content-box);
+}
+
+/* * * * * * * * * * * *
+ * Statbox
+ * * * * * * * * * * * */
+
+.statbox {
+	.widget-content:before, .widget-content:after {
+		display: table;
+		content: "";
+		line-height: 0;
+		clear: both;
+	}
+
+	.visual {
+		min-width: 20px;
+		min-height: 17px;
+		padding: 13px;
+		text-align: center;
+		margin-right: 10px;
+		float: left;
+		overflow: hidden;
+		color: #fff;
+		.box-sizing(content-box);
+
+		&.blue {
+			background-color: @blue;
+		}
+
+		&.red {
+			background-color: @red;
+		}
+
+		&.green {
+			background-color: @green;
+		}
+
+		&.cyan {
+			background-color: @cyan;
+		}
+
+		&.purple {
+			background-color: @purple;
+		}
+
+		&.yellow {
+			background-color: @yellow;
+		}
+	}
+
+	.title {
+		color: @gray;
+		display: block;
+		font-size: 11px;
+		font-weight: 600;
+		text-transform: uppercase;
+		padding-top: 3px;
+	}
+
+	.value {
+		font-size: 20px;
+		font-weight: 600;
+		overflow: hidden;
+	}
+
+	.title, .value {
+		text-align: right;
+		padding-right: 3px;
+	}
+
+	.title + .value {
+		margin-top: -3px;
+	}
+}

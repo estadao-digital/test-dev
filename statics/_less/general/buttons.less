@@ -1,0 +1,215 @@
+//
+// Buttons
+// --------------------------------------------------
+
+.btn,
+.ui-state-default,.ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default,
+.ColVis_MasterButton,
+.fc-state-default {
+	background-color: @btnDefault;
+	background-image: none;
+	filter: none;
+	border: 0;
+	.box-shadow(none);
+	padding: 6px 13px;
+	text-shadow: none;
+	font-size: 14px;
+	font-weight: normal;
+	color: @btnDefaultFontColor;
+	font-size: @baseFontSize;
+	cursor: pointer;
+	border: 1px solid @grayLightBorder;
+	border: 1px solid rgba(0, 0, 0, 0.13);
+	.border-radius(0);
+	position: relative;
+	z-index: 1;
+	.user-select(none);
+
+	&:hover, &:focus {
+		color: @btnDefaultFontColor;
+		background-color: @btnDefaultHover;
+		border-color: rgba(0, 0, 0, 0.13);
+	}
+
+	&:active, &.active {
+		background-color: @btnDefaultActive;
+		border-color: rgba(0, 0, 0, 0.13);
+		border-top: 1px solid darken(@btnDefault, 30%);
+	}
+
+	&.disabled, &.btn[disabled] {
+		background-color: @btnDefault;
+		.box-shadow(none);
+		border-top: 1px solid rgba(0, 0, 0, 0.13);
+	}
+
+	&.disabled:hover, &.btn[disabled]:hover {
+		cursor: not-allowed;
+	}
+
+	.caret {
+		border-top-color: @btnDefaultFontColor;
+		margin-top: 0;
+		margin-left: 3px;
+		vertical-align: middle;
+	}
+
+	+ .caret, + .dropdown-toggle .caret {
+		margin-left: 0px;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Sizes
+ * * * * * * * * * * * */
+.btn-lg {
+	padding: 10px 15px;
+	font-size: @baseFontSize + 1px;
+}
+
+.btn-sm {
+	padding: 4px 9px;
+	font-size: @baseFontSize - 1px;
+}
+
+.btn-xs {
+	padding: 0px 10px;
+	font-size: @baseFontSize - 2px;
+}
+
+/* * * * * * * * * * * *
+ * States
+ * * * * * * * * * * * */
+.btn-state (@class; @state) {
+	@btn:          ~"btn@{state}";
+	@btnHover:     ~"btn@{state}Hover";
+	@btnActive:    ~"btn@{state}Active";
+	@btnFontColor: ~"btn@{state}FontColor";
+
+	.btn-@{class} {
+		color: @@btnFontColor;
+		background-color: @@btn;
+		z-index: 2;
+
+		&:hover, &:focus {
+			color: @@btnFontColor;
+			background-color: @@btnHover;
+		}
+
+		&:active, &.active {
+			background-color: @@btnActive;
+			border-top: 1px solid darken(@@btnActive, 20%);
+		}
+
+		&.disabled, &.btn[disabled] {
+			background-color: @@btn;
+			.box-shadow(none);
+		}
+
+		.caret {
+			border-top-color: @@btnFontColor;
+		}
+	}
+
+	.btn-group.open .btn-@{class}.dropdown-toggle {
+		background-color: @@btnActive;
+	}
+}
+
+.btn-state(primary, Primary);
+.btn-state(info, Info);
+.btn-state(warning, Warning);
+.btn-state(danger, Danger);
+.btn-state(inverse, Inverse);
+.btn-state(success, Success);
+
+// For Single-Sign-Ons
+.btn-state(facebook, Facebook);
+.btn-state(twitter, Twitter);
+.btn-state(google-plus, GooglePlus);
+
+/* * * * * * * * * * * *
+ * Button Groups
+ * * * * * * * * * * * */
+.btn-group {
+	& > .btn {
+		&:first-child, &:last-child {
+			.border-radius(0);
+		}
+
+		i {
+			margin-right: 3px;
+		}
+	}
+
+	& > .dropdown-toggle {
+		.border-radius(0);
+	}
+}
+
+/* * * * * * * * * * * *
+ * Dropdown Toggles
+ * * * * * * * * * * * */
+.btn-group > .btn + .dropdown-toggle {
+	.box-shadow(none);
+}
+
+.btn:active, .btn.active, .btn-group.open .dropdown-toggle, .btn-group > .btn + .dropdown-toggle:active {
+	border-top: 1px solid rgba(0, 0, 0, 0.3);
+	.box-shadow(0 1px 1px rgba(0, 0, 0, 0.13) inset);
+}
+
+/* * * * * * * * * * * *
+ * Icon Buttons
+ * * * * * * * * * * * */
+.btn-icon {
+	margin: 10px 0px;
+	padding: 10px;
+	.transition(all 0.3s ease);
+
+	&:hover {
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		.transition(all 0.3s ease);
+	}
+
+	&:active {
+		.transition(none);
+	}
+
+	i {
+		margin: 0;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Badges
+ * * * * * * * * * * * */
+.btn {
+	.label {
+		position: absolute;
+		font-size: 11px !important;
+		font-weight: 300;
+		top: -5px;
+		right: -5px;
+		padding: 3px 7px 3px 7px;
+		color: white !important;
+		text-shadow: none;
+		border-width: 0;
+		border-style: solid;
+		.border-radius(12px);
+		.box-shadow(none);
+	}
+}
+
+/* Caret for Dropups */
+.dropup .btn .caret {
+	border-bottom-color: @btnDefaultFontColor;
+}
+
+/* * * * * * * * * * * *
+ * Demo Only
+ * * * * * * * * * * * */
+
+.btn-toolbar-demo .btn {
+	margin: 3px;
+}

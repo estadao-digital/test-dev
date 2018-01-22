@@ -1,0 +1,108 @@
+//
+// Responsive: Tablet to desktop
+// --------------------------------------------------
+
+
+@media (min-width: 768px) and (max-width: 979px) {
+
+	// Sidebar / Navigation
+	// ----------------
+
+	@sidebarWidth: 180px;
+
+	#sidebar {
+		width: @sidebarWidth;
+		overflow: visible;
+		float: left;
+		border-right: 1px solid @grayLight;
+
+		ul#nav {
+			// Only mainmenu
+			& > li {
+				&.current {
+					& > a {
+						border-right: @navCurrentBorder solid lighten(@mainColor, 10%);
+
+						& > .arrow {
+							right: @navCurrentBorder !important;
+						}
+					}
+				}
+			}
+
+			// Mainmenu and submenus
+			li {
+				a {
+					font-size: @navFontSize - 1px;
+				}
+
+				ul.sub-menu {
+					margin-left: 0px;
+
+					li {
+						a {
+							font-size: @navSubFontSize - 2px;
+						}
+
+						ul.sub-menu {
+							margin-left: 10px;
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#divider {
+		display: none;
+	}
+
+	.slimScrollBar, .slimScrollRail {
+		display: none !important;
+	}
+
+	#content {
+		margin-left: @sidebarWidth + 1px;
+	}
+
+
+	// Gridsystem
+	// ----------------
+	// DEPRECATED SINCE BS3
+	/*[class*="span"], .uneditable-input[class*="span"], .row-fluid [class*="span"] {
+		display: block;
+		float: none;
+		width: 100%;
+		margin-left: 0;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}*/
+
+	// Elements
+	// ----------------
+
+	// Breadcrumb
+	.crumbs .crumb-buttons > li > a > span {
+		display: none;
+	}
+
+	.page-stats li {
+		&:first-child {
+			margin-left: 0;
+			padding-left: 0;
+		}
+
+		.summary {
+			margin-right: 5px;
+		}
+	}
+
+	// Forms
+	.input-xxlarge {
+		width: 100%;
+		min-height: 30px;
+		.box-sizing(border-box);
+	}
+}

@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "name": "Aston Martin"
+  },
+  {
+    "id": 2,
+    "name": "Audi"
+  },
+  {
+    "id": 3,
+    "name": "Bentley"
+  },
+  {
+    "id": 4,
+    "name": "Chery"
+  },
+  {
+    "id": 5,
+    "name": "Chevrolet"
+  },
+  {
+    "id": 6,
+    "name": "Chrysler"
+  },
+  {
+    "id": 7,
+    "name": "Citroën"
+  },
+  {
+    "id": 8,
+    "name": "Fiat"
+  },
+  {
+    "id": 9,
+    "name": "Ferrari"
+  },
+  {
+    "id": 10,
+    "name": "Ford"
+  },
+  {
+    "id": 11,
+    "name": "Honda"
+  },
+  {
+    "id": 12,
+    "name": "Hyundai"
+  },
+  {
+    "id": 13,
+    "name": "JAC"
+  },
+  {
+    "id": 14,
+    "name": "Peugeot"
+  },
+  {
+    "id": 15,
+    "name": "Suzuki"
+  },
+  {
+    "id": 16,
+    "name": "Volkswagen"
+  },
+  {
+    "id": 17,
+    "name": "Volvo"
+  }
+]

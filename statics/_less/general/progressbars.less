@@ -1,0 +1,57 @@
+//
+// Progressbars
+// --------------------------------------------------
+
+/* * * * * * * * * * * *
+ * Colors
+ * * * * * * * * * * * */
+
+.progress .progress-bar {
+	background-image: none;
+	background-color: @progressbarDefault;
+ }
+
+.progress-success .progress-bar, .progress .progress-bar-success, .progress-success.progress-striped .progress-bar, .progress-striped .progress-bar-success {
+	background-color: @progressbarSuccess;
+}
+
+.progress-warning .progress-bar, .progress .progress-bar-warning, .progress-warning.progress-striped .progress-bar, .progress-striped .progress-bar-warning {
+	background-color: @progressbarWarning;
+}
+
+.progress-danger .progress-bar, .progress .progress-bar-danger, .progress-danger.progress-striped .progress-bar, .progress-striped .progress-bar-danger {
+	background-color: @progressbarDanger;
+}
+
+.progress {
+
+	.border-radius(0);
+
+	/* * * * * * * * * * * *
+	 * Sizes
+	 * * * * * * * * * * * */
+
+	&.progress-mini {
+		height: 6px;
+	}
+
+	&.progress-small {
+		height: 12px;
+	}
+
+	&.progress-large {
+		height: 25px;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Stripes
+ * * * * * * * * * * * */
+
+.progress-striped .progress-bar {
+	background-image: -webkit-gradient(linear,0 100%,100% 0,color-stop(0.25,rgba(255,255,255,0.15)),color-stop(0.25,transparent),color-stop(0.5,transparent),color-stop(0.5,rgba(255,255,255,0.15)),color-stop(0.75,rgba(255,255,255,0.15)),color-stop(0.75,transparent),to(transparent));
+	background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);
+	background-image: -moz-linear-gradient(45deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);
+	background-image: -o-linear-gradient(45deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);
+	background-image: linear-gradient(45deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);
+}

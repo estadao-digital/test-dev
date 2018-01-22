@@ -1,0 +1,455 @@
+//
+// Sidebar & Navigation
+// --------------------------------------------------
+
+#sidebar {
+	width: @sidebarWidth;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background: @grayLighter;
+	height: 100%;
+	z-index: 700;
+
+	* {
+		overflow-x: hidden;
+		overflow-y: visible;
+		white-space:nowrap;
+		text-overflow: ellipsis;
+	}
+
+	#sidebar-content {
+		float: left;
+		width: 100% !important;
+	}
+
+	#divider {
+		background: @grayMedium;
+		min-height: 100%;
+		position: absolute;
+		margin-left: @sidebarWidth;
+		right: -1px;
+		width: @dividerWidth;
+		border-left: 1px solid @grayLight;
+		border-right: 1px solid @grayLight;
+	}
+
+	.resizeable {
+		cursor: col-resize;
+		background: url(../img/sidebar/sidebar-divider-dots.png) 2px 50% no-repeat @grayMedium !important;
+	}
+
+	/* * * * * * * * * * * *
+	 * Scrollbar
+	 * * * * * * * * * * * */
+
+	.slimScrollDiv {
+		float: left !important;
+		width: 100% !important;
+	}
+
+	.slimScrollBar {
+		width: 5px !important;
+		//background-color: rgba(0, 0, 0, 0.2) !important;
+		background-color: darken(@gray, 15%) !important;
+		right: 0px !important;
+		border-left: 1px solid @grayDark;
+		border-right: 1px solid @grayDark;
+		.border-radius(0) !important;
+		.box-sizing(content-box);
+	}
+
+	/* * * * * * * * * * * *
+	 * Search Input
+	 * * * * * * * * * * * */
+
+	.sidebar-search {
+		margin: 15px;
+		margin-right: (15px + @dividerWidth);
+
+		.input-box {
+			border-bottom: 1px solid @grayLightBorder !important;
+			padding-bottom: 2px;
+		}
+
+		span {
+			display: block;
+			overflow: hidden;
+		}
+
+		input {
+			width: 100%;
+		}
+
+		input, .submit {
+			margin: 0;
+			border: 0;
+			box-shadow: none;
+			color: @grayDark;
+			background-color: @grayLighter !important;
+		}
+
+		.submit {
+			display: block;
+			float: right;
+			margin-top: 8px;
+			opacity: 0.7;
+
+			&:hover, &:focus {
+				opacity: 1.0;
+			}
+		}
+	}
+
+	/* Search Results */
+	.sidebar-search-results {
+		background-color: @grayMedium;
+		padding: 10px;
+		border-top: 1px solid darken(@grayMedium, 20%);
+		border-bottom: 1px solid darken(@grayMedium, 5%);
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset;
+
+		display: none;
+
+		&.open {
+			display: block;
+		}
+
+		.close {
+			position: relative;
+			top: -2px;
+			right: 10px;
+			font-size: 11px;
+			line-height: 25px;
+
+			&:hover {
+				text-decoration: none;
+				cursor: pointer;
+				opacity: .5;
+			}
+		}
+
+		.title {
+			font-weight: 600;
+			padding: 5px 0;
+			color: lighten(@textColor, 20%);
+			text-transform: uppercase;
+			font-size: (@baseFontSize - 1px);
+
+			> span {
+				font-weight: 700;
+			}
+		}
+
+		.notifications {
+			li {
+				padding-left: 0;
+				padding-right: 0;
+				margin-right: 5px;
+				border-bottom-color: darken(@grayMedium, 10%);
+			}
+		}
+	}
+
+	/* * * * * * * * * * * *
+	 * Navigation
+	 * * * * * * * * * * * */
+
+	ul#nav {
+		list-style: none;
+		margin: 15px 0;
+		padding: 0;
+
+		// Only mainmenu
+		& > li {
+			&.current {
+				& > a {
+					border-right: ((@dividerWidth) + @navCurrentBorder) solid lighten(@mainColor, 10%);
+
+					& > .arrow {
+						right: (10px - @navCurrentBorder - (@dividerWidth + 3)) !important;
+					}
+				}
+			}
+		}
+
+		/* * * * * * * * * * * *
+		 * Mainmenu and submenus
+		 * * * * * * * * * * * */
+
+		li {
+			display: block;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			border-bottom: 1px solid @navBorder;
+
+			&:last-child, &.open, &.open-default, &.open-fixed {
+				border-bottom: none;
+			}
+
+			&.current {
+				& > ul {
+					display: block;
+				}
+
+				.label.pull-right {
+					margin-right: 10px;
+				}
+			}
+
+			&.open-default, &.open-fixed {
+				& > ul {
+					display: block;
+				}
+			}
+
+			.label {
+				padding: 5px 8px;
+				text-shadow: none;
+
+				&.pull-right {
+					position: absolute;
+					right: 15px;
+					margin-right: 20px;
+				}
+			}
+
+			.arrow {
+				line-height: 20px;
+				position: absolute;
+				right: 10px;
+			}
+
+			a {
+				display: block;
+				position: relative;
+				margin: 0;
+				border: 0;
+				padding: 15px 15px;
+				padding-left: 20px;
+				color: @grayDark;
+				text-decoration: none;
+				text-shadow: 0 1px 0 #fff;
+				font-size: @navFontSize;
+				font-weight: 600;
+				text-transform: uppercase;
+
+				&:hover {
+					background: @navHover;
+				}
+
+				&:active {
+					background: @navActive;
+				}
+
+				i {
+					color: lighten(@grayDark, 10%);
+					padding-right: 10px;
+					float: left;
+					line-height: 20px;
+
+					&[class^="icol-"], &[class^="icos-"], &[class*=" icol-"], &[class*=" icos-"] {
+						margin-top: 2px;
+					}
+				}
+			}
+
+		}
+
+		& > li.current, & > .open {
+			background: @navHover;
+		}
+
+		ul.sub-menu {
+			display: none;
+			list-style: none;
+			clear: both;
+			margin: 0;
+			padding: 0;
+
+			font-size: @navSubFontSize;
+
+			background: @navSubBackground;
+			border-bottom: 1px solid #fff;
+
+
+			a {
+				font-weight: normal;
+				padding: 12px 15px 12px 20px;
+				text-transform: none;
+
+				&:hover {
+					background: rgba(255, 255, 255, 0.5);
+				}
+
+				&:active {
+					background: @navActive;
+				}
+			}
+
+			li {
+				&.current {
+					background: @navSubCurrentBackground;
+				}
+
+				&:first-child > a {
+					.box-shadow(0 1px 1px rgba(0, 0, 0, 0.4) inset);
+				}
+			}
+
+			ul.sub-menu {
+				margin: 5px;
+				margin-right: 0;
+				margin-left: 40px;
+				.box-shadow(none);
+				border: none;
+
+				& > li {
+					border-left: 1px solid @grayLight;
+					border-bottom: none;
+
+					a {
+						font-size: @navSubSubFontSize;
+						color: lighten(@grayDark, 10%);
+						padding: 7px 15px;
+
+						&:hover {
+							background: rgba(255, 255, 255, 0.3);
+						}
+
+						&:active {
+							background: @navActive;
+						}
+
+						& > .arrow {
+							//right: (16px - @navCurrentBorder - (@dividerWidth + 2)) !important;
+						}
+					}
+				}
+
+				li:first-child > a {
+					.box-shadow(none);
+				}
+			}
+		}
+	}
+
+	/* * * * * * * * * * * *
+	 * Sidebar Title
+	 * * * * * * * * * * * */
+
+	.sidebar-title {
+		background-color: @grayMedium;
+		padding: 10px;
+		font-weight: 600;
+		border-top: 1px solid darken(@grayMedium, 20%);
+		border-bottom: 1px solid darken(@grayMedium, 5%);
+		.box-shadow(0 1px 1px rgba(0, 0, 0, 0.1) inset);
+	}
+
+	/* * * * * * * * * * * *
+	 * Sidebar Notifications
+	 * * * * * * * * * * * */
+	.notifications {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			padding: 15px;
+			border-bottom: 1px solid @navBorder;
+
+			&:last-child {
+				border-bottom: none;
+			}
+
+			a {
+				color: @textColor;
+
+				&:hover {
+					color: @linkColorHover;
+				}
+			}
+		}
+
+		.col-left {
+			float: left;
+			margin-right: -100%;
+		}
+
+		.col-right {
+			float: left;
+			width: 100%;
+
+			&.with-margin {
+				margin-left: 35px;
+			}
+		}
+
+		.message {
+			white-space: normal;
+		}
+
+		.label {
+			padding: 7px;
+			width: 24px;
+			text-align: center;
+			display: inline-block;
+		}
+
+		.time {
+			color: lighten(@textColor, 20%);
+			display: block;
+			padding-top: 5px;
+			font-size: (@baseFontSize - 2px);
+		}
+	}
+}
+
+.sidebar-fixed {
+	position: fixed !important;
+	top: @navbarHeight + @navbarBorderHeight;
+}
+
+.fill-nav-space {
+	height: @navbarHeight + @navbarBorderHeight;
+}
+
+.sidebar-closed {
+	& > #sidebar {
+		display: none;
+	}
+}
+
+/*.sidebar-closed {
+	& > #sidebar {
+		width: @sidebarClosedWidth;
+
+		ul#nav {
+			width: @sidebarClosedWidth;
+			border-bottom: 1px solid @navBorder;
+
+			li {
+				&:hover {
+					width: @sidebarWidth;
+					position: relative;
+					z-index: 2000;
+					display: block !important;
+				}
+
+				&.open, &.open-default, &.open-fixed {
+					border-bottom: 1px solid @navBorder;
+				}
+
+				a {
+					padding-left: 12px;
+				}
+
+				ul.sub-menu {
+					display: none;
+				}
+			}
+		}
+	}
+}*/

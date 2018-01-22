@@ -1,0 +1,220 @@
+//
+// Widgets
+// --------------------------------------------------
+
+.widget {
+	margin-top: 0px;
+	margin-bottom: 25px;
+	padding: 0px;
+
+	.widget-header {
+		margin-bottom: 15px;
+		border-bottom: 1px solid @grayMedium;
+		.clearfix();
+
+		h4 {
+			display: inline-block;
+			color: @widgetTitleColor;
+			font-size: 14px;
+			font-weight: bold;
+			margin: 0;
+			padding: 0;
+			margin-bottom: 7px;
+
+			i {
+				font-size: 14px;
+				margin-right: 5px;
+				color: @widgetTitleIconColor;
+			}
+		}
+
+		.toolbar {
+			display: inline-block;
+			padding: 0;
+			margin: 0;
+			float: right;
+		}
+	}
+
+	&.box {
+		border: 1px solid @widgetBoxBorder;
+
+		.widget-header {
+			background: @widgetBoxHeaderColor;
+			border-bottom-color: @widgetBoxBorder;
+			line-height: 35px;
+			padding: 0 12px;
+			//margin-bottom: 5px;
+			margin-bottom: 0;
+
+			h4 {
+				margin-bottom: 0;
+			}
+
+			.toolbar {
+				margin-right: -5px;
+
+				&.no-padding {
+					margin: -2px -13px;
+
+					.btn {
+						font-size: @baseFontSize;
+						font-size: 13px;
+						padding: 8px 7px;
+						padding-top: 8px;
+						margin-top: 1px;
+					}
+				}
+			}
+		}
+
+		.widget-content {
+			padding: 10px;
+			position: relative;
+			background-color: #fff;
+
+			&.no-padding {
+				padding: 0;
+
+				.row {
+					padding-left: 15px;
+					padding-right: 15px;
+				}
+			}
+
+			&.widget-deeper {
+				background-color: @grayLighter;
+				//border-top: 1px solid #B9B9B9;
+				.box-shadow(0 1px 1px rgba(0, 0, 0, 0.05) inset);
+			}
+		}
+
+		.widget-header + .widget-content.no-padding {
+			//margin-top: -5px;
+		}
+
+		&.box-shadow {
+			.box-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
+			border-bottom-color: darken(@widgetBoxBorder, 5%);
+		}
+	}
+
+	&.widget-closed {
+		&.box .widget-header {
+			margin-bottom: -1px;
+			border-bottom: 1px solid @widgetBoxBorder;
+		}
+
+		.widget-content {
+			display: none;
+		}
+	}
+
+	/* Divider */
+	> .divider, .widget-content > .divider {
+		width: 100%;
+		border-bottom: 1px solid @widgetBoxBorder;
+		border-top: 1px solid #fff;
+	}
+
+	.widget-content > .divider {
+		margin: 5px 0;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Semi Widgets
+ * * * * * * * * * * * */
+
+.semi-widget {
+	margin-bottom: 10px;
+}
+
+/* * * * * * * * * * * *
+ * Widget Title
+ * * * * * * * * * * * */
+
+.widget-title {
+	margin-bottom: 20px;
+	border-bottom: 1px solid @grayLightBorder;
+	padding: 10px 0;
+	font-weight: 300;
+	font-size: 17px;
+
+	> i {
+		margin-right: 5px;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Sidebar Widgets
+ * * * * * * * * * * * */
+
+#sidebar #sidebar-content {
+	.sidebar-widget {
+		//margin: 25px 10px 0 10px;
+		margin: 25px 10px;
+	}
+}
+
+/* * * * * * * * * * * *
+ * slimscroll
+ * * * * * * * * * * * */
+
+.slimScrollBar {
+	.border-radius(0) !important;
+}
+
+.scroller {
+	padding-right: 12px !important;
+}
+
+/* * * * * * * * * * * *
+ * Widget Additions
+ * * * * * * * * * * * */
+
+.widget-content .more {
+	clear: both;
+	display: block;
+	padding: 5px 10px;
+	text-transform: uppercase;
+	font-weight: 300;
+	font-size: 11px;
+	color: @grayDark;
+	opacity: 0.7;
+	margin: -10px;
+	margin-top: 10px;
+	background-color: @grayLighter;
+	border-top: 1px solid @grayLightBorder;
+
+	&:hover, &:focus {
+		opacity: 1;
+		text-decoration: none;
+	}
+
+	&:active {
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset;
+		border-top-color: darken(@grayLightBorder, 5%);
+	}
+
+	i {
+		margin-top: 2px;
+		margin-bottom: -3px;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Infobox
+ * * * * * * * * * * * */
+
+.infobox {
+	.title {
+		font-weight: 500;
+		font-size: 15px;
+	}
+
+	.title + .content {
+		color: lighten(@grayDark, 10%);
+		padding-top: 10px;
+	}
+}

@@ -1,0 +1,153 @@
+//
+// DataTables
+// --------------------------------------------------
+
+@import "../general/mixins.less";
+@import "../general/variables.less";
+
+.dataTable {
+	clear: both;
+	margin-top: 10px;
+}
+
+.dataTables_length label {
+	label {
+		line-height: 29px;
+	}
+
+	select, .select2-container {
+		margin-right: 5px;
+	}
+}
+
+.dataTables_filter {
+	text-align: right;
+}
+
+.dataTables_paginate {
+	.pagination {
+		margin: 2px 0;
+	}
+}
+
+.dataTables_footer {
+	padding-top: 5px;
+}
+
+.widget-content.no-padding {
+	.dataTables_header {
+		padding: 12px 0;
+		border-bottom: 1px solid @tableBorder;
+		background-color: @tableBackgroundAccent;
+	}
+
+	.dataTable {
+		margin-top: 0;
+	}
+
+	.dataTables_footer {
+		padding: 12px 0;
+		border-top: 1px solid @tableBorder;
+		background-color: @tableBackgroundFooter;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Processing
+ * * * * * * * * * * * */
+
+.dataTables_processing {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 250px;
+	margin-left: -125px;
+	margin-top: -4px;
+	padding: 0;
+	border: 1px solid @tableBorder;
+	text-align: center;
+	color: lighten(@textColor, 10%);
+	font-size: (@baseFontSize - 1px);
+	background-color: white;
+	line-height: 45px;
+}
+
+/* * * * * * * * * * * *
+ * TableTools & ColVis
+ * * * * * * * * * * * */
+
+.DTTT, .ColVis {
+	float: right;
+	margin-left: 10px;
+}
+
+.ColVis_collection {
+	border-bottom: 1px solid @grayLightBorder;
+
+	.ColVis_Button {
+		background-color: @grayLighter;
+		border: 1px solid @grayLightBorder;
+		border-bottom: none;
+		padding: 5px;
+		text-align: left;
+		color: lighten(@textColor, 10%);
+
+		.ColVis_radio {
+			padding-right: 5px;
+		}
+
+		&:hover {
+			background-color: #fff;
+			color: #000;
+		}
+	}
+}
+
+/* * * * * * * * * * * *
+ * Search
+ * * * * * * * * * * * */
+
+.dataTables_filter .input-group {
+	width: 250px;
+}
+
+@media (max-width: 767px) {
+	.dataTables_filter .input-group {
+		width: 100%;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Responsive
+ * * * * * * * * * * * */
+
+table.has-columns-hidden > tbody > tr > td > span.responsiveExpander {
+    background: url('../../../plugins/datatables/responsive/img/plus.png') no-repeat 5px center;
+    padding-left: 32px;
+    cursor: pointer;
+}
+
+table.has-columns-hidden > tbody > tr.detail-show > td span.responsiveExpander {
+    background: url('../../../plugins/datatables/responsive/img/minus.png') no-repeat 5px center;
+}
+
+table.has-columns-hidden > tbody > tr.row-detail > td {
+    background: #eee;
+}
+
+table.has-columns-hidden > tbody > tr.row-detail > td > ul {
+    list-style: none;
+    margin: 0;
+}
+
+table.has-columns-hidden > tbody > tr.row-detail > td > ul > li > span.columnTitle {
+    font-weight: bold;
+}
+
+/* * * * * * * * * * * *
+ * Horizontal Scrolling
+ * * * * * * * * * * * */
+
+.dataTables_scrollBody > .dataTable {
+	margin-top: 0;
+}

@@ -1,0 +1,30 @@
+//
+// Invoice
+// --------------------------------------------------
+
+.invoice {
+	.invoice-nr {
+		font-size: (@baseFontSize + 2px);
+	}
+
+	.invoice-date {
+		color: lighten(@textColor, 20%);
+		margin-top: -5px;
+	}
+
+	.amount {
+		font-size: (@baseFontSize + 2px);
+
+		.total {
+			padding-top: 7px;
+			margin-top: 7px;
+			font-size: (@baseFontSize + 5px);
+		}
+	}
+}
+
+@media print {
+	.crumbs, .page-header, #sidebar, .invoice .buttons {
+		display: none;
+	}
+}

@@ -1,0 +1,196 @@
+//
+// Dropdowns
+// --------------------------------------------------
+
+.navbar {
+	.dropdown-menu {
+		//margin: 3px 0 0;
+		margin-top: 3px !important;
+
+		// Fixing unwanted BS3-effect
+		position: absolute !important;
+		float: left !important;
+		background-color: #fff !important;
+		border: 1px solid #ccc !important;
+		border: 1px solid rgba(0,0,0,0.15) !important;
+		.box-shadow(0 6px 12px rgba(0,0,0,0.175)) !important;
+
+		right: 0;
+		left: auto;
+	}
+
+	.dropdown-toggle i.small {
+		font-size: 10px;
+	}
+}
+
+.dropdown-menu {
+	.border-radius(@borderRadiusSmall);
+	.box-shadow(0 2px 5px rgba(0, 0, 0, 0.07));
+
+	font-size: @fontSizeMedium;
+	text-align: left;
+
+	& > li > a > i, & > li > i {
+		margin-right: 5px;
+	}
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-submenu:hover>a, .dropdown-submenu:focus>a {
+	background: @navbarBackground;
+	filter: none;
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus {
+	background-color: @mainColor;
+}
+
+.btn-group {
+	& > .dropdown-menu, & > .popover {
+		font-size: @fontSizeMedium;
+	}
+
+	& > .btn {
+		font-size: @baseFontSize;
+	}
+
+	// Sizes
+	& > .btn-lg {
+		font-size: @baseFontSize + 1px;
+	}
+
+	& > .btn-sm {
+		font-size: @baseFontSize - 1px;
+	}
+
+	& > .btn-xs {
+		font-size: @baseFontSize - 2px;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Extended
+ * * * * * * * * * * * */
+
+.dropdown-menu.extended {
+	min-width: 180px;
+	max-width: 320px;
+	width: 260px;
+	padding: 0;
+
+	li {
+		border-bottom: 1px solid lighten(@grayLightBorder, 5%);
+
+		&:last-child, &.title {
+			border-bottom: none;
+		}
+
+		&.footer {
+			text-align: center;
+
+			a {
+				background-color: @grayLighter;
+				color: lighten(@textColor, 10%);
+				padding: 8px;
+
+				&:hover {
+					background-color: @mainColor;
+					color: #fff;
+				}
+			}
+		}
+
+		p {
+			padding: 6px 15px;
+			background-color: @navbarLinkBackgroundOpen;
+			margin: 0px;
+			font-size: 13px;
+			font-weight: 600;
+			color: #fff;
+		}
+
+		a {
+			font-size: (@baseFontSize - 1px);
+			padding: 10px;
+			white-space: normal;
+
+			&:hover {
+				.time, .task .percent {
+					color: #fff;
+				}
+			}
+		}
+
+		/* * * * * * * * * * * *
+		 * Notifications
+		 * * * * * * * * * * * */
+
+		.message {
+			padding: 7px;
+		}
+
+		.time {
+			font-size: 11px;
+			font-weight: 300;
+			position: absolute;
+			right: 5px;
+			color: @gray;
+			font-size: (@baseFontSize - 2px);
+			padding-top: 3px;
+		}
+
+		.label {
+			padding: 7px;
+			width: 24px;
+			text-align: center;
+			display: inline-block;
+		}
+
+		/* * * * * * * * * * * *
+		 * Progressbars (Tasks)
+		 * * * * * * * * * * * */
+		 .task {
+		 	.percent {
+		 		float: right;
+		 		display: inline-block;
+		 		color: @gray;
+				font-size: (@baseFontSize - 2px);
+		 	}
+		 }
+		 .progress {
+		 	margin: 5px 0;
+		 }
+
+		/* * * * * * * * * * * *
+		 * Messages
+		 * * * * * * * * * * * */
+
+		.photo img {
+			float: left;
+			height: 40px;
+			width: 40px;
+			margin-right: 6px;
+		}
+
+		.subject {
+			display: block;
+
+			.from {
+				font-size: 13px;
+				font-weight: 600;
+			}
+
+			.time {
+
+			}
+		}
+
+		.text {
+			display: block;
+			white-space: normal;
+			font-size: (@baseFontSize - 1px);
+			line-height: 20px;
+			padding-top: 1px;
+		}
+	}
+}

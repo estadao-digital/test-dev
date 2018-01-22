@@ -1,0 +1,84 @@
+//
+// Responsive: Navbar
+// --------------------------------------------------
+
+// TABLETS AND BELOW
+// -----------------
+@media (max-width: 979px) {
+
+	// UNFIX THE TOPBAR
+	// ----------------
+	// Remove any padding from the body
+	body {
+		padding-top: 0;
+	}
+
+	// Unfix the navbars
+	.navbar {
+		position: relative;
+		margin-bottom: 0;
+
+		.navbar-inner {
+			padding: 0px;
+		}
+
+		.container {
+			width: auto;
+			//padding: 0;
+		}
+
+		.navbar-brand {
+			width: @sidebarWidth - 91px;
+			font-size: 17px;
+			//padding: 10px 20px 10px;
+			//margin-left: -20px;
+		}
+
+		.toggle-sidebar {
+			display: none;
+		}
+	}
+
+	.navbar-fixed-top {
+		margin-right: 0px;
+		margin-left: 0px;
+	}
+
+	#container.fixed-header {
+		margin-top: 0;
+	}
+
+	// Sidebar / Navigation
+	// ----------------
+
+	// Unfix
+	.sidebar-fixed, #sidebar {
+		position: relative !important;
+		top: 0;
+	}
+
+	#divider {
+		left: -8px;
+	}
+}
+
+@media (max-width: 767px) {
+	.navbar .navbar-brand {
+		padding: 10px 20px 10px;
+		margin-left: -10px;
+	}
+}
+
+
+// DEFAULT DESKTOP
+// ---------------
+
+@media (min-width: 980px) {
+
+	// Required to make the collapsing navbar work on regular desktops
+	.nav-collapse.collapse {
+		height: auto !important;
+		overflow: visible !important;
+	}
+
+}

@@ -1,0 +1,285 @@
+//
+// Responsive: Landscape phone to desktop/tablet
+// --------------------------------------------------
+
+@media (max-width: 767px) {
+
+	// Padding to set content in a bit
+	body {
+		padding-left: 0px;
+		padding-right: 0px;
+
+		//overflow-x: hidden;
+	}
+
+	html {
+		overflow-x: hidden;
+	}
+
+	.container {
+		padding: 0;
+	}
+
+	#content {
+		margin-left: 0;
+	}
+
+	.row {
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+
+	.navbar {
+		.container {
+			padding: 0;
+
+			.nav > li.nav-toggle {
+				display: block;
+			}
+
+			.navbar-brand {
+				display: none;
+			}
+
+			.username {
+				display: none;
+			}
+
+			.nav-left {
+				margin-left: -2px;
+			}
+
+			.navbar-nav {
+				float: left;
+				margin-top: 0;
+				margin-bottom: 0;
+
+				&.pull-right {
+					float: right;
+					width: auto;
+				}
+
+				> li {
+					float: left;
+				}
+			}
+
+			/* * * * * * * * * * * *
+			 * Dropdown
+			 * * * * * * * * * * * */
+
+			.nav > li > .dropdown-menu.extended {
+				margin-right: -150px;
+				width: 260px;
+
+				> li > a {
+					color: lighten(@textColor, 10%);
+					padding: 8px;
+
+					&:hover {
+						background-color: @mainColor;
+						color: #fff;
+					}
+				}
+
+				> li.footer > a {
+					background-color: @grayLighter;
+				}
+			}
+		}
+
+	}
+
+	#divider {
+		display: none;
+	}
+
+
+	/* * * * * * * * * * * *
+	 * Project Switcher
+	 * * * * * * * * * * * */
+
+	#project-switcher {
+		.project-list {
+			li {
+				padding: 0 10px;
+			}
+		}
+	}
+
+	// Navigation
+
+	#container {
+		position: relative;
+
+
+		left: 0px;
+
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	#sidebar {
+		position: fixed !important;
+		overflow: hidden;
+		overflow-y: auto;
+		top: 0;
+		left: -250px;
+		width: 249px;
+		height: 100%;
+		z-index: 1;
+		border-right: 1px solid @grayLight;
+
+		.transition(left 0.3s ease);
+
+		ul#nav > li.current > a {
+			border-right: @navCurrentBorder solid lighten(@mainColor, 10%);
+		}
+
+		ul#nav li {
+			a {
+				padding: 12px 15px;
+			}
+
+			ul.sub-menu {
+				li a {
+					padding: 10px 15px 10px 20px;
+				}
+			}
+		}
+	}
+
+	#container, .header, #sidebar {
+		.transition(left 0.3s ease);
+	}
+
+	.nav-open {
+		#container, .header, #sidebar {
+			left: 250px;
+			.transition(left 0.3s ease);
+		}
+
+		#sidebar {
+			left: 0;
+		}
+
+	}
+
+	// Elements
+	// ----------------
+
+	// Breadcrumb
+	.crumbs .crumb-buttons > li > a > span {
+		display: none;
+	}
+
+	// Daterangepicker
+	.daterangepicker {
+		&.dropdown-menu {
+			min-width: 0px !important;
+		}
+
+		&.opensleft .calendar.right {
+			float: none;
+		}
+	}
+
+	// Dual Select Box
+	.left-box, .right-box {
+		width: 100%;
+		float: none;
+	}
+
+	.dual-control {
+		width: auto;
+		margin: 20px 0;
+		position: static;
+		left: 0;
+	}
+
+	// Forms
+	// ----------------
+
+	.btn-group, .input-append, .input-prepend {
+		white-space: normal;
+	}
+
+	.form-horizontal {
+		.form-actions {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+
+		.form-group {
+			margin-right: -15px;
+			margin-left: -15px;
+		}
+	}
+
+	.input-width-large, .input-width-xlarge, .input-width-xxlarge {
+		width: 100% !important;
+		min-height: 30px;
+		.box-sizing(border-box);
+	}
+
+	// Select2
+	.select2-container-multi.full-width-fix .select2-search-field input {
+		width: 100% !important;
+	}
+
+}
+
+
+// UP TO LANDSCAPE PHONE
+// ---------------------
+
+@media (max-width: 480px) {
+
+	// Page-Header
+	.page-header {
+		text-align: center;
+		margin: 0 auto;
+
+		.page-title {
+			float: none;
+		}
+
+		.page-stats {
+			display: none;
+		}
+	}
+
+	// Breadcrumb
+	.crumbs {
+		text-align: center;
+
+		.breadcrumb {
+			display: none;
+		}
+
+		.crumb-buttons {
+			float: none;
+			margin: 0 auto;
+			display: inline-block;
+			height: @breadcrumbHeight;
+		}
+	}
+
+	/* * * * * * * * * * * *
+	 * Login
+	 * * * * * * * * * * * */
+
+	 .login {
+	 	.logo {
+	 		margin-top: 0 !important;
+	 	}
+
+	 	.box {
+	 		width: 100% !important;
+	 	}
+
+	 	.single-sign-on {
+	 		width: 90% !important;
+	 	}
+	 }
+}

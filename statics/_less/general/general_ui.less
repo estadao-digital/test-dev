@@ -1,0 +1,261 @@
+//
+// General UI
+// --------------------------------------------------
+
+/* * * * * * * * * * * *
+ * Alerts
+ * * * * * * * * * * * */
+
+.alert {
+	.border-radius(0);
+	margin-bottom: 15px;
+
+	.close {
+		font-size: 11px;
+		line-height: 25px;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Images
+ * * * * * * * * * * * */
+
+img {
+	width: auto\9;
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+
+/* * * * * * * * * * * *
+ * Code
+ * * * * * * * * * * * */
+
+code {
+	color: @blue;
+	background-color: @grayLighter;
+	border: 1px solid @grayLightBorder;
+	.border-radius(0);
+}
+
+/* * * * * * * * * * * *
+ * Labels and Badges
+ * * * * * * * * * * * */
+
+.label, .badge {
+	font-size: (@baseFontSize - 3px);
+	font-weight: normal;
+}
+
+.label, .badge {
+	.border-radius(0);
+}
+
+/* Colors */
+
+.label-info {
+	background-color: @blueLight;
+}
+.label-success {
+	background-color: @green;
+}
+.label-danger {
+	background-color: @red;
+}
+
+/* * * * * * * * * * * *
+ * Tooltips
+ * * * * * * * * * * * */
+
+.tooltip-inner {
+	.border-radius(0);
+}
+
+/* * * * * * * * * * * *
+ * Popovers
+ * * * * * * * * * * * */
+
+.popover {
+	.border-radius(0);
+	.box-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+	border-bottom-color: #B3B3B3;
+}
+
+/* * * * * * * * * * * *
+ * Help Blocks
+ * * * * * * * * * * * */
+
+.help-inline {
+	display: inline-block;
+	*display: inline;
+	padding-left: 5px;
+	vertical-align: middle;
+	*zoom: 1;
+}
+
+/* * * * * * * * * * * *
+ * Feed List
+ * * * * * * * * * * * */
+
+@col2Width: 100px;
+
+.feeds {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+
+	li {
+		background-color: @grayLighter;
+		border-bottom: 1px solid @grayLightBorder;
+		margin-bottom: 7px;
+
+		&.hoverable:hover, &.hoverable:focus {
+			background-color: darken(@grayLighter, 2%);
+		}
+
+		&.hoverable:active {
+			background-color: darken(@grayLighter, 4%);
+			border-top: 1px solid @grayLightBorder;
+			border-bottom: none;
+		}
+
+		&:before, &:after {
+			display: table;
+			content: "";
+			line-height: 0;
+			clear: both;
+		}
+	}
+
+	.col1 {
+		float: left;
+		width: 100%;
+		clear: both;
+
+		.content {
+			float: left;
+			margin-right: @col2Width;
+			overflow: hidden;
+
+			.content-col1 {
+				float: left;
+				margin-right: -100%;
+
+				.label {
+					float: left;
+					width: 14px;
+					padding: 7px;
+					text-align: center;
+					line-height: 14px;
+					.box-sizing(content-box);
+				}
+			}
+
+			.content-col2 {
+				float: left;
+				width: 100%;
+
+				.desc {
+					margin-left: 35px;
+					padding-top: 4px;
+					padding-bottom: 4px;
+					overflow: hidden;
+
+					span {
+						margin-left: 3px;
+					}
+				}
+			}
+		}
+	}
+
+	.col2 {
+		float: left;
+		width: @col2Width;
+		margin-left: -@col2Width;
+
+		.date {
+			padding: 4px 9px 4px 4px;
+			text-align: right;
+			color: @gray;
+			font-size: (@baseFontSize - 2px);
+		}
+	}
+}
+
+/* * * * * * * * * * * *
+ * Panels
+ * * * * * * * * * * * */
+
+.panel, .panel-group .panel {
+	.border-radius(0);
+	.box-shadow(none);
+}
+
+.panel-title {
+	font-size: @baseFontSize;
+	font-weight: 600;
+}
+
+/* * * * * * * * * * * *
+ * List Groups
+ * * * * * * * * * * * */
+
+.list-group-item {
+	&:first-child, &:last-child {
+		.border-radius(0);
+	}
+
+	&.no-padding {
+		padding: 0;
+	}
+}
+
+a.list-group-item.active {
+	border-color: darken(@mainColor, 5%);
+	background-color: @mainColor;
+}
+
+.list-group-header {
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: (@baseFontSize - 2px);
+	background-color: @grayLighter;
+}
+
+/* * * * * * * * * * * *
+ * Wells
+ * * * * * * * * * * * */
+
+.well {
+	.border-radius(0);
+	.box-shadow(none);
+	background-color: @grayLighter;
+	border-color: @grayLightBorder;
+}
+
+/* * * * * * * * * * * *
+ * Profile Info
+ * * * * * * * * * * * */
+
+.profile-info {
+	h1 {
+		font-size: (@baseFontSize + 7px);
+		font-weight: 600;
+	}
+
+	p, dl {
+		color: lighten(@textColor, 15%);
+	}
+}
+
+/* * * * * * * * * * * *
+ * Google Maps
+ * * * * * * * * * * * */
+
+.gmaps {
+	height: 300px;
+	width: 100%;
+}

@@ -1,0 +1,207 @@
+//
+// Tables
+// --------------------------------------------------
+
+.table {
+	margin-bottom: 5px;
+}
+
+.table-striped tbody>tr:nth-child(odd)>td, .table-striped tbody>tr:nth-child(odd)>th {
+	background-color: @tableBackgroundAccent;
+}
+
+.table-hover tbody tr:hover>td, .table-hover tbody tr:hover>th {
+	background-color: @tableBackgroundHover;
+}
+
+.table-bordered, .table-bordered thead:first-child tr:first-child>th:first-child, .table-bordered tbody:first-child tr:first-child>td:first-child, .table-bordered tbody:first-child tr:first-child>th:first-child, .table-bordered thead:first-child tr:first-child>th:last-child, .table-bordered tbody:first-child tr:first-child>td:last-child, .table-bordered tbody:first-child tr:first-child>th:last-child, .table-bordered thead:last-child tr:last-child>th:first-child, .table-bordered tbody:last-child tr:last-child>td:first-child, .table-bordered tbody:last-child tr:last-child>th:first-child, .table-bordered tfoot:last-child tr:last-child>td:first-child, .table-bordered tfoot:last-child tr:last-child>th:first-child, .table-bordered thead:last-child tr:last-child>th:last-child, .table-bordered tbody:last-child tr:last-child>td:last-child, .table-bordered tbody:last-child tr:last-child>th:last-child, .table-bordered tfoot:last-child tr:last-child>td:last-child, .table-bordered tfoot:last-child tr:last-child>th:last-child {
+	.border-radius(0);
+}
+
+.table-bordered>thead>tr>th, .table-bordered>thead>tr>td {
+	//border-bottom-width: 1px;
+}
+
+.table-highlight-head {
+	thead {
+		background-color: @tableBackgroundHighlight;
+	}
+}
+
+.table-no-inner-border {
+	tr th, tr td {
+		border-left-width: 0px;
+	}
+
+	tr th:first-child, tr td:first-child {
+		border-left-width: 1px !important;
+	}
+}
+
+.widget-content.no-padding {
+	table {
+		margin-bottom: 0 !important;
+	}
+	.table-bordered {
+		border: 0;
+
+		th:first-child, td:first-child {
+			border-left: 0;
+		}
+
+		th:last-child, td:last-child {
+			border-right: 0;
+		}
+
+		tr:last-child td {
+			border-bottom: 0;
+		}
+	}
+}
+
+.table .align-center {
+	text-align: center;
+}
+
+/* * * * * * * * * * * *
+ * Table Footer
+ * * * * * * * * * * * */
+
+.table-footer {
+	padding: 12px;
+
+	.table-actions {
+		label {
+			margin-right: 10px;
+			display: inline-block;
+		}
+
+		select {
+			width: 180px;
+			height: 30px;
+			margin-top: -1px;
+			margin-bottom: 0;
+		}
+	}
+
+	.pagination {
+		float: right;
+		margin: 0;
+	}
+
+	&:after {
+		content: "";
+		display: block;
+		height: 0;
+		clear: both;
+	}
+}
+
+.widget-content.no-padding {
+	.table-footer {
+		border-top: 1px solid @tableBorder;
+		background-color: @tableBackgroundFooter;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.widget:not(.box) .widget-content .table-footer {
+	border: 1px solid @tableBorder;
+	border-top: none;
+	margin-top: -5px;
+}
+
+.widget.box .widget-content:not(.no-padding) .table-footer {
+	border: none;
+	background-color: none;
+	padding: 8px 0;
+	padding-bottom: 3px;
+}
+
+/* * * * * * * * * * * *
+ * Pagination
+ * * * * * * * * * * * */
+
+.pagination {
+	.border-radius(0);
+	.box-shadow(none);
+
+	> li:first-child > a, > li:first-child > span,
+	> li:last-child > a, > li:last-child > span {
+		.border-radius(0);
+	}
+}
+
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+	background-color: @mainColor;
+	border-color: darken(@mainColor, 10%);
+}
+
+/* * * * * * * * * * * *
+ * Checkable Table
+ * * * * * * * * * * * */
+
+.table-checkable {
+	.checkbox-column {
+		text-align: center;
+		width: 24px;
+
+		div.checker {
+			margin-right: 0;
+		}
+	}
+
+	&.table-no-inner-border {
+		.checkbox-column {
+			border-right: 1px solid @tableBorder;
+		}
+	}
+
+
+	tbody tr.checked td {
+		background-color: @tableChecked;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Table Controls
+ * * * * * * * * * * * */
+
+
+.table-controls {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+
+	> li {
+		display: inline-block;
+		margin: 0 2px;
+		line-height: 1;
+
+		> a {
+			display: inline-block;
+
+			i {
+				margin: 0;
+				font-size: @baseFontSize;
+				color: @grayDark;
+				display: block;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+
+/* * * * * * * * * * * *
+ * Progressbars in Tables
+ * * * * * * * * * * * */
+
+.table {
+	.progress {
+		margin-bottom: 0;
+	}
+}

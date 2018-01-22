@@ -1,0 +1,417 @@
+//
+// Forms
+// --------------------------------------------------
+
+/* * * * * * * * * * * *
+ * General
+ * * * * * * * * * * * */
+
+form {
+	margin: 0 5px;
+}
+
+label, input, button, select, textarea {
+	font-size: @baseFontSize !important;
+}
+
+label {
+	font-weight: 600;
+}
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+	-webkit-appearance: none !important;
+	color: @grayDark;
+	padding: 6px 6px !important;
+	//line-height: 20px;
+	font-weight: normal;
+	vertical-align: top;
+	background-color: #ffffff;
+	background-image: none !important;
+	filter: none !important;
+	.border-radius(0);
+
+	&:focus {
+		border-color: @mainColor;
+		.box-shadow(~"inset 0 1px 1px rgba(0,0,0,0.075),0 0 3px rgba(0, 0, 0, 0.1)");
+	}
+}
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+	.border-radius(0);
+}
+
+.form-control {
+	height: 32px;
+	font-size: 13px;
+	.border-radius(0);
+}
+
+select.form-control, textarea.form-control {
+	//height: 34px;
+	padding: 0 5px;
+
+	&:focus {
+		border-color: @mainColor;
+		.box-shadow(~"inset 0 1px 1px rgba(0,0,0,0.075),0 0 3px rgba(0, 0, 0, 0.1)");
+	}
+}
+
+/* * * * * * * * * * * *
+ * Sizing
+ * * * * * * * * * * * */
+
+.input-xxlarge {
+	width: 465px;
+}
+
+.multiple {
+	width: 100%;
+}
+
+.form-control.input-small {
+	.border-radius(0);
+	height: 30px;
+}
+
+/* Height Sizing */
+.input-sm {
+	height: 26px;
+	font-size: (@baseFontSize - 1px) !important;
+}
+
+.input-lg {
+	height: 45px;
+	font-size: (@baseFontSize + 3px) !important;
+}
+
+/* BS2 backward compatibility sizes */
+.input-width-mini {
+  width: 60px !important;
+}
+
+.input-width-small {
+  width: 90px !important;
+}
+
+.input-width-medium {
+  width: 150px !important;
+}
+
+.input-width-large {
+  width: 210px !important;
+}
+
+.input-width-xlarge {
+  width: 270px !important;
+}
+
+.input-width-xxlarge {
+  width: 530px !important;
+}
+
+.input-block-level {
+	display: block;
+	width: 100%;
+}
+
+/* * * * * * * * * * * *
+ * Textarea
+ * * * * * * * * * * * */
+
+textarea {
+	border-color: @inputBorder;
+
+	&.auto {
+		.transition(height 0.2s);
+	}
+
+	&.col-md-12 {
+		resize: vertical;
+	}
+}
+
+input, textarea {
+	.box-shadow(none);
+}
+
+/* * * * * * * * * * * *
+ * Selects
+ * * * * * * * * * * * */
+
+.multiple {
+	padding: 8px 10px;
+	height: 150px !important;
+	font-size: 12px;
+	border: 1px solid #DADADA;
+}
+
+/* * * * * * * * * * * *
+ * File Input
+ * * * * * * * * * * * */
+
+input[type="file"] {
+	height: auto;
+	line-height: normal;
+	margin-top: 5px;
+}
+
+/* * * * * * * * * * * *
+ * Checkboxes and Radios
+ * * * * * * * * * * * */
+
+.checkbox, .radio {
+  font-weight: normal;
+}
+
+.next-row {
+	display: block;
+	margin-top: 10px;
+}
+
+/* * * * * * * * * * * *
+ * Disabled States
+ * * * * * * * * * * * */
+
+input[disabled], select[disabled], textarea[disabled], input[readonly], select[readonly], textarea[readonly] {
+	cursor: not-allowed;
+	background-color: @grayLighter;
+	color: @gray;
+}
+
+.help-block, .help-inline {
+	color: @gray;
+}
+
+/* * * * * * * * * * * *
+ * Icons
+ * * * * * * * * * * * */
+
+.control-label {
+	& > i {
+		margin-right: 6px;
+	}
+}
+
+.controls {
+	position: relative;
+}
+
+.field-icon {
+	position: absolute;
+	top: 9px;
+	right: 25px;
+	display: block;
+	font-size: 14px;
+	line-height: 1;
+}
+
+.input-icon  {
+	> input {
+		padding-left: 30px !important;
+	}
+
+	> i {
+		color: @grayLight;
+		display: block !important;
+		position: absolute !important;
+		z-index: 1;
+		margin: 8px 2px 4px 10px;
+		width: 16px;
+		height: 16px;
+		font-size: 16px;
+		text-align: center;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Prepends / Appends
+ * * * * * * * * * * * */
+
+/* [DEPRECATED SINCE BS3]
+
+.input-prepend .add-on:first-child, .input-prepend .btn:first-child, .input-append .add-on:last-child, .input-append .btn:last-child, .input-append .btn-group:last-child>.dropdown-toggle, .input-prepend.input-append .add-on:first-child, .input-prepend.input-append .btn:first-child, .input-prepend.input-append .add-on:last-child, .input-prepend.input-append .btn:last-child, .input-prepend.input-append input+.btn-group .btn, .input-prepend.input-append select+.btn-group .btn, .input-prepend.input-append .uneditable-input+.btn-group .btn, .input-append input, .input-append select, .input-append .uneditable-input {
+	.border-radius(0);
+	font-size: @baseFontSize;
+}
+
+.input-append .add-on, .input-prepend .add-on {
+	padding: 6px 6px;
+	background-color: @grayLighter;
+}*/
+
+.input-group-addon {
+	.border-radius(0);
+	font-size: @baseFontSize;
+	padding: 6px 6px;
+	background-color: @grayLighter;
+}
+
+.input-group > .input-group-btn .btn {
+	margin-right: -1px;
+	margin-left: -1px;
+}
+
+/* * * * * * * * * * * *
+ * Validation
+ * * * * * * * * * * * */
+
+label > span.required {
+	color: @red;
+}
+
+.form-group .help-block:not(.error) {
+	display: block !important;
+}
+
+.form-group select.select2-offscreen + .help-block {
+	padding-top: 10px;
+	clear: both;
+}
+
+.form-group.error .help-block, .form-group.warning .help-block, .form-group.success .help-block, .form-group.info .help-block {
+	display: inline-block;
+}
+
+/* * * * * * * * * * * *
+ * Horizontal Forms
+ * * * * * * * * * * * */
+
+.form-horizontal {
+	.form-group {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.control-label {
+		padding-top: 7px;
+		//text-align: left;
+	}
+
+	.form-actions {
+		//padding-left: 195px;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Vertical Forms
+ * * * * * * * * * * * */
+
+.form-vertical {
+	&.no-margin {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.help-block {
+		margin-bottom: 0;
+	}
+
+	.select2-container.error {
+		margin-bottom: 10px;
+	}
+
+	margin-left: -10px;
+	margin-right: -10px;
+
+	.form-group {
+		padding-left: 15px;
+		padding-right: 15px;
+
+		&:first-child {
+			padding-top: 5px;
+		}
+
+		&:last-child {
+			padding-bottom: 0;
+		}
+
+		.control-label {
+			padding-bottom: 5px;
+		}
+	}
+}
+
+/* * * * * * * * * * * *
+ * Control Groups
+ * * * * * * * * * * * */
+
+// Maybe also deprecated since BS3
+/*.form-group {
+	margin: 0;
+	padding: 10px 15px;
+
+	&:first-child {
+		padding-top: 5px;
+	}
+}*/
+
+// DEPRECATED SINCE BS3
+/*.box {
+	.form-group {
+		margin-left: -10px;
+		margin-right: -10px;
+	}
+}*/
+
+.row-border {
+	.form-group {
+		border-top: 1px solid @grayMedium;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		margin-bottom: 0;
+
+		&:first-child {
+			padding-top: 5px;
+			border-top: none;
+		}
+	}
+}
+
+/* * * * * * * * * * * *
+ * Form Actions
+ * * * * * * * * * * * */
+
+.form-actions {
+	padding: 19px 20px 20px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	background-color: #f5f5f5;
+	border-top: 1px solid #e5e5e5;
+	*zoom: 1;
+
+	.btn.pull-right {
+		margin-left: 3px;
+	}
+}
+
+.form-actions:before,
+.form-actions:after {
+	display: table;
+	line-height: 0;
+	content: "";
+}
+
+.form-actions:after {
+  clear: both;
+}
+
+.box {
+	.form-actions {
+		margin-bottom: -10px;
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Uniform
+ * * * * * * * * * * * */
+
+.radio > div.radio, .radio-inline > div.radio, .checkbox > div.checker, .checkbox-inline > div.checker {
+	margin-left: -20px;
+	padding-top: 0;
+}
+
+.radio > div.radio input[type="radio"], .checkbox > div.checker input[type="checkbox"] {
+	margin-left: 0px;
+}

@@ -1,0 +1,200 @@
+/* ========================================================
+*
+* Melon - Flat & Responsive Admin Template
+*
+* ========================================================
+*
+* File: login.css
+* Description: Login template styling
+* Version: 1.0
+*
+* ======================================================== */
+
+@import "general/mixins.less";
+@import "general/variables.less";
+
+// Login Specific Variables
+@loginWidth: 350px;
+
+.login {
+	background-color: @grayLighter;
+	padding-top: 60px;
+
+	.logo, .single-sign-on, .footer {
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.logo {
+		padding: 15px;
+		font-size: (@baseFontSize + 10px);
+	}
+
+	.box {
+		background-color: #fff;
+		width: @loginWidth;
+		margin: 0 auto;
+		border: 1px solid @grayLightBorder;
+		border-top: 5px solid @mainColor;
+
+		.content {
+			padding: 30px;
+			padding-top: 10px;
+			padding-bottom: 15px;
+		}
+
+		form {
+			padding: 0;
+			margin: 0;
+		}
+
+		.form-title {
+			text-align: center;
+			font-weight: 300;
+			margin-bottom: 25px;
+		}
+
+		.form-group {
+			margin: 0;
+			padding: 0;
+
+			margin-bottom: 15px;
+		}
+
+		.form-actions {
+			background-color: #fff;
+			border-top: none;
+			padding: 10px 0;
+			margin: 0;
+		}
+
+		.input-icon input {
+			border-left: 2px solid @mainColor;
+		}
+		.has-error .input-icon input {
+			border-left-color: #b94a48;
+		}
+		.has-success .input-icon input {
+			border-left-color: #468847;
+		}
+
+		.checkbox {
+			margin-top: 7px;
+		}
+
+		/* * * * * * * * * * * *
+		 * Inner Box
+		 * * * * * * * * * * * */
+
+		.inner-box {
+			background-color: @grayLighter;
+			border-top: 1px solid darken(@grayLightBorder, 10%);
+			.box-shadow(0 1px 1px rgba(0, 0, 0, 0.05) inset);
+
+			.content {
+				padding: 12px 30px;
+				text-align: center;
+			}
+
+			a {
+				color: @textColor;
+				font-size: (@baseFontSize - 1px);
+				font-weight: 600;
+
+				&:hover {
+					text-decoration: none;
+					color: @mainColor;
+				}
+			}
+
+			.close {
+				font-size: (@baseFontSize - 1px);
+				margin-top: -3px;
+				margin-right: -20px;
+
+				&.hide-default {
+					display: none;
+				}
+			}
+
+			form {
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+
+			a + form {
+				margin-top: 20px;
+			}
+
+			.form-group {
+				margin-bottom: 10px;
+			}
+
+			.forgot-password-done {
+				padding: 10px 0;
+
+				.success-icon, .danger-icon {
+					display: block;
+					font-size: (@baseFontSize + 17px);
+					padding: 15px;
+					padding-top: 0;
+				}
+
+				.success-icon {
+					color: @green;
+				}
+
+				.danger-icon {
+					color: @red;
+				}
+
+				span {
+					font-weight: 600;
+				}
+			}
+		}
+	}
+
+	.single-sign-on {
+		width: @loginWidth;
+		padding: 15px 0;
+		opacity: 0.5;
+		.transition(opacity 200ms ease-out);
+
+		&:hover {
+			opacity: 1;
+		}
+
+		span {
+			text-transform: uppercase;
+			font-weight: 600;
+			margin-bottom: 15px;
+			display: block;
+			color: lighten(@textColor, 20%);
+		}
+
+		.btn i {
+			padding-right: 5px;
+		}
+	}
+
+	.footer {
+		width: @loginWidth;
+		padding-top: 30px;
+
+		a {
+			font-size: (@baseFontSize);
+			color: lighten(@textColor, 10%);
+
+			&:hover {
+				text-decoration: none;
+				color: @mainColor;
+			}
+		}
+	}
+
+	/* Helper */
+	.spacing-top {
+		padding-top: 7px !important;
+	}
+}

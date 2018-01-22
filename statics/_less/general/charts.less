@@ -1,0 +1,138 @@
+//
+// Charts
+// --------------------------------------------------
+
+.chart {
+	height: 250px;
+	z-index: 90;
+	width: 100%;
+	overflow: hidden;
+
+	/* Sizes */
+	&.chart-small {
+		height: 100px;
+	}
+	&.chart-medium {
+		height: 200px;
+	}
+	&.chart-normal {
+		height: 250px;
+	}
+	&.chart-large {
+		height: 400px;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Tooltip
+ * * * * * * * * * * * */
+
+#flotTip {
+	padding: 3px 6px;
+	color: #ffffff;
+	text-align: center;
+	text-decoration: none;
+	background-color: #000000;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	z-index: 200;
+	font-size: @baseFontSize;
+}
+
+/* * * * * * * * * * * *
+ * Flot Legend
+ * * * * * * * * * * * */
+
+.legend {
+	.legendColorBox {
+		> div {
+			border: 0 !important;
+			padding: 0 !important;
+		}
+	}
+
+	.legendLabel {
+		padding-left: 3px;
+	}
+}
+
+/* * * * * * * * * * * *
+ * Chart Widgets
+ * * * * * * * * * * * */
+
+.widget.widget-closed .widget-chart {
+	display: none;
+}
+
+.widget-chart {
+	display: block;
+	background-color: @blueLight;
+	border: 1px solid darken(@blueLight, 10%);
+	padding: 12px;
+
+	.tickLabel {
+		color: #fff !important;
+		text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5) !important;
+	}
+
+	.legend .legendLabel {
+		text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+	}
+
+	/* Colors */
+	&.widget-chart-blue {
+		background-color: @blue;
+		border: 1px solid darken(@blue, 10%);
+	}
+
+	&.widget-chart-blueLight {
+		background-color: @blueLight;
+		border: 1px solid darken(@blueLight, 10%);
+	}
+
+	&.widget-chart-green {
+		background-color: @green;
+		border: 1px solid darken(@green, 10%);
+	}
+
+	&.widget-chart-red {
+		background-color: @red;
+		border: 1px solid darken(@red, 10%);
+	}
+
+	&.widget-chart-yellow {
+		background-color: @yellow;
+		border: 1px solid darken(@yellow, 10%);
+	}
+
+	&.widget-chart-orange {
+		background-color: @orange;
+		border: 1px solid darken(@orange, 10%);
+	}
+
+	&.widget-chart-purple {
+		background-color: @purple;
+		border: 1px solid darken(@purple, 10%);
+	}
+
+	&.widget-chart-gray {
+		background-color: @grayDark;
+		border: 1px solid darken(@grayDark, 10%);
+	}
+}
+
+/* * * * * * * * * * * *
+ * Easy Pie Chart
+ * * * * * * * * * * * */
+
+.easyPieChart {
+	position: relative;
+	text-align: center;
+	font-weight: bold;
+}
+
+.easyPieChart canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+}

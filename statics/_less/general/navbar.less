@@ -1,0 +1,267 @@
+//
+// Navbars (Redux)
+// --------------------------------------------------
+
+.header {
+	z-index: 10030;
+}
+
+.navbar {
+	margin-bottom: 0;
+
+	background: @navbarBackground;
+	min-height: @navbarHeight;
+	filter: none;
+
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1030;
+	margin-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	.box-shadow(none);
+	border: none;
+	.border-radius(0);
+	border-bottom: @navbarBorderHeight solid @navbarBorder;
+
+	> .container {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+.navbar-right {
+	float: right !important;
+}
+
+.navbar-left {
+	float: left !important;
+}
+
+.navbar-text {
+	line-height: @navbarHeight;
+	color: @navbarText;
+}
+
+.navbar {
+	font-family: @navbarFontFamily;
+
+	.navbar-brand {
+		// Vertically center the text given @navbarHeight
+		//line-height: (@navbarHeight / 2) + @navbarBorderHeight; // depraced since BS3
+		//padding-top: 16px;
+		//padding-bottom: 13px;
+		padding: 0;
+		line-height: @navbarHeight;
+		color: @navbarBrandColor;
+		text-shadow: 0 1px 0 @navbarTextShadow;
+		font-size: 18px;
+		width: @sidebarWidth - 20px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow-x: hidden;
+
+		text-align: left;
+		padding-left: 0;
+		max-width: none;
+		margin-left: 0 !important;
+		margin-right: 0;
+	}
+
+	.toggle-sidebar {
+		float: left;
+		margin-left: -50px;
+		display: inline-block;
+		position: relative;
+		color: @navbarText;
+		padding: 14px;
+		font-size: 14px;
+		text-decoration: none;
+
+		&:hover {
+			background: @navbarLinkBackgroundHover;
+		}
+	}
+
+	.navbar-nav {
+		padding-top: 0;
+		padding-bottom: 0;
+		margin-left: 0;
+		margin-right: 0;
+
+		> li > a {
+			.border-radius(0);
+		}
+	}
+
+	// Dividers in navbar
+	// -------------------------
+	.divider-vertical {
+		height: @navbarHeight;
+		border-left: 1px solid @navbarBackground;
+		border-right: 1px solid @navbarBackgroundHighlight;
+	}
+
+	.nav {
+		//border-left: 1px solid rgba(0, 0, 0, 0.3);
+		//border-right: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.nav > li {
+		line-height: (@navbarHeight / 2) + @navbarBorderHeight;
+		//border-right: 1px solid rgba(0, 0, 0, 0.3);
+		//border-left: 1px solid rgba(255, 255, 255, 0.1);
+
+		border-right: 1px solid rgba(0, 0, 0, 0.2);
+
+		&:first-child {
+			border-left: 1px solid rgba(0, 0, 0, 0.21);
+		}
+
+		&.nav-toggle {
+			display: none;
+		}
+	}
+
+	/* DEPRECATED
+	.nav > li:active, .nav > li.open {
+		//border-left-color: rgba(0, 0, 0, 0.28);
+		//border-left-color: rgba(0, 0, 0, 0.65);
+
+		+ li {
+			//border-left-color: rgba(0, 0, 0, 0.65);
+		}
+	} */
+
+	.nav > li:active, .nav li.dropdown.open>.dropdown-toggle, .nav li.dropdown.active>.dropdown-toggle, .nav li.dropdown.open.active>.dropdown-toggle, .toggle-sidebar:active {
+		color: @navbarLinkColor;
+		background: @navbarLinkBackgroundOpen;
+		//.box-shadow(0 2px 1px rgba(0, 0, 0, 0.38) inset);
+		-webkit-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.25) inset, -1px 0 0 rgba(0, 0, 0, 0.25) inset;
+		-moz-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.25) inset, -1px 0 0 rgba(0, 0, 0, 0.25) inset;
+		box-shadow: 1px 0 0 rgba(0, 0, 0, 0.25) inset, -1px 0 0 rgba(0, 0, 0, 0.25) inset;
+	}
+
+	.nav > li > a {
+		color: @navbarLinkColor;
+		font-size: 13px;
+		text-shadow: 0 1px 0 @navbarTextShadow;
+		padding-top: 14px;
+		padding-bottom: 14px;
+		padding-left: 18px;
+		padding-right: 18px;
+
+		&:hover,
+		&:focus {
+			color: @navbarLinkColorHover;
+			background: lighten(@navbarBackground, 5%);
+			background: @navbarLinkBackgroundHover;
+		}
+
+		> span {
+			padding-left: 5px;
+
+			&.username {
+				font-weight: bold;
+			}
+		}
+
+		.badge {
+			position: absolute;
+			font-size: 10px;
+			font-weight: 300;
+			top: 8px;
+			right: 8px;
+			text-align: center;
+			height: 14px;
+			background-color: #BE4141;
+			background-color: rgba(219, 45, 42, 0.8);
+			padding: 2px 4px;
+			//.border-radius(10px);
+			text-shadow: none;
+		}
+	}
+}
+
+/* * * * * * * * * * * *
+ * Project Switcher
+ * * * * * * * * * * * */
+
+.project-switcher {
+	display: none;
+	background-color: @navbarLinkBackgroundOpen;
+
+	&.open {
+		display: block;
+	}
+
+	#frame {
+		height: 150px;
+	}
+
+	/* * * * * * * * * * * *
+	 * Project List
+	 * * * * * * * * * * * */
+	 .project-list {
+	 	height: 100%;
+	 	list-style: none;
+	 	margin: 0 auto;
+	 	padding: 30px 10px;
+	 	text-align: center;
+
+	 	li {
+	 		display: inline-block;
+	 		padding: 0 30px;
+	 		color: #fff;
+	 		border-right: 1px solid rgba(0, 0, 0, 0.2);
+
+	 		&:last-child {
+	 			border-right: none;
+	 		}
+
+	 		a {
+	 			color: #fff;
+	 			display: block;
+	 			padding: 15px;
+	 			opacity: 0.9;
+
+	 			&:hover {
+	 				background-color: rgba(255, 255, 255, 0.07);
+	 				text-decoration: none;
+	 				opacity: 1;
+	 			}
+
+	 			&:active {
+	 				background-color: rgba(0, 0, 0, 0.07);
+	 				.box-shadow(0 1px 1px rgba(0, 0, 0, 0.34) inset);
+	 			}
+	 		}
+
+	 		.image, .title {
+	 			display: block;
+	 		}
+
+	 		.image {
+	 			i {
+	 				font-size: 25px;
+	 			}
+	 		}
+
+	 		.title {
+	 			font-weight: 600;
+	 		}
+
+	 		.image + .title {
+	 			padding-top: 10px;
+	 		}
+
+	 		&.current {
+	 			a {
+	 				background-color: rgba(0, 0, 0, 0.07);
+	 				.box-shadow(0 1px 1px rgba(0, 0, 0, 0.34) inset);
+	 			}
+	 		}
+	 	}
+	 }
+}

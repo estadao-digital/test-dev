@@ -1,0 +1,68 @@
+//
+// Dual List Box
+// --------------------------------------------------
+
+@import "../general/mixins.less";
+@import "../general/variables.less";
+
+.dual-control .btn {
+	padding: 0 8px;
+	line-height: 24px;
+	font-size: 11px;
+	cursor: pointer;
+	color: #999;
+	height: 26px;
+	margin: 2px 1px;
+}
+
+.left-box, .right-box {
+	width: 40%;
+	position: relative;
+}
+
+.left-box .multiple, .right-box .multiple {
+	height: 300px;
+	margin-top: 15px;
+}
+
+.left-box {
+	float: left;
+}
+
+.right-box {
+	float: right;
+}
+
+.filter {
+	position: absolute;
+	right: 2px;
+	top: 4px;
+	font-size: 12px;
+	background: none;
+	border: none;
+	color: gray;
+}
+
+.dual-control {
+	text-align: center;
+	width: 90px;
+	margin: 80px 1px;
+	position: absolute;
+	left: 50%;
+	margin-left: -45px;
+}
+
+.count-label {
+	color: gray;
+	font-style: italic;
+	display: block;
+}
+
+.box-filter {
+	width: 100%;
+	//padding: 7px 8px !important;
+	font-size: 12px !important;
+	min-height: 30px;
+	margin-bottom: 0 !important;
+	.box-sizing(border-box);
+}

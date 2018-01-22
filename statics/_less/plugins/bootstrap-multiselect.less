@@ -1,0 +1,54 @@
+//
+// bootstrap-multiselect
+// --------------------------------------------------
+
+@import "../general/mixins.less";
+@import "../general/variables.less";
+
+.multiselect-container {
+	position: absolute;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+	input[type="text"] {
+		width: 70%;
+	}
+
+	.input-prepend {
+		padding: 3px;
+	}
+
+	> li {
+		padding: 0;
+
+		> a {
+			padding-bottom: 7px;
+
+			&.multiselect-all label {
+				font-weight: bold;
+			}
+
+			> label {
+				margin: 0;
+				padding: 3px 20px 3px 20px;
+				height: 100%;
+				cursor: pointer;
+
+				&:hover {
+					cursor: pointer;
+				}
+
+				&.multiselect-header {
+					margin: 0;
+					padding: 3px 20px 3px 20px;
+					height: 100%;
+				}
+
+				> input[type="checkbox"] {
+					margin-bottom:5px;
+				}
+			}
+		}
+	}
+}

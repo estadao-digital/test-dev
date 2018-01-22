@@ -1,0 +1,134 @@
+//
+// Dark Theme
+// ==================================================
+
+
+//
+// Colors
+// --------------------------------------------------
+
+@themeDarkBlackDarker:             #202020;
+@themeDarkBlackDark:               #333333;
+@themeDarkBlack:                   #3D3D3D;
+@themeDarkBlackLight:              #4B4B4B;
+@themeDarkBlackLighter:            #575757;
+
+@themeDarkGrayDark:                #BDBDBD;
+@themeDarkGray:                    #E0E0E0;
+@themeDarkGrayLighter:             #F8F8F8;
+
+//
+// Sidebar/ Navigation
+// --------------------------------------------------
+
+@themeDarkNavbarBackgroundOpen:    @themeDarkBlackDarker;
+
+@themeDarkSidebar:                 @themeDarkBlack;
+@themeDarkNavColor:                @themeDarkGray;
+@themeDarkNavCurrent:              @themeDarkBlackLight;
+@themeDarkNavDivider:              @themeDarkBlackLighter;
+@themeDarkNavHoverBackground:      @themeDarkBlackLight;
+@themeDarkNavActiveBackground:     @themeDarkBlackDark;
+
+@themeDarkSubnavBackground:        @themeDarkBlackDark;
+@themeDarkSubnavCurrentBackground: @themeDarkBlack;
+@themeDarkSubnavHoverBackground:   @themeDarkBlack;
+@themeDarkSubnavDivider:           @themeDarkBlackDarker;
+
+@themeDarkSubSubNavColor:          @themeDarkGrayDark;
+
+
+
+body.theme-dark {
+	background-color: @themeDarkGrayLighter;
+}
+
+.theme-dark {
+
+	/* Header */
+
+	.header {
+		background: @themeDarkBlack;
+		border-bottom-color: @themeDarkBlackDarker;
+
+		#project-switcher {
+			background-color: @themeDarkNavbarBackgroundOpen;
+		}
+	}
+
+	.navbar {
+		.nav > li:active, .nav li.dropdown.open>.dropdown-toggle, .nav li.dropdown.active>.dropdown-toggle, .nav li.dropdown.open.active>.dropdown-toggle, .toggle-sidebar:active {
+			background: @themeDarkNavbarBackgroundOpen;
+		}
+	}
+
+	/* Widgets */
+
+	.widget.box .widget-content {
+		background-color: #fff;
+	}
+
+	/* Sidebar */
+
+	#sidebar {
+		background-color: @themeDarkSidebar;
+
+		ul#nav {
+			> li {
+				border-bottom-color: @themeDarkNavDivider;
+
+				a {
+					color: @themeDarkNavColor;
+					text-shadow: 0 1px 0 #000;
+
+					&:hover {
+						background: @themeDarkNavHoverBackground;
+						color: #fff;
+					}
+
+					&:active {
+						background: @themeDarkNavActiveBackground;
+					}
+				}
+
+				&.current, &.open {
+					background: @themeDarkNavCurrent;
+					color: #fff;
+				}
+			}
+
+			ul.sub-menu {
+				background: @themeDarkSubnavBackground;
+				border-bottom-color: @themeDarkNavDivider;
+
+				li {
+					border-bottom-color: @themeDarkSubnavDivider;
+
+					&.current {
+						background: @themeDarkSubnavCurrentBackground;
+					}
+
+					a {
+						&:hover {
+							background: @themeDarkSubnavHoverBackground;
+						}
+					}
+				}
+
+				ul.sub-menu {
+					> li {
+						border-left-color: @themeDarkNavDivider;
+
+						a {
+							color: @themeDarkSubSubNavColor;
+
+							&:hover {
+								background: @themeDarkSubnavHoverBackground;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
