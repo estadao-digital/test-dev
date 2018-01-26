@@ -128,6 +128,6 @@ class CarroController extends Controller
      */
     public function destroy(Carro $carro)
     {
-        //
+        $carro->delete();
     }
 }
