@@ -17,7 +17,6 @@ class MarcaController extends Controller
     {
         $marcas = Marca::all();
         return $marcas->toJson();
-        return new MarcaResource(Marca::all());
     }
 
     /**

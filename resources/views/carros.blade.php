@@ -14,33 +14,16 @@
     <body>  
         
         <div class="container">
-            <br><br><br>
-            <button class="btb-">Seed Carros</button>
-            <button class="btb-">Limpa Carros</button>
-            <button class="btb-" id="btnNovoCarro">Novo Carro</button>
-            <br><br><br>
-            <div>Todos os Carros</div>
+            <div>
+                <h2>Todos os Carros</h2>
+            </div>
             <div id="carrosList"></div>
             <br>
+            <button class="btn btn-default" id="btnNovoCarro">Novo Carro</button>
             <br>
             <div id="carro"></div>
         </div>
-        
-        <br><br><br>
-        <br><br><br>
-        <br><br><br>
-
-        <input type="text" list="browsers" name="myBrowser" /></label>
-        
-        <datalist id="browsers">
-            <option value="Chrome">
-            <option value="Firefox">
-            <option value="Internet Explorer">
-            <option value="Opera">
-            <option value="Safari">
-            <option value="Microsoft Edge">
-        </datalist>
-
+ 
         <script src="{{ mix('js/app.js') }}"></script>
         {{--  <script>
             $(document).ready(console.log("Carregamento Terminado !!!"));

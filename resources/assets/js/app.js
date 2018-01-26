@@ -18,11 +18,9 @@ class Carro {
         this.ano = ano;
     }
     validaUpdate(){
-        console.log("validando update no objeto carro!");
         return true;
     }
     validaCreate(){
-        console.log("validando update no objeto carro!");
         return true;
     }
 }
@@ -57,7 +55,7 @@ function preencheListaDeCarros(response){
 
         let deletar = document.createElement("a");
         deletar.innerHTML = "Deletar";
-        deletar.color = "red";
+        deletar.style.color = "Red";
         deletar.href = baseURL + '/carros/' + data[i].id;
         deletar.addEventListener("click",
         function (e) {
@@ -104,11 +102,15 @@ function exibeCarro(carro){
         nomeCarro = document.createElement("input");
         nomeCarro.setAttribute("type", "text");
         nomeCarro.setAttribute("id", "nomeCarro");
+        nomeCarro.setAttribute("class", "form-control");
+        nomeCarro.setAttribute("placeholder", "Modelo");
 
         marca = document.createElement("input");
         marca.setAttribute("type", "text");
         marca.setAttribute("list", "marcasList");
         marca.setAttribute("id", "marca");
+        marca.setAttribute("class", "form-control");
+        marca.setAttribute("placeholder", "Marca");
 
         marcasList = document.createElement("datalist");
         marcasList.setAttribute("id", "marcasList");
@@ -116,6 +118,8 @@ function exibeCarro(carro){
         ano = document.createElement("input");
         ano.setAttribute("type", "number");
         ano.setAttribute("id", "ano");
+        ano.setAttribute("class", "form-control");
+        ano.setAttribute("placeholder", "Ano");
     }
 
     nomeCarro.value = carro.modelo;
@@ -130,12 +134,14 @@ function exibeCarro(carro){
 
         let salvarBtn = document.createElement("button");
         salvarBtn.innerText = "Salvar";
+        salvarBtn.setAttribute("class", "btn btn-primary");
         salvarBtn.addEventListener("click", salvarCarro);
 
         divCarro.appendChild(salvarBtn);
 
         let cancelarBtn = document.createElement("button");
         cancelarBtn.innerText = "Cancelar";
+        cancelarBtn.setAttribute("class", "btn btn-default");
         cancelarBtn.addEventListener("click", excluiInputs);
 
         divCarro.appendChild(cancelarBtn);
@@ -150,7 +156,6 @@ function atualizaListaDeMarcas(response){
         marcasList.removeChild(marcasList.firstChild);
     
     for (var i = 0; i < response.data.length; i++) {
-        console.log(response.data[i].marca);
         let marcaItem = document.createElement("option");
         marcaItem.setAttribute("value", response.data[i].marca);
         marcasList.appendChild(marcaItem);
@@ -163,7 +168,7 @@ function pegarTodasAsMarcas(callback){
         if(response.status == 200){
             callback(response);
         }else{
-            console.log("não foi possível atualizar a lista de marcas!")
+            console.log("não foi possível atualizar a lista de marcas!");
             mensagemNaoFoiPossivelSalvar(response);
         }
     })
@@ -186,8 +191,6 @@ function salvarCarro(){
         return;
     }
 
-    // TODO - COLOCAR ESSA WINDOWS LOCATION href no axios
-    // TODO - como centralizar as requests http em um único método?
     if(carro.id > 0){
         axios.put(baseURL + "/carros/" + carro.id, carro)
         .then(function(response){
@@ -216,16 +219,15 @@ function salvarCarro(){
 }
 
 function mensagemSalvoComSucesso(){
-    console.log("foi essa bagaça !!!");
+    console.log("Salvo com Sucesso!");
 }
 
 function mensagemNaoFoiPossivelSalvar(mensagem){
-    console.log("não salvou");
-    console.log(mensagem);
+    console.log("Não foi possível salvar");
 }
 
 function mensagemValidacaoNegada(){
-    console.log("mensagem validação negada!");
+    console.log("");
 }
 
 function atualizaListaDeCarros(){

@@ -19,12 +19,12 @@ class CarroController extends Controller
      */
     public function index()
     {
-        // TODO ARRUMAR ISSO AQUI
         $carros = Carro::all();
 
         foreach ($carros as &$carro) {
             $carro['marca'] = $carro->marca->marca;
         }
+        
         return new CarrosResource($carros);
     }
 
@@ -36,43 +36,11 @@ class CarroController extends Controller
      */
     public function store(Request $request) //CarroRequest $request)
     {
-        // TODO NÃO ADICIONAR CARRO COM MESMO NOME !!!
-        
-        // $validator = Validator::make($request->all(), [
-        //     'modelo' => 'required|max:50',
-        //     'marca_id' => 'required',
-        //     'ano' => 'required'
-        // ]);
-
-        // if ($validator->fails()) {
-        //     //$message = $validator->errors();
-        //     //$this->SetStatusCode(404);
-        //     return "cagou!"; //$message;
-        // }
-        
         $carro = new Carro();
         $carro->modelo = $request->modelo;
         $carro->marca_id = $this->getMarcaId($request->marca);
         $carro->ano = $request->ano;
         $carro->save();
-
-        // $novoCarro = Carro::create([
-        //     'modelo' => Request::get('modelo'),
-        //     'marca_id' => Request::get('marca_id'),
-        //     'ano' => Request::get('ano')
-        // ]);
-        // return "Tudo certo na Bahia!";
-
-        // if ($valicacao->fails()) {
-        //     return "deu merda!"; //$validator->errors();
-        // } else {
-        //     $novoCarro = Carro::create([
-        //         'modelo' => Request::get('modelo'),
-        //         'marca_id' => Request::get('marca_id'),
-        //         'ano' => Request::get('ano')
-        //     ]);
-        //     return "Tudo certo na Bahia!";
-        // }
     }
 
     public function getMarcaId($marca){
