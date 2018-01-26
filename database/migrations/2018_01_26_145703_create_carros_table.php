@@ -15,7 +15,12 @@ class CreateCarrosTable extends Migration
     {
         Schema::create('carros', function (Blueprint $table) {
             $table->increments('id');
+            $table->char('modelo', 50);
+            $table->integer('marca_id')->unsigned();
+            $table->integer('ano');
             $table->timestamps();
+
+            $table->foreign('marca_id')->references('id')->on('marcas')->onDelete('cascade');
         });
     }
 
