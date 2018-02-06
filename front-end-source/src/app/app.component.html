@@ -1,0 +1,110 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h1 style="text-align:center;">
+    Dashboard Carros
+  </h1>
+
+  
+  <button class="btn btn-success" style="float:right; margin-right:10px;" (click)="showCreate()">Adicionar Carro</button>
+
+  <br><br>
+  
+  <div *ngIf="carroCreating" style="float: none;margin: 0 auto;margin-left:10px;margin-right:10px;">
+    <div class="form-group">
+        <select #carroMarca class="form-control">
+          <option *ngFor="let marca of marcas" [ngValue]="marca.id"> {{marca.marca}} </option>
+        </select>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Modelo" #carroModelo>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Ano" #carroAno>
+    </div>
+    <div class="form-group" style="float: right;">
+      <button class="btn btn-secondary" (click)="cancelCreate()">cancelar</button>
+      <button class="btn btn-success" (click)="create(carroMarca.value, carroModelo.value, carroAno.value);">
+      create
+      </button>
+    </div>
+  </div>
+  <table class="table table-striped" >
+      <thead>
+        <tr>
+            <th>Id</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Ano</th>
+            <th>Editar</th>
+            <th>Deletar</th>
+        </tr>
+      </thead>
+      <tbody ui-sortable>
+        <tr *ngFor="let carro of carros" >
+            <td>{{ carro.id }}</td>
+            <td>{{ carro.marca }}</td>
+            <td>{{ carro.modelo }}</td>
+            <td>{{ carro.ano }}</td>
+            <td>
+              <button (click)="update_show(carro)" class="btn btn-info" data-toggle="modal" data-target="#updateModal">editar</button>
+            </td>
+            <td>
+                <button (click)="preDelete(carro)" class="btn btn-danger" data-toggle="modal" data-target="#modalConfirmDelete">Deletar</button>
+            </td>
+        </tr>
+      </tbody>
+  </table>
+
+  <div *ngIf="carroUpdate" class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateModalLabel">Editar  {{ carroUpdate.modelo | uppercase }} <span>id: </span>{{carroUpdate.id}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <select name="marca" [(ngModel)]="carroUpdate.marca" class="form-control">
+              <option *ngFor="let marca of marcas" [ngValue]="marca.marca"> {{marca.marca}} </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label pull-left">Modelo</label>
+            <input [(ngModel)]="carroUpdate.modelo" class="form-control" placeholder="modelo"/>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label pull-left">Ano</label>
+            <input [(ngModel)]="carroUpdate.ano" class="form-control" placeholder="ano"/>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button (click)="cancel_update()" class="btn btn-secondary" data-dismiss="modal">cancelar</button>
+          <button (click)="update()" class="btn btn-success" data-dismiss="modal">editar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="modalConfirmDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tem certeza que desejar deletar?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>{{carroDeletar.id}} : {{carroDeletar.modelo}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" (click)="delete(carroDeletar)" data-dismiss="modal">Deletar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
