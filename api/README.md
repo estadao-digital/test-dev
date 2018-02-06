@@ -1,32 +1,35 @@
-- Server Requirements
+Framework Lumen 5.5
+--------
 
-PHP >= 7.0
-OpenSSL PHP Extension
-PDO PHP Extension
-Mbstring PHP Extension
+Server Requirements
 
-
-- Installing Lumen
-
-composer global require "laravel/lumen-installer"
+- PHP >= 7.0
+- OpenSSL PHP Extension
+- PDO PHP Extension
+- Mbstring PHP Extension
 
 
-- Creating new project sample
+Installing Lumen
 
-lumen new blog
-
-
-- Installing dependencies
-
-composer install
+- $ composer global require "laravel/lumen-installer"
 
 
-- Serving Your Application
+Creating new project sample
 
-php -S localhost:8000
+- $ lumen new blog
 
 
-- Upload path (project dont use db mysql, use json)
+Installing dependencies
 
-chmod 777 database/seeds/data/carros.json
-chmod 777 database/seeds/data/marcas.json
+- $ composer install
+
+
+Serving Your Application
+
+- $ php -S localhost:8000
+
+
+Upload path (project dont use db mysql, use json)
+
+- $ chmod 777 database/seeds/data/carros.json
+- $ chmod 777 database/seeds/data/marcas.json
