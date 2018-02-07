@@ -77,3 +77,5 @@ Rodar os seguintes comandos no terminal
 
 ## Considerações/Observações
 * Docker: Eu gostaria de ter utilizado o Docker e isso facilitaria bastante inclusive a parte de execução do projeto. Mas infelizmente Windows 7 e o Docker Toolbox se recusaram a trabalhar juntos :(
+
+> *Nota* - Sim, eu sei que não é uma boa prática versionar o `.env` e o banco, mesmo sendo um `database.sqlite` vazio. Fiz isso apenas pra facilitar na hora de rodar a aplicação.  
