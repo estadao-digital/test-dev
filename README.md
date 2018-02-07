@@ -1,55 +1,79 @@
-Teste para desenvolvedor do Estadão
-==============================
+# Teste desenvolvedor do Estadão
 
-Olá candidato,
+![CRUD com API em PHP e SPA em Vue.js](screenshot.png)
 
-Esse teste consiste em 2 etapas para avaliarmos seu conhecimento em PHP e Front-End (HTML5, CSS e JavaScript)
+## O Teste
+Apesar de se tratar de um CRUD simples, tentei dar atenção aos detalhes para que dessa maneira consiga entregar um resultado acima do esperado. Espero sinceramente que esteja aceitável pois atende a maior parte de tudo que foi proposto.
 
-Para realizar o teste, você deve dar um fork neste repositório e depois clona-lo na pasta <document_root> da máquina que está realizando o teste.
+#### Backend
+* **PHP Framework** - Para o Backend da aplicação escolhi o Laravel 5.5 como Framework PHP.
+* **API** - A API contém o model Carro e Marcas. Ambos estão relacionados. A rotas disponíveis são as seguintes:
 
-Crie um branch com seu nome, e quando finalizar todo o desenvolvimento, você deverá enviar um pull-request com sua versão.
+  + `/carros` - [GET] retorna todos os carros cadastrados.
+  + `/carros` - [POST] cadastra um novo carro.
+  + `/carros/{id}` [GET] retorna o carro com ID especificado.
+  + `/carros/{id}` [PUT] Atualiza os dados do carro com ID especificado.
+  + `/carros/{id}` [DELETE] Exclui o carro com ID especificado.
+
+Controller disponível em `app/Controllers/CarroController.php` e Model na pasta `app/Carro.php` e `app/Marca.php`. Não criei um controller para a model Marcas pois não achei nescessário.
+
+Para conferir pode rodar o comando `php artisan route:list` após a instalação ou conferir no arquivo `routes/api.php`.
+
+* **Banco de dados** - Escolhi o SQLite principalmente por ser um banco que grava os dados em um arquivo dentro na própria aplicação, não sendo nescessário ter o MySQL instalado para testar a aplicação. Em produção utilizaria MySQL.
+
+* **Validação de Dados** - Mesmo se tratando de um crud simples, implementei a validação de dados na API e no Front End são exibidas mensagens de validação ao tentar inserir ou editar registros.
+
+* **Testes** - Foram criados alguns testes bem simples a título de exemplo. Para rodar os testes basta usar o comando `composer test` no terminal. O código pode ser visto na pasta `/tests`.
+
+#### Front-End
+* As funcionalidades do Front-End foram desenvolvidas conforme solicitado, sendo possíel:
+
+  + Ver a lista de carros cadastrados
+  + Criar um novo carro
+  + Editar um carro existente
+  + Apagar um carro existente
+
+Todas estas ações estão em uma Single Page Aplication responsiva que funciona 100% via chamadas AJAX contendo ainda um select populado com algumas marcas de carro.
+
+* **JavaScript Framework** - Optei por desenvolver o Front-end em **Vue.js**. O código escrito em JavaScript puro encontra-se na pasta `resurces/assets/js`
+
+* **Pacotes extras** Utilizei o Axios para fazer as requisições HTTP na API e utilizei também o SweetAlert 2 para criar o alert de confirmação de exclusão.
+
+* **Bootstrap** - O Boostrap foi utilizado como Framework HTML/CSS, conferindo um visual razoavelmente aceitável para uma aplicação simples e também já facilitando bastante o trabalho de deixar tudo responsivo.
+
+* **Validação** São exibidas mensagens informando ao usuário sobre erros nos prenchimento do formulário.
+
+* **Testes** - Também foi criado um teste bem simples a título de exemplo no JavaScript. Para rodar os testes basta usar o comando `npm test` no terminal. O código pode ser visto na pasta `/tests/JavaScript`.
+
+## Instruções de funcionamento
+Segue abaixo as instruções básicas para executar o projeto e em caso de dúvidas sinta-se a vontade para entrar em contato: <lucianobragaweb@gmail.com>
+
+### Pré Requisitos
+* PHP >= 7.0.0
+* Composer
+* Node.js
+
+#### Instalando e Testando
+
+Rodar os seguintes comandos no terminal
+
+`npm install` Instala os pacotes do Node.js
+
+`npm run dev` Roda aplicação Front-End - Este comando é opcional, já que os arquivos compilados se encontram na pasta `/public`
+
+`composer install` Instala o Laravel e suas dependências
+
+`php artisan migrate` Cria as tabelas no banco de dados SQLite
+
+`php artisan db:seed` Popula o banco com uma massa inicial de dados
+
+`php artisan serve` Inicia o servidor PHP
 
 
-O teste
---------
+### Outros Comandos Disponíveis
+* `php artisan route:list` Lista as rotas Disponíveis
+* `composer test` Roda os testes PHP
+* `npm test` Roda os testes JavaScript
 
-###Back-End/PHP
-A primeira etapa será o desenvolvimento **backend/PHP**:
-
-**Descrição:**
-
-- Você deverá desenvolver uma 'mini api' para que seja possível realizar operações CRUD do objeto Carro.
-> **Obs:**
->  - Você pode usar a sessão ou arquivo(txt,json) como banco de dados.
->  - Cada carro deve ter ID, Marca, Modelo, Ano.
-
-- Sugerimos o retorno dessa 'mini api' nas seguinte urls:
- - `/carros` - [GET] deve retornar todos os carros cadastrados.
- - `/carros` - [POST] deve cadastrar um novo carro.
- - `/carros/{id}`[GET] deve retornar o carro com ID especificado.
- - `/carros/{id}`[PUT] deve atualizar os dados do carro com ID especificado.
- - `/carros/{id}`[DELETE] deve apagar o carro com ID especificado.
-
-### Front-End
-
-Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Application) e nela deve ser possível:
-
-- Ver a lista de carros cadastrados
-- Criar um novo carro
-- Editar um carro existente
-- Apagar um carro existente
-
-> **Obs:**
-> - A página deve ser responsiva.
-> - A página deve funcionar 100% via AJAX, sem outros carregamentos de páginas.
-> - Ao criar/editar um carro, o campo "marca" deverá ser um `SELECT`
-
-
-### Observações importantes:
-
- - Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
- - Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.
- - Você pode usar ferramentas de automação (Grunt, Gulp), mas deverá informar o uso completo para funcionamento do teste.
- - Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.
- - Será considerado ponto positivo o tempo gasto na realização do teste. Menos tempo e tudo funcionando conforme pedido será
-melhor avaliado.
+## Considerações/Observações
+* Docker: Eu gostaria de ter utilizado o Docker e isso facilitaria bastante inclusive a parte de execução do projeto. Mas infelizmente Windows 7 e o Docker Toolbox se recusaram a trabalhar juntos :(
