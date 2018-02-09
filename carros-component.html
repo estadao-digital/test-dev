@@ -1,0 +1,67 @@
+<tr>
+    <td>{id}</td>
+    <td>
+        <input type="text" name="marca" data-id="{id}" id="marca-{id}" class="form-control carro-marca" value="{marca}" required />
+    </td>
+    <td>
+         <select name="modelo" id="select-{id}" data-id="{id}" class="form-control carro-modelo" required>
+            <option value=""></option>
+            <option value="FIAT">FIAT</option>
+            <option value="VOLKSVAGEN">VOLKSVAGEN</option>
+            <option value="PEUGEUT">PEUGEUT</option>
+            <option value="BMW">BMW</option>
+        </select>
+    </td>
+    <td>
+        <input type="number" name="ano" data-id="{id}" id="ano-{id}" class="form-control carro-ano" value="{ano}" required>
+    </td>
+    <td>
+        <button class="btn btn-danger" id="deletar-{id}" >Deletar</button>
+    </td>
+</tr>
+<input type="text" id="id-carro" name="id">
+<input type="text" id="modelo-carro" name="modelo">
+<input type="text" id="marca-carro" name="marca">
+<input type="text" id="ano-carro" name="ano">
+<script>
+$("#marca-{id}").change(function(){
+   let marca = $(this).val()
+   let modelo = $("#select-{id}").val()
+   let ano = $("#ano-{id}").val()
+   $("#marca-carro").val(marca)
+   $("#modelo-carro").val(modelo)
+   $("#ano-carro").val(ano)
+   $("#id-carro").val("{id}")
+   ajax('carros?id={id}', 'POST', document.getElementById('frm-carro-update'))
+})
+
+$("#select-{id}").change(function(){
+   let marca = $("#marca-{id}").val()
+   let modelo = $(this).val()
+   let ano = $("#ano-{id}").val()
+   $("#marca-carro").val(marca)
+   $("#modelo-carro").val(modelo)
+   $("#ano-carro").val(ano)
+   $("#id-carro").val("{id}")
+   ajax('carros?id={id}', 'POST', document.getElementById('frm-carro-update'))
+})
+
+$("#ano-{id}").change(function(){
+   let marca = $("#marca-{id}").val()
+   let modelo = $("#select-{id}").val()
+   let ano = $(this).val()
+   $("#marca-carro").val(marca)
+   $("#modelo-carro").val(modelo)
+   $("#ano-carro").val(ano)
+   $("#id-carro").val("{id}")
+   ajax('carros?id={id}', 'POST', document.getElementById('frm-carro-update'))
+})
+
+$("#deletar-{id}").click(function(){
+    ajax('carros?id={id}', 'DELETE', null, function(){
+        $("#carros-tbody").html("")
+	    allCars()
+    })
+    
+})
+</script>

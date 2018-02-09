@@ -6,20 +6,67 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
-
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css?v=1">
+        
     </head>
     <body>
-
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
-
-        <script src="js/main.js"></script>
+        <section>
+            <h1>API de Carros</h1>
+            <div class="container">
+                <div class="container">                        
+                    <div class="input-group">                            
+                        <input type="text" class="form-control" placeholder="Procurar por Id ..." id="consulta-id">
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary" type="button" id="consulta-id-ok">OK!</button>
+                        </span>
+                    </div><br>
+               
+                </div>
+                <table class="table table-sm" >
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Modelo</th>
+                            <th>Marca</th>
+                            <th>Ano</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="carros-tbody">
+                    </tbody>
+                    <tfoot>
+                        <th colspan="5">
+                            <form action="" id="frm-carro" class="form-inline">
+                                <input type="text" name="marca" id="marca" class="form-control" placeholder="Modelo" required>
+                                <select name="modelo" id="" class="form-control" required>
+                                    <option value="">Marca</option>
+                                    <option value="FIAT">FIAT</option>
+                                    <option value="VOLKSVAGEN">VOLKSVAGEN</option>
+                                    <option value="PEUGEUT">PEUGEUT</option>
+                                    <option value="BMW">BMW</option>
+                                </select>
+                                <input type="number" name="ano" id="" class="form-control" placeholder="Ano" required>
+                                <button class="btn btn-primary" id="btn-salva">Salvar</button>
+                            </form>
+                        </th>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+        <form id="frm-carro-update" style="display:none">
+            <input type="text" id="id-carro" name="id">
+            <input type="text" id="modelo-carro" name="modelo">
+            <input type="text" id="marca-carro" name="marca">
+            <input type="text" id="ano-carro" name="ano">
+            <input type="text" name="metodo" value="PUT">
+        </form>
+        <script src="js/vendor/jquery.min.js"></script>
+        <script src="js/vendor/tether.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js" ></script>
+        <script src="js/vendor/ejs.min.js" ></script>
+        <script src="js/main.js?v=1"></script>
     </body>
 </html>
