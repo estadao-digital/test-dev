@@ -1,6 +1,10 @@
 <?php
 require '../config/bootstrap.php';
 
+/**
+ * Cars Controller
+ * Basically calls the api and returns the view rendered
+ */
 class CarsController{
     private $car;
 
@@ -9,24 +13,21 @@ class CarsController{
     function getCars() {
         require_once('../classes/Util.php');
         $util = new Util();
-        $result = $util->callApi('GET', 'http://localhost/document_root/api/carros/');
+        $result = $util->callApi('GET', 'carros/');
         $cars = json_decode($result)->data;
 
-        $result = $util->callApi('GET', 'http://localhost/document_root/api/marcas/');
+        $result = $util->callApi('GET', 'marcas/');
         $brands = json_decode($result)->data;
 
         echo $util->render('cars/index', array('cars'=>$cars,'brands'=>$brands));
     }
 
-    function getCar($id) {
-        
-    }
 
     function addCar() {
         $data = $_POST;
         require_once('../classes/Util.php');
         $util = new Util();
-        $result = $util->callApi('POST', 'http://localhost/document_root/api/carros/', json_encode($data));
+        $result = $util->callApi('POST', 'carros/', json_encode($data));
 
         echo $result;
     }
@@ -35,7 +36,7 @@ class CarsController{
         $data = $_POST;
         require_once('../classes/Util.php');
         $util = new Util();
-        $result = $util->callApi('PUT', 'http://localhost/document_root/api/carros/'.$id, json_encode($data));
+        $result = $util->callApi('PUT', 'carros/'.$id, json_encode($data));
 
         echo $result;
     }
@@ -43,7 +44,7 @@ class CarsController{
     function deleteCar($id) {
         require_once('../classes/Util.php');
         $util = new Util();
-        $result = $util->callApi("DELETE", 'http://localhost/document_root/api/carros/'.$id);
+        $result = $util->callApi("DELETE", 'carros/'.$id);
 
         echo $result;
     }

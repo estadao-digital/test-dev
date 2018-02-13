@@ -1,4 +1,6 @@
-
+/**
+ * function to search into the table
+ */
 $(document).ready(function(){
 
     $('.search').on('click',function(e){
@@ -13,13 +15,13 @@ $(document).ready(function(){
         var $table = $('.table'),
             $rows = $table.find('tbody tr');
 
-        /* Dirtiest filter function ever ;) */
+        /* Dirtiest filter function ever, needs time to improve, but it works! ;) */
         var $filteredRows = $rows.filter(function(){
             var $row = $(this);
             var notMatch = false;
             for(var column in inputContent) {
                 var value = $row.find('td').eq(column).text().toLowerCase();
-                notMatch = value.indexOf(inputContent[column]) === -1;
+                notMatch = value.indexOf(inputContent[column]) === -1; //compare input and column values
                 if(notMatch) break; //if some input doesn't match with row's content, break the loop
             }
             return notMatch; //returns true (if row's content doesn't match with filter) or false (if it's a match =D )
@@ -27,7 +29,7 @@ $(document).ready(function(){
 
         /* Clean previous no-result if exist */
         $table.find('tbody .no-result').remove();
-        /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
+        /* Show all rows, hide filtered ones */
         $rows.show();
         $filteredRows.hide();
         /* Prepend no-result row if all rows are filtered */

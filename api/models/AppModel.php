@@ -17,7 +17,11 @@ namespace models{
 		Set database construct
 		*/
 		function __construct(){
-			$this->db = new \PDO('mysql:host=localhost;dbname=test-dev', 'root', ''); //connect
+			$host = \DATABASE_CONFIG::$default['host'];
+			$database = \DATABASE_CONFIG::$default['database'];
+			$login = \DATABASE_CONFIG::$default['login'];
+			$password = \DATABASE_CONFIG::$default['password'];
+			$this->db = new \PDO('mysql:host='.$host.';dbname='.$database, $login, $password); //connect
 			$this->db->setAttribute( \PDO::ATTR_ERRMODE,\PDO::ERRMODE_EXCEPTION ); // enable errors to PDO
 		}
 

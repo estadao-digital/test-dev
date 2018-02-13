@@ -4,7 +4,11 @@ class Util{
 
     function __construct(){}
 
+    /**
+     * Function to call the API
+     */
     public function callAPI($method, $url, $data = false) {
+        $url = GLOBAL_CLASS::$api.$url;
         $curl = curl_init();
     
         switch ($method){
@@ -43,9 +47,10 @@ class Util{
         return $result;
     }
 
+    //Function to render the view
     function render($path, $data=array()) {
         ob_start();
-        extract($data, EXTR_SKIP);
+        extract($data, EXTR_SKIP); //send $data to the included file (view)
         include('../views/'.$path.'.php');
         $var=ob_get_contents(); 
         ob_end_clean();

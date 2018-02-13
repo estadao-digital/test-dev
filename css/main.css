@@ -1,42 +1,50 @@
+.container{
+    display: block;
+    width: fit-content;
+    margin: 5px auto;
+}
+
+.panel {
+    border: 1px solid #17a2b8;
+}
+
+.panel-heading {
+    background: #17a2b8;
+    color: white;
+    padding: 5px;
+}
+.panel-title{
+    text-align: center;
+}
+
 .filterable {
     margin-top: 15px;
 }
 .filterable .panel-heading .pull-right {
     margin-top: -20px;
 }
-.filterable .filters input[disabled] {
-    background-color: transparent;
-    border: none;
-    cursor: auto;
-    box-shadow: none;
-    padding: 0;
-    height: auto;
+
+.buttons{
+    width: 10%;
+    min-width: 120px;
 }
-.filterable .filters input[disabled]::-webkit-input-placeholder {
-    color: #333;
-}
-.filterable .filters input[disabled]::-moz-placeholder {
-    color: #333;
-}
-.filterable .filters input[disabled]:-ms-input-placeholder {
-    color: #333;
-}
+
+
 .alert{
-    position: fixed;
-    top: 0;
-    left: 25%;
     width: fit-content;
     margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
     display: none;
 }
 .alert span{
     padding: 0 30px;
 }
-.container{
-    display: block;
-    width: fit-content;
-    margin: 5px auto;
-}
+
 .hidden{
     display: none;
+}
+
+.fixme{
+    background: white;
 }
