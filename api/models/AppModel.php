@@ -44,7 +44,7 @@ namespace models{
 
 			$this->handleFields($params);
 
-			$this->sql .= "FROM $this->table ";
+			$this->sql .= " FROM $this->table ";
 
 			$this->handleJoins($params);
 			$this->handleConditions($params);
@@ -165,10 +165,10 @@ namespace models{
 		 */
 		private function handleFields($params){
 			if(array_key_exists('fields', $params) && !empty($params['fields'])){
-				$this->sql .= implode(', ', $params['fields']);
+				$this->sql .= implode(' , ', $params['fields']);
 			}
 			else{
-				$this->sql .= "* "; //all fields
+				$this->sql .= " * "; //all fields
 			}
 		}
 
@@ -231,9 +231,9 @@ namespace models{
 		 */
 		private function handleConditions($params){
 			if(array_key_exists('conditions', $params) && !empty($params['conditions'])){
-				$this->sql .= "WHERE 1=1 ";
+				$this->sql .= " WHERE 1=1 ";
 				foreach($params['conditions'] as $key => $condition){
-					$this->sql .= "AND $key = :$key ";
+					$this->sql .= " AND $key = :$key ";
 					$this->bindValues[$key] = $condition;
 				}
 			}
@@ -249,7 +249,7 @@ namespace models{
 		 */
 		private function handleGroup($params){
 			if(array_key_exists('group', $params) && !empty($params['group'])){
-				$this->sql .= "GROUP BY ".implode(', ', $params['group'])." ";
+				$this->sql .= " GROUP BY ".implode(', ', $params['group'])." ";
 			}
 		}
 
@@ -263,7 +263,7 @@ namespace models{
 		 */
 		private function handleOrder($params){
 			if(array_key_exists('order', $params) && !empty($params['order'])){
-				$this->sql .= "ORDER BY ".implode(', ', $params['order'])." ";
+				$this->sql .= " ORDER BY ".implode(', ', $params['order'])." ";
 			}
 		}
 
@@ -277,7 +277,7 @@ namespace models{
 		 */
 		private function handleLimit($params){
 			if(array_key_exists('limit', $params) && !empty($params['limit'])){
-				$this->sql .= "LIMIT ".$params['limit']." ";
+				$this->sql .= " LIMIT ".$params['limit']." ";
 			}
 		}
 
@@ -292,7 +292,7 @@ namespace models{
 		 */
 		private function handleOffset($params){
 			if(array_key_exists('offset', $params) && !empty($params['offset'])){
-				$this->sql .= "OFFSET ".$params['offset']." ";
+				$this->sql .= " OFFSET ".$params['offset']." ";
 			}
 		}
 

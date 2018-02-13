@@ -1,20 +1,16 @@
 <?php
 require 'vendor/autoload.php';
-/*$controllers = glob('controllers/*.php');
+//load all controllers
+$controllers = glob('controllers/*.php');
 foreach ($controllers as $file) {
     require($file);   
 }
+//load all models
 $models = glob('models/*.php');
 foreach ($models as $file) {
     require($file);   
-}*/
+}
 
-
-require 'controllers/AppController.php';
-require 'models/AppModel.php';
-
-require 'controllers/CarsController.php';
-require 'models/Car.php';
 $configuration = [
     'settings' => [
         'displayErrorDetails' => true,
@@ -58,6 +54,12 @@ $app->put('/carros/{id}', function($request, $response, $args){
 //apaga Carro
 $app->delete('/carros/{id}', function($request, $response, $args){
 	$return = (new \controllers\CarsController())->deleteCar($args['id']);
+	return $response->withJson($return);
+});
+
+//get all brands
+$app->get('/marcas[/]', function($request, $response){
+	$return = (new controllers\CarsController())->getBrands();
 	return $response->withJson($return);
 });
 

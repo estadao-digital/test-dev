@@ -13,11 +13,19 @@ namespace controllers{
         }
 
 		function getCars() {
-            $cars = $this->car->find('all');
+            $cars = $this->car->find('all',array('order' => array('brand_name','model','year DESC')));
 
             // return json with data or an error message
             if(!empty($cars)) return $this->render(array('data'=>$cars));
             else return $this->render(array('message'=>'Nenhum carro encontrado'));
+        }
+
+        function getBrands() {
+            $brands = $this->car->find('all',array('fields'=>array('brand_name'),'group'=>array('brand_name')));
+
+            // return json with data or an error message
+            if(!empty($brands)) return $this->render(array('data'=>$brands));
+            else return $this->render(array('message'=>'Nenhuma marca encontrada'));
         }
 
         function getCar($id) {
