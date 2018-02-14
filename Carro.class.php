@@ -158,19 +158,3 @@ class Carro{
  
 
 }
-//var_dump($_GET);
- /**ID, Marca, Modelo, Ano. */
-//$data = array( "marca"=>"VW", "modelo"=>"GOLF", "ano"=>"2000" );
-
-//$car = new Carro();
-//$car->prepare($data);
-//$car->delete('d5ea390c14f33f595b98f6de35c8d274');
-//echo "<pre>";
-//print_r( $car->update('af2468d5863e7b62026072c6efd17ab6', $data) );
-//echo "</pre>";
-//var_dump($car->delete(2));
-//var_dump($car->query(1));
-//$car->prepare($data);
-//$car->create();
-//var_dump($car->carros);
-//var_dump($_SERVER['REQUEST_METHOD']);
