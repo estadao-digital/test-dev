@@ -1,55 +1,51 @@
 Teste para desenvolvedor do Estadão
 ==============================
 
-Olá candidato,
+* API RESTful em PHP utilizando o framework Slim que realiza operações de CRUD de carros.
+* Aplicação web SPA (Single page application) para fazer a interface com a API. Foi utilizado o framework de UI Bootstrap.
 
-Esse teste consiste em 2 etapas para avaliarmos seu conhecimento em PHP e Front-End (HTML5, CSS e JavaScript)
-
-Para realizar o teste, você deve dar um fork neste repositório e depois clona-lo na pasta <document_root> da máquina que está realizando o teste.
-
-Crie um branch com seu nome, e quando finalizar todo o desenvolvimento, você deverá enviar um pull-request com sua versão.
-
-
-O teste
+## Configuração do banco de dados
 --------
 
-###Back-End/PHP
-A primeira etapa será o desenvolvimento **backend/PHP**:
+Foi utilizado um banco de dados mysql para esta aplicação.
 
-**Descrição:**
+Para configurá-lo, vá em api/config/database.php e atualize as informações de host, username, password e database.
 
-- Você deverá desenvolver uma 'mini api' para que seja possível realizar operações CRUD do objeto Carro.
-> **Obs:**
->  - Você pode usar a sessão ou arquivo(txt,json) como banco de dados.
->  - Cada carro deve ter ID, Marca, Modelo, Ano.
-
-- Sugerimos o retorno dessa 'mini api' nas seguinte urls:
- - `/carros` - [GET] deve retornar todos os carros cadastrados.
- - `/carros` - [POST] deve cadastrar um novo carro.
- - `/carros/{id}`[GET] deve retornar o carro com ID especificado.
- - `/carros/{id}`[PUT] deve atualizar os dados do carro com ID especificado.
- - `/carros/{id}`[DELETE] deve apagar o carro com ID especificado.
-
-### Front-End
-
-Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Application) e nela deve ser possível:
-
-- Ver a lista de carros cadastrados
-- Criar um novo carro
-- Editar um carro existente
-- Apagar um carro existente
-
-> **Obs:**
-> - A página deve ser responsiva.
-> - A página deve funcionar 100% via AJAX, sem outros carregamentos de páginas.
-> - Ao criar/editar um carro, o campo "marca" deverá ser um `SELECT`
+Para criar o banco de dados, rode o script localizado na pasta scripts chamado createdb.bat (Caso esteja rodando em um mac ou linux, você pode simplesmente rodar o arquivo createdb.php chamando-o em seu browser)
 
 
-### Observações importantes:
+--------
+## Padrão das Rotas Criadas para a API: 
 
- - Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
- - Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.
- - Você pode usar ferramentas de automação (Grunt, Gulp), mas deverá informar o uso completo para funcionamento do teste.
- - Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.
- - Será considerado ponto positivo o tempo gasto na realização do teste. Menos tempo e tudo funcionando conforme pedido será
-melhor avaliado.
+Segue abaixo as URI's das rotas desenvolvidas:
+
+|ROTA|HTTP(Verbo)| Descrição | 
+|--|--|--|
+| /carros | GET | Selecionar todos os carros |
+| /carros/:id | GET | Selecionar carro por id |
+| /carros  | POST| Cadastrar carro|
+| /carros/:id/  | DELETE| Excluir carro por Id |
+| /carros/:id/  | PUT| Editar carro por Id |
+| /marcas | GET | Selecionar as marcas |
+
+## Observações Finais:
+
+* Gostei muito de desenvolver este teste, tive a oportunidade de demonstrar minhas habilidades, organização de código e boas práticas de programação.
+
+* Trabalho a 5 anos com desenvolvimento Web utilizando PHP e frameworks como Codeigniter, CakePHP e Laravel;
+
+* Para a parte back-end foi utilizado o framework Slim, apenas para lidar com as rotas. A Model e a Controller foram desenvolvidos por mim, de modo a deixar o código reutilizável e a manutenção facilitada.
+
+* Para a parte front-end, foi utilizado o framework bootstrap e os botões do fonts-awesome;
+
+* A página está responsiva.
+
+* A página funciona 100% via AJAX, sem outros carregamentos de páginas.
+
+* Ao criar/editar um carro, o campo "marca" é um SELECT, baseado nas marcas já cadastradas em outros carros. Foi utilizado o elemento datalist do HTML5 que permite mostrar uma lista e também permite inserir novas entradas livremente, não necessiitando portanto de um cadastro de marcas.
+
+* No javascript foi utilizado apenas jQuery e poucos elementos do bootstrap
+
+* Foi utilizado orientação a objetos e design patterns
+
+* Os Unit Tests não foram disponibilizados pois estavam dando alguns erros e não tive tempo de estudar como resolve-los.
