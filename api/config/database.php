@@ -5,6 +5,6 @@ class DATABASE_CONFIG {
         'host' => 'localhost',
         'login' => 'root',
         'password' => '',
-        'database' => 'test-dev'
+        'database' => 'paulokanno'
     );
 }
