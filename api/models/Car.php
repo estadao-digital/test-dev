@@ -12,6 +12,11 @@ namespace models{
             'brand_name' => 'string',
             'year' => 'int'
         );
+        protected $names = array(
+            'model' => 'modelo',
+            'brand_name' => 'marca',
+            'year' => 'ano'
+        );
         protected $validations = array(
             'model' => array('required','notEmpty'),
             'brand_name' => array('required','notEmpty'),

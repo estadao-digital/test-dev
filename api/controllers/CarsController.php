@@ -46,14 +46,14 @@ namespace controllers{
             }
             
             //verify if car exists
-            $car = $this->car->find('first',array('conditions'=>$data));
-            if(!empty($car)) return $this->render(array('status'=>501,'message'=>'Erro ao adicionar o carro', 'errors' =>array("Carro já cadastrado")));
+            $car = $this->exists($data);
+            if($car) return $this->render(array('status'=>501,'message'=>'Erro ao adicionar o carro', 'errors' =>array("Carro já cadastrado")));
             
             #endregion
 
             //insert values
             if($this->car->add($data)){
-                return $this->render(array('status'=>201, 'message'=>'Carro adicionado com sucesso'));
+                return $this->render(array('status'=>201, 'message'=>'Carro adicionado com sucesso', 'data'=>$data));
             } else{
                 return $this->render(array('status'=>501,'message'=>'Erro ao adicionar o carro'));
             }
@@ -66,9 +66,13 @@ namespace controllers{
                 return $this->render(array('status'=>501,'message'=>'Erro ao adicionar o carro', 'errors' =>$errors));
             }
 
+            //verify if car exists
+            $car = $this->exists($data, $id);
+            if($car) return $this->render(array('status'=>501,'message'=>'Erro ao adicionar o carro', 'errors' =>array("Carro já cadastrado")));
+
             //update values
             if($this->car->update($data, array('id'=>$id))){
-                return $this->render(array('status'=>201, 'message'=>'Carro editado com sucesso'));
+                return $this->render(array('status'=>201, 'message'=>'Carro editado com sucesso','data'=>$data));
             } else{
                 return $this->render(array('status'=>501,'message'=>'Erro ao atualizar o carro'));
             }
@@ -80,6 +84,16 @@ namespace controllers{
             } else{
                 return $this->render(array('status'=>501,'message'=>'Erro ao remover o carro'));
             }
+        }
+
+        function exists($data, $id=null){
+            $car = $this->car->find('first',array('conditions'=>$data));
+            if(!empty($id)){
+                if($car['id'] == $id) return false; //prevent to display error to the same register
+            }
+             //verify if car exists
+             if(!empty($car)) return $car;
+             else return false;
         }
         
     }

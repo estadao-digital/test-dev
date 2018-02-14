@@ -344,17 +344,18 @@ namespace models{
 		public function validate($data,$type='insert'){
 			$errors = [];
 			foreach($this->validations as $key => $validate){
+				$field_name = $this->names[$key];
 				foreach($validate as $v){ //$v: required, notEmpty, isInt
 					switch($v){
 						case 'required': 
 							if($type=='update') break; // ignore on update
-							if(!array_key_exists($key, $data)) $errors[$key] = "Campo %s é obrigatório";
+							if(!array_key_exists($key, $data)) $errors[$key] = "Campo $field_name é obrigatório";
 							break;
 						case 'notEmpty':
-							if(array_key_exists($key, $data) && empty($data[$key])) $errors[$key] = "Campo %s não pode ser vazio";
+							if(array_key_exists($key, $data) && empty($data[$key])) $errors[$key] = "Campo $field_name não pode ser vazio";
 							break;
 						case 'isInt': 
-							if(array_key_exists($key, $data) && !is_numeric($data[$key])) $errors[$key] = "Campo %s precisa ser numérico";
+							if(array_key_exists($key, $data) && !is_numeric($data[$key])) $errors[$key] = "Campo $field_name precisa ser numérico";
 							break;
 					}
 				}

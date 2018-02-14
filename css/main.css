@@ -24,21 +24,12 @@
     margin-top: -20px;
 }
 
-.buttons{
-    width: 10%;
-    min-width: 120px;
-}
-
-
 .alert{
     width: fit-content;
     margin: 5px;
     margin-left: auto;
     margin-right: auto;
     display: none;
-}
-.alert span{
-    padding: 0 30px;
 }
 
 .hidden{
@@ -47,4 +38,19 @@
 
 .fixme{
     background: white;
+}
+
+
+.brand_name{
+    width: 30%;
+}
+.model{
+    width: 40%;
+}
+.year{
+    width: 20%;
+}
+.buttons{
+    width: 10%;
+    min-width: 120px;
 }
