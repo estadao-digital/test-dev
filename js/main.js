@@ -80,6 +80,9 @@ function addCar(button){
                 $('.alert').removeClass('alert-danger').addClass('alert-success').fadeIn();     //shows alert
                 //getListCar();
                 renderListCar(data.data);
+                $('.form-add').find('input').each(function(){
+                    $(this).val('');
+                });
                 setTimeout(function(){ $('.alert').fadeOut(); }, 3000);     //fade it out after 3 seconds
             } else{
                 data.errors.forEach(function(element){
