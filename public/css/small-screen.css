@@ -1,0 +1,93 @@
+.titleContent {
+    height: auto;
+    line-height: 40px;
+    display: block;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+ 
+ .main {
+    height: auto;
+    width: 100%;
+    border: none;
+  }
+  .formContent{
+    min-width: 390px; 
+    
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    display: flex;
+    margin-right: 14px;
+  }
+  
+  form label:first-child *{
+    margin-top: 0;
+  }
+  
+  form label div {
+    font-weight: bold;
+    min-width: 120px;
+    text-align: right;
+  }
+  
+  form label div + * {
+   min-width: 240px; 
+  }
+  
+  form label input{
+    padding-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+  }
+  
+  form input[type="submit"],
+  form label input, 
+  form label *{
+    margin-top: 10px;
+    line-height: 30px;
+  }
+  
+  form input[type="submit"]{
+    margin-left: 120px;
+    width: 120px;
+  }
+    
+ table thead {
+    display: none;
+  }
+    
+  table tbody tr td {
+    display: block;
+    text-transform: capitalize;
+    padding-left: 12px;
+  }
+  
+  table tbody tr td:first-child,
+  table tbody tr td:last-child {
+    width: 100%;
+  }
+  
+  table tbody tr td:not(:last-child):before {
+    content: attr(data-label)":";
+    padding-right: 6px;
+    padding-left: 14px;
+  }
+  
+  table tbody tr td:last-child {
+    text-align: center;
+    font-size: 1.2em;
+  }
+  
+  table tbody tr:nth-child(2n){
+    background-color: #333;
+    color: white; 
+  }
+  
+  table tbody tr:nth-child(2n) td a {
+    color: white;
+  }

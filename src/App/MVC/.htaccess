@@ -1,0 +1,2 @@
+#disable the directly access to the files from this directory
+Options -Indexes

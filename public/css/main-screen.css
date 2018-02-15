@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #333;
+    margin: 0;
+}
+
+.titleContent {
+    margin: 0;
+    padding-top: 0px;
+    text-align: center;
+    background-color: #333;
+    height: 100px;
+    line-height: 100px;
+}
+
+.titleContent h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: normal;
+    margin: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    padding: 0;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: rgb(243, 156, 18);
+}
+
+h2 {
+    font-weight: normal;
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #d2d6de;
+    margin: 0;
+}
+
+.main {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0 auto;
+    background-color: #FFF;
+    height: 100%;
+    width: 990px;
+    margin-bottom: 24px;
+    padding: 24px;
+    border-radius: 0 0 8px 0;
+}
+
+/* Form CSS */
+
+.formContent,
+.formModalContent,
+.tableContent {
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #d2d6de;
+    border-top: 4px solid rgb(243, 156, 18);
+    border-radius: 0 0 8px 0;
+    background-color: white;
+    min-width: 390px;
+}
+
+form {
+    display: inline-flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 12px;
+}
+
+form input,
+form select {
+    border: 1px solid #d2d6de;
+}
+
+form label {
+    display: flex;
+    flex-direction: row;
+}
+
+form input,
+form label * {
+    height: 30px;
+    line-height: 30px;
+}
+
+form label div {
+    padding-right: 6px;
+    font-weight: bold;
+}
+
+form label div+* {
+    padding-left: 6px;
+    margin-right: 20px;
+    width: 150px;
+}
+
+.button {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1em;
+    line-height: 1em;
+    padding: 0 20px 0 20px;
+    margin: 0;
+    text-transform: capitalize;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button-save {
+    color: white;
+    background-color: #3c8dbc;
+    border-color: #367fa9;
+}
+
+/* End Form CSS */
+
+/* Table CSS */
+
+.tableContent {
+    margin-top: 24px;
+}
+
+table {
+    width: 100%;
+    border-collapse: colapse;
+    border-spacing: 0px 0px;
+}
+
+table thead tr {
+    font-weight: bold;
+}
+
+table thead tr th,
+table tbody tr td {
+    padding: 12px 0 12px 0;
+    text-align: left;
+    border-bottom: 1px solid #d2d6de;
+}
+
+table tbody tr:hover {
+    background-color: #F0F0F0;
+}
+
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+table tbody tr td:last-child {
+    width: 16%;
+}
+
+table thead tr th:first-child,
+table tbody tr td:first-child {
+    padding-left: 12px;
+    ;
+    margin: 0;
+    width: 6%;
+}
+
+table tbody a {
+    text-decoration: none;
+    color: black;
+}
+
+table tbody a:hover {
+    text-decoration: underline;
+}
+
+table tbody a:first-child+a:before {
+    content: "|";
+    padding: 0 10px 0 10px;
+}
+
+/* End Table CSS */
+
+/* Modal Window CSS */
+
+.modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modalContent {
+    height: 200px;
+    width: 700px;
+    min-width: 390px;
+    max-width: 700px;
+    margin: 0 24px;
+}
+
+.formModal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 140px;
+}
+
+.messageDelete {
+    margin-bottom: 24px;
+}
+
+.formModal .buttonGroup .button-save{
+    margin-right: 20px;
+}
+
+/*End Modal Window CSS */

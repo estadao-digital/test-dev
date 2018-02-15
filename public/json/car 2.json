@@ -1,0 +1,8 @@
+[
+    { "id": 1, "marca": "fiat", "modelo": "uno", "ano": "2012" },
+    { "id": 2, "marca": "fiat", "modelo": "palio", "ano": "2010" },
+    { "id": 3, "marca": "volks", "modelo": "gol", "ano": "2018" },
+    { "id": 4, "marca": "volks", "modelo": "fusca", "ano": "1966" },
+    { "id": 5, "marca": "honda", "modelo": "civic", "ano": "2012" },
+    { "id": 6, "marca": "honda", "modelo": "civic", "ano": "2010" }
+]
