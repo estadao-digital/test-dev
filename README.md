@@ -1,55 +1,28 @@
 Teste para desenvolvedor do Estadão
 ==============================
-
-Olá candidato,
-
-Esse teste consiste em 2 etapas para avaliarmos seu conhecimento em PHP e Front-End (HTML5, CSS e JavaScript)
-
-Para realizar o teste, você deve dar um fork neste repositório e depois clona-lo na pasta <document_root> da máquina que está realizando o teste.
-
-Crie um branch com seu nome, e quando finalizar todo o desenvolvimento, você deverá enviar um pull-request com sua versão.
-
-
 O teste
 --------
 
 ###Back-End/PHP
-A primeira etapa será o desenvolvimento **backend/PHP**:
-
 **Descrição:**
+MVC desenvolvido por mim mesmo em PHP OO e autoloading dos namespaces. Possui uma camada de serviço para manipulação do arquivo JSON. O acesso a aplicação é feito pela pasta "public".
 
-- Você deverá desenvolver uma 'mini api' para que seja possível realizar operações CRUD do objeto Carro.
-> **Obs:**
->  - Você pode usar a sessão ou arquivo(txt,json) como banco de dados.
->  - Cada carro deve ter ID, Marca, Modelo, Ano.
+O nome sugerido para o diretório raiz é "simpleMVC". Caso seja necessária a mudança do nome, o arquivo composer.json deverá ser modificado e executado novamente.
 
-- Sugerimos o retorno dessa 'mini api' nas seguinte urls:
- - `/carros` - [GET] deve retornar todos os carros cadastrados.
- - `/carros` - [POST] deve cadastrar um novo carro.
- - `/carros/{id}`[GET] deve retornar o carro com ID especificado.
- - `/carros/{id}`[PUT] deve atualizar os dados do carro com ID especificado.
- - `/carros/{id}`[DELETE] deve apagar o carro com ID especificado.
+O projeto foi desenvolvido na plataforma Windows. Ao rodar no Linux, fique atento as permissões de arquivos e pastas.
 
 ### Front-End
+**Descrição:**
+Desenvolvido em HTML 5 e CSS 3 para um design minimalista. A programação foi feita em JQuery e ES6, mantendo a simplicidade e a elegancia.
+Talvez seja necessário alterar a linha 5 do arquivo header.php (<base href="/simpleMVC/public/" />) para que os javascripts sejam carregados corretamente.
 
-Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Application) e nela deve ser possível:
+### Testes
+Os testes estão disponíveis na pasta "test" e foram desenvolvidos em Jasmine. Hoje os teste de integração do CRUD estão funcionando e novos testes serão desenvolvidos no futuro.
 
-- Ver a lista de carros cadastrados
-- Criar um novo carro
-- Editar um carro existente
-- Apagar um carro existente
+### API
+Compartilhei a biblioteca para a API no Postman: https://www.getpostman.com/collections/297f1b78a7db06c368bb
 
-> **Obs:**
-> - A página deve ser responsiva.
-> - A página deve funcionar 100% via AJAX, sem outros carregamentos de páginas.
-> - Ao criar/editar um carro, o campo "marca" deverá ser um `SELECT`
+### Observações:
+Deu um pouco de trabalho, mas consegui criar um MVC em PHP bem funcional. No frontend eu gostaria de ter utilizado mais javascript puro, porém com o pouco tempo que tinha ficou mais simples separar o JQuery em camadas e trabalhar em conjunto com o ES6. O resultado foi um código organizado e fácil de manter. mais adiante pretendo criar uma biblioteca para tratar a requisição do AJAX, os eventos dos cliques e manipulação do DOM da tabela e do formulário.
 
-
-### Observações importantes:
-
- - Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
- - Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.
- - Você pode usar ferramentas de automação (Grunt, Gulp), mas deverá informar o uso completo para funcionamento do teste.
- - Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.
- - Será considerado ponto positivo o tempo gasto na realização do teste. Menos tempo e tudo funcionando conforme pedido será
-melhor avaliado.
+De qualquer forma, curti muito esse projeto e espero trabalhar com vocês no futuro.
