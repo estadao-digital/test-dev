@@ -1,0 +1,148 @@
+{
+	"id": "91d8eecd-a352-3a2d-8875-69b7e556f9b1",
+	"name": "Estadao - Teste Api",
+	"description": "",
+	"order": [
+		"c6c0407c-8383-b09c-4b5b-0a97acc31aa3",
+		"d58fae8b-3495-71fa-a963-8cd38688a2ed",
+		"27ce42ac-e745-bd7f-83e7-bbb5b933cd04",
+		"179301c7-042f-9cae-ac2e-bbc3250d241e",
+		"179d4cd7-dda1-3d3b-0c8c-2bbaebe4ad54"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1518729938616,
+	"owner": "1402214",
+	"public": false,
+	"requests": [
+		{
+			"id": "179301c7-042f-9cae-ac2e-bbc3250d241e",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/carros/2",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1518753183270,
+			"name": "Altera Carro",
+			"description": "",
+			"collectionId": "91d8eecd-a352-3a2d-8875-69b7e556f9b1",
+			"responses": [],
+			"rawModeData": "{\n\t\"Marca\" : \"Chevrolet\",\n\t\"Modelo\" : \"Celta\",\n\t\"Ano\" : \"2011\"\n}"
+		},
+		{
+			"id": "179d4cd7-dda1-3d3b-0c8c-2bbaebe4ad54",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/carros/2",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1518753236223,
+			"name": "Apaga Carro",
+			"description": "",
+			"collectionId": "91d8eecd-a352-3a2d-8875-69b7e556f9b1",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
+			"id": "27ce42ac-e745-bd7f-83e7-bbb5b933cd04",
+			"headers": "",
+			"headerData": [],
+			"url": "{{host}}/carros",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1518753176954,
+			"name": "Pega um carro",
+			"description": "",
+			"collectionId": "91d8eecd-a352-3a2d-8875-69b7e556f9b1",
+			"responses": []
+		},
+		{
+			"id": "c6c0407c-8383-b09c-4b5b-0a97acc31aa3",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/carros",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1518753233056,
+			"name": "Insere um Carro",
+			"description": "",
+			"collectionId": "91d8eecd-a352-3a2d-8875-69b7e556f9b1",
+			"responses": [],
+			"rawModeData": "{\n\t\"Marca\" : \"Chevrolet\",\n\t\"Modelo\" : \"Celta\",\n\t\"Ano\" : \"2010\"\n}"
+		},
+		{
+			"id": "d58fae8b-3495-71fa-a963-8cd38688a2ed",
+			"headers": "",
+			"headerData": [],
+			"url": "{{host}}/carros",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1518753169948,
+			"name": "Listar Carros",
+			"description": "",
+			"collectionId": "91d8eecd-a352-3a2d-8875-69b7e556f9b1",
+			"responses": []
+		}
+	]
+}

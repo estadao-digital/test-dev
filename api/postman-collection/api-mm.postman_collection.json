@@ -1,0 +1,152 @@
+{
+	"id": "36419cb4-ee5e-0eb4-9afa-b6337be96559",
+	"name": "api-mm",
+	"description": "",
+	"order": [
+		"cce23ac7-bb9c-aa30-6d16-5974b76e41db",
+		"41f01035-4c42-01d8-10fc-1e398d5fee0c"
+	],
+	"folders": [
+		{
+			"name": "Tab",
+			"description": "",
+			"collectionId": "36419cb4-ee5e-0eb4-9afa-b6337be96559",
+			"order": [
+				"c74e443a-a9ae-6dc0-6745-50dbd3c94f7a"
+			],
+			"owner": "1964972",
+			"folders_order": [],
+			"id": "7381c325-f8aa-c66c-c40b-a27c6cb68201"
+		}
+	],
+	"folders_order": [
+		"7381c325-f8aa-c66c-c40b-a27c6cb68201"
+	],
+	"timestamp": 1518690260326,
+	"owner": "1964972",
+	"public": false,
+	"requests": [
+		{
+			"id": "41f01035-4c42-01d8-10fc-1e398d5fee0c",
+			"headers": "api-token: {{api-token}}\nuser-key: {{user-key}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "api-token",
+					"value": "{{api-token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "user-key",
+					"value": "{{user-key}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/codbar",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1518721157584,
+			"name": "Find Codebar",
+			"description": "",
+			"collectionId": "36419cb4-ee5e-0eb4-9afa-b6337be96559",
+			"responses": [],
+			"rawModeData": "{\n\t\"code\":\"P02\"\n}"
+		},
+		{
+			"id": "c74e443a-a9ae-6dc0-6745-50dbd3c94f7a",
+			"headers": "api-token: {{api-token}}\nuser-key: {{user-key}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "api-token",
+					"value": "{{api-token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "user-key",
+					"value": "{{user-key}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/tab/list",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1518721999734,
+			"name": "List Tabs",
+			"description": "",
+			"collectionId": "36419cb4-ee5e-0eb4-9afa-b6337be96559",
+			"responses": []
+		},
+		{
+			"id": "cce23ac7-bb9c-aa30-6d16-5974b76e41db",
+			"headers": "api-token: {{api-token}}\nuser-key: \nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "api-token",
+					"value": "{{api-token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "user-key",
+					"value": "",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/login",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "var jsonData = JSON.parse(responseBody);\ntests[\"Success\"] = jsonData.success === true;\n\nif(jsonData.success)\n{\n    postman.setEnvironmentVariable(\"user-key\", jsonData.user_key);\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1518698568603,
+			"name": "Login",
+			"description": "",
+			"collectionId": "36419cb4-ee5e-0eb4-9afa-b6337be96559",
+			"responses": [],
+			"rawModeData": "{\n\t\"email\":\"ulisses.bueno@gmail.com\",\n\t\"password\":\"123123\"\n}"
+		}
+	]
+}
