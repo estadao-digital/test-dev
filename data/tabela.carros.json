@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "marca": 3,
+        "modelo": "Uno",
+        "ano": 1997
+    },
+    {
+        "id": 2,
+        "marca": 7,
+        "modelo": "Lancer",
+        "ano": 2015
+    },
+    {
+        "id": 4,
+        "marca": 4,
+        "modelo": "Ranger",
+        "ano": 2016
+    }
+]

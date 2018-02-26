@@ -1,25 +1,179 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8">
+    <title>Carros</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="Exercício realizado por Willian Resende">
+    <meta name="author" content="Willian Resende">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="apple-touch-icon" href="apple-touch-icon.png">-->
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Molengo|Open+Sans:400,700" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha256-rByPlHULObEjJ6XQxW/flG2r+22R5dKiAoef+aXWfik=" crossorigin="anonymous" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
-    <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js" integrity="sha256-ffw+9zwShMev88XNrDgS0hLIuJkDfXhgyLogod77mn8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js" integrity="sha256-E8KRdFk/LTaaCBoQIV/rFNc0s3ICQQiOHFT4Cioifa8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha256-KM512VNnjElC30ehFwehXjx1YCHPiQkOPmqnrWtpccM=" crossorigin="anonymous"></script>
 
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
-
-        <script src="js/main.js"></script>
-    </body>
+  </head>
+  <body>
+    <main class="container" role="main">
+      <div class="pt-5 text-center">
+        <i class="fa fa-car fa-3x" style="color: #563d7c" aria-hidden="true"></i>
+        <h2>Carros</h2>
+        <p class="lead">Seu cadastro de carros.</p>
+      </div>
+      <hr/>
+      <div class="row mb-2">
+        <div class="col-sm">
+          <button id="carroAtualizarBtn" type="button" class="pull-right btn btn-outline-secondary"><i class="fa fa-refresh" aria-hidden="true"></i> Atualizar</button>
+          <button id="carroIncluirBtn" type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Incluir carro</button>
+        </div>
+      </div>
+      <div id="carrosCarregando" role="alert">
+        <div class="py-5 text-center font-weight-bold">
+          <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+          <div>Carregando...</div>
+        </div>
+        <hr/>
+      </div>
+      <div id="carrosMensagemErro" role="alert" hidden>
+        <div class="py-5 text-center font-weight-bold">
+          <i class="fa fa-exclamation-triangle fa-3x"></i>
+          <div>Mensagem</div>
+        </div>
+        <hr/>
+      </div>
+      <div id="carrosLista" class="table-responsive" hidden>
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <th scope="col">#</th>
+            <th scope="col" class="text-center">Marca</th>
+            <th scope="col" width="100%">Modelo</th>
+            <th scope="col" class="text-center">Ano</th>
+            <th scope="col" class="text-center">Ações</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-right">0</td>
+              <td class="text-nowrap">Marca</td>
+              <td>Modelo</td>
+              <td class="text-right">Ano</td>
+              <td style="padding: .5rem;">
+                <div class="btn-group" role="group" aria-label="">
+                  <button type="button" class="btn btn-secondary btn-sm">Editar</button>
+                  <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                      <a class="dropdown-item" href="#excluir"><i class="fa fa-trash" aria-hidden="true"></i> Excluir</a>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="5" class="py-5 text-center font-weight-bold"><i class="fa fa-info-circle" aria-hidden="true"></i> Não há carros cadastrados</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <!-- Modal Formulário -->
+    <div id="formularioModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="formularioModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Formulário</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" hidden>
+              <strong>Erro!</strong> <span></span>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="carregando py-5 text-center font-weight-bold" role="alert">
+              <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+              <div>Carregando...</div>
+            </div>
+            <div class="mensagemErro" role="alert" hidden>
+              <div class="py-5 text-center font-weight-bold">
+                <i class="fa fa-exclamation-triangle fa-3x"></i>
+                <div>Mensagem</div>
+              </div>
+            </div>
+            <form onsubmit="return false;" hidden>
+              <div class="form-group">
+                <label for="carro_id" class="col-form-label">ID:</label>
+                <input type="number" class="col-sm-4 form-control" id="carro_id" name="id" required>
+                <div class="invalid-feedback">Informe uma identificação númerica única</div>
+              </div>
+              <div class="form-group">
+                <label for="carro_marca" class="col-form-label">Fabricante:</label>
+                <select class="form-control" id="carro_marca" name="marca" required></select>
+                <div class="invalid-feedback">Selecione um fabricante</div>
+              </div>
+              <div class="form-group">
+                <label for="carro_modelo" class="col-form-label">Nome do modelo:</label>
+                <input type="text" class="form-control" id="carro_modelo" name="modelo" required>
+                <div class="invalid-feedback">Informe o nome do modelo</div>
+              </div>
+              <div class="form-group">
+                <label for="carro_ano" class=" col-form-label">Ano:</label>
+                <input type="number" class="col-sm-4 form-control" id="carro_ano" name="ano" required>
+                <div class="invalid-feedback">Informe o ano de fabricação</div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer" hidden>
+            <button type="button" class="btn btn-light" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary">Incluir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Excluir -->
+    <div id="excluirModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="excluirModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmação de exclusão</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger alert-dismissible fade show" role="alert" hidden>
+            <strong>Erro!</strong> <span></span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <p style="font-size: 2em;">Confirma a exclusão do carro <span></span>?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-danger">Excluir</button>
+        </div>
+      </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <span class="text-muted">2018 &copy; Willian Resende</span>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
 </html>
