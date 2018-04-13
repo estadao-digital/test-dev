@@ -1,0 +1,25 @@
+{
+  "name": "CarrosAdmin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+     "http-server": "^0.11.1",
+    "bower": "^1.8.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "bower": "bower",
+    "http-server":"http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/estadao-digital/test-dev.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/estadao-digital/test-dev/issues"
+  },
+  "homepage": "https://github.com/estadao-digital/test-dev#READMEE"
+}
