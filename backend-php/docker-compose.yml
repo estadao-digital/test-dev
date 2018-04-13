@@ -1,0 +1,28 @@
+version: '2'
+services:
+  web:
+    image: 'bitnami/laravel:5.4.30-r0'
+    container_name: web_container
+    ports:
+        - 8080:3000
+    volumes:
+        - ./:/app
+    environment:
+        DB_HOST: mariadb
+        DB_DATABASE: test_estadao
+        DB_USERNAME: username
+        DB_PASSWORD: p455w0rd
+        DB_CONNECTION: mysql
+    depends_on:
+          - mariadb
+
+  mariadb:
+    image: 'bitnami/mariadb:latest'
+    container_name: mariadb_container
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=username
+      - MARIADB_DATABASE=test_estadao
+      - MARIADB_PASSWORD=p455w0rd
+    ports:
+      - 33061:3306

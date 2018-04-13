@@ -1,0 +1,46 @@
+<div class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{title}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Preencha todos os dados para cadastrar um novo carro!
+                </p>
+                <form class="form-horizontal" role="form" name="formCadastrarCarro">
+
+
+                    <div class="form-group">
+                        <label for="marca" class="col-sm-2 control-label" >Marca</label>
+                        <div class="col-sm-10">
+                            <select id="marca" ng-model="carro.marca" class="form-control" ng-options="marca.descricao for marca in marcas.data " required>
+                                <option value="">Selecione uma Marca ... </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="modelo" class="col-sm-2 control-label">Modelo</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="modelo"class="form-control" placeholder="Descrição do Modelo" ng-model="carro.modelo" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ano" class="col-sm-2 control-label">Ano</label>
+                        <div class="col-sm-10">
+                            <input type="number" id="ano" class="form-control" placeholder="Ano do Carro" ng-model="carro.ano" required>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="cadastrarCarro(carro)" ng-disabled="formCadastrarCarro.$invalid" class="btn btn-primary btn-flat" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>Cadastrar</button>
+                <button type="button" ng-click="cancel()" class="btn  btn-flat">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

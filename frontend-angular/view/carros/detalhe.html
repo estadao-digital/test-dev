@@ -1,0 +1,45 @@
+<section class="content-header" >
+    <h1>
+        Detalhe do Maquina
+        <small>Registro detalhado e movimentações do maquina!</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li ><a href="#/carros">Carro</a></li>
+        <li class="active">{{carro.id}}</li>
+    </ol>
+</section>
+<section class="content">
+<div class="row" >
+    <!-- ./col -->
+    <div class="col-md-12" >
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <!--<i class="fa fa-text-width"></i>-->
+                <h3 class="box-title">Carro</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <dl class="dl-horizontal" >
+                    <!--<dt>Id</dt>-->
+                    <!--<dd>{{carro.id}}</dd>-->
+                    <dt>Marca</dt>
+                    <dd>{{carro.marca.descricao}}</dd>
+                    <dt>Modelo</dt>
+                    <dd>{{carro.modelo}}</dd>
+                    <dt>Ano</dt>
+                    <dd>{{carro.ano}}</dd>
+                </dl>
+            </div>
+            <div class="box box-footer">
+                <button class="btn btn-flat" onclick="return history.back(-1);"> Cancelar</button>
+                <button style="float: right;margin-left: 10px;" ng-click="deleteCarro(carro)"class="btn btn-danger btn-flat"><i class="glyphicon glyphicon-remove-circle"></i> Excluir </button>
+                <button style="float: right;margin-left: 10px;" ng-click="alterarCarro(carro)" class="btn btn-warning btn-flat"><i class="glyphicon glyphicon-edit"></i> Alterar </button>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- ./col -->
+</div>
+</section>
