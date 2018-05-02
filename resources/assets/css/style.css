@@ -1,0 +1,38 @@
+.header{
+  background: linear-gradient(0deg, rgba(23,4,3,0.6), rgba(4,4,43,0.6)), url(../images/carros.jpg) center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0px;
+  color:#fff;
+  font-family: 'Raleway', sans-serif;
+}
+nav{
+  font-family: 'Raleway', sans-serif;
+}
+table{
+  font-family: 'Raleway', sans-serif;
+  margin-top: 5%;
+
+}
+.table td, .table th{
+  padding: .50rem;
+}
+.btn-options{
+  width: 90px;
+  height: 35px;
+}
+.feedback{
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  color:#dc3545;
+}
+.form{
+  font-family: 'Raleway', sans-serif;
+  margin-top: 2%;
+}
+.form h4{
+  margin-bottom: 4%;
+}
+.form label{
+  color: #17a2b8;
+}
