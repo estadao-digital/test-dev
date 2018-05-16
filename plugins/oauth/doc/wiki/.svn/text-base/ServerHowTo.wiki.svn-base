@@ -1,0 +1,176 @@
+#summary Quick How To for OAuth enabling a server
+#labels Featured,Phase-Implementation
+
+= Introduction =
+
+Adding OAuth authentication to your server is very easy.  You will need to check the incoming requests for any OAuth authentication details.  Some simple templates will be needed to handle the authorization of request tokens and for handling requests for access tokens. 
+
+You will need a couple of controllers:
+
+ # `oauth_register.php` to let an user obtain a consumer key and secret.
+ # `request_token.php`  to return a request token.
+ # `authorize.php` to let the user authorize a request token.
+ # `access_token.php`  to exchange an authorized request token for an access token.
+
+= OAuthStore =
+
+In the examples below I assume that you use the default MySQL store for the OAuth credentials.  You can select another store by first requesting an OAuthStore instance with a parameter telling which store is needed:
+
+{{{
+$store = OAuthStore::instance('mystore');
+}}}
+
+This assumes that you have a file `OAuthStoremystore.php` in the store directory.  You can check the `OAuthStoreMySQL.php` for an example implementation.
+
+
+= Checking A Request For Authorization =
+
+At the start of every request handled by your application you can check if the request contains OAuth authorization information.
+
+{{{
+if (OAuthRequestVerifier::requestIsSigned())
+{
+	try
+	{
+		$req = new OAuthRequestVerifier();
+		$user_id = $req->verify();
+
+		// If we have an user_id, then login as that user (for this request)
+		if ($user_id)
+		{
+			// **** Add your own code here ****
+		}
+	}
+	catch (OAuthException $e)
+	{
+		// The request was signed, but failed verification
+		header('HTTP/1.1 401 Unauthorized');
+		header('WWW-Authenticate: OAuth realm=""');
+		header('Content-Type: text/plain; charset=utf8');
+					
+		echo $e->getMessage();
+		exit();
+	}
+}
+}}}
+
+
+= Controller 1. `oauth_register.php` obtain consumer key and secret =
+
+Every consumer uses a combination of a consumer key with a consumer secret and a token with a token secret to sign its requests.  An user must first obtain a consumer key with a consumer secret before (s)he can start requesting access to the server.
+
+{{{
+// The currently logged on user
+$user_id = 1;
+
+// This should come from a form filled in by the requesting user
+$consumer = array(
+    // These two are required
+    'requester_name' => 'John Doe',
+    'requester_email' => 'john@example.com',
+
+    // These are all optional
+    'callback_uri' => 'http://www.myconsumersite.com/oauth_callback',
+    'application_uri' => 'http://www.myconsumersite.com/',
+    'application_title' => 'John Doe\'s consumer site',
+    'application_descr' => 'Make nice graphs of all your data',
+    'application_notes' => 'Bladibla',
+    'application_type' => 'website',
+    'application_commercial' => 0
+);
+
+// Register the consumer
+$store = OAuthStore::instance(); 
+$key   = $store->updateConsumer($consumer, $user_id);
+
+// Get the complete consumer from the store
+$consumer = $store->getConsumer($key);
+
+// Some interesting fields, the user will need the key and secret
+$consumer_id = $consumer['id'];
+$consumer_key = $consumer['consumer_key'];
+$consumer_secret = $consumer['consumer_secret'];
+}}}
+
+When you want to update a previously registered consumer, then supply the `id` of the consumer, the `consumer_key` and the `consumer_secret`.  The key and secret can not be changed and are used as extra verification during the update.
+
+== Requesting a list of registered consumers ==
+
+You can fetch a list of all consumers currently registered by a certain user:
+
+{{{
+// The currenly logged on user
+$user_id = 1;
+
+// Fetch all consumers registered by the current user
+$store = OAuthStore::instance();
+$list = $store->listConsumers($user_id);
+}}}
+
+= Controller 2. `request_token.php` return a request token =
+
+After the consumer got a consumer key and secret it can request a request token for obtaining user authorization.
+
+{{{
+$server = new OAuthServer();
+$token = $server->requestToken();
+exit();
+}}}
+
+= Controller 3. `authorize.php` user authorization of a request token =
+
+This controller asks the user if it allows the consumer to access his account.  When allowed then the consumer can exchange his request token for an access token.  
+
+You have to make sure that an user is logged on when accessing the code below.
+
+*Note* The OAuthServer uses the `$_SESSION` to store some OAuth state, so you must either call `session_start()` or have automatic session start enabled.
+
+{{{
+// The current user
+$user_id = 1;
+
+// Fetch the oauth store and the oauth server.
+$store  = OAuthStore::instance();
+$server = new OAuthServer();
+
+try
+{
+    // Check if there is a valid request token in the current request
+    // Returns an array with the consumer key, consumer secret, token, token secret and token type.
+    $rs = $server->authorizeVerify();
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+        // See if the user clicked the 'allow' submit button (or whatever you choose)
+        $authorized = array_key_exists('allow', $_POST);
+
+        // Set the request token to be authorized or not authorized
+        // When there was a oauth_callback then this will redirect to the consumer
+        $server->authorizeFinish($authorized, $user_id);
+
+        // No oauth_callback, show the user the result of the authorization
+        // ** your code here **
+   }
+}
+catch (OAuthException $e)
+{
+    // No token to be verified in the request, show a page where the user can enter the token to be verified
+    // **your code here**
+}
+
+}}}
+
+= Controller 4. `access_token.php` exchange authorized request token for an access token =
+
+This exchanges an authorized request token for an access token.  The access token (and associated secret) can be used to sign requests.
+
+{{{
+$server = new OAuthServer();
+$server->accessToken();
+}}}
+
+= The OOB =
+
+OAuth defines "OOB" (Out-Of-Band). This can be used for applications that do not have a callback, such as mobile phones.
+
+If you are getting a redirection to a URL such as http://oob/?oauth_token=xxxxxxxxxxxxxxx&oauth_verifier=xxxxxxxxxxxx, a sure solution is to set the 'oauth_callback' parameter in the query parameters.

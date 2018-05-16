@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/120/trunk/library/signature_method
+END
+OAuthSignatureMethod_RSA_SHA1.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/120/trunk/library/signature_method/OAuthSignatureMethod_RSA_SHA1.php
+END
+OAuthSignatureMethod.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/50/trunk/library/signature_method/OAuthSignatureMethod.class.php
+END
+OAuthSignatureMethod_HMAC_SHA1.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/72/trunk/library/signature_method/OAuthSignatureMethod_HMAC_SHA1.php
+END
+OAuthSignatureMethod_MD5.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/72/trunk/library/signature_method/OAuthSignatureMethod_MD5.php
+END
+OAuthSignatureMethod_PLAINTEXT.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/50/trunk/library/signature_method/OAuthSignatureMethod_PLAINTEXT.php
+END

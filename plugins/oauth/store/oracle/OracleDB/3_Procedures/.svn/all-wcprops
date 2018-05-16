@@ -1,0 +1,203 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/184/trunk/library/store/oracle/OracleDB/3_Procedures
+END
+SP_SET_SERVER_TOKEN_TTL.prc
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_SET_SERVER_TOKEN_TTL.prc
+END
+SP_GET_SERVER.prc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_GET_SERVER.prc
+END
+SP_GET_SERVER_TOKEN.prc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_GET_SERVER_TOKEN.prc
+END
+SP_UPDATE_SERVER.prc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_UPDATE_SERVER.prc
+END
+SP_LIST_CONSUMERS.prc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_LIST_CONSUMERS.prc
+END
+SP_LIST_CONSUMER_TOKENS.prc
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_LIST_CONSUMER_TOKENS.prc
+END
+SP_GET_CONSUMER_ACCESS_TOKEN.prc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_GET_CONSUMER_ACCESS_TOKEN.prc
+END
+SP_DELETE_CONSUMER.prc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_DELETE_CONSUMER.prc
+END
+SP_AUTH_CONSUMER_REQ_TOKEN.prc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_AUTH_CONSUMER_REQ_TOKEN.prc
+END
+SP_DEL_CONSUMER_REQUEST_TOKEN.prc
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_DEL_CONSUMER_REQUEST_TOKEN.prc
+END
+SP_DELETE_SERVER.prc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_DELETE_SERVER.prc
+END
+SP_DELETE_SERVER_TOKEN.prc
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_DELETE_SERVER_TOKEN.prc
+END
+SP_ADD_LOG.prc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_ADD_LOG.prc
+END
+SP_EXCH_CONS_REQ_FOR_ACC_TOKEN.prc
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_EXCH_CONS_REQ_FOR_ACC_TOKEN.prc
+END
+SP_GET_SECRETS_FOR_SIGNATURE.prc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_GET_SECRETS_FOR_SIGNATURE.prc
+END
+SP_SET_CONSUMER_ACC_TOKEN_TTL.prc
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_SET_CONSUMER_ACC_TOKEN_TTL.prc
+END
+SP_ADD_CONSUMER_REQUEST_TOKEN.prc
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_ADD_CONSUMER_REQUEST_TOKEN.prc
+END
+SP_LIST_LOG.prc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_LIST_LOG.prc
+END
+SP_ADD_SERVER_TOKEN.prc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_ADD_SERVER_TOKEN.prc
+END
+SP_CONSUMER_STATIC_SAVE.prc
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_CONSUMER_STATIC_SAVE.prc
+END
+SP_COUNT_CONSUMER_ACCESS_TOKEN.prc
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_COUNT_CONSUMER_ACCESS_TOKEN.prc
+END
+SP_LIST_SERVER_TOKENS.prc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_LIST_SERVER_TOKENS.prc
+END
+SP_LIST_SERVERS.prc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_LIST_SERVERS.prc
+END
+SP_CHECK_SERVER_NONCE.prc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/184/trunk/library/store/oracle/OracleDB/3_Procedures/SP_CHECK_SERVER_NONCE.prc
+END
+SP_GET_SERVER_FOR_URI.prc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_GET_SERVER_FOR_URI.prc
+END
+SP_GET_CONSUMER.prc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_GET_CONSUMER.prc
+END
+SP_COUNT_SERVICE_TOKENS.prc
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_COUNT_SERVICE_TOKENS.prc
+END
+SP_UPDATE_CONSUMER.prc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_UPDATE_CONSUMER.prc
+END
+SP_GET_SERVER_TOKEN_SECRETS.prc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_GET_SERVER_TOKEN_SECRETS.prc
+END
+SP_GET_CONSUMER_STATIC_SELECT.prc
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_GET_CONSUMER_STATIC_SELECT.prc
+END
+SP_DEL_CONSUMER_ACCESS_TOKEN.prc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_DEL_CONSUMER_ACCESS_TOKEN.prc
+END
+SP_GET_SECRETS_FOR_VERIFY.prc
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_GET_SECRETS_FOR_VERIFY.prc
+END
+SP_GET_CONSUMER_REQUEST_TOKEN.prc
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/144/trunk/library/store/oracle/OracleDB/3_Procedures/SP_GET_CONSUMER_REQUEST_TOKEN.prc
+END

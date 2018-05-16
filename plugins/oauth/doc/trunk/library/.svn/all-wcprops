@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/191/trunk/library
+END
+OAuthStore.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/182/trunk/library/OAuthStore.php
+END
+OAuthRequester.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/191/trunk/library/OAuthRequester.php
+END
+OAuthException2.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/67/trunk/library/OAuthException2.php
+END
+OAuthRequestSigner.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/174/trunk/library/OAuthRequestSigner.php
+END
+OAuthSession.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/109/trunk/library/OAuthSession.php
+END
+OAuthRequestVerifier.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/155/trunk/library/OAuthRequestVerifier.php
+END
+OAuthServer.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/154/trunk/library/OAuthServer.php
+END
+OAuthDiscovery.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/129/trunk/library/OAuthDiscovery.php
+END
+OAuthRequest.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/186/trunk/library/OAuthRequest.php
+END
+OAuthRequestLogger.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/185/trunk/library/OAuthRequestLogger.php
+END

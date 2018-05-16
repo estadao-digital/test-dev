@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/175/trunk/library/store/postgresql
+END
+pgsql.sql
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/175/trunk/library/store/postgresql/pgsql.sql
+END

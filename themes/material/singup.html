@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="::siteroot::/themes/material/assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" href="::siteroot::/themes/material/assets/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>::sitename::</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+	<!-- CSS Files -->
+    <link href="::siteroot::/themes/material/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="::siteroot::/themes/material/assets/css/material-kit.css" rel="stylesheet"/>
+
+<style>
+
+.headerSty {
+	//background-image: url("::siteroot::/themes/material/background.jpg"); 
+	background-size: cover; 
+	background-position: top center;
+
+}
+
+</style>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  
+ <script>
+ 
+ function cadSend() {
+		var dataValue = $(':input').serializeArray();
+		console.log(dataValue);
+		$.ajax({
+				  url : "::siteroot::/index.php/singup/saveCad/",
+				  dataType : "json",
+				  type : "POST",
+				  data : dataValue,
+				  cache: false
+				})
+				  .done(function( html ) {
+				  		 console.log(html);
+				  	
+				  	if ( html.html == 1 ) {
+				  		alert("Cadastro realizado com sucesso");
+				  		window.location.replace(html.url);
+				  	
+				  }else{
+					  alert(html.html);
+				  }});
+
+		}
+ 
+ </script>
+  
+</head>
+
+<body class="signup-page">
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Termos de Uso</h4>
+      </div>
+      <div class="modal-body">
+      <div align="justify"> 
+
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Rejeitar</button>
+        <button type="button" onclick="cadSend();" class="btn btn-info btn-simple">Aceitar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<nav class="navbar navbar-transparent navbar-absolute">
+    	<div class="container">
+        	<!-- Brand and toggle get grouped for better mobile display -->
+        	<div class="navbar-header">
+        		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+            		<span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+        		</button>
+        		<a class="navbar-brand" href="http://www.creative-tim.com">Kolibri</a>
+        	</div>
+
+        	
+    	</div>
+    </nav>
+
+    <div class="wrapper">
+		<div class="header header-filter headerSty" >
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+						<div class="card card-signup">
+							<form class="form" method="" action="">
+								<div class="header header-info text-center">
+									<h4>Cadastre-se</h4>
+									<!-- <div class="social-line">
+										<a href="#pablo" class="btn btn-simple btn-just-icon">
+											<i class="fa fa-facebook-square"></i>
+										</a>
+										<a href="#pablo" class="btn btn-simple btn-just-icon">
+											<i class="fa fa-twitter"></i>
+										</a>
+										<a href="#pablo" class="btn btn-simple btn-just-icon">
+											<i class="fa fa-google-plus"></i>
+										</a>
+									</div> -->
+								</div>
+								
+								<div class="content">
+									<form id="idcadForm" name="cadform" method="post" action="#">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">face</i>
+										</span>
+										<input type="text" name="name" class="form-control" placeholder="Nome completo...">
+									</div>
+
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">email</i>
+										</span>
+										<input type="text" name='mail' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" class="form-control" placeholder="Email...">
+									</div>
+
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">lock_outline</i>
+										</span>
+										<input name="passA" type="password" placeholder="Senha..." class="form-control" />
+									</div>
+									
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">lock_outline</i>
+										</span>
+										<input  name="passB" type="password" placeholder="Confirmar senha" class="form-control" />
+									</div>
+									</form>
+									
+
+									<!-- If you want to add a checkbox to this form, uncomment this code
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="optionsCheckboxes" checked>
+											Subscribe to newsletter
+										</label>
+									</div> -->
+								</div>
+								<div class="footer text-center">
+									<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Cadastre-se
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<footer class="footer">
+		        <div class="container">
+		            <nav class="pull-left">
+						<ul>
+							
+							<li>
+								<a href="http://www.yatode.com.br">
+								   Sobre nós
+								</a>
+							</li>
+							
+						</ul>
+		            </nav>
+		            <div class="copyright pull-right">
+		                &copy; 2017, Yatode </a>
+		            </div>
+		        </div>
+		    </footer>
+
+		</div>
+
+    </div>
+
+
+</body>
+	<!--   Core JS Files   -->
+	<script src="::siteroot::/themes/material/assets/js/jquery.min.js" type="text/javascript"></script>
+	<script src="::siteroot::/themes/material/assets/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="::siteroot::/themes/material/assets/js/material.min.js"></script>
+
+	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	<script src="::siteroot::/themes/material/assets/js/nouislider.min.js" type="text/javascript"></script>
+
+	<!--  Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
+	<script src="::siteroot::/themes/material/assets/js/bootstrap-datepicker.js" type="text/javascript"></script>
+
+	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
+	<script src="::siteroot::/themes/material/assets/js/material-kit.js" type="text/javascript"></script>
+
+</html>

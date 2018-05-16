@@ -1,0 +1,45 @@
+#summary An overview of all PHP files in this repository.
+
+= Files In This Repository =
+
+The repository contains the following files:
+
+===`library/`===
+
+This directory contains all classes implementing the support for OAuth. 
+
+===`library/OAuthServer.php`===
+
+Implements support for server side handling of token requests and authorization of request tokens.
+
+===`library/OAuthRequester.php`===
+
+Extends the `OAuthRequestSigner` class to actually do signed requests to OAuth servers and return the results.  Also implements code to request tokens from OAuth servers.
+
+
+===`library/OAuthRequestSigner.php`===
+
+Implements methods to sign requests to OAuth servers.
+
+===`library/OAuthVerifier.php`===
+
+Implements verification of incoming requests.
+
+===`library/OAuthRequest.php`===
+
+This is the main class.  It wraps either the current request or a request given to the constructor.  It provides all basic functionality for calculating the base string, signatures etc.
+
+
+===`library/OAuthStore.php`===
+
+The storage module for OAuth.  This is the factory to choose the correct OAuthStore for storing all tokens etc.  In the directory `library/store/OAuthStoreMySQL.php` is a MySQL implementation.  The datamodel is contained in `library/store/mysql/mysql.sql`.  
+
+You can add your own implementations in the `library/store/` directory.
+
+===`library/OAuthException.php`===
+
+The exception class for OAuth.  Works together with `OAuthRequestLogger` to enable debugging of OAuth request from and to the server.
+
+===`library/OAuthRequesterLogger.php`===
+
+Logs all incoming and outgoing requests in a database table.  Facilitates debugging of the requests.
