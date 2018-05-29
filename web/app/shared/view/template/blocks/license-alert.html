@@ -1,0 +1,25 @@
+
+<div
+    ng-controller="AlertLicenseCtrl as vm"
+    class="alert alert-without-margin-bottom alert-warning alert-dismissible"
+    role="alert"
+    ng-show="vm.showAlert()"
+    ng-init="vm.init()">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="vm.closeAlert()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    <span ng-show="vm.expirationDays == 0" data-translate="VIEW.LICENCE.WARNING_1">
+        Sua licença expira hoje. Renove a licença para continuar a usar o produto.
+    </span>
+
+    <span ng-show="vm.expirationDays > 0">
+        <span data-translate="VIEW.LICENCE.WARNING_PART_1">Sua licença irá expirar em</span> <strong>{{vm.expirationDays}} <span data-translate="VIEW.LICENCE.WARNING_PART_DAY">dia(s)</span></strong>.
+        <span data-translate="VIEW.LICENCE.WARNING_PART_2">Após esse periodo você não poderá mais administrar o dashboard do Aker Web Defender sem antes renová-la.</span>
+    </span>
+
+    <span ng-show="vm.expirationDays < 0">
+        <span data-translate="VIEW.LICENCE.WARNING_PART_3">Sua licença expirou à </span><strong>{{vm.expirationDays * -1}} <span data-translate="VIEW.LICENCE.WARNING_PART_DAY">dia(s)</span></strong>.
+        <span data-translate="VIEW.LICENCE.WARNING_PART_4">Você precisa renovar a sua licença para utilizar os recursos do Aker Web Defender.</span>
+    </span>
+</div>

@@ -1,0 +1,168 @@
+<div class="bg-light lter b-b wrapper-md" ng-init="vm.init()">
+    <h1 class="m-n font-thin h3" data-translate="VIEW.PROFILE.PROFILE">Profile</h1>
+</div>
+<div class="wrapper-md">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold" data-translate="VIEW.GENERAL.REGISTER">Register</div>
+                <div class="panel-body">
+                    <form name="profileRegisterForm" class="form-validation form-horizontal">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" data-translate="VIEW.PROFILE.NAME">Name</label>
+                            <div class="col-sm-6">
+                                <input
+                                    name="nome"
+                                    type="text"
+                                    class="form-control"
+                                    ng-model="vm.values.Name"
+                                    minlength="2"
+                                    maxlength="45"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" data-translate="VIEW.PROFILE.WIDGETS">Group of Widgets</label>
+                            <div class="col-sm-6">
+                                <div ng-repeat="(widgetKey, widgetValue) in vm.widgetList">
+                                    <div class="checkbox">
+                                      <label class="i-checks">
+                                        <input type="checkbox" ng-model="vm.values.Widgets[widgetValue.Name]" ng-true-value="{{widgetValue.Id}}" >
+                                        <i></i>
+                                        {{widgetValue.Name}}
+                                      </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="panel panel-default">
+                            <div class="table-responsive">
+                                <table id="profileFuncTable" ng-table="vm.tableParams" class="table aker-table-condensed">
+
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                            <a ng-click="showFilter = !showFilter">
+                                                <span>
+                                                    <div>
+                                                        <i class="fa fa-filter"></i>
+                                                        <span data-translate="VIEW.PROFILE.PERMISSIONS">Permissions
+                                                        </span>
+                                                    </div>
+                                                </span>
+                                            </a>
+                                            </th>
+                                            <th>
+                                                <div data-translate="VIEW.PROFILE.FUNC_READ">
+                                                    Read
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div data-translate="VIEW.PROFILE.FUNC_WRITE">
+                                                    Write
+                                                </div>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="3" ng-show="showFilter">
+                                                <input class="form-control input-sm" type="text" ng-model="vm.filters.myfilter" ng-change="vm.showRows()" ng-keyup="vm.ngTableReload()" placeholder="{{'VIEW.PROFILE.PLACEHOLDER.SEARCH_BY_FUNCTIONALITY' | translate}}"/>
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody ng-repeat="group in $groups" ng-init="group.$hideRows = vm.hideShowRows">
+                                        <tr class="ng-table-group">
+                                            <td class="col-sm-4">
+                                                <a href="" ng-click="group.$hideRows = !group.$hideRows">
+                                                    <p class="m-n wrapper-xs">
+                                                        <span   class="glyphicon"
+                                                                ng-class="{ 'glyphicon-chevron-right': group.$hideRows, 'glyphicon-chevron-down': !group.$hideRows }">
+                                                        </span>
+                                                        <strong>
+                                                            <span data-translate="{{group.data[0].GroupForTranslate | translate}}">
+                                                                {{group.data[0].GroupForTranslate}}
+                                                            </span>
+                                                        </strong>
+                                                    </p>
+                                                </a>
+                                            </td>
+                                            <td class="col-sm-1">
+                                                <div class="checkbox">
+                                                    <label
+                                                        class="i-checks i-checks-sm"
+                                                        ng-class="{'partialChecked': vm.isPartialChecked(group.value, 'r') === true}">
+                                                        <input
+                                                            id="chk_r_{{group.value}}"
+                                                            type="checkbox"
+                                                            ng-model="vm.checkedAll[group.value]"
+                                                            ng-true-value="'r'"
+                                                            ng-checked="vm.checkedAllPerm('r', group.value)"
+                                                            ng-click="vm.checkUncheckAll(vm.checkedAll, group.value)">
+                                                        <i class="m-b-xs"></i>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="col-sm-1">
+                                                <div class="checkbox">
+                                                    <label
+                                                        class="i-checks i-checks-sm"
+                                                        ng-class="{'partialChecked': vm.isPartialChecked(group.value, 'w') === true}">
+                                                        <input
+                                                            id="chk_w_{{group.value}}"
+                                                            type="checkbox"
+                                                            ng-model="vm.checkedAll[group.value]"
+                                                            ng-true-value="'w'"
+                                                            ng-checked="vm.checkedAllPerm('w', group.value)"
+                                                            ng-click="vm.checkUncheckAll(vm.checkedAll, group.value)">
+                                                        <i class="m-b-xs"></i>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr ng-hide="group.$hideRows" ng-repeat="func in group.data">
+
+                                            <td data-title="'Routes'" class="text-center">
+                                                <p class="m-n wrapper-xs" data-translate="{{func.NameForTranslate | translate}}">
+                                                    {{func.NameForTranslate}}
+                                                </p>
+                                            </td>
+
+                                            <td data-title="'Read'">
+                                                <div class="checkbox m-n">
+                                                    <label class="i-checks i-checks-sm">
+                                                        <input type="checkbox" name="permission{{$index}}"
+                                                        ng-model="vm.values.Functionalities[func.Name]"
+                                                        ng-true-value="'r'"
+                                                        ng-checked="vm.values.Functionalities[func.Name]">
+                                                        <i class="m-b-xs"></i>
+                                                    </label>
+                                                </div>
+                                            </td>
+
+                                            <td data-title="'Write'">
+                                                <div class="checkbox m-n">
+                                                    <label class="i-checks i-checks-sm">
+                                                        <input type="checkbox" name="permission{{$index}}"
+                                                        ng-model="vm.values.Functionalities[func.Name]"
+                                                        ng-true-value="'w'"
+                                                        ng-checked="vm.values.Functionalities[func.Name]">
+                                                        <i class="m-b-xs"></i>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <button data-translate="VIEW.BUTTONS.SAVE" class="btn btn-sm btn-primary" ng-click="vm.saveProfile()" data-ng-disabled="profileRegisterForm.$invalid">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

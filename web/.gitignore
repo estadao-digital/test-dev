@@ -1,0 +1,7 @@
+nbproject/
+node_modules/
+reports/
+assets/js/
+assets/css/app-custom.min.css
+sftp-config.json
+npm-debug.log

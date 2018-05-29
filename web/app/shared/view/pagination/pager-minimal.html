@@ -1,0 +1,19 @@
+<footer class="panel-footer" ng-if="params.total()">
+    <div class="hbox hbox-auto-xs">
+        <div class="col w-sm w-auto-xs">
+            <div class="btn-group" ng-show="params.total() > 10">
+                <!--<button type="button" class="disabled btn btn-sm btn-default" style="cursor: default; opacity: inherit;" data-translate="VIEW.BUTTONS.DISPLAY" >Exibir:</button> -->
+                <small>Exibir: (registros)</small><br>
+                <button ng-repeat="value in params.settings().counts" type="button" ng-class="{'active':params.count() == value}" ng-click="params.count(value)" class="btn btn-default btn-sm">{{value}}</button>
+            </div>
+        </div>
+        <div class="text-right w-full w-auto-xs">
+            <ul class="pagination pagination-sm m-t-none m-b-none">
+                <li ng-class="{'disabled': !page.active && !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type">
+                    <a href ng-switch-when="prev"  ng-click="params.page(page.number)"><span class="fa fa-angle-left"></span></a>
+                    <a href ng-switch-when="next"  ng-click="params.page(page.number)"><span class="fa fa-angle-right"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>

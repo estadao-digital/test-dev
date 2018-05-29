@@ -1,0 +1,147 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">Carro</h1>
+  <small class="text-muted">Cadastro de carros</small>
+</div>
+
+<div class="wrapper-md" ng-init="vm.init()">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold">Registro</div>
+                    <uib-tabset class="tab-container" active="active">
+                    <uib-tab heading="Dados do carro" index="0">
+  	                  <div class="panel-body">
+			                    <form name="formRuleBasic" class="form-validation form-horizontal">                
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Grupo</label>
+                                <div class="col-lg-7">
+                                    <select class="form-control" ng-model="vm.rule.id_group" required>
+                                        <option value="">Selecione</option>
+                                        <option ng-repeat="item in vm.ruleGroups" value="{{item.Id}}">{{item.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" data-translate="VIEW.RULES.REGISTER.PHASE">Fase</label>
+                                <div class="col-lg-7">
+                                    <select class="form-control" ng-model="vm.rule.phase" required>
+                                        <option value="">Selecione</option>
+                                        <option value="1">1 - Request Headers</option>
+                                        <option value="2">2 - Request Body</option>
+                                        <option value="3">3 - Response Headers</option>
+                                        <option value="4">4 - Response Body</option>
+                                        <option value="5">5 - Logging</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- div class="form-group">
+                                <label class="col-lg-2 control-label">Revisão</label>
+                                <div class="col-lg-7">
+                                    <input type="text" class="form-control" ng-model="vm.rule.rev" />
+                                </div>
+                            </div -->
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Severidade</label>
+                                <div class="col-lg-7">
+                                    <select class="form-control" ng-model="vm.rule.severity" required>
+                                        <option value="">Selecione</option>
+                                        <option value="0">EMERGENCY</option>
+                                        <option value="1">ALERT</option>
+                                        <option value="2">CRITICAL</option>
+                                        <option value="3">ERROR</option>
+                                        <option value="4">WARNING</option>
+                                        <option value="5">NOTICE</option>
+                                        <option value="6">INFO</option>
+                                        <option value="7">DEBUG</option>
+                                    </select>
+                                </div>
+                            </div>
+
+														<div class="form-group">
+                                <label class="col-lg-2 control-label">Tipo de detecção</label>
+                                <div class="col-lg-7">
+                                    <select class="form-control" ng-model="vm.rule.detectionType" required>
+                                        <option value="">Selecione</option>
+                                        <option ng-repeat="item in vm.detectionType" value="{{item.id}}">{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Mensagem de detecção</label>
+                                <div class="col-lg-7">
+                                    <input type="text" class="form-control" ng-model="vm.rule.msg" required/>
+                                </div>
+                            </div>
+
+                            <!-- div class="form-group">
+                                <label class="col-lg-2 control-label">Variáveis</label>
+                                <div class="col-lg-7">
+                                    <input type="text" class="form-control" ng-model="vm.rule.variables" required/>
+                                </div>
+                            </div -->
+
+                            <!-- div class="form-group">
+                                <label class="col-lg-2 control-label">Operador</label>
+                                <div class="col-lg-7">
+                                    <select class="form-control" ng-model="vm.rule.operator" required>
+                                        <option value="">Selecione</option>
+                                        <option ng-repeat="item in vm.operators" value="{{item.id}}">{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div -->
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Expressão regular</label>
+                                <div class="col-lg-7">
+                                    <textarea rows="3" class="form-control" ng-model="vm.rule.expression" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Ações</label>
+                                <div class="col-lg-7">
+                                    <select class="form-control" ng-model="vm.rule.actions" required>
+                                        <option value="">Selecione</option>
+                                        <option ng-repeat="item in vm.actions" value="{{item.id}}">{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- div class="form-group">
+                                <label class="col-lg-2 control-label">Complemento</label>
+                                <div class="col-lg-7">
+                                    <textarea rows="3" class="form-control" ng-model="vm.rule.complement"></textarea>
+                                </div>
+                            </div -->
+
+                            <div class="form-group padder" style="padding-left: 240px;">
+                                <div class="radio">
+                                    <label class="i-checks">
+                                        <input ng-model="vm.rule.audit" type="checkbox" ng-true-value="1" ng-false-value="0"><i></i>
+                                        Habilitar a auditoria (log)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label"></label>
+                                <div class="col-lg-8">
+                                    <button type="submit" class="btn m-b-xs w-xs btn-primary" ng-click="vm.salvarBasic()" ng-disabled="formRuleBasic.$invalid">Salvar</button>
+                                </div>
+                            </div>
+
+                    </div>
+				              </form>
+                  	</uib-tab>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

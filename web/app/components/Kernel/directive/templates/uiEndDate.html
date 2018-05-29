@@ -1,0 +1,27 @@
+<div class="dropdown form-group">
+  <label>{{ label }}</label>
+  <a class="dropdown-toggle" id="endDate"
+     role="button" data-toggle="dropdown">
+      <div class="input-group date">
+          <input type="text"
+                 class="form-control"
+                 data-ng-model="dates.endDate"
+                 data-date-time-input="DD-MM-YYYY HH:mm:ss"
+                 placeholder="dd-mm-yyyy hh:mm:ss">
+          <span class="input-group-addon btn btn-default"
+                ng-click="dates.endDate = null; endDateOnSetTime()"
+                popover-trigger="'mouseenter'">
+              <i class="glyphicon glyphicon-erase"></i>
+          </span>
+          <span class="input-group-addon">
+              <i class="glyphicon glyphicon-calendar"></i>
+          </span>
+      </div>
+  </a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+      <datetimepicker data-ng-model="dates.endDate"
+                      data-datetimepicker-config="{ dropdownSelector: '#endDate', renderOn: 'start-date-changed' }"
+                      data-on-set-time="endDateOnSetTime()"
+                      data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
+  </ul>
+</div>

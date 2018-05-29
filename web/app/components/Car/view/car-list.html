@@ -1,0 +1,125 @@
+<div class="bg-light lter b-b wrapper-md">
+    <div class="row">
+        <div class="col-sm-6 col-xs-12">
+            <h1 class="m-n font-thin h3" >Carros</h1>
+            <small class="text-muted">Listagem de carros</small>
+        </div>
+
+        <div class="col-sm-6 text-right">
+            <div class="inline m-r text-left">
+                <div class="m-b-xs">
+                    <a data-ui-sref="app.car">
+                        <button class="btn btn-sm btn-addon btn-default form-control">
+                            <i class="fa fa-plus"></i>
+                            <span>Novo carro</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-controller="SiteListCtrl" ng-init="vm.init()">
+
+    <div class="wrapper-md">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body no-padder">
+
+                        <form name="formRuleSearch" class="form-validation">
+                            <div class="form-group">
+                                <div class="col-sm-2 wrapper-md">
+                                    <label>Pesquisar carros</label>
+                                </div>
+                                <div class="col-sm-4 wrapper-md">
+                                    <input
+                                        type="text"
+                                        name="mensagem"
+                                        ng-model="vm.filter.term"
+                                        class="form-control"
+                                        placeholder="Termo de pesquisa">
+                                </div>
+                                <div class="col-sm-2 wrapper-md">
+                                    <button type="submit" class="btn m-b-xs btn-primary btn-addon" ng-click="vm.search()">
+                                        <i class="fa fa-search"></i>
+                                        <span>Pesquisar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="table-responsive">
+                            <table
+                                class="table table-striped m-b-none"
+                                data-ng-table="vm.tableParams"
+                                template-pagination="app/shared/view/pagination/pager.html">
+                                <tbody>
+                                    <tr ng-repeat="rule in $data">
+                                        <td>{{rule.Id}}</td>
+                                        <td>{{rule.Msg}}</td>
+                                        <td>{{rule.RuleGroup}}</td>
+                                        <td width="15%">
+                                            <button
+                                                ng-disabled="rule.Editable!='1'"
+                                                data-ui-sref="app.carEdit({id:rule.Id})"
+                                                class="btn btn-sm btn-icon btn-info"
+                                                uib-popover="Editar"
+                                                popover-trigger="'mouseenter'">
+                                                <i class="glyphicon glyphicon-edit"></i>
+                                            </button>
+
+                                            <button
+                                                ng-click="vm.confirmDeleteRule(rule.Id, rule.Msg)"
+                                                class="btn btn-sm btn-icon btn-danger"
+                                                uib-popover="Excluir"
+                                                popover-trigger="'mouseenter'">
+                                                <i class="glyphicon glyphicon-remove"></i>
+                                            </button>
+
+                                            <button
+                                                data-ui-sref="app.carDetail({id:rule.Id})"
+                                                data-toggle="modal"
+                                                data-target="rule-detail"
+                                                class="btn btn-sm btn-icon btn-warning"
+                                                uib-popover="Ver"
+                                                popover-trigger="'mouseenter'">
+                                                <i class="glyphicon glyphicon-open-file"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr data-ng-show="$data.length < 1">
+                                        <td class="text-center" data-translate="VIEW.GENERAL.NO_REGISTERS_FOUND" colspan="4">
+                                            Nenhum registro encontrado.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalDeleteRule" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 data-translate=".QUESTION_DELETE">Deseja realmente excluir esta regra?</h4>
+            </div>
+            <div class="modal-body">
+                <p>{{vm.deleteRuleName}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-translate="VIEW.BUTTONS.CANCEL">Cancelar</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.deleteRule()" data-translate="VIEW.BUTTONS.DELETE">Excluir</button>
+            </div>
+        </div>
+    </div>
+</div>

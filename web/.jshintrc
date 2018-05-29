@@ -1,0 +1,8 @@
+{
+    "camelcase": true,
+    "maxcomplexity": 4,
+    "maxlen": 120,
+    "quotmark": "single",
+    "maxparams": 10,
+    "maxdepth": 2
+}

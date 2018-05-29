@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title>N-Stalker Cloud Web Scan</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- node_modules -->
+        <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+        <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="node_modules/simple-line-icons/css/simple-line-icons.css">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="node_modules/angularjs-toaster/toaster.min.css">
+        <link rel="stylesheet" href="node_modules/chosen-jquery/lib/chosen.min.css">
+        <link rel="stylesheet" href="node_modules/ng-table/dist/ng-table.min.css">
+        <link rel="stylesheet" href="node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css">
+        <link rel="stylesheet" href="node_modules/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"/>
+
+        <!-- assets -->
+        <link rel="stylesheet" href="assets/css/font.css">
+        <link rel="stylesheet" href="assets/css/app.css">
+        <link rel="stylesheet" href="assets/css/custom.css">
+        <link rel="icon" href="assets/img/aker.ico" type="image/x-icon" />
+    </head>
+
+    <body ng-controller="AppCtrl" ng-cloak="">
+        <div id="app"
+            class="app ng-scope app-header-fixed app-aside-fixed"
+            ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view>
+        </div>
+        <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+
+        <!-- Aker Angular -->
+        <script src="assets/js/vendor.min.js"></script>
+        <script src="assets/js/akfw.min.js"></script>
+        <script src="assets/i18n/angular-locale_pt-br.js"></script>
+    </body>
+</html>

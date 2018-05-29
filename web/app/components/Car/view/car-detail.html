@@ -1,0 +1,105 @@
+<div class="wrapper-md" ng-init="vm.init()">
+    <div class="modal-rule-detail">
+        <div class="row">
+            <div class="col-sm-12">
+                <strong data-translate="VIEW.RULES.RULE_DETAILS">Detalhes da Regra</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2" style="text-align: right;" data-translate="VIEW.RULES.REGISTER.GROUP">Grupo</div>
+            <div class="col-sm-10">{{vm.text.groupName}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2" style="text-align: right;" data-translate="VIEW.RULES.REGISTER.PHASE">Fase</div>
+            <div class="col-sm-10">{{vm.text.phaseName}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2" style="text-align: right;" data-translate="VIEW.RULES.REGISTER.REVISION">Revisão</div>
+            <div class="col-sm-10">{{vm.rule.rev}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2" style="text-align: right;" data-translate="VIEW.RULES.REGISTER.SEVERITY">Severidade</div>
+            <div class="col-sm-10" style="padding-bottom: 5px;">
+                <span
+                    class="label"
+                    ng-show="['ALERT', 'WARNING', 'CRITICAL', 'EMERGENCY', 'ERROR'].indexOf(vm.text.severityName) > -1"
+                    ng-class="{
+                        'bg-danger': ['CRITICAL', 'EMERGENCY', 'ERROR'].indexOf(vm.text.severityName) > -1,
+                        'bg-warning': ['ALERT', 'WARNING'].indexOf(vm.text.severityName) > -1
+                    }"
+                >
+                    {{ vm.text.severityName }}
+                </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2" style="text-align: right;" data-translate="VIEW.RULES.REGISTER.MATURITY">Maturidade</div>
+            <div class="col-sm-10">
+                <div class="progress" style="width: 150px;">
+                    <div
+                        class="progress-bar progress-bar-info"
+                        role="progressbar"
+                        aria-valuenow="{{vm.rule.maturity}}"
+                        aria-valuemin="0"
+                        aria-valuemax="10"
+                        ng-style="{width: vm.rule.maturity + '0%'}"
+                        aria-valuetext="{{vm.rule.maturity}}/10">
+                        <span ng-show="vm.rule.maturity">{{vm.rule.maturity}}/10</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2" style="text-align: right;" data-translate="VIEW.RULES.REGISTER.PRECISION">Precisão</div>
+            <div class="col-sm-10">
+                <div class="progress" style="width: 150px;">
+                    <div
+                        class="progress-bar progress-bar-info"
+                        role="progressbar"
+                        aria-valuenow="{{vm.rule.accuracy}}"
+                        aria-valuemin="0"
+                        aria-valuemax="10"
+                        ng-style="{width: vm.rule.accuracy + '0%'}"
+                        aria-valuetext="{{vm.rule.accuracy}}/10">
+                        <span ng-show="vm.rule.accuracy">{{vm.rule.accuracy}}/10</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2" style="text-align: right;" data-translate="VIEW.RULES.REGISTER.MESSAGE">Mensagem</div>
+            <div class="col-sm-10">{{vm.rule.msg}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2" style="text-align: right;" data-translate="VIEW.RULES.REGISTER.VARIABLES">Variáveis</div>
+            <div class="col-sm-10">{{vm.rule.variables}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2" style="text-align: right;" data-translate="VIEW.RULES.REGISTER.OPERATOR">Operador</div>
+            <div class="col-sm-10">{{vm.text.operatorName}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2" style="text-align: right;" data-translate="VIEW.RULES.REGISTER.EXPRESSION">Expressão</div>
+            <div class="col-sm-10">{{vm.rule.expression}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2" style="text-align: right;" data-translate="VIEW.RULES.REGISTER.ACTIONS">Ações</div>
+            <div class="col-sm-10">{{vm.rule.actions}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2" style="text-align: right;" data-translate="VIEW.RULES.REGISTER.COMPLEMENT">Complemento</div>
+            <div class="col-sm-10">{{vm.rule.complement}}</div>
+        </div>
+    </div>
+</div>

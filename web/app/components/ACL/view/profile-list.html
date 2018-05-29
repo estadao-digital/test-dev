@@ -1,0 +1,89 @@
+<div class="bg-light lter b-b wrapper-sm" ng-init="vm.init()">
+    <div class="row">
+        <div class="col-sm-6 col-xs-12">
+               <h1  class="m-t-xs m-l font-thin h3" data-translate="VIEW.PROFILE.PROFILE">Profile</h1>
+        </div>
+
+        <div class="col-sm-6 text-right">
+            <div class="inline m-r text-left">
+                <div class="m-b-xs">
+                    <a data-ui-sref="app.profileRegister">
+                    <button class="btn btn-sm btn-addon btn-default form-control">
+                    <i class="fa fa-plus"></i>
+                    <span data-translate="VIEW.BUTTONS.NEW"> New</span>
+                    </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper-md">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold" data-translate="VIEW.GENERAL.SEARCH">Search</div>
+                <div class="panel-body">
+                    <div class="">
+                        <form data-role="perfilForm" class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-md-10 m-t">
+                                            <input type="text" class="form-control" placeholder="{{'VIEW.PROFILE.PLACEHOLDER.SEARCH_BY_PROFILE' | translate}}" ng-model="vm.filter.Name">
+                                        </div>
+                                        <div class="col-md-2 m-t">
+                                            <button class="btn btn-sm btn-addon btn-primary form-control" ng-click="vm.searchProfile()">
+                                            <i class="fa fa-search"></i>
+                                            <span data-translate="VIEW.BUTTONS.SEARCH"> Search Button</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <hr/>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none" data-ng-table="vm.tableParams" template-pagination="app/shared/view/pagination/pager.html">
+                                        <tbody>
+                                            <tr ng-repeat="profile in $data">
+                                                <td data-title="'VIEW.PROFILE.TABLE_HEADER.NAME' | translate" data-sortable="'Name'">{{profile.Name}}</td>
+                                                <td width="20%" data-title="'VIEW.PROFILE.TABLE_HEADER.ACTION' | translate" ng-controller="MenuCtrl as mc">
+                                                    <button
+                                                        ng-disabled="!mc.verifyRoute('profile', 'w') || profile.Id==1"
+                                                        class="btn btn-sm btn-icon btn-info"
+                                                        data-ui-sref="app.profileEdit({id:profile.Id})"
+                                                        uib-popover="{{'VIEW.POPOVER.EDIT' | translate}}"
+                                                        popover-trigger="'mouseenter'">
+                                                        <i class="glyphicon glyphicon-pencil"></i>
+                                                    </button>
+                                                    <button
+                                                        ng-disabled="!mc.verifyRoute('profile', 'w') || profile.Id==1"
+                                                        class="btn btn-sm btn-icon btn-danger"
+                                                        href=""
+                                                        ng-click="vm.deleteProfile(profile.Id)"
+                                                        uib-popover="{{'VIEW.POPOVER.DELETE' | translate}}"
+                                                        popover-trigger="'mouseenter'">
+                                                        <i class="glyphicon glyphicon-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-ng-show="$data.length < 1">
+                                                <td data-translate="VIEW.GENERAL.NO_REGISTERS_FOUND" colspan="2">Nenhum registro encontrado.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<!-- list -->
+<ul class="nav" ng-controller="MenuCtrl as vm">
+    
+    <script type="text/javascript">
+        $("body").on('click', '#NSLnk', function () {
+            window.location.replace('https://higgs.nstealth.net/');
+        });
+        function goToDashboard(){
+            var url = window.location.protocol + '//' + window.location.hostname + ":8082";
+            window.location.href = url;
+        }
+    </script>
+
+    <li>
+        <a data-ui-sref="app.carList" data-ui-sref-opts="{reload: true}">
+            <i class="glyphicon glyphicon-cars icon"></i>
+            <span>Carros</span>
+        </a>
+    </li>
+
+   
+</ul>
+<!-- / list -->
