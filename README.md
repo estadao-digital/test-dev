@@ -6,8 +6,9 @@ A pasta database deve estar com permissão de escrita para o www-data, bem como 
 # Configuração utilizada aqui no meu servidor
 Se utilizar essa configuração, bastará colonar o projeto.
 Seguem os passos:
-1 - Clonar o projeto em /var/www/html (Se for linux)
-2 - Crie o Vhost abaixo
+# 1 - Clonar o projeto em /var/www/html (Se for linux)
+# 2 - Dê permissão de escrita para a database/carros.sqlite3
+# 3 - Crie o Vhost abaixo e, após criar, acesse http://127.0.0.1:8081/web/#!/car/list/
 Listen 8081
 
         <VirtualHost _default_:8081>
