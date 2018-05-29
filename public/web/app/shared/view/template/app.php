@@ -24,7 +24,6 @@
                 <i class="fa fa-long-arrow-up"></i>
             </a>
         </span>
-        &copy <span id="copyright-year">2017</span> Todos os direitos reservados - <a href="http://www.aker.com.br" target="blank">Aker N-Stalker Security Solutions S.A</a>
     </div>
     <!-- / footer -->
 
