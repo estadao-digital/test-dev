@@ -2,7 +2,9 @@
 O back end foi construido com o https://github.com/mmfjunior1/fast_api, desenvolvido por mim durante um projeto.
 Utilizado Angular 1 no front end.
 # Importante
-A pasta database deve estar com permissão de escrita para o www-data, bem como o arquivo do banco de dados
+A pasta database deve estar com permissão de escrita para o www-data, bem como o arquivo do banco de dados.
+# .environment
+Nesse arquivo configuramos o caminho do arquivo do banco de dados. É importante apontar para o local correto para que tudo funcione bem. O banco de dados já foi enviado nesse commit. 
 # Configuração utilizada aqui no meu servidor
 Se utilizar essa configuração, bastará colonar o projeto.
 Seguem os passos:
