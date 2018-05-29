@@ -22,26 +22,6 @@
                 url: '/car/list/',
                 templateUrl: 'app/components/Car/view/car-list.html',
                 controller: 'CarListCtrl as vm'
-            })
-            .state('app.carDetail', {
-                url: '/car/detail/{id:int}',
-                parent: 'app.carList',
-                params : {
-                    detail: true
-                },
-                onEnter: [
-                    '$uibModal',
-                    '$state',
-                    function($uibModal, $state) {
-                        $uibModal.open({
-                            controller: 'CarCtrl as vm',
-                            templateUrl: 'app/components/Car/view/car-detail.html',
-                            size: 'lg'
-                        }).result.finally(function(){
-                            $state.go('app.carList');
-                        });
-                    }
-                ]
             });
     }
 })();

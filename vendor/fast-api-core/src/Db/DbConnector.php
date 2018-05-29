@@ -31,7 +31,7 @@ class DbConnector
      */
     public function __construct()
     {
-        $dbPath = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'database/'.DB_FILE;
+        $dbPath = DB_FILE;
         $exitsDb = file_exists($dbPath);
         try{
             if ($this->connection==null) {

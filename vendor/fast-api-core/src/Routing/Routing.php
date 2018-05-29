@@ -142,10 +142,8 @@ class Routing
         case 'GET':
             return filter_input_array(INPUT_GET);
             break;
-        case 'POST':
-            return filter_input_array(INPUT_POST);
-            break;
         case 'PUT':
+        case 'POST':
         case 'DELETE':
         case 'OPTIONS':
             parse_str(file_get_contents("php://input"), $post_vars);

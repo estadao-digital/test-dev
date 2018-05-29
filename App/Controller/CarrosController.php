@@ -14,6 +14,7 @@ namespace App\Controller;
 
 use FastApi\View\View;
 use FastApi\RequestValidator\RequestValidator;
+use App\Model\CarroModel;
 /**
  * Controller CarrosController.
  *
@@ -35,7 +36,14 @@ class CarrosController
      */
     public function listaCarros()
     {
-        return View::json(array("msg"=>"Lista de carros"));
+        $carro = new CarroModel();
+        $param = json_decode(key($this->parametersRequest));
+        if (trim($param->term) != "") {
+            $carros = $carro->select()->where('modelo', 'like','%'.$param->term.'%')->get();
+            return View::json(array("carros" => $carros->carroCollection->results));
+        }
+        $carros = $carro->select()->get();
+        return View::json(array("carros" => $carros->carroCollection->results));
     }
     /**
      * Save a car in database
@@ -44,7 +52,15 @@ class CarrosController
      */
     public function salvarCarro($id = 0)
     {
-        return View::json(array("msg"=>"Salva o carro $id"));
+        $postData = json_decode(key($this->parametersRequest));
+        $carro = new CarroModel();
+        $carro->fields['id_marca'] = (int)$postData->id_marca;
+        $carro->fields['modelo'] = substr($postData->modelo, 0, 30);
+        if($id > 0) {
+            $carro->id = $id;
+        }
+        $carro->save();
+        return View::json(array("error"=>false, "message" => "Registro gravado"));
     }
     /**
      * Show a car
@@ -53,7 +69,9 @@ class CarrosController
      */
     public function verCarro($id)
     {
-        return View::json(array("msg"=>"Ver o carro $id"));
+        $carro = new CarroModel();
+        $register = $carro->findById($id);
+        return View::json(array("carro" => $register));
     }
     /**
      * Delete a car
@@ -62,7 +80,21 @@ class CarrosController
      */
     public function excluirCarro($id)
     {
+        $carro = new CarroModel();
+        $carro->delete($id);
         return View::json(array("msg"=>"Excluir o carro $id"));
     }
-    
+    /**
+     * Delete a car
+     *
+     * @return View::json
+     */
+    public function marcasCarro($id)
+    {
+        $marca = array(); 
+        $marca[] = array("id" => 1, "marca" => "Chevrolet");
+        $marca[] = array("id" => 2, "marca" => "Fiat");
+        $marca[] = array("id" => 3, "marca" => "Ford");
+        return View::json(array("marcas" => $marca));
+    }
 }

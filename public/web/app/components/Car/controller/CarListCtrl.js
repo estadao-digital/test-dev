@@ -11,42 +11,50 @@
         var vm = this;
         vm.rules = [];
         vm.filter = {};
-
         vm.init = function() {
             vm.buildTableRules();
         };
 
-        vm.confirmDeleteRule = function(ruleId, ruleName) {
-            vm.deleteRuleId = ruleId;
-            vm.deleteRuleName = ruleName;
-            $('#modalDeleteRule').modal('show');
+        vm.confirmDeleteCar = function(carId) {
+            vm.deleteCarId  = carId;
+            $('#modalDeleteCar').modal('show');
         };
 
-        vm.deleteRule = function() {
-            if (vm.deleteRuleId === undefined) {
+        vm.deleteCar = function() {
+            if (vm.confirmDeleteCar === undefined) {
                 return;
             }
 
-            Data.get('carros/delete/'+vm.deleteRuleId)
-                .then(function(data) {
-                    vm.deleteRuleId = undefined;
-                    vm.deleteRuleName = undefined;
-                    $('#modalDeleteRule').modal('hide');
-                    Data.toast(data, false);
-                    vm.search();
-            }, function(err){
-                $('#modalDeleteRule').modal('hide');
-                Data.toast(err, true);
+            $http.delete('/carros/' + vm.deleteCarId, null).then(function (response) {
+                console.log(response);
+                vm.buildTableRules();
+                $('#modalDeleteCar').modal('hide');
+            }, function (response) {
+                //
             });
 
         };
 
         vm.search = function() {
-            vm.tableParams.reload();
+            vm.filtrar();
         };
-
+        vm.filtrar = function() {
+            console.log(vm.filter);
+             Data.post('carros/lista/filtrar', vm.filter)
+                 .then(function(data) {
+                    vm.carros = data.carros;
+             }, function(err){
+                 //
+             });
+        };
         vm.buildTableRules = function() {
-            vm.tableParams = ngTableHelper.buildTable('carros/get-all', 'data', vm.filter);
+            console.log(vm.filter);
+             Data.get('carros/', vm.filter)
+                 .then(function(data) {
+                    vm.carros = data.carros;
+             }, function(err){
+                 //
+             });
         };
     }
 })();

@@ -19,7 +19,7 @@
         </div>
     </div>
 </div>
-<div ng-controller="SiteListCtrl" ng-init="vm.init()">
+<div ng-controller="CarListCtrl" ng-init="vm.init()">
 
     <div class="wrapper-md">
 
@@ -52,18 +52,20 @@
 
                         <div class="table-responsive">
                             <table
-                                class="table table-striped m-b-none"
-                                data-ng-table="vm.tableParams"
-                                template-pagination="app/shared/view/pagination/pager.html">
+                                class="table table-striped m-b-none">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Modelo</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
-                                    <tr ng-repeat="rule in $data">
-                                        <td>{{rule.Id}}</td>
-                                        <td>{{rule.Msg}}</td>
-                                        <td>{{rule.RuleGroup}}</td>
+                                    <tr ng-repeat="rule in vm.carros">
+                                        <td>{{rule.id}}</td>
+                                        <td>{{rule.modelo}}</td>
                                         <td width="15%">
                                             <button
-                                                ng-disabled="rule.Editable!='1'"
-                                                data-ui-sref="app.carEdit({id:rule.Id})"
+                                                data-ui-sref="app.carEdit({id:rule.id})"
                                                 class="btn btn-sm btn-icon btn-info"
                                                 uib-popover="Editar"
                                                 popover-trigger="'mouseenter'">
@@ -71,25 +73,16 @@
                                             </button>
 
                                             <button
-                                                ng-click="vm.confirmDeleteRule(rule.Id, rule.Msg)"
+                                                ng-click="vm.confirmDeleteCar(rule.id)"
                                                 class="btn btn-sm btn-icon btn-danger"
                                                 uib-popover="Excluir"
                                                 popover-trigger="'mouseenter'">
                                                 <i class="glyphicon glyphicon-remove"></i>
                                             </button>
 
-                                            <button
-                                                data-ui-sref="app.carDetail({id:rule.Id})"
-                                                data-toggle="modal"
-                                                data-target="rule-detail"
-                                                class="btn btn-sm btn-icon btn-warning"
-                                                uib-popover="Ver"
-                                                popover-trigger="'mouseenter'">
-                                                <i class="glyphicon glyphicon-open-file"></i>
-                                            </button>
                                         </td>
                                     </tr>
-                                    <tr data-ng-show="$data.length < 1">
+                                    <tr data-ng-show="vm.carros.length < 1">
                                         <td class="text-center" data-translate="VIEW.GENERAL.NO_REGISTERS_FOUND" colspan="4">
                                             Nenhum registro encontrado.
                                         </td>
@@ -104,21 +97,21 @@
     </div>
 </div>
 
-<div id="modalDeleteRule" class="modal fade" tabindex="-1" role="dialog">
+<div id="modalDeleteCar" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 data-translate=".QUESTION_DELETE">Deseja realmente excluir esta regra?</h4>
+                <h4>Atenção</h4>
             </div>
             <div class="modal-body">
-                <p>{{vm.deleteRuleName}}</p>
+                <p>Deseja mesmo excluir este registro?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" data-translate="VIEW.BUTTONS.CANCEL">Cancelar</button>
-                <button type="button" class="btn btn-primary" ng-click="vm.deleteRule()" data-translate="VIEW.BUTTONS.DELETE">Excluir</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.deleteCar()" data-translate="VIEW.BUTTONS.DELETE">Excluir</button>
             </div>
         </div>
     </div>
