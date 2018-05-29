@@ -67,7 +67,7 @@
         vm.init = init;
         vm.salvar = salvar;
         vm.salvarBasic = salvarBasic;
-        vm.loadRuleGroup = loadRuleGroup;
+        vm.loadMarks = loadMarks;
         vm.loadVariables = loadVariables;
         vm.getPhaseName = getPhaseName;
         vm.getOperator = getOperator;
@@ -76,7 +76,7 @@
 
         /*jshint camelcase: false */
         function init() {
-            vm.loadRuleGroup();
+            vm.loadMarks();
 
             if ($stateParams.id !== undefined) {
                 Data.get('carros/get/' + $stateParams.id)
@@ -160,11 +160,11 @@
                     });
         }
         /**
-         * [loadRuleGroup description]
+         * [loadMarks description]
          * @return {[type]} [description]
          */
-        function loadRuleGroup() {
-            Data.get('rule-group/get-all')
+        function loadMarks() {
+            Data.get('carros')
                     .then(function (data) {
                         vm.ruleGroups = data.ruleGroups;
                     }, function (err) {
