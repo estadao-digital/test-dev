@@ -1,0 +1,3 @@
+[DATABASE]
+DB_DRIVER=sqlite
+DB_FILE=waf_api.sqlite3

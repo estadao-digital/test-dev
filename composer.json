@@ -1,0 +1,26 @@
+{
+    "name": "mmfjunior1/fast-api-core",
+    "description": "Fast Api Core",
+    "repositories" : [
+        {
+            "type" : "vcs",
+            "url" : "https://github.com/mmfjunior1/fast-api-core.git"
+        }
+    ],
+    "authors": [
+        {
+            "name": "Mário Miranda",
+            "email": "mmfjunior1@gmail.com"
+        }
+    ],
+    "require" : {
+        "composer/composer": "^1.4",
+        "composer-plugin-api": "^1.1",
+	"fast-api-core" : "@dev"
+    },
+	"autoload": {
+        "psr-4": {
+            "App\\": "App/"
+	    }
+    }
+}
