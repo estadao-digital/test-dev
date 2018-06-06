@@ -1,0 +1,34 @@
+.main-banner {
+    text-align: center;
+    background: url('../images/banner.jpg') no-repeat;
+    height: 300px;
+}
+
+.main-banner h1 {
+  color: #fff;
+  font-size: 10vh;
+  width: 100%;
+  position: absolute;
+  top: 30%;
+}
+
+#adicionar-form {
+  text-align: center;
+}
+
+.btn-group a, .btn-group form{
+  float: left;
+  margin: 0px 5px;
+}
+
+.alert-info {
+  float: left;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.page-title {
+  text-align: center;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
