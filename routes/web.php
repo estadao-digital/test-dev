@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/', 'CarroController@view')->name('carros.index');
+Route::get('/', 'CarroController@view')->middleware('web')->name('carros.index');
