@@ -8,7 +8,7 @@ Realizei o teste sem utilizar o Laravel, por se tratar de um projeto pequeno, o 
 - A atualização da API esta seguindo o fluxo: Banco -> Json -> view
 
 
-
+ - Foi criado um teste unitario simples, apenas para titulo de demostração(Se encontra na pasta tests), podendo ser executado via pronpt usando composer.
 --------
 
 ###Back-End/PHP
