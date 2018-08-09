@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAQ;EACR,SAAS,EAAE,IAAI;EACf,cAAc,EAAE,qBAAoB;EACpC,MAAM,EAAE,aAAa;EACrB,WAAW,EAAE,IAAI",
+"sources": ["estilo.scss"],
+"names": [],
+"file": "estilo.css"
+}
