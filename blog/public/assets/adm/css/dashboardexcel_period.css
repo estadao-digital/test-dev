@@ -1,0 +1,7 @@
+.btn-status.btn-success:before {
+    content: "Aberto";
+}
+
+.btn-status.btn-success:hover:before {
+    content: "Fechar?";
+}

@@ -1,0 +1,42 @@
+.table.scales-table tr td .text {
+    height: 25px;
+    overflow: hidden;
+    position: relative;
+}
+
+.table.scales-table tr.open td .text {
+    height: auto;
+}
+
+.table.scales-table tr td .text a.plus {
+    font-size: 25px;
+    text-decoration: none;
+    color: #d77816;
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 0;
+    cursor: pointer;
+    height: 10px;
+}
+
+.table.scales-table tr td .text a.plus .fa {
+    line-height: 0;
+}
+
+.table.scales-table tr td .text a.plus .fa-sort-asc {
+    display: none;
+}
+
+.table.scales-table tr.open td .text a.plus .fa-sort-asc {
+    display: inline-block;
+    line-height: 25px;
+}
+
+.table.scales-table tr.open td .text a.plus .fa-sort-desc {
+    display: none;
+}
+
+.table.scales-table tr.active {
+    font-weight: bold;
+}

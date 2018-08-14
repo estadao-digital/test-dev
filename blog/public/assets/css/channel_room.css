@@ -1,0 +1,360 @@
+.partic-count > a.btn-danger {
+    padding: 2px 6px;
+    margin-top: 30px !important;
+    margin-left: 15px !important;
+}
+
+.conteudo {
+    background: #FFF;
+}
+
+
+#ui-layout-center {
+    background: #FFF !important;
+}
+
+.more-itens {
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 15px;
+    margin-top: 60px;
+}
+
+.more-itens .more-icon {
+    cursor: pointer;
+}
+
+.more-itens .fa {
+    color: #C1C1C1;
+    font-size: 30px;
+}
+
+.more-itens .fa:hover {
+    color: #e47820;
+}
+.more-itens .loading {
+    border: none;
+}
+
+
+.channel .group-itens {
+    padding-bottom: 85px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.channel .group-itens > div > h3 {
+    font-size: 14px;
+    background: #f3f3f3;
+    padding: 5px 0;
+    border: 1px solid #ececec;
+    color: #c1c1c1;
+    width: 160px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.channel .group-itens:after {
+    clear: both;
+    content: " ";
+    display: table;
+}
+
+#modal-file .comment-area {
+    padding-left: 19px;
+    padding-right: 50px;
+}
+
+#chat-info {
+    font-size: 20px;
+    color: #d8d8d8;
+    margin: 28px 0 0 10px;
+    transition: all ease .2s;
+}
+/*
+#chat-info:hover {
+    transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+}*/
+
+.button-delete:hover{
+    color:#d8d8d8;
+
+}
+.button-delete{
+    margin-left: 10px;
+    margin-top: 32px;
+    color:#d8d8d8;
+    cursor:pointer;
+}
+
+.textarea-emoji .emojitextarea {
+    right: 30px;
+}
+
+.emoji {
+    padding-right: 10px;
+}
+
+.emoji a {
+    background: #EBF1F9;
+    border: 1px solid #D7E4EC;
+    border-radius: 2px;
+    display: inline-block;
+    margin: 1px;
+    padding: 1px 2px;
+    line-height: 15px;
+}
+
+.emoji a.template {
+    width: 0;
+    overflow: hidden;
+    height: 0;
+}
+
+.emoji a img {
+    height: 15px;
+    float: left;
+}
+
+.emoji a .badge {
+    background: none;
+    color: #60b4f9;
+    margin-left: 4px;
+    font-size: 9px;
+    min-width: 0;
+    padding: 0;
+}
+
+.emojiPostLi {
+    float: right;
+    margin-left: 5px;
+}
+
+.pin_target {
+    background-image: url('../img/thumbtack.png');
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    float: none;
+}
+
+.pin .pin_target {
+    color: #0D3349;
+    background-image: url('../img/thumbtackactive.png');
+}
+
+.focus_trans {
+    transition: all ease-out 1s !important;
+}
+
+.focus {
+    transition: all ease-out 8s !important;
+}
+
+.focus_trans .nick,
+.focus_trans .date,
+.focus_trans .hour,
+.focus_trans .reference,
+.focus_trans .comment-chanel,
+.focus_trans .menu-item > a {
+    color: #FFF !important;
+}
+
+.new-channel {
+    position: absolute;
+    bottom: 120px;
+    left: 0;
+    width: 100%;
+    display: none;
+}
+
+.new-channel *:not(i) {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.new-channel h2 {
+    font-size: 26px;
+    color: #e47820;
+}
+
+.new-channel h4 {
+    font-size: 16px;
+    color: #b4b4b4;
+    font-weight: 400;
+}
+
+.new-channel h4 span {
+    color: #e47820;
+    font-weight: bold;
+    font-weight: 500;
+}
+
+.new-channel a {
+    color: #d65a00;
+    font-size: 14px;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.channel .participants-count,
+#channel-info-button {
+    cursor: pointer;
+}
+
+#channel-info {
+    position: absolute;
+    right: -100%;
+    top: 90px;
+    background: #f3f3f3;
+    box-shadow: -3px 3px 25px #D3D3D3;
+    transition: all ease .3s;
+    z-index: 9;
+    padding: 30px 15px 15px 0;
+    overflow: auto;
+}
+
+#channel-info.open {
+    right: 0;
+    width: 400px;
+}
+
+#channel-info .close {
+    float: none;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+#channel-info h2 {
+    font-family: 'Ubuntu', sans-serif;
+    color: #b2b2b2;
+    text-align: center;
+    font-size: 16px;
+
+}
+
+#channel-info .box {
+    border-radius: 10px;
+    background-color: rgb(253, 253, 253);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.05);
+    margin: 30px auto 0;
+    width: calc(100% - 100px);
+    padding: 15px 20px;
+}
+
+#channel-info .box h4 a,
+#channel-info .box h4 {
+    font-size: 15px;
+    font-family: "Verdana";
+    color: rgb(35, 35, 35);
+    text-shadow: 0 0 0 rgb(35, 35, 35);
+}
+
+#channel-info .box h4 a {
+    font-size: 17px;
+}
+
+#channel-info .box p {
+    color: rgb(205, 205, 205);
+}
+
+#channel-info .box.members h4 {
+    background: url("../img/avatar.png") no-repeat center left;
+    padding: 5px 0 5px 30px;
+}
+
+#channel-info .box.members h4 a img {
+    float: right;
+}
+
+.channel .group-itens .item .text-item .list-inline > li {
+    position: relative;
+}
+
+.channel-header {
+    position: absolute;
+    top: 0.4px;
+    background: #fff;
+    z-index: 1;
+    height: 60px;
+    width: 98%;
+}
+
+@-moz-document url-prefix() {
+
+    .channel-header {
+        width: 96%;
+    }
+}
+
+.channel {
+    background: #fff;
+}
+
+.main.hg100.ui-layout-container {
+    overflow: inherit !important;
+}
+
+#ui-layout-center {
+    left: -15px !important;
+    height: 100%;
+}
+
+.comment-box {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0 15px 20px 0;
+}
+
+.box-1 .user-count, .box-1 .participants-count {
+    display: inline-block;
+    font-size: 13px;
+    opacity: 0.5;
+    margin: 0px 3px;
+}
+
+.partic-count {
+    position: relative;
+    top: -14px;
+}
+
+.partic-count1 {
+    position: relative;
+    top: -28px;
+}
+
+.partic-count > h1.norap {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 104%;
+}
+
+.border-channel {
+    height: 100%;
+    border-right: 1px solid #ececec;
+    margin-right: 16px;
+}
+
+.ui-layout-pane .ui-layout-pane-center {
+    width: auto;
+}
+
+.particip-color {
+    color: #a7a6a6;
+    opacity: 9 !important;
+}
+
+.input-group.super-filter .chosen-container-multi .chosen-choices{
+    max-height: 67px;
+    overflow-y: auto;
+}
+

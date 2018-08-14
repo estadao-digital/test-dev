@@ -1,0 +1,173 @@
+.channel-form .box-send {
+    margin-top: 30px;
+}
+
+.channel-form .item {
+    margin: 20px 0;
+}
+
+.channel-form {
+    background: #fff;
+    padding: 20px 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: 6px -5px 31px -13px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 6px -5px 31px -13px rgba(0, 0, 0, 0.75);
+    box-shadow: 6px 3px 31px -13px rgba(0, 0, 0, 0.75);
+    width: 100%;
+    margin: 0 auto 35px;
+    height: auto;
+}
+
+.channel-form .btn-send {
+    background-image: none;
+    border: none;
+    background-color: #e67d25 !important;
+    /* font-size: 18px; */
+    /* font-weight: bold; */
+    /* padding: 10px 20px !important; */
+    /* border-radius: 10px; */
+    margin: 0 auto;
+    display: table;
+    color: #fff;
+    margin-right: 0px;
+}
+
+.select2-container {
+    display: block;
+    width: 100% !important;
+}
+
+.custom-select {
+    width: 100%;
+}
+
+span.select2-selection.select2-selection--multiple {
+    padding: 4px 12px;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: 1px solid #aaa;
+}
+
+.icon-search .image {
+    width: 60px;
+    float: left;
+    margin: 0 15px;
+    height: 60px;
+}
+
+.chosen-container {
+    width: 100% !important;
+}
+
+.chosen-container-multi .chosen-choices {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+/*Modal Channel*/
+
+.channel-type {
+
+}
+
+.channel-type label {
+    width: 130px;
+    cursor: pointer;
+    height: 27px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    border-radius: 15px;
+}
+
+.channel-type label span {
+    width: 130px;
+    padding: 0 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    height: 27px;
+    transition: all ease .4s;
+    -moz-transition: all ease .4s;
+    -o-transition: all ease .4s;
+    -webkit-transition: all ease .4s;
+    line-height: 27px;
+    font-weight: normal;
+    background-color: #E39229;
+    color: #FFF !important;
+    border-radius: 15px;
+}
+
+.channel-type label span.channel-private {
+    left: 130px;
+    background-color: #eec315;
+    text-align: right;
+    padding-left: 5px;
+}
+
+.channel-type label span.channel-public {
+    text-align: left;
+    padding-right: 5px;
+}
+
+.channel-type label span.channel-public:after,
+.channel-type label span.channel-private:before {
+    content: '\25CF';
+    font-size: 25px;
+    margin: -2px 0 0 0;
+}
+
+.channel-type label span.channel-public:after {
+    float: right;
+}
+
+.channel-type label span.channel-private:before {
+    float: left;
+}
+
+.channel-type .public-message,
+.channel-type .private-message {
+    display: inline-block;
+    font-weight: normal;
+}
+
+.channel-type .h4 {
+    margin: 0;
+    padding: 4px 15px;
+}
+
+.channel-type .private-message {
+    display: none;
+}
+
+.channel-type.checked-input label span.channel-private {
+    left: 0px;
+}
+
+.channel-type.checked-input label span.channel-public {
+    left: -130px;
+}
+
+.channel-type.checked-input .public-message {
+    display: none;
+}
+
+.channel-type.checked-input .private-message {
+    display: block;
+}

@@ -1,0 +1,64 @@
+
+.h3-color {
+    color: #929292;
+    margin-top: 50px;
+}
+
+.content-public {
+    margin-top: 50px;
+}
+
+.info-public, .status-changes {
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    margin-top: 38px;
+    box-shadow: 1px 3px 7px #000;
+    cursor: pointer;
+    height: 332px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.info-public p {
+    color: #93d241;
+    font-size: 26px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.color-btn {
+    background: #93d241;
+    padding: 5px 42px;
+    font-size: 17px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.btn-adjust {
+    margin-top: 46px;
+}
+
+.color-btn:hover {
+    color: #fff;
+}
+
+.date-scale {
+    padding: 12px 12px;
+}
+
+.date-scale h5 {
+    padding: 6px 0;
+    margin: 0;
+    font-weight: 700;
+    color: #929292;
+    font-size: 16px;
+}
+
+.date-number {
+    color: #929292;
+}
+
+.send-offer {
+    display: table;
+    margin: 130px auto 0 auto;
+}

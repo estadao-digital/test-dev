@@ -1,0 +1,18 @@
+table .check,
+table .inverse{
+    vertical-align: middle !important;
+}
+
+table .check input {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    position: absolute;
+}
+
+table .inverse input {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    position: absolute;
+}

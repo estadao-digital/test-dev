@@ -1,0 +1,111 @@
+.atwho-view {
+    position:absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    margin-top: 18px;
+    background: white;
+    color: black;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    min-width: 120px;
+    z-index: 11110 !important;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.atwho-view .atwho-header {
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    border-bottom: solid 1px #eaeff1;
+    color: #6f8092;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.atwho-view .atwho-header .small {
+    color: #6f8092;
+    float: right;
+    padding-top: 2px;
+    margin-right: -5px;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.atwho-view .atwho-header:hover {
+    cursor: default;
+}
+
+.atwho-view .cur {
+    background: #3366FF;
+    color: white;
+}
+.atwho-view .cur small {
+    color: white;
+}
+.atwho-view strong {
+    color: #3366FF;
+}
+.atwho-view .cur strong {
+    color: white;
+    font:bold;
+}
+.atwho-view ul {
+    /* width: 100px; */
+    list-style:none;
+    padding:0;
+    margin:auto;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.atwho-view ul li {
+    display: block;
+    padding: 5px 10px;
+    border-bottom: 1px solid #DDD;
+    cursor: pointer;
+    width: 320px;
+    /* border-top: 1px solid #C8C8C8; */
+}
+
+.atwho-view ul li img{
+    height: 50px;
+    margin: -5px 5px -5px -10px;
+    float: left;
+}
+
+.atwho-view ul li p{
+    padding:0;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.atwho-view ul li small{
+    font-style: italic;
+}
+
+.atwho-view small {
+    font-size: smaller;
+    color: #777;
+    font-weight: normal;
+}
+
+.atwho-view ul li.emojis{
+    padding:0;
+    margin:0;
+}
+.atwho-view ul li.emojis p{
+    width: 230px;
+    height:34px;
+    padding:2px 0;
+    line-height: 45px;
+
+}
+
+.atwho-view ul li.emojis p img{
+    height:28px;
+    width:28px;
+    margin:2px 5px 2px 2px;
+}

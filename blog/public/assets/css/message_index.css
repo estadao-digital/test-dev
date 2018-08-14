@@ -1,0 +1,53 @@
+#ui-layout-east{
+    background: #f3f3f3 !important;
+}
+.message .item{
+    background: none;
+    padding-top:10px;
+    padding-left: 0;
+}
+.message .item .comment{
+    font-size: 12px;
+    padding: 5px 0 0 0;
+}
+.message .time, .message .nick {
+    color: #cdcdcd;
+    font-weight: 400;
+    margin: 0;
+}
+.message .like-comment li {
+    padding: 0;
+}
+.message .item .img-user {
+    border-radius: 50px;
+    display:block;
+    margin: 0 auto;
+    width: 70px;
+}
+.message .thumbtack{
+    padding-top: 20px;
+    opacity:0 ;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+.message .item:hover .thumbtack{
+    zoom: 1;
+    filter: alpha(opacity=50);
+    opacity: 1.5;
+    -webkit-transition: opacity .40s ease-in-out;
+    -moz-transition: opacity .40s ease-in-out;
+    -ms-transition: opacity .40s ease-in-out;
+    -o-transition: opacity .40s ease-in-out;
+    transition: opacity .40s ease-in-out;
+}
+.message .nick{
+    padding-right: 5px;
+}
+.message .time{
+    font-size: 11px;
+}
+.message .comment-box .comment-area{
+    width: 95%;
+}
+

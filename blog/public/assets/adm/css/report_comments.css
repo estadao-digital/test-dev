@@ -1,0 +1,136 @@
+
+table#table-aux > thead > tr > th, table#table-aux > tbody > tr > td {
+    color: #9b9b9b;
+}
+
+.more {
+    color: #cdcdcd;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+}
+
+#result {
+    text-align: right;
+    color: gray;
+    min-height: 2em;
+}
+
+.dontboom {
+    margin: auto 0;
+}
+
+.table-sparkline {
+    border-collapse: collapse;
+    width: 45%;
+    margin-right: 5%;
+}
+
+.table-sparkline > th {
+    font-weight: bold;
+    text-align: left;
+}
+
+.table-sparkline td, .table-sparkline th {
+    border: solid 1px silver;
+    text-align: center;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.scrolling {
+    height: 300px;
+    overflow: auto;
+}
+
+.fix-filter {
+    margin-right: 0;
+!important;
+    float: right;
+}
+
+.table-sparkline > td, .table-sparkline > th {
+    padding: 5px;
+    border-bottom: 1px solid silver;
+    height: 20px;
+}
+
+.table-sparkline > thead .table-sparkline > th {
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+}
+
+.highcharts-tooltip > span {
+    background: white;
+    border: 1px solid silver;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px #888;
+    padding: 8px;
+}
+
+.table-width {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.table-user {
+    cursor: pointer;
+    color: rgb(48, 43, 155) !important;
+}
+
+.union1 {
+    border-right: 0 none !important;
+}
+
+.union2 {
+    border-left: 0 none !important;
+    width: 40px;
+}
+
+.modal-dialog {
+    width: 80%;
+}
+
+.fix-chart-button {
+    margin: -55px 0 0;
+    float: left;
+    width: 100%;
+}
+
+.order {
+    float: right;
+    cursor: pointer;
+}
+
+.spin {
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.glyphicon-spin {
+    -webkit-animation: spin 1000ms infinite linear;
+    animation: spin 1000ms infinite linear;
+}
+
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}

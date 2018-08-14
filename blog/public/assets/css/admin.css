@@ -1,0 +1,170 @@
+body {
+    background: #f3f3f3;
+}
+
+.adm-box h2 {
+    font-size: 30px;
+    font-family: "Ubuntu";
+    color: rgb(121,121,121);
+    font-weight: 100;
+    line-height: 1.2;
+    margin-top: -8px;
+}
+
+.adm-box p, .adm-box div:not(.jwplayer *), .adm-box span, .dataTables_info {
+    font-size: 15px;
+    font-family: "Ubuntu";
+    color: rgb(155, 155, 155) !important;
+    line-height: 1.2;
+}
+
+.navbar-nav > li > a {
+    font-size: 14px;
+    font-family: "Ubuntu";
+    color: rgb(121,121,121) !important;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.navbar-nav li.dropdown-header {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 3px 10px;
+    background: #eaeaea;
+    margin: 12px 0 3px;
+    text-transform: uppercase;
+}
+
+.navbar-nav li.dropdown-header:first-child {
+    margin-top: 0;
+}
+
+.adm-box input, .adm-box .chosen-choices, .adm-box textarea {
+    background-color: #fff !important;
+    /* padding: 14px 10px !important; */
+    font-size: 100%;
+}
+
+input.style-content {
+    background-color: #fff !important;
+    padding: 4px 8px !important;
+    font-size: 100%;
+    height: auto;
+}
+
+.adm-box .color {
+    width:130px;
+}
+
+.colorsp {
+    width: 30%;
+}
+
+.adm-box select {
+    background-color: #f3f3f3;
+}
+
+.adm-box > input {
+    height: 46px;
+}
+
+.adm-box input[type=color] {
+    padding: 6px 12px !important;
+}
+
+.adm-box textarea {
+    height: 100px
+}
+
+.chosen-container-multi .chosen-choices li.search-choice span {
+    color: #FFFFFF !important;
+    font-size: 13px;
+}
+
+.adm-box label:not(.btn) {
+    font-size: 14px;
+    font-family: "Ubuntu";
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.adm-box label:not(.btn) {
+    color: rgb(155, 155, 155);
+}
+
+
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings' !important;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+.content-box .box-send {
+    margin-top: 30px;
+}
+
+.content-box .item {
+    margin: 8px 0;
+}
+
+.content-box {
+    background: #fff;
+    padding: 20px 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: 6px -5px 31px -13px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 6px -5px 31px -13px rgba(0, 0, 0, 0.75);
+    box-shadow: 6px 3px 31px -13px rgba(0, 0, 0, 0.75);
+    width: 100%;
+    margin: 0 auto 35px;
+    height: auto;
+}
+
+.content-box .btn-send, .btn-send-logo {
+    background-image: none;
+    border: none;
+    background-color: #e67d25 !important;
+    /* font-size: 18px; */
+    /* font-weight: bold; */
+    /* padding: 10px 20px !important; */
+    /* border-radius: 10px; */
+    margin: 0 auto;
+    display: table;
+    color: #fff;
+    margin-right: 0px;
+}
+
+.btn-send-logo {
+    margin-right: 20px;
+}
+.btn-send-logo:hover {
+    color:#fff;
+}
+
+table .btn-status span {
+    color: #FFF !important;
+}
+
+table .btn-status .msg-status-hover {
+    display: none;
+}
+
+table .btn-status:hover .msg-status {
+    display: none;
+}
+
+table .btn-status:hover .msg-status-hover {
+    display: inline-block;
+}
+
+.marg-style {
+    margin: 10px 4px 0px 0px;
+}

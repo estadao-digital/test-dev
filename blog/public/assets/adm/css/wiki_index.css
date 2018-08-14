@@ -1,0 +1,121 @@
+.main.hg100 {
+    overflow: auto;
+}
+.box {
+    margin: 20px 0;
+    vertical-align: top;
+    background: #FFF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    min-height: 300px;
+    padding: 20px 25px;
+}
+.glyphicon {
+    font-family: 'Glyphicons Halflings' !important;
+}
+
+input.default {
+    width: 100% !important;
+}
+
+/* tbody > tr > td:hover > div:not(.btn-group) {
+    overflow: visible;
+    background: #e8e8e8;
+    white-space: nowrap;
+    width: auto;
+    position: absolute;
+    padding: 0 12px;
+    zoom: 100%;
+    z-index: 999;
+}
+
+tbody > tr > td > div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: -7px 0;
+    line-height: 35px;
+} */
+
+/* table.dataTable tbody th, table.dataTable tbody td {
+    padding: 10px 6px;
+} */
+
+.col-order {
+    padding: 18px 6px 0px;
+}
+
+.col-order a:active {
+    text-decoration: none;
+
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child {
+    position: relative;
+    padding-left: 30px !important;
+    cursor: pointer;
+}
+
+.list-colunm .icon-list {
+    padding: 7px 9px 5px;
+    background: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 14px;
+}
+
+.list-colunm .icon-list a {
+    color: #9b9b9b;
+}
+
+.icon-list ul li a i {
+    color: #439943;
+    margin-right: 6px;
+}
+
+.list-colunm {
+    position: relative;
+}
+
+.list-colunm .icon-list ul {
+    position: absolute;
+    top: 30px;
+}
+
+.list-colunm .icon-list ul li a {
+    color: #9b9b9b;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.check-none {
+    color: #ccc !important;
+}
+
+
+.marg-pater {
+    margin-left: 0px !important;
+}
+
+.wiki-bt > a:first-child {
+    margin: 0 -3px;
+    border-radius: 3px 0px 0px 3px;
+}
+
+.wiki-bt > a:nth-child(2),
+.wiki-bt > a:nth-child(3) {
+    border-radius: 0;
+    margin-right: -4px;
+
+}
+
+.wiki-bt > a:nth-child(4) {
+    margin: 0 -3px;
+    border-radius: 0px 4px 4px 0px;
+}
+
+table.table thead tr th {
+    border-right: 1px solid rgba(204, 204, 204, 0.31);
+}

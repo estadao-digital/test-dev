@@ -1,0 +1,538 @@
+.quiz-plus .general {
+    position: relative;
+}
+
+#statistic-header {
+    position: relative;
+}
+
+.quiz-plus .general .statistic-quiz-load,
+#statistic-header .statistic-header-load {
+    width: 100%;
+    min-height: 140px;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    color: #9c9c9c;
+    text-shadow: 0 0 35px #fff;
+}
+
+.quiz-plus .general .statistic-quiz-load,
+#statistic-header .statistic-header-load i.fa {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 42px;
+    width: 42px;
+    margin: -36px 0 0 -42px;
+}
+
+#statistic-header .statistic-header-inter {
+    display: none;
+    opacity: 0;
+}
+
+.head {
+    display: block;
+    width: 100%;
+    height: 140px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.head .main, .head .percent, .head .numbers, .head .search {
+    border: 1px solid #eee;
+    background: #fff;
+    border-radius: .2em;
+    float: left;
+    height: 140px;
+    width: 100%
+}
+
+.head .main {
+    position: relative;
+}
+
+.head .main ul {
+    width: 78%;
+    float: right;
+    height: 140px;
+    padding: 0;
+    position: relative;
+    left: 4px;
+}
+
+.head .main ul li {
+    display: inline-block;
+    width: 33%;
+    float: left;
+    position: relative;
+}
+
+.head .main ul li input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.head .main ul li label {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 140px;
+    background: #777;
+    color: #fff;
+    cursor: pointer;
+    opacity: .8;
+    position: relative;
+    transition: all ease .3s;
+}
+
+.head .main ul li label .fa-check {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    opacity: .05;
+    transition: all ease .3s;
+}
+
+.head .main ul li:first-child label {
+    background: #999;
+}
+
+.head .main ul li:last-child label {
+    background: #555;
+}
+
+.head .main ul li label:hover {
+    opacity: .9;
+}
+
+.head .main ul li label:hover .fa-check {
+    opacity: .2;
+}
+
+.head .main ul li input:checked + label {
+    opacity: 1;
+}
+
+.head .main ul li input:checked + label .fa-check {
+    opacity: 1;
+}
+
+.head .main ul li h4 {
+    margin-top: 21px;
+    text-align: center;
+    font-size: 12px;
+    width: 100%;
+}
+
+.head .main ul li span {
+    font-size: 57px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/*.head .percent { width:19%; }*/
+.head .percent h4 {
+    margin-left: 8px;
+    margin-top: 21px;
+    text-align: left;
+    font-size: 10px;
+    width: 100%;
+    color: rgb(145, 145, 145);
+    margin-bottom: 5px;
+}
+
+.head .percent h4:last-child {
+    margin-top: 7px;
+}
+
+.head .percent div {
+    width: calc(100% - 10px);
+    height: 20px;
+    background: #cccccc;
+    margin-left: 5px;
+}
+
+.head .percent div .bar {
+    width: 0;
+    height: 100%;
+    display: block;
+    background: rgb(171, 212, 99);
+    transition: all ease 1s;
+    color: #FFF;
+    font-size: 11px;
+    text-indent: 2px;
+    text-align: center;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.head .percent div .bar.mine {
+    background: rgb(236, 70, 48);
+}
+
+/*.head .numbers { width: 18%; }*/
+.head .numbers ul {
+    width: 100%;
+    float: left;
+    padding: 0;
+}
+
+.head .numbers ul li {
+    display: inline-block;
+    width: 50%;
+    float: left;
+}
+
+.head .numbers ul li h4 {
+    margin-top: 17px;
+    text-align: center;
+    font-size: 13px;
+    width: 100%;
+    color: rgb(145, 145, 145);
+}
+
+.head .numbers ul li span {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 34px;
+    color: rgb(165, 165, 165);
+}
+
+.head .numbers ul li span:first-child {
+}
+
+.head .numbers > div {
+    display: block;
+    width: 90%;
+    float: left;
+    margin-left: 5%;
+}
+
+.head .numbers > div p {
+    float: right;
+    color: #666;
+    font-size: 11px;
+}
+
+.head .numbers > div div {
+    width: 100%;
+    height: 7px;
+    position: relative;
+    top: 17px;
+    background: #cccccc
+}
+
+.head .numbers > div div span {
+    height: 7px;
+    background: #3377aa;
+    display: block;
+}
+
+/*.head .search { width: 18%; }*/
+.head .search input {
+    border: 1px solid #cccccc;
+    border-radius: 7px;
+    color: #aaa;
+    width: 90%;
+    margin: 5%;
+    padding: 8px;
+    padding-left: 8px;
+    font-size: 12px;
+
+}
+
+.head .search a {
+    position: relative;
+    float: right;
+    right: 13px;
+    top: -35px;
+    color: #ccc;
+}
+
+.head .search i {
+    font-size: 1.5em;
+}
+
+#list-quiz-all.mylist {
+    display: block;
+    width: 100%;
+    min-width: 992px;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#list-quiz-all {
+    display: none;
+    opacity: 0;
+}
+
+.mylist > ul {
+    width: 100%;
+    display: block;
+    padding: 0;
+}
+
+.mylist > .plus-item {
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #eee;
+    background: #fff;
+    border-radius: .2em;
+    float: left;
+    margin: 1%;
+    width: 48%;
+    min-width: 475px;
+    height: 218px;
+    display: inline-block;
+}
+
+.mylist .plus-item .instructor {
+    padding: 7px 13px;
+    position: absolute;
+    right: 7px;
+    top: 3px;
+}
+
+.mylist .plus-item .instructor a {
+    text-decoration: none;
+    color: #aaa;
+}
+
+.mylist .plus-item .instructor .avatar {
+    width: 31px;
+    display: inline-block;
+    border-radius: 50px;
+    margin-right: 3px;
+}
+
+.mylist .plus-item .title {
+    font-size: 15px;
+    margin: 13px 0 7px 9px;
+}
+
+.mylist .plus-item .related {
+    font-size: 14px;
+    margin: 0 0 7px 9px;
+    color: #aaa;
+    display: block
+}
+
+.mylist .plus-item .related p {
+    display: inline-block;
+    margin: 0;
+    margin-right: 9px;
+}
+
+.mylist .plus-item .info {
+    margin: 0 0 7px 4px;
+    display: block;
+    width: 98%;
+    padding: 0;
+    height: 30px;
+    margin-bottom: 0;
+}
+
+.mylist .plus-item .info li {
+    display: inline-block;
+    width: 30%;
+    float: left;
+    height: 21px;
+}
+
+.mylist .plus-item .info li:last-child {
+    width: 40%;
+}
+
+.mylist .plus-item .info li span {
+    font-size: 12px;
+    color: #aaa;
+    width: 100%;
+    display: block;
+    text-align: left;
+    transition: all ease .5s;
+}
+
+.mylist .plus-item .info li span.timer-danger,
+.mylist .plus-item .info li span.timer-danger * {
+    color: rgb(236, 70, 48);
+}
+
+.mylist .plus-item .info li span.timer-atention {
+    transform: scale(1.3, 1.3);
+}
+
+.mylist .plus-item .info li span.timer-warning,
+.mylist .plus-item .info li span.timer-warning * {
+    color: #f7a600;
+}
+
+.mylist .plus-item .info li > span:last-child {
+    text-align: center;
+}
+
+.mylist .plus-item .info li > span i {
+    margin-right: 7px;
+}
+
+.mylist .plus-item .numbers {
+    width: 100%;
+    height: 92px;
+    display: block;
+    float: left;
+}
+
+.mylist .plus-item .numbers ul {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0px;
+    padding-right: 90px;
+    overflow: hidden;
+}
+
+.mylist .plus-item .numbers ul li {
+    width: 122px;
+    display: inline-block;
+    text-align: center;
+    list-style: none;
+    height: 100%;
+    float: left;
+    margin-left: 7px;
+}
+
+.mylist .plus-item .numbers ul li .tag {
+    display: block;
+    color: rgb(146, 148, 147);
+    text-align: center;
+    margin-bottom: 10px;
+    padding-left: 7px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.mylist .plus-item .numbers ul li .number {
+    display: block;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 16px;
+}
+
+.mylist .plus-item .numbers ul li .leg {
+    display: block;
+    font-size: 9px;
+    margin-bottom: 1px;
+}
+
+.mylist .plus-item .numbers ul li .pcircle {
+    float: left;
+}
+
+.mylist .plus-item .numbers ul li .percircle.small {
+    font-size: 50px;
+}
+
+.mylist .plus-item .numbers ul li .top {
+    display: inline-block;
+    float: right;
+    width: 54px;
+    border-bottom: 2px solid #aaa;
+    margin-right: 9px;
+    position: relative;
+    top: -10px;
+}
+
+.mylist .plus-item .numbers ul li .bottom {
+    display: inline-block;
+    float: right;
+    width: 54px;
+    margin-right: 9px;
+    position: relative;
+    top: -8px;
+}
+
+.mylist .plus-item .numbers ul li.pontos .number {
+    color: rgb(102, 104, 179);
+}
+
+.mylist .plus-item .numbers ul li.questoes .number {
+    color: #f7a600;
+}
+
+.mylist .plus-item .numbers .pesquisar {
+    width: 85px;
+    margin: 0;
+    right: 0;
+    background: rgb(222, 222, 222);
+    bottom: 31px;
+    height: 96px;
+    position: absolute;
+}
+
+.mylist .plus-item .numbers .pesquisar i {
+    float: left;
+    padding: 23px 30px 17px;
+    color: rgb(111, 111, 111);
+}
+
+.mylist .plus-item .numbers .pesquisar a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgb(222, 222, 222);
+}
+
+.mylist .plus-item .numbers .pesquisar a h4 {
+    color: #555;
+    text-align: center;
+    font-size: 12px;
+    margin: 0;
+}
+
+.mylist .plus-item .status {
+    margin: 0;
+    padding: 8px 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background: #c9c9c9;
+    float: left;
+    font-size: 13px;
+}
+
+.aprovado {
+    background: rgb(77, 169, 131) !important;
+}
+
+.entregue{
+    background: rgb(110, 165, 61) !important;
+}
+
+.nao_respondido{
+    background: #f7a600 !important;
+}
+
+.nao_entregue{
+    background: #f76b00 !important;
+}
+
+.reprovado {
+    background: rgb(236, 70, 48) !important;
+}
+
+#navigation-pag {
+    padding: 0 10px 5px;
+}
+
+#navigation-pag .pagination {
+    float: right;
+    margin: 0;
+}

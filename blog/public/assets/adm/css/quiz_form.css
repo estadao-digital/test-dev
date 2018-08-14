@@ -1,0 +1,63 @@
+.alt-color > h3 {
+    color: #797979;
+
+}
+
+.style-cor > h3 {
+    color: #9b9b9e;
+}
+
+.btn_plus_Question, .btn_plus {
+    display: inline-block;
+    width: auto;
+}
+
+.item.box-weight{
+}
+
+.item.box-weight .btn-group label {
+    color: #FFF;
+    padding: 6px 4px 6px 0px;
+}
+
+.item.box-weight .btn-group label span{
+    font-family: "Glyphicons Halflings";
+    color: #FFF !important;
+    float: left;
+    position: relative;
+    left: 16px;
+    opacity: 0;
+}
+
+.item.box-weight .btn-group label:hover span{
+    display: block;
+    opacity: .3;
+}
+
+.item.box-weight .btn-group label.active span{
+    display: block;
+    opacity: 1;
+}
+
+.item .question-delete,
+.item .answer-delete{
+    position: absolute;
+    right: 6px;
+    top: 12px;
+    z-index: 2;
+    padding: 3px 7px;
+    border-radius: 50%;
+}
+
+.template-content,
+.template-post{
+    opacity: 0;
+}
+
+.d-block {
+    display: block;
+}
+
+.pattern-btn > button {
+    padding: 6px 26.1px;
+}

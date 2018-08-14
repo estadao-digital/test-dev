@@ -1,0 +1,1 @@
+Shadowbox.init();

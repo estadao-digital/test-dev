@@ -1,0 +1,520 @@
+body{
+    background-color: #fff;
+    overflow: hidden;
+}
+.register .carousel .navbar-brand, .invite .navbar-brand{
+    margin-top: 25px;
+    margin-left: 18px;
+    height: 59px;
+    display: block;
+}
+.register .header, .invite .header {
+    height: 20%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.register .inner , .invite .inner{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    float: left;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+}
+.register .nav-slider , .invite .nav-slider{
+    height: 20%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    -webkit-align-content: flex-end;
+    align-content: flex-end;
+    flex-direction: column;
+}
+.register .content, .invite .content {
+    height: 60%;
+    width: 85%;
+    margin: 0 auto;
+    flex-direction: column;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    text-align: left;
+    display: flex;
+    -webkit-align-content: flex-end;
+    align-content: flex-end;
+}
+.register .carousel .item .carousel-caption {
+    left: 0;
+    right: 0;
+    padding: 0;
+    bottom:0;
+}
+.register .carousel .btn-send {
+    background-image: none;
+    border: none;
+    background-color: #e67d25;
+    font-size: 22px;
+    font-weight: bold;
+    position: relative;
+    padding: 10px 25px;
+    border-radius: 10px;
+    margin: 0 auto;
+    height: 45px;
+    width: 139px;
+    z-index: 100;
+    line-height: 1;
+    text-align: center;
+}
+.register .carousel .carousel-indicators{
+    left: 0;
+    bottom: 0;
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+.register .carousel .carousel-control {
+    position: absolute;
+    width: 13%;
+    height: 27px;
+    top:inherit;
+    bottom: 0px;
+}
+.register .carousel .carousel-control.right {
+    background: none;
+    box-shadow: none;
+    left:0;
+
+    background: gray;
+}
+.register .carousel .carousel-indicators li{
+    background: #d9d9d9;
+    border: #d9d9d9;
+    margin-left: 10px;
+    height: 7px;
+    width: 7px;
+}
+.register .carousel .carousel-indicators li.active{
+    background: #565656;
+    border: #565656;
+}
+
+.register .carousel .item .col-left .content .title,
+.confirmation .col-left .content .title,
+.invite .col-left .title{
+    color: #d65a00;
+    /* margin-top: 200px; */
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-weight: 300;
+    text-align: left;
+    text-shadow: none!important;
+}
+.register .carousel .item p{
+    color:#9b9b9b;
+}
+.register .carousel .item .col-left .content .label-email,
+.register .carousel .item .col-left .content .label-team{
+    color:#9b9b9b;
+    font-weight: 400;
+    text-shadow: none!important;
+}
+.register .carousel .item .col-left .content .label-name,
+.register .carousel .item .col-left .content .label-user{
+    color:#9b9b9b;
+}
+.register .form-control input{
+    font-style: italic;
+    font-size: 16px;
+    color:#cdcdcd;
+    font-weight: 400;
+    background-color:#f3f3f3 ;
+}
+
+
+.register .carousel .item .col-left .content .input-email,
+.register .carousel .item .col-left .content .input-password,
+.register .carousel .item .col-left .content .input-team,
+.register .carousel .item .col-left .content .input-url {
+    font-style: italic;
+    font-size: 16px;
+    color:#9E9E9E;
+    font-weight: 400;
+    background-color:#f3f3f3 ;
+    width: 90%;
+    height: 45px;
+}
+.register .carousel .step1 .col-left .content>p{
+    font-size: 14px;
+    color:#9b9b9b;
+}
+.register .carousel .item .col-right img{
+    margin: 0 auto;
+    display: inline;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.register .carousel .step1 .col-right img {
+    margin-left: -202px;
+    margin-top: -201px;
+    /* max-width: 404px; */
+    width: auto;
+}
+.register .carousel .step2 .col-right img {
+    margin-left: -162.5px;
+    margin-top: -223.5px;
+    max-width: 325px;
+    width: auto;
+}
+.register .carousel .step3 .col-right img {
+    margin-left: -291px;
+    margin-top: -121.5px;
+    width: auto;
+    max-width: 582px;
+}
+.register .carousel .step4 .col-right img {
+    margin-left: -238.5px;
+    margin-top: -234px;
+    max-width: 477px;
+    width: auto;
+}
+
+
+.register .carousel .step1 .col-right,
+.register .carousel .step5 .col-right,
+.invite .col-right{
+    background-color: #e67d25 ;
+}
+.register .carousel .step2 .col-right{
+    background-color: #eec418 ;
+}
+.register .carousel .step3 .col-right{
+    background-color: #be4242;
+    overflow: hidden;
+    position: relative;
+}
+.register .carousel .step4 .col-right{
+    background-color: #90dbe9 ;
+}
+.confirmation .col-right{
+    background-color: #6cdcd9 ;
+}
+.register .carousel .item .col-left .content .alert-msg{
+    color: #e67d25;
+    font-size: 14px;
+    font-weight: bold;
+}
+.register .carousel .step4 .col-left .content .title {
+    margin-bottom: 10px;
+}
+.register .carousel .step4 .col-left .content .input-name,
+.register .carousel .step4 .col-left .content .input-user,
+.register .carousel .step4 .col-left .content .input-last-name{
+    font-style: italic;
+    font-size: 16px;
+    color:#9E9E9E;
+    background-color:#f3f3f3 ;
+    width: 100%;
+    height: 45px;
+}
+.register .carousel .step4 .col-left .content .p2{
+    font-size: 14px;
+}
+.register .carousel .step5 .col-right {
+    padding:0 150px;
+}
+.register .carousel .step5 .col-right img{
+    width: 200px;
+    position: inherit;
+    margin-top: 50px;
+}
+.register .carousel .step5 .col-right h1{
+    color: #fff;
+    text-shadow:none;
+    margin-top: 100px;
+    font-weight: 300;
+}
+.register .carousel .step5 .col-right p{
+    color: #fff;
+    text-shadow:none;
+}
+.register .carousel .step5 .col-left {
+    padding: 0 20px 0 0;
+}
+.register .carousel .step5 .col-left .text-terms-use {
+    height: auto;
+    font-size: 12px;
+    text-align: justify;
+    height: 300px;
+    overflow: scroll;
+}
+.register .carousel .step5 .col-left .checkbox-terms-use {
+    color:#9b9b9b;
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: top;
+}
+.register .carousel .step5 .btn-send{
+    /* margin-left: -43px; */
+}
+.register .carousel .step5 p,.register .carousel .step5 .list-terms {
+    color: #5e5e5e;
+}
+.confirmation .col-right img{position: absolute;top: 50%;left: 50%;margin-left: -190px;margin-top: -250px;}
+.confirmation .title{
+    margin-top: 50px !important;
+    margin-bottom: 30px !important;
+}
+.confirmation .btn-send,
+.invite .btn-skip{
+    background-image: none;
+    border: none;
+    background-color: #e67d25;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: table;
+    color: #fff;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+.invite .btn-send{
+    background-image: none;
+    border: none;
+    background-color: #e67d25;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    line-height: 1.4;
+    margin: 0 auto;
+    display: table;
+    color: #fff;
+    /* margin-right: 20px; */
+    margin-bottom: 10px;
+}
+.confirmation .label_edit{
+    float: right;
+    position: absolute;
+    right: 13px;
+    margin-top: 27px;
+    color: #9b9b9b;
+    font-weight:300 ;
+    cursor: pointer;
+}
+.confirmation .label_time,.confirmation .label_name,.confirmation .label_url,.confirmation .label_user,.confirmation .label_email{
+    font-size: 18px;
+    font-weight:400 ;
+    color: #9b9b9b;
+}
+.confirmation .input_time,.confirmation .input_name,.confirmation .input_url,.confirmation .input_user,.confirmation .input_email{
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    border-radius:0;
+    border-bottom:2px solid #aaa;
+    color: #9b9b9b;
+    margin-bottom: 30px;
+}
+.confirmation .checkbox_send_email{
+    color: #6d6d6d;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.invite .label_more_friends{
+    float: right;
+    /* position: absolute; */
+    right: 13px;
+    color: #e67d25;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+}
+.invite .content .title{
+    margin-bottom: 10px;
+}
+.invite .input_more_friends{
+    margin-top: 10px;
+    box-shadow: none;
+    background: #f3f3f3;
+    color: #9b9b9b;
+    margin-bottom: 30px;
+    height: 50px;
+}
+.invite .label_time {
+    color: #9b9b9b;
+    font-weight: 400;
+    font-size: 18px;
+}
+.invite .btn-send,.invite .btn-skip{
+    display: inline-block;
+}
+.invite .box_button{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.invite p {
+    color:#9b9b9b;
+    font-weight: 400;
+}
+.invite .more_friends_content {
+    overflow-y: auto;
+    max-height: 226px;
+    padding-right: 18px;
+}
+.register .carousel .navbar-brand, .invites .navbar-brand {
+    -webkit-flex:1 1 auto;
+    -webkit-order:1;
+    -moz-flex:1 1 auto;
+    -ms-flex:1 1 auto;
+    -o-flex:1 1 auto;
+    flex:1 1 auto;
+    align-self: flex-start;
+    /* height: 50px; */
+    /* margin-bottom: 175px; */
+}
+.register .carousel .step5 .navbar-brand{
+    height: 60px!important;
+}
+
+.register .carousel  ::-webkit-scrollbar {
+    width: 7px;
+    height: 8px;
+}
+.register .carousel  ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+.register .carousel  ::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+}
+.register .carousel  ::-webkit-scrollbar-thumb:hover {
+    background: #808080;
+}
+.register .carousel  ::-webkit-scrollbar-thumb:active {
+    background: #808080;
+}
+.register .carousel  ::-webkit-scrollbar-track {
+    background: #ffffff;
+    border: 0px none #ffffff;
+}
+.register .carousel  ::-webkit-scrollbar-track-piece {
+    background: #ffffff;
+    border: 0px none #ffffff;
+}
+.register .carousel  ::-webkit-scrollbar-track:hover {
+    background: #ffffff;
+}
+.register .carousel  ::-webkit-scrollbar-track:active {
+    background: #ffffff;
+}
+.register .carousel  ::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+.register .step2.active .carousel-indicators li.step{
+    background: #565656;
+    border: #565656;
+}
+.register .step3.active .carousel-indicators li.step{
+    background: #565656;
+    border: #565656;
+}
+.register .step4.active .carousel-indicators li.step{
+    background: #565656;
+    border: #565656;
+}
+.invite .title {
+    /* margin-top: 160px; */
+}
+.register .step5.active .carousel-indicators li.step{
+    background: #565656;
+    border: #565656;
+}
+.register .carousel .col-md-4, .invite .col-md-4  {
+    padding-right: 0!important;
+}
+
+.invite .input_more_friends:last-child {
+    margin-bottom: 0!important;
+}
+.register .info-error {
+    display: none;
+}
+.register .active.info-error {
+    display: inline-block;
+    color: #ff3408;
+}
+.register input.error {
+    border-color: #ff3408;
+}
+.register .carousel .item p.form-control-static{
+    width: auto;
+    display: inline-block;
+    float: left;
+}
+.register .carousel .item .col-left .content .input-url {
+    width: auto;
+    float: left;
+    margin: 0 5px;
+}
+.register .carousel .item .col-left .content .url-field {
+    height: 50px;
+    margin-top: 10px;
+}
+.alert-danger {
+    margin: 0;
+    border-radius: 0;
+}
+.register .carousel .step6 h1{
+    text-align: center;
+    font-size: 35px!important;
+    margin-bottom: 30px!important;
+}
+.register .carousel .step6 p{
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+#Carousel_register .carousel-inner .col-md-4.hg100, .invite .col-md-4.hg100 {
+    width: 550px;
+    float: left;
+}
+#Carousel_register .carousel-inner .col-md-8.hg100.pad0,  .invite .col-md-8.hg100 {
+    width: calc(100% - 550px);
+    float: left;
+}
+.invite .col-right img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -193.5px;
+    max-width: 387px;
+    margin-top: -250px;
+}
+
+.carousel-caption {text-shadow: none!important;}

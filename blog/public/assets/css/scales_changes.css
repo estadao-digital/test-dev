@@ -1,0 +1,119 @@
+
+
+/* Removes the default 20px margin and creates some padding space for the indicators and controls */
+.carousel {
+    margin-bottom: 0;
+    padding: 10px 0;
+    height: 300px;
+
+}
+
+/* Reposition the controls slightly */
+.carousel-control {
+    left: -12px;
+}
+
+.carousel-control.right {
+    right: -12px;
+}
+
+/* Changes the position of the indicators */
+.carousel-indicators {
+    right: 50%;
+    top: auto;
+    bottom: 0px;
+    margin-right: -19px;
+}
+
+/* Changes the colour of the indicators */
+.carousel-indicators li {
+    background: #c0c0c0;
+}
+
+.carousel-indicators .active {
+    background: #333333;
+}
+
+.carousel-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 5px 0;
+}
+
+.status-changes {
+    border: 0.1px solid #cac2c2;
+    border-radius: 12px;
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.27);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.status-changes:hover > table > thead {
+    background: rgba(255, 135, 0, 0.7);
+    transition: 1s;
+
+}
+
+
+.status-changes > table {
+    width: 101%;
+
+}
+
+.status-changes > table > thead {
+    background: rgb(202, 194, 194);
+    width: 100%;
+    transition: 1s;
+}
+
+.status-changes > table > thead > tr > th {
+    padding: 5px 10px;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+}
+
+.status-changes > table > tbody > tr > td {
+    padding: 5px 10px;
+
+}
+
+td span.td-text {
+    color: #b1a7a7;
+    font-weight: bold;
+}
+
+td span.td-number {
+    color: #757575;
+
+}
+
+.btn-position {
+    position: relative;
+    bottom: 150px;
+    font-size: 40px;
+    margin: 0px -38px;
+    color: #ccc !important;
+}
+
+h3.h3-color {
+    color: #a09d9d;
+}
+
+form.form-position {
+    padding-top: 14px;
+}
+
+.accept {
+    font-weight: bold;
+    font-size: 16px;
+    padding: 0;
+    text-align: center;
+}
+
+.btn-position.center {
+    position: relative;
+    bottom: 170px;
+}

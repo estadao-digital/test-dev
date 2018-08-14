@@ -1,0 +1,13 @@
+.box-form {
+    width: 400px;
+}
+.btn-send{
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+form img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+}

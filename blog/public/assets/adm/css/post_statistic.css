@@ -1,0 +1,151 @@
+.word-wrap1 {
+    word-wrap: break-word;
+    overflow: hidden;
+
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-right {
+    border-right: 1px solid #e5e5e5;
+}
+
+.border-left {
+    border-left: 1px solid #e5e5e5;
+}
+
+#post-statistic-modal {
+}
+
+#post-statistic-modal .modal-dialog {
+    width: 768px;
+}
+
+#post-statistic-modal .modal-body {
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 300px;
+    position: relative;
+}
+
+#post-statistic-modal .modal-body .load {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -25px;
+    color: #0c0c0c !important;
+}
+
+.statistic-group.repair {
+    border-right: 1px solid #e5e5e5;
+    min-height: 215px !important;
+}
+
+.statistic-view.repair1 {
+    border-right: 1px solid #e5e5e5;
+    padding-bottom: 10px;
+}
+
+.repair2 {
+    border-left: 1px solid #e5e5e5;
+}
+
+#post-statistic-modal .statistic-feedback,
+#post-statistic-modal .statistic-group,
+#post-statistic-modal .statistic-relevance,
+#post-statistic-modal .statistic-reaction,
+#post-statistic-modal .statistic-view {
+    min-height: 100px;
+}
+
+#post-statistic-modal .modal-body h3 {
+    font-size: 20px;
+    text-align: center;
+    color: #e67d25;
+}
+
+#post-statistic-modal .modal-body .result {
+    font-size: 30px;
+    text-align: center;
+    color: #828282;
+}
+
+#post-statistic-modal .statistic-view .result,
+#post-statistic-modal .statistic-quiz .result {
+    line-height: 23px;
+    padding-top: 10px;
+    font-size: 35px;
+}
+
+#post-statistic-modal .statistic-relevance .result div {
+    position: relative;
+    background: #e0e0e0;
+    overflow: hidden;
+    padding: 0;
+    line-height: 0;
+    margin: 18px auto;
+    width: 70%;
+}
+
+#post-statistic-modal .statistic-relevance .result span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    z-index: 0;
+    background: #ecd300;
+    text-indent: -9999px;
+}
+
+#post-statistic-modal .statistic-relevance .result img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+#post-statistic-modal .modal-body .result span {
+    font-size: 20px;
+}
+
+#post-statistic-modal .statistic-react {
+    padding-top: 15px;
+    text-align: center;
+    font-size: 20px;
+    color: #828282;
+}
+
+#post-statistic-modal .statistic-react img{
+    max-width: 65px;
+}
+
+#post-statistic-modal .statistic-group .result {
+    line-height: 17px;
+}
+
+#post-statistic-modal .statistic-group .result span {
+    font-size: 17px;
+    line-height: 17px;
+}
+
+#post-statistic-modal .statistic-feedback {
+    min-height: 110px;
+}
+
+#post-statistic-modal .statistic-feedback .view-feedback {
+}
+
+#post-statistic-modal .statistic-feedback .view-feedback p {
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #828282;
+}
+
+#post-statistic-modal #view-postview,
+#post-statistic-modal .statistic-feedback #view-feedback {
+    color: #e97d25;
+    text-decoration: underline;
+}

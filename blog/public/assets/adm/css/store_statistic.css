@@ -1,0 +1,48 @@
+.store_statistic {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    -webkit-box-shadow: 6px -5px 31px -13px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 6px -5px 31px -13px rgba(0, 0, 0, 0.75);
+    box-shadow: 6px 3px 31px -13px rgba(0, 0, 0, 0.75);
+    width: 100%;
+    height: auto;
+    margin: 0 auto 35px;
+    overflow: hidden;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-image: none;
+    border: none;
+    background-color: #e67d25;
+    font-size: 18px;
+    font-weight: bold;
+    /* padding: 10px 20px; */
+    border-radius: 10px;
+    margin: 0 auto;
+    display: table;
+    color: #fff;
+    margin-right: 20px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: transparent !important;
+    border: 0 !important;
+}
+
+table.dataTable.no-footer, table.dataTable thead th, table.dataTable thead td {
+    border-color: #CCCCCC;
+}
+
+.box-action a {
+    margin: 20px;
+}
+
+.adm-box {
+    overflow: auto;
+    height: calc(100%);
+}
+
+body {
+    overflow: hidden;
+}

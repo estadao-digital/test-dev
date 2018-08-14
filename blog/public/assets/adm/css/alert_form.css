@@ -1,0 +1,39 @@
+.content-box h2 span {
+    font-size: 30px !important;
+    color: rgb(121, 121, 121) !important;
+    font-weight: 400 !important;
+}
+
+.alert-form .table select {
+    color: #FFF;
+    font-weight: bold;
+    height: 46px;
+}
+
+.alert-form .table select option {
+    background: #FFF;
+    color: #000;
+}
+
+.alert-form .table .change-color {
+    position: relative;
+}
+
+.alert-form .table .change-color .row .col-xs-6 {
+    padding-left: 5px;
+}
+
+.alert-form .table .change-color .row .select.col-xs-6 {
+    padding-right: 5px;
+    padding-left: 15px;
+}
+
+.alert-form .table .change-color input.invisible {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    padding: 0;
+}

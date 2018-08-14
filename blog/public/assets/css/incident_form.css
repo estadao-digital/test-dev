@@ -1,0 +1,249 @@
+.incident {
+}
+
+.incident .main.hg100 {
+    overflow: auto;
+}
+
+.incident .list-incident * {
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.incident #create-troubleshoot {
+    font-size: 25px;
+    opacity: 0.2;
+    color: #232323;
+    font-weight: 400;
+    display: inline-block;
+    margin-left: 10px;
+    text-decoration: underline;
+}
+
+.glyphicon {
+    font-family: 'Glyphicons Halflings' !important;
+}
+
+.incident .box {
+    margin: 20px 0;
+    vertical-align: top;
+    background: #FFF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 20px 20px;
+}
+
+.incident .cause {
+}
+
+.incident .cause .item {
+    color: #414141;
+}
+
+.incident .cause .item h3 {
+    background: url(../../assets/img/deflection.png) no-repeat left center;
+    font-size: 18px;
+    color: #b3b3b3;
+    background-size: auto 100%;
+    padding: 2px 35px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.incident .cause .item label {
+    width: 100%;
+    cursor: pointer;
+    font-weight: 100;
+    color: #414141;
+    font-size: 13px;
+    padding: 2px 10px;
+    margin: 0;
+    background: #ffe8e8;
+}
+
+.incident .cause .item .correction label {
+    background: #e8ffec;
+
+}
+.incident .cause .item .correction label .correction-text,
+.incident .cause .item .diagnostic label .diagnostic-text
+{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.incident .cause .item label input {
+    width: 0;
+    height: 0;
+    float: left;
+    opacity: 0;
+}
+
+.incident .cause .item label i.icon-check {
+    font-size: 18px;
+    float: left;
+    width: 20px;
+    margin-right: 5px;
+}
+
+.incident .cause .item label i.icon-check:before {
+    content: "\f096";
+}
+
+.incident .cause .item label input:checked ~ i.icon-check:before {
+    content: "\f046";
+}
+
+.incident .cause .item h5 {
+    padding: 5px 10px;
+    margin: 0;
+    border-bottom: 1px solid #dadada;
+    font-size: 15px;
+}
+
+.incident .cause .item .correction,
+.incident .cause .item .diagnostic {
+    padding: 5px 0;
+    margin-bottom: 10px;
+}
+
+.incident form button[type=submit] {
+    margin-left: 10px;
+}
+
+.incident form .action-form {
+    margin-top: 10px;
+}
+
+.files .list {
+}
+
+.files .list .input-group {
+    position: relative;
+    margin: 10px 0;
+}
+
+.files .list .input-group input {
+    width: 50%;
+}
+
+.files .list .input-group .btn {
+    padding: 13px 15px;
+    height: 48px;
+}
+
+.list-file {
+}
+
+.list-file ul {
+    padding: 0;
+    list-style: none;
+}
+
+.list-file ul li {
+    display: block;
+    padding: 5px 10px;
+    background: #eaeaea;
+    margin: 4px 0px;
+}
+
+.list-file ul li .input-group input,
+.list-file ul li a.name {
+    font-size: 14px;
+    display: inline-block;
+    padding: 0 !important;
+    height: 25px;
+    line-height: 25px;
+    width: auto;
+    color: #414141;
+}
+
+.list-file ul li .input-group input {
+    width: 90%;
+}
+
+.list-file ul li a.name {
+    text-decoration: underline;
+}
+
+.list-file ul li a.edit-name {
+    margin-left: 5px;
+    display: inline-block;
+    color: #0029ff;
+    font-size: 16px;
+}
+
+.list-file ul li.edit a.edit-name,
+.list-file ul li.edit a.name {
+    display: none;
+}
+
+.list-file ul li a.delete-file {
+    float: right;
+    color: #e60000;
+    font-size: 16px;
+}
+
+.list-file ul li .input-group {
+    float: left;
+    display: none;
+    width: 50%;
+}
+
+.list-file ul li.edit .input-group {
+    display: inline-block;
+}
+
+.list-file ul li .input-group-btn {
+    display: inline-block;
+}
+
+.list-file ul li .input-group .btn {
+    height: 25px;
+    padding: 0 5px;
+}
+
+.incidentlog {
+}
+
+.incidentlog .header {
+    background: transparent url(../img/history.png) no-repeat 0 50%;
+    padding: 20px 20px 20px 40px;
+    color: rgb(155, 155, 155);
+    height: auto;
+}
+
+.incidentlog .header h3 {
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.incidentlog ul {
+    border-top: 1px solid #f4f4f4;
+    border-bottom: 1px solid #f4f4f4;
+    list-style: none;
+    padding: 0;
+    margin-left: -25px;
+    margin-right: -25px;
+}
+
+.incidentlog ul li {
+    margin: 0;
+    border-top: 1px solid #f4f4f4;
+    color: #232323;
+    background: transparent url(../img/avatar.png) no-repeat 15px 50%;
+    background-size: 17px 21px;
+    display: block;
+    padding: 10px 15px 10px 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.incidentlog ul li span {
+    color: #d65a00;
+}
+
+.incidentlog ul li:first-child {
+    border: none;
+}

@@ -1,0 +1,65 @@
+.main.hg100 {
+    overflow: auto;
+}
+
+.box-extract {
+    vertical-align: top;
+    background: #FFF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    min-height: 300px;
+    padding: 20px 16px;
+    margin-top: -3px;
+}
+
+.glyphicon {
+    font-family: 'Glyphicons Halflings' !important;
+}
+
+.voucher {
+    font-size: 25px;
+    opacity: 0.2;
+    color: #232323;
+    font-weight: 400;
+    display: inline-block;
+    margin-left: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.form-stract {
+    padding-left: 0px;
+    float: left;
+    margin-top: 36px;
+    max-height: 340px;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.btn-stract {
+    float: left !important;
+    margin-left: 30px;
+}
+
+.form-stract form {
+    margin-bottom: 0;
+}
+
+div.box-extract > #dataTable_wrapper {
+    position: relative;
+    top: -34px;
+}
+
+.form-filter .open-filter {
+    position: absolute;
+    margin-right: 0;
+}
+
+.form-filter .btn-group-clear-filter {
+    position: absolute;
+    right: 80px;
+}
+
+.form-filter:not(.closed) .btn-group-clear-filter {
+    right: 0;
+}

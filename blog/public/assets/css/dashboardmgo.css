@@ -1,0 +1,763 @@
+.dashboardmgo .box-1 .box,
+.dashboardmgo .box-2 .box {
+    margin: 0 10px 5px;
+    vertical-align: top;
+    background: #FFF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    padding: 5px 10px;
+    position: relative;
+}
+
+.dashboardmgo .box-2 {
+    height: auto;
+    padding: 10px;
+}
+
+.dashboardmgo .box-2 .type-chart {
+    padding: 10px 0;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.dashboardmgo .box-2 .type-chart > div {
+    text-align: center;
+    padding: 0;
+}
+
+.dashboardmgo .box-2 .type-chart > div a {
+    font-size: 29px;
+    color: #9d9d9d;
+    cursor: pointer;
+    display: inline-block;
+    transition: all ease .3s;
+    position: relative;
+}
+
+.dashboardmgo .box-2 .type-chart > div a span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.dashboardmgo .box-2 .type-chart > div a.active,
+.dashboardmgo .box-2 .type-chart > div a:hover {
+    color: #757575;
+}
+
+.dashboardmgo .box-2 .type-chart > div a.active {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    font-size: 30px;
+    margin-top: -2px;
+}
+
+.dashboardmgo .box-2 form .form-group {
+}
+
+.dashboardmgo .box-2 form .form-group label {
+    margin: 0;
+    color: #7b7b7b;
+    font-size: 13px;
+}
+
+.dashboardmgo .box-1 .box {
+    margin: 0;
+    padding: 14px 18px;
+    border-radius: 10px;
+    overflow-x: auto;
+    min-height: calc(100vh - 110px);
+}
+
+.dashboardmgo .box-1 .box .loading .fa-exclamation-triangle {
+    display: none;
+}
+
+.dashboardmgo .box-1 .box .loading {
+    padding-top: 100px;
+    text-align: center;
+}
+
+.dashboardmgo .box-1 .box .loading span.msg {
+}
+
+.dashboardmgo .box-1 .box .loading.error {
+    color: #d90300;
+}
+
+.dashboardmgo .box-1 .box .loading.error .fa-exclamation-triangle {
+    display: inline-block;
+}
+
+.dashboardmgo .box-1 .box .loading.error .fa-refresh {
+    display: none;
+}
+
+.dashboardmgo .box .charts > .chart {
+    height: 300px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.dashboardmgo .box .charts > .chart .highcharts-container {
+    margin: 0 auto;
+    overflow: visible !important;
+}
+
+.dashboardmgo .box .charts > .chart .highcharts-container .ajust-title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 19px;
+    font-size: 17px;
+}
+
+.dashboardmgo .box .charts > .chart .highcharts-container:hover .ajust-title {
+    white-space: normal;
+    overflow: visible;
+}
+
+.highcharts-credits {
+    display: none;
+}
+
+.dashboardmgo .box .legend {
+}
+
+.dashboardmgo .box .legend a {
+    margin: 3px;
+}
+
+.dashboardmgo .box .legend a {
+    transition: all ease .3s;
+}
+
+.dashboardmgo .box .legend a i {
+    display: none;
+    margin-left: 5px;
+}
+
+.dashboardmgo .box .legend:hover a {
+    opacity: .6;
+    transition: all ease .3s;
+}
+
+.dashboardmgo .box .legend:hover a:hover {
+    opacity: 1;
+}
+
+.dashboardmgo .box .chart-table-evolution,
+.dashboardmgo .box .chart-table {
+    display: table;
+    padding: 0 15px;
+    margin-left: -15px;
+}
+
+.dashboardmgo .box .chart-table-evolution {
+    padding-top: 30px;
+}
+
+.dashboardmgo .box .chart-table table {
+    border: 0 !important;
+}
+
+.dashboardmgo .box .chart-table-evolution table tbody td,
+.dashboardmgo .box .chart-table-evolution table thead th,
+.dashboardmgo .box .chart-table table tbody td,
+.dashboardmgo .box .chart-table table thead th {
+    border: 0 !important;
+    font-weight: normal !important;
+    padding: 5px;
+    line-height: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.dashboardmgo .box .chart-table table tbody td .dash-user-info img {
+    float: left;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dashboardmgo .box .chart-table table tbody td .dash-user-info a {
+    float: left;
+    width: calc(100% - 35px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+    padding-left: 15px;
+    line-height: 30px;
+    height: 22px;
+    opacity: .7;
+    color: #171717;
+    transition: all ease .3s;
+}
+
+.dashboardmgo .box .chart-table table tbody td .dash-user-info a:hover {
+    opacity: 1;
+}
+
+.dashboardmgo .box .chart-table table thead .chart-td {
+
+}
+
+.dashboardmgo .box .chart-table table thead .tr-1 {
+    height: 50px;
+}
+
+.dashboardmgo .box .chart-table table thead .tr-1 .th-1 > div {
+    width: 315px;
+}
+
+.dashboardmgo .box .chart-table-evolution table thead .tr-1 th .title-th {
+    display: block;
+    width: 100px;
+}
+
+.dashboardmgo .box .chart-table-evolution table thead .tr-1 th.th-2 .title-th {
+    width: 150px;
+}
+
+.dashboardmgo .box .chart-table-evolution table thead .tr-1 th.th-1 .title-th {
+    width: 315px;
+    padding: 0 20px 5px 0;
+    margin-top: -20px;
+}
+
+.dashboardmgo .box .chart-table table thead .tr-1 th:not(.th-1) .chart-primary {
+    width: 200px;
+}
+
+.dashboardmgo .box .chart-table table thead .tr-2 th {
+    padding: 2px 15px;
+}
+
+.dashboardmgo .box .chart-table table thead .tr-2 th button {
+    width: 100%;
+}
+
+.dashboardmgo .box .chart-table table thead .tr-7 th,
+.dashboardmgo .box .chart-table table thead .tr-3 th {
+    padding: 10px;
+}
+
+.dashboardmgo .box .chart-table-evolution table thead .tr-1 th,
+.dashboardmgo .box .chart-table table thead .tr-4 th {
+    font-weight: 600 !important;
+    padding: 5px 10px;
+}
+
+
+.dashboardmgo .box .chart-table table thead .tr-4 th:after {
+    bottom: 3px;
+    right: auto;
+    left: 3px;
+}
+
+.dashboardmgo .box .chart-table-evolution table thead .tr-1 th:after,
+.dashboardmgo .box .chart-table table thead .tr-4 th.th-1:after {
+    bottom: 3px;
+    right: 3px;
+    left: auto;
+}
+
+/*COLOR*/
+.dashboardmgo .box .chart-table-evolution table tbody td,
+.dashboardmgo .box .chart-table-evolution table thead th,
+.dashboardmgo .box .chart-table table tbody td,
+.dashboardmgo .box .chart-table table thead th {
+    color: #595959;
+}
+
+/****Border****/
+
+/*TOP*/
+.dashboardmgo .box .chart-table table tbody td,
+.dashboardmgo .box .chart-table-evolution table tbody td,
+.dashboardmgo .box .chart-table-evolution table thead .tr-1 th:not(.th-1),
+.dashboardmgo .box .chart-table table thead .tr-12 th,
+.dashboardmgo .box .chart-table table thead .tr-11 th,
+.dashboardmgo .box .chart-table table thead .tr-10 th,
+.dashboardmgo .box .chart-table table thead .tr-9 th,
+.dashboardmgo .box .chart-table table thead .tr-8 th,
+.dashboardmgo .box .chart-table table thead .tr-7 th,
+.dashboardmgo .box .chart-table table thead .tr-6 th,
+.dashboardmgo .box .chart-table table thead .tr-5 th,
+.dashboardmgo .box .chart-table table thead .tr-4 th:not(.th-1) {
+    border-top: 1px solid #CCC !important;
+}
+
+/*BOTTOM*/
+.dashboardmgo .box .chart-table-evolution table,
+.dashboardmgo .box .chart-table table {
+    border-bottom: 1px solid #CCC !important;
+}
+
+/*LEFT*/
+.dashboardmgo .box .chart-table-evolution table tbody .td-1,
+.dashboardmgo .box .chart-table table tbody .td-1,
+.dashboardmgo .box .chart-table table thead .tr-11 th.th-1,
+.dashboardmgo .box .chart-table table thead .tr-10 th.th-1,
+.dashboardmgo .box .chart-table table thead .tr-9 th.th-1,
+.dashboardmgo .box .chart-table table thead .tr-8 th.th-1,
+.dashboardmgo .box .chart-table table thead .tr-6 th.th-1,
+.dashboardmgo .box .chart-table table thead .tr-5 th.th-1 {
+    border-left: 1px solid #CCC !important;
+}
+
+/*RIGTH*/
+.dashboardmgo .box .chart-table-evolution table tbody td,
+.dashboardmgo .box .chart-table table tbody td,
+.dashboardmgo .box .chart-table-evolution table thead .tr-1 th,
+.dashboardmgo .box .chart-table table thead .tr-11 th,
+.dashboardmgo .box .chart-table table thead .tr-10 th,
+.dashboardmgo .box .chart-table table thead .tr-9 th,
+.dashboardmgo .box .chart-table table thead .tr-8 th,
+.dashboardmgo .box .chart-table table thead .tr-6 th,
+.dashboardmgo .box .chart-table table thead .tr-5 th,
+.dashboardmgo .box .chart-table table thead .tr-4 th {
+    border-right: 1px solid #CCC !important;
+}
+
+.dashboardmgo .box .chart-table-evolution table thead .tr-1 th:not(.th-1),
+.dashboardmgo .box .chart-table table thead .tr-4 th:not(.th-1) {
+    background: #e2e2e2 !important;
+}
+
+.dashboardmgo .box .chart-table table .secundary {
+    background: #fbfbfb;
+}
+
+.dashboardmgo .box .chart-table table thead tr.tr-2 .secundary,
+.dashboardmgo .box .chart-table table thead tr.tr-1 .secundary {
+    background: transparent;
+}
+
+.dashboardmgo .box .chart-table table thead .tr-4 th.secundary {
+    background: #efefef !important;
+}
+
+.dashboardmgo .box .chart-table table thead .tr-4 th {
+    position: relative;
+    padding-right: 15px;
+}
+
+.dashboardmgo .box .chart-table table thead .tr-4 th span {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background: rgb(239, 239, 239);
+    font-size: 15px;
+    padding: 2px;
+    color: #b9b9b9;
+    text-align: center;
+    width: 15px;
+    box-shadow: -2px 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.dashboardmgo .box .chart-table table thead .tr-4 th span:before {
+    content: "\f054";
+    position: absolute;
+    top: calc(50% - 7px);
+    left: calc(50% - 5px);
+}
+
+.dashboardmgo .box .chart-table table .secundary {
+    transition: all ease .3s;
+}
+
+.dashboardmgo .box .chart-table table thead .tr-4 th span.open {
+    box-shadow: inset -2px 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.dashboardmgo .box .chart-table table thead .tr-4 th span.open:before {
+    content: "\f053";
+}
+
+#modal-graphic .modal-body {
+    overflow: hidden;
+}
+
+#modal-graphic .modal-body .highcharts-legend .highcharts-legend-item {
+    opacity: 1;
+}
+
+#modal-graphic .modal-body .highcharts-legend .highcharts-legend-item {
+    opacity: 1;
+    transition: all ease .3s;
+}
+
+#modal-graphic .modal-body .highcharts-legend .highcharts-legend-item:hover {
+    opacity: .6;
+}
+
+#modal-graphic .modal-body .highcharts-legend .highcharts-legend-item .highcharts-point {
+    display: none;
+}
+
+#modal-graphic .modal-body .highcharts-legend .highcharts-legend-item.highcharts-legend-item-hidden {
+    opacity: .4;
+}
+
+.label-status-period {
+    font-size: 14px;
+    float: right;
+    margin-top: 20px;
+}
+
+.dashboardmgo h1.title {
+    width: 100%;
+    margin: 0;
+    font-size: 24px;
+}
+
+.dashboardmgo h1.title span:not([onclick]) {
+    display: inline-block;
+    width: calc(100% - 310px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dashboardmgo h1.title span[onclick] {
+    opacity: .7;
+    cursor: pointer;
+}
+
+.dashboardmgo h1.title span[onclick]:hover {
+    opacity: 1;
+}
+
+.dashboardmgo h1.title small,
+.dashboardmgo h1.title a.updated-btn {
+    float: right;
+    display: block;
+    margin: 4px 0 0;
+}
+
+.dashboardmgo h1.title small {
+    font-size: 14px;
+    margin: 11px 5px 0;
+}
+
+.dashboardmgo h1.title a.updated-btn {
+    opacity: .3;
+    cursor: not-allowed;
+}
+
+.dashboardmgo h1.title a.return-btn {
+    opacity: .7;
+    color: #e67d25;
+    margin-right: 5px;
+    transition: all ease .3s;
+}
+
+.dashboardmgo h1.title a.return-btn:hover {
+    opacity: 1;
+}
+
+.dashboardmgo h1.title a.updated-btn[href] {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.dashboardmgo .scroll-button {
+    width: 5%;
+    height: 100%;
+    background: rgba(255, 0, 0, 0.45);
+    position: absolute;
+    left: 15px;
+    top: 0;
+    z-index: 1;
+    border-radius: 10px 0 0 0;
+    opacity: .3;
+    transition: all ease .3s;
+    cursor: pointer;
+    display: none;
+}
+
+.dashboardmgo .scroll-button:hover {
+    opacity: .5;
+}
+
+.dashboardmgo .scroll-button:active {
+    opacity: .7;
+}
+
+.dashboardmgo .scroll-button.button-right {
+    left: auto;
+    right: 15px;
+    border-radius: 0 10px 0 0;
+    background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=1); /* IE6-9 */
+}
+
+.dashboardmgo .scroll-button.button-left {
+
+    background: -moz-linear-gradient(left, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=1); /* IE6-9 */
+
+}
+
+.highcharts-root {
+    overflow: visible !important;
+}
+
+.waggle {
+    animation: waggle 4s infinite ease-out;
+}
+
+@keyframes waggle {
+    0% {
+        transform: none;
+    }
+    12.5% {
+        transform: rotateZ(-20deg) scale(1.2);
+        color: #e67d25;
+    }
+    15% {
+        transform: rotateZ(25deg) scale(1.2);
+    }
+    18.75% {
+        transform: rotateZ(-15deg) scale(1.2);
+    }
+    22.5% {
+        transform: rotateZ(15deg) scale(1.2);
+    }
+    26.25% {
+        transform: rotateZ(-12deg) scale(1.2);
+    }
+    27.5% {
+        transform: rotateZ(0) scale(1.2);
+    }
+    30% {
+        transform: rotateZ(0) scale(1);
+        color: '';
+    }
+}
+
+.dashboardmgo .box-1 .box .chart-gauge .legend.legend-class-item-team a,
+.dashboardmgo .box-1 .box .chart-gauge .legend.legend-class-item-me a {
+    opacity: .4;
+    transition: all ease .3s;
+}
+
+.dashboardmgo .box-1 .box .chart-gauge .legend.legend-class-item-team a.legend-class-item-team,
+.dashboardmgo .box-1 .box .chart-gauge .legend.legend-class-item-me a.legend-class-item-me {
+    opacity: 1;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.dashboardmgo .box-1 .box .chart-gauge .legend.legend-class-item-team a.legend-class-item-team i,
+.dashboardmgo .box-1 .box .chart-gauge .legend.legend-class-item-me a.legend-class-item-me i {
+    display: inline-block;
+}
+
+.dashboardmgo .box .chart-table {
+}
+
+.dashboardmgo .box .chart-table table thead {
+}
+
+.dashboardmgo .box-1 .box .chart-table table thead .alert {
+    text-align: center;
+    width: 150px;
+    border: none;
+    display: table;
+    color: #FFF;
+    min-height: 120px;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 0;
+    padding: 5px;
+}
+
+.dashboardmgo .box-1 .box .chart-table table thead .alert > div {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.dashboardmgo .box-1 .box .chart-table table thead .alert.alert-danger {
+    background: red;
+}
+
+.dashboardmgo .box-1 .box .chart-table table thead .alert.alert-success {
+    background: green;
+}
+
+.dashboardmgo .box-1 .box .chart-table table thead .alert p {
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.dashboardmgo .box-1 .box .chart-table table thead .alert h3 {
+    margin: 5px 0 10px;
+    font-size: 30px;
+    line-height: 20px;
+}
+
+#modal-graphic .modal-body {
+    position: relative;
+    height: calc(100vh - 190px);
+    border: none;
+    padding-bottom: 0;
+}
+
+#modal-graphic .modal-body .panel-top {
+    position: relative;
+    height: 70%;
+    padding: 0 0 20px !important;
+    border: none !important;
+    overflow: hidden !important;
+}
+
+#modal-graphic .modal-body .highcharts-container {
+    overflow-y: visible !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#modal-graphic .modal-body .panel-bottom {
+    position: relative;
+    height: 30%;
+    padding: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
+}
+
+#modal-graphic .modal-body .panel-bottom .filter-user {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+#modal-graphic .modal-body .panel-bottom .filter-user #search-user {
+    height: 32px;
+}
+
+#modal-graphic .modal-body .panel-bottom .filter-user #search-user {
+    border-radius: 0;
+    padding: 0px 10px;
+}
+
+#modal-graphic .modal-body .panel-bottom ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: auto;
+    height: calc(100% - 32px);
+}
+
+#modal-graphic .modal-body .panel-bottom ul li {
+    padding: 3px 5px;
+    display: block;
+    margin: 0 0 2px 0;
+    color: #6d6d6d;
+    background: rgba(0, 0, 0, 0.04);
+    line-height: 18px;
+}
+
+#modal-graphic .modal-body .panel-bottom ul li:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+#modal-graphic .modal-body .panel-bottom ul li.active {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+#modal-graphic .modal-body .panel-bottom ul li label {
+    display: inline-block;
+    float: left;
+    margin-left: 5px;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.dashboardmgo[data-nid="4"] .box-1 .box .chart-table table thead .alert,
+.dashboardmgo[data-nid="3"] .box-1 .box .chart-table table thead .alert,
+.dashboardmgo[data-nid="2"] .box-1 .box .chart-table table thead .alert,
+.dashboardmgo[data-nid="1"] .box-1 .box .chart-table table thead .alert {
+    display: none;
+}
+
+#form-dashboardmgo .block {
+    border-bottom: 1px solid #c3c3c3;
+    margin: 10px 0;
+    padding-bottom: 10px;
+}
+
+#form-dashboardmgo .block h4 {
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 0;
+    color: #757575;
+}
+
+#form-dashboardmgo .block .form-group {
+    margin-bottom: 5px;
+}
+
+#form-dashboardmgo .block .form-group > label {
+    color: #949494;
+    font-weight: normal;
+    width: 100%;
+}
+
+#form-dashboardmgo .block .form-group > label a {
+    cursor: pointer;
+    opacity: .7;
+    color: #e67d25;
+    transition: all ease .3s;
+    text-decoration: none;
+    line-height: 8px;
+    font-size: 12px;
+}
+
+#form-dashboardmgo .block .form-group > label a.not-select-all {
+    color: #e64018;
+}
+
+#form-dashboardmgo .block .form-group > label a:hover {
+    opacity: 1;
+}
+
+#form-dashboardmgo .input-daterange .input-group-addon {
+    width: 1%;
+}
+
+#form-dashboardmgo .input-daterange input {
+    cursor: pointer;
+    background: #f9f9f9;
+}
+
+.datepicker.dropdown-menu {
+    font-size: 13px;
+}
+
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+    color: #cacaca;
+}
+
+.dashboardmgo .box .chart-table-evolution table thead .tr-1 th.th-1 .chosen-container .chosen-results li,
+.dashboardmgo .box .chart-table-evolution table thead .tr-1 th.th-1 .chosen-container-single .chosen-single span {
+    font-weight: normal;
+}

@@ -1,0 +1,180 @@
+html, body {
+    font-family: arial, tahoma
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item.active.hurkanSwitch-switch-item-status-off {
+    padding-right: 15px;
+    padding-left: 32px;
+    background: #b2b2b2;
+    color: #fff;
+    text-align: right;
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item.active.hurkanSwitch-switch-item-status-on {
+    padding-right: 32px;
+    padding-left: 15px;
+    background-color: #75b936;
+    color: #fff;
+    text-align: left;
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item.active {
+    opacity: 1;
+    display: block;
+
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box.switch-animated-on > .hurkanSwitch-switch-item.active {
+    opacity: 1;
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box.switch-animated-on > .hurkanSwitch-switch-item.active .lbl {
+    opacity: 1;
+    animation-name: active;
+    animation-duration: 0.5s;
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item {
+    line-height: 16px;
+    font-size: 100%;
+    opacity: 0;
+    display: none;
+    border-radius: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: relative;
+    box-shadow: 0px 0px 2px #777777 inset;
+    height: 25px;
+    box-sizing: border-box;
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item:hover {
+    text-decoration: none;
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item.hurkanSwitch-switch-item-status-off > .hurkanSwitch-switch-cursor-selector {
+    left: 5px;
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item.hurkanSwitch-switch-item-status-on > .hurkanSwitch-switch-cursor-selector {
+    right: 5px;
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box.switch-animated-on > .hurkanSwitch-switch-item.hurkanSwitch-switch-item-status-on > .hurkanSwitch-switch-cursor-selector {
+    animation-duration: 0.5s;
+    animation-name: right;
+
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box.switch-animated-on > .hurkanSwitch-switch-item.hurkanSwitch-switch-item-status-off > .hurkanSwitch-switch-cursor-selector {
+    animation-duration: 0.5s;
+    animation-name: left;
+
+}
+
+@keyframes left {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 5px;
+    }
+}
+
+@keyframes right {
+    0% {
+        right: 100%;
+    }
+    100% {
+        right: 5px;
+    }
+}
+
+@keyframes active {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item > .hurkanSwitch-switch-cursor-selector {
+    height: 18px;
+    position: absolute;
+    top: 4.5px;
+    width: 18px;
+    margin-top: -1px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.1);
+    display: block;
+    content: "";
+    border-radius: 100%;
+    background: #fff
+}
+
+.hurkanSwitch-switch-plugin.hurkanSwitch-switch-input {
+    display: none
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item.hurkanSwitch-switch-item-color-success {
+    background-color: #75b936 !important
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item.hurkanSwitch-switch-item-color-warning {
+    background-color: #f0ad4e !important
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item.hurkanSwitch-switch-item-color-info {
+    background-color: #5bc0de !important
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item.hurkanSwitch-switch-item-color-default {
+    background-color: #fff !important;
+    color: #777 !important
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item.hurkanSwitch-switch-item-color-default > .hurkanSwitch-switch-cursor-selector {
+    border: 1px solid #eee !important;
+    margin-top: -2.2px
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item.hurkanSwitch-switch-item-color-primary {
+    background-color: #0275d8 !important
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item.hurkanSwitch-switch-item-color-danger {
+    background-color: #d90909 !important
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box > .hurkanSwitch-switch-item.disabled {
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    cursor: default
+}
+
+.hurkanSwitch > .hurkanSwitch-switch-box {
+    cursor: pointer;
+    background: #fff;
+    overflow: hidden;
+    border: 0px solid #ddd;
+    padding: 0px;
+    display: inline-block;
+    width: auto;
+}
+
+.hurkanSwitch {
+    display: inline-block
+}
+
+.hurkanSwitch.switch-responsive {
+    display: block;
+    width: 60px;
+}
+
+.hurkanSwitch.switch-responsive > .hurkanSwitch-switch-box {
+    display: block !important
+}
+
+.hurkanSwitch-switch-box {
+    width: 50px;
+}

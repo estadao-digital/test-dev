@@ -1,0 +1,779 @@
+
+.user-style > .mentions.userinfo {
+    display: inline !important;
+    text-decoration: none;
+    color: #3c3c3c;
+}
+
+.content-mention .user-style {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pins-list .item, .list-mentions .item, .files-list .item {
+    max-width: 90%;
+    position: relative;
+    overflow: hidden;
+    margin: 0px auto 14px auto;
+    padding: 15px !important;
+    margin-bottom: 15px !important;
+    border-radius: .2em !important;
+}
+
+.image-mention a img {
+    border-radius: 50% !important;
+}
+
+.pins .item, .mentions .item, .files .item {
+    background: #fff;
+    padding: 15px;
+    border-radius: .2em;
+    -webkit-box-shadow: 6px 8px 38px -18px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 6px 8px 38px -18px rgba(0, 0, 0, 0.75);
+    box-shadow: 6px 8px 38px -18px rgba(0, 0, 0, 0.75);
+}
+
+.template-post {
+    display: none;
+}
+
+.pins .item {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
+}
+
+.pins .pins-list .nick, .mentions .list-mentions .nick, .files .files-list .nick {
+    font-size: 13px !important;
+    font-family: 'Ubuntu', sans-serif;
+    color: #232323;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.files .files-list .nick {
+    white-space: nowrap;
+    height: 18px;
+    text-overflow: ellipsis;
+
+}
+.pins .pins-list .hour {
+    font-family: 'Ubuntu', sans-serif;
+    display: inline-block;
+    font-size: 11px;
+    color: #9E9E9E;
+    line-height: 11px;
+}
+
+.pins .time, .mentions .time, .files .time, .files .item .time {
+    color: #cdcdcd;
+    font-weight: 400;
+    margin: 0;
+    font-size: 10px;
+}
+
+.pins .item .img-user {
+    border-radius: .2em;
+    vertical-align: sub;
+}
+
+.pins .pin-item .eye-icon, .pinlist .item .eye-icon {
+    display: none;
+}
+
+.pins .pin-item:hover .eye-icon, .pinlist .item:hover .eye-icon {
+    display: block;
+}
+
+.box-2 .pins .title-sidebar, .box-2 .mentions .title-sidebar, .box-2 .files .title-sidebar {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+
+.pins .nickname, .pins .text, .pins .chatroom, .pins .datetime_chat {
+    margin: 0 0 2px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #414141;
+}
+
+.pins .item, .mentions .item, .files .item {
+    margin-bottom: 15px;
+}
+
+p.comment,
+.pins .item .comment, .mentions .item .comment, .files .item .comment{
+    font-size: 13px;
+    white-space: nowrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    overflow: hidden;
+    display: block;
+    height: 20px;
+    text-overflow: ellipsis;
+    margin-top: 4px;
+    width: 100% !important;
+}
+
+.mentions .item .comment {
+    color: #3c3c3c;
+    margin-top: 5px;
+    font-weight: normal;
+    font-family: 'Ubuntu', sans-serif;
+    display: inline;
+
+}
+
+.pins .item .comment {
+    color: #3c3c3c;
+}
+
+.pins .item .eye-icon, .mentions .item .eye-icon {
+    margin-top: 15px;
+}
+
+.files .down-icon, .files .share-icon {
+    margin-top: 10px;
+}
+
+.files .title .send-file {
+    font-size: 18px;
+    opacity: 0.3;
+    color: #414141;
+    margin-top: 20px;
+    display: block;
+    margin-right: 150px;
+    text-align: right;
+}
+
+.files .img-file {
+    margin: 0 auto;
+    display: block;
+}
+
+.files .item .time li {
+    padding-right: 5px;
+    padding-left: 0;
+    font-size: 11px;
+    color: #9E9E9E;
+
+}
+
+.files .item .size {
+    font-size: 12px;
+}
+
+.files .modal-share .modal-header {
+    border: none;
+}
+
+.files .modal-share .modal-body {
+    padding: 10px 0 25px 15px;
+}
+
+.box-2 .mentions, .box-2 .files {
+    display: none;
+}
+.content-pin .mentions{
+    display: initial;
+}
+
+.box-2 .btn-pin img:hover, .box-2 .btn-mentions img:hover, .box-2 .btn-files img:hover {
+    transform: scale(1.2, 1.2);
+    transition: 300ms;
+}
+
+.box-2 .pins .title, .box-2 .mentions .title, .box-2 .files .title {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.pins .pin-item .eye-icon, .pinlist .item .eye-icon {
+    display: block;
+}
+
+.box-2 .pins .title-sidebar, .box-2 .mentions .title-sidebar, .box-2 .files .title-sidebar {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+
+.pins .nickname, .pins .text, .pins .chatroom, .pins .datetime_chat {
+    margin: 0 0 2px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #414141;
+}
+
+.list-mentions .item.is_read {
+    opacity: .6;
+}
+
+.list-mentions .item.is_read:hover {
+    opacity: .9;
+}
+
+.submenu-metions {
+    padding-bottom: 10px;
+}
+
+.submenu-metions a {
+    padding: 5px;
+    background: #ededed;
+    color: #9a9a9a;
+    transition: all ease .2s;
+}
+
+.submenu-metions a:hover {
+    clor: #ededed;
+    background: #9a9a9a;
+}
+
+.submenu-metions .metions-lidas .fa-envelope-open {
+    float: left;
+    margin-right: 3px;
+}
+
+.pins-list .item, .list-mentions .item, .files-list .item {
+    max-width: 93%;
+    position: relative;
+    overflow: hidden;
+    margin: 0px auto 14px auto;
+}
+
+.pins-list .item, .list-mentions .item, .files-list .item.adjust-p {
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: 0px auto 14px auto;
+}
+
+.pins-list .content-pin p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 13px !important;
+}
+
+.pins-list .image-pins {
+    width: 155px;
+}
+
+.pins-list .help-message {
+    font-family: Verdana, Arial, sans-serif;
+    color: #ccc;
+    font-size: 22px;
+}
+
+.box-2 {
+    padding-left: 20px;
+    height: calc(100% - 74px) !important;
+}
+
+.files-list .file-image {
+    width: 35px;
+    float: left;
+    margin-right: 20px;
+}
+
+.files-list .file-content {
+    width: calc(100% - 130px);
+    float: left;
+    overflow: hidden;
+}
+
+.files-list .file-action {
+    width: 75px;
+    margin-top: -6px;
+    position:absolute;
+    top: -10px;
+    right: -3px;
+
+}
+
+.files-list .download-files {
+    margin-right: 12px;
+
+}
+.files-list .share-files {
+    margin-right: 11px;
+}
+
+
+
+.new-file {
+    text-align: right;
+    margin-right: 35px;
+    width: 90%;
+    margin-top: 17px;
+}
+
+.new-file a {
+    color: #CCCCCC;
+    font-size: 18px;
+}
+
+.modal-newfile .modal-dialog {
+    width: 421px;
+    margin: 15% auto 0 60%;
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #d7d7d7;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.modal-share .share-icon, .modal-newfile .share-icon {
+    margin-top: 0;
+    margin-right: 10px;
+}
+
+.modal-share .subtitle, .modal-newfile .subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #d7d7d7;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.modal-share .modal-dialog, .modal-newfile .modal-dialog {
+    width: 421px;
+    margin: 15% auto 0 60%;
+}
+
+.modal-share .modal-footer .share-in, .modal-newfile .modal-footer .share-in {
+    font-size: 14px;
+    color: #d7d7d7;
+    font-weight: 300;
+    text-align: left;
+}
+
+.modal-share p.nick, .modal-newfile p.nick {
+    /* overflow: hidden; */
+}
+
+.modal-share .modal-footer .channel {
+    /* background: #f3f3f3; */
+    /* border-radius: 10px; */
+    /* color: #cdcdcd; */
+}
+
+.modal-newfile .channel-type label {
+    width: 130px;
+    cursor: pointer;
+    height: 27px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    border-radius: 15px;
+}
+
+.modal-newfile .channel-type label span.channel-public {
+    text-align: left;
+    padding-right: 5px;
+}
+
+.modal-newfile .channel-type label span {
+    width: 130px;
+    padding: 0 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    height: 27px;
+    transition: all ease .4s;
+    -moz-transition: all ease .4s;
+    -o-transition: all ease .4s;
+    -webkit-transition: all ease .4s;
+    line-height: 27px;
+    font-weight: normal;
+    background-color: #E39229;
+    color: #FFF;
+    border-radius: 15px;
+}
+
+.modal-newfile .channel-type label span.channel-public:after {
+    float: right;
+}
+
+.modal-newfile .channel-type label span.channel-private {
+    left: 130px;
+    background-color: #eec315;
+    text-align: right;
+    padding-left: 5px;
+}
+
+.modal-newfile .channel-type label span, .modal-share .channel-type label span {
+    width: 130px;
+    padding: 0 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    height: 27px;
+    transition: all ease .4s;
+    -moz-transition: all ease .4s;
+    -o-transition: all ease .4s;
+    -webkit-transition: all ease .4s;
+    line-height: 27px;
+    font-weight: normal;
+    background-color: #E39229;
+    color: #FFF;
+    border-radius: 15px;
+}
+
+.modal-newfile .channel-type label span.channel-private:before, .modal-share .channel-type label span.channel-private:before {
+    float: left;
+}
+
+.modal-newfile .channel-type label span.channel-public:after, .modal-newfile .channel-type label span.channel-private:before, .modal-share .channel-type label span.channel-public:after, .modal-share .channel-type label span.channel-private:before {
+    content: '\25CF';
+    font-size: 25px;
+    margin: -2px 0 0 0;
+}
+
+.modal-newfile .form-channels, .modal-newfile .form-users, .modal-share .form-channels, .modal-share .form-users {
+    display: none;
+}
+
+.modal-newfile .form-channels.active, .modal-newfile .form-users.active, .modal-share .form-channels.active, .modal-share .form-users.active {
+    display: block;
+}
+
+#check_message_chosen, #check_channel_chosen {
+    width: 100% !important;
+    text-align: left;
+}
+
+.modal-newfile .chosen-choices, .modal-share .chosen-choices {
+    border-radius: 4px;
+    padding: 3px 12px;
+    background-color: #FFFFFF;
+    background-image: none;
+    border: 1px solid rgba(170, 170, 170, 0.75);
+}
+
+.box-2 .template-post {
+    display: none;
+}
+
+.modal-newfile .chosen-container-single .chosen-single, .modal-share .chosen-container-single .chosen-single {
+    background-image: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    height: auto;
+}
+
+.modal-share .share-icon {
+    margin-top: 0;
+    margin-right: 10px;
+}
+
+.modal-share .subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #d7d7d7;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.modal-share .modal-dialog {
+    width: 421px;
+    margin: 15% auto 0 60%;
+}
+
+.modal-share .modal-footer .share-in {
+    font-size: 14px;
+    color: #d7d7d7;
+    font-weight: 300;
+    text-align: left;
+}
+.pins> .mentions{
+    display: block;
+}
+
+.pin-right {
+    position: absolute;
+    right: -5px;
+    color: #b3b3b3;
+    top: -10px;
+    font-size:14px;
+}
+
+.trash-pin {
+    color:#b3b3b3; cursor:pointer;
+}
+.trash-pin:hover {
+    color:#2b3036;  cursor:pointer;
+}
+
+
+.mentions .image-mention {
+    width: 47px;
+    float: left;
+    margin-right: 14px;
+}
+
+.mentions .content-mention {
+    width: calc(100% - 116px);
+    float: left;
+}
+
+.mentions .action-mention {
+    position: absolute;
+    right: 5px;
+    top: -10px;
+}
+
+.mentions .action-mention a {
+    display: inline-block;
+    margin: 0 3px;
+    color: #b3b3b3;
+    cursor: pointer;
+}
+
+.mentions .action-mention a:hover {
+    color: #959595;
+}
+
+.mentions .action-mention .metion-replay .fa-check {
+    color: #21c121;
+    font-size: 15px
+}
+
+.mentions .action-mention .fa-envelope-open,
+.mentions .action-mention .fa-check {
+    display: none;
+}
+
+.mentions .action-mention.is_read .fa-envelope-open,
+.mentions .action-mention.is_replied .fa-check {
+    display: inline-block;
+}
+
+.mentions .action-mention.is_read .fa-envelope,
+.mentions .action-mention.is_replied .fa-reply {
+    display: none;
+}
+
+.mentions .time {
+    font-size: 10px !important;
+}
+
+.mentions .comment {
+    font-size: 13px !important;
+    font-weight: 100;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.pins .pins-list .image-pin {
+    width: 47px;
+    height: 47px;
+    float: left;
+    margin-right: 14px;
+}
+
+.pins .pins-list .content-pin {
+    width: calc(100% - 106px);
+    float: left;
+    margin-right: 6px;
+}
+
+.pins .pins-list .action-pin {
+    width: 30px;
+    float: left;
+}
+
+.box-2 .nav-right {
+    position: absolute;
+    margin-top: 30%;
+    z-index: 10;
+    width: 96%;
+    margin-left: -45px;
+}
+
+.box-2 .nav-right span {
+    cursor: pointer;
+    display: block;
+    display: inline-block;
+}
+
+.box-2 .nav-right .go-right {
+    text-align: right;
+}
+
+.box-2 .nav-right .btn-mentions {
+    position: relative;
+}
+
+.box-2 .nav-right .btn-mentions .badge{
+    position: absolute;
+    right:-5px;
+    top:-5px;
+    transition: all ease .3s;
+    background: #f82c21;
+    border-radius: 5px;
+}
+
+.box-2 .nav-right .btn-mentions:hover .badge {
+    transform: scale(1.1);
+}
+
+.over-flow > div > a > span {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+}
+
+
+.link_share {
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+}
+
+.content-mention > div > a > span {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 93%;
+    text-overflow: ellipsis;
+    font-family: 'Ubuntu', sans-serif;
+    display: inline-block;
+    font-size: 11px;
+    color: #9E9E9E;
+    line-height: 11px;
+}
+
+.colcrashing {
+    width: 117px;
+    float: left;
+    display: block;
+}
+
+.colcrashing > a > .hour {
+    position: relative;
+    top: -2px;
+}
+
+.mention-icon.fa-reply {
+    display: inline-block;
+}
+
+.mention-icon.fa-reply.is_replied {
+    display: none;
+}
+
+.mention-icon.fa-check {
+    display: none;
+}
+
+.mention-icon.fa-check.is_replied {
+    display: inline-block;
+    font-size: 15px;
+    margin-right: 6px;
+    color: #00CC00;
+}
+
+label.toggle-button, label.toggle-button2 {
+    width: 90px;
+    cursor: pointer;
+    height: 24px;
+    padding-top: 0px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    border-radius: 15px;
+    top: 8px;
+    margin-left: 10px;
+}
+
+label.toggle-button input, label.toggle-button2 input {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+label.toggle-button span, label.toggle-button2 span {
+    width: 90px;
+    padding: 0 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    height: 27px;
+    transition: all ease .4s;
+    -moz-transition: all ease .4s;
+    -o-transition: all ease .4s;
+    -webkit-transition: all ease .4s;
+    line-height: 27px;
+    font-weight: normal;
+    background-color: #E39229;
+    color: #FFF !important;
+    border-radius: 15px;
+}
+
+label.toggle-button span.status-uncheck,
+label.toggle-button2 span.status-uncheck {
+    text-align: left;
+    padding-right: 5px;
+    background-color: #E39229;
+}
+
+label.toggle-button span.status-check,
+label.toggle-button2 span.status-check {
+    text-align: right;
+    padding-left: 5px;
+    background-color: #eec315;
+}
+
+label.toggle-button span.status-uncheck:after,
+label.toggle-button span.status-check:before,
+label.toggle-button2 span.status-uncheck:after,
+label.toggle-button2 span.status-check:before {
+    content: '\25CF';
+    font-size: 25px;
+    margin: -2px 0 0 0;
+}
+
+label.toggle-button span.status-uncheck:after,
+label.toggle-button2 span.status-uncheck:after {
+    float: right;
+}
+
+label.toggle-button span.status-check:before,
+label.toggle-button2 span.status-check:before {
+    float: left;
+}
+
+label.toggle-button input:checked ~ .status-check,
+label.toggle-button2 input:checked ~ .status-check {
+    left: 0 !important;
+}
+
+label.toggle-button input:checked ~ .status-uncheck,
+label.toggle-button2 input:checked ~ .status-uncheck {
+    left: -90px !important;
+}
+
+label.toggle-button input ~ .status-check,
+label.toggle-button2 input ~ .status-check {
+    left: 90px !important;
+}
+
+label.toggle-button input ~ .status-uncheck,
+label.toggle-button2 input ~ .status-uncheck {
+    left: 0 !important;
+}

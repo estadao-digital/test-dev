@@ -1,0 +1,43 @@
+.btn-status.btn-success:before {
+    content: "Liberado";
+}
+
+.complaits_detail{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-status.btn-success:hover:before {
+    content: "Bloquear?";
+}
+
+.btn-status.btn-danger:before {
+    content: "Bloqueado";
+}
+
+.btn-status.btn-danger:hover:before {
+    content: "Liberar?";
+}
+
+.btn-status.btn-default:before {
+    content: "Analisar";
+}
+
+.btn-status{
+    min-width: 95px;
+}
+
+.chosen-container.chosen-with-drop .chosen-drop {
+    left: 0;
+    width: 280px;
+    border-top: 1px solid #ccc;
+}
+
+.chosen-container-single .chosen-single {
+    padding: 6px 0px 0px 4px;
+    height: 33px;
+}
+
+.chosen-container-single .chosen-single div b {
+    margin-top: 5px;
+}

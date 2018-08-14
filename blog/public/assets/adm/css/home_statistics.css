@@ -1,0 +1,89 @@
+.adm-box .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.adm-box .list li {
+    padding: 2px;
+    transition: all ease .2s;
+}
+
+.adm-box .list li > div {
+    margin: 0;
+    background: #FFF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 5px 5px 27px 5px;
+    position: relative;
+    text-align: center;
+    min-height: 195px;
+    transition: all ease .2s;
+}
+
+.adm-box .list li > div .title {
+    margin: 5px 0 10px;
+    padding: 0;
+    color: #797979;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.adm-box .list li > div p {
+    color: #0c0c0c !important;
+    display: inline-block;
+    white-space: nowrap;
+    min-width: 140px;
+    margin: 0;
+}
+
+.adm-box .list li > div .plus {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: #797979 !important;
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 25px;
+}
+
+.adm-box .list li > div i.fa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -25px;
+    color: #0c0c0c !important;
+}
+
+.adm-box .list li.relevance .result {
+    position: relative;
+    background: #e0e0e0;
+    margin-top: 15px;
+}
+
+.adm-box .list li.amount_users .result,
+.adm-box .list li.amount_files .result,
+.adm-box .list li.amount_chats .result,
+.adm-box .list li.amount_users .result,
+.adm-box .list li.amount_points .result,
+.adm-box .list li.amount_help .result,
+.adm-box .list .amount_store .result,
+.adm-box .list .amount_views .result{
+    margin-top: 15px;
+}
+
+.adm-box .list li.relevance .result .color {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    background: #ecd300;
+    height: 100%;
+    width: 0%;
+
+}
+
+.adm-box .list li.relevance .result img {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}

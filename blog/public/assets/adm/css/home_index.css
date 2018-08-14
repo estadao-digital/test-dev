@@ -1,0 +1,57 @@
+.dashboard-adm{
+    padding: 10px;
+}
+.dashboard-adm .item{
+    padding:5px;
+}
+.dashboard-adm .item > div{
+    margin: 0;
+    background: #FFF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+    padding:10px 15px;
+    position: relative;
+    transition: all ease .2s;
+    min-height: 195px;
+    position: relative;
+}
+
+.dashboard-adm .item > div h4{
+    margin: 5px 0 10px;
+    padding: 0;
+    color: #797979;
+    font-size: 18px;
+    font-weight: bold;
+}
+.dashboard-adm .item > div p{
+    color: #0c0c0c !important;
+}
+.dashboard-adm .item > div .links{
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+}
+.dashboard-adm .item > div .links a{
+    font-size: 18px;
+    display: inline-block;
+    background: #007dbb;
+    width: 35px;
+    height: 30px;
+    margin:0 0 0 5px;
+    padding: 0;
+    line-height: 18px;
+    border-radius: 5px;
+}
+
+.dashboard-adm .item > div .links a.add{
+    background: #9e9e9e;
+}
+
+.dashboard-adm .item > div .links a i{
+    color: #FFF;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+}

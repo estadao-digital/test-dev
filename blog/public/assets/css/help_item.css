@@ -1,0 +1,238 @@
+.log .item,
+.help .item {
+    background: #FFF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.log .item .header,
+.help .item .header {
+    background: transparent url(../img/doc.png) no-repeat 20px 50%;
+    padding: 20px 20px 20px 60px;
+    color: #232323;
+    height: auto;
+}
+
+.mgbottom {
+    border-bottom: 1px solid #f2f2f2;
+
+}
+
+.info > div > a {
+    margin-top: 10px;
+    color: #000;
+}
+
+.log .item .header{
+    background-image:  url(../img/history.png);
+    border: none;
+}
+
+.log .item .header h3,
+.help .item .header h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    text-shadow: 0 0 0 #232323;
+}
+
+.log .item .header h3{
+    line-height: 27px;
+}
+
+.log .item .header h3 i{
+    font-size: 27px;
+    float: left;
+    margin-right: 15px;
+}
+
+.help .item .header p {
+    margin: 0;
+    padding: 3px 0 0 0;
+    font-size: 12px;
+}
+
+.help .item .header p span {
+    color: rgba(0,0,0,0.5);
+    min-height: 40px;
+}
+
+.help .item .text {
+    font-size: 11px;
+    color: #232323;
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+
+}
+
+.help .item .file {
+    background-color: #fff;
+    margin: 1px -15px;
+}
+
+.help .item .file:hover {
+    background-color: #ededed;
+}
+
+.help .item .file .link {
+    color: rgba(0,0,0,0.4);
+    padding: 5px 15px;
+}
+.help .item .file .link .fa{
+    cursor: pointer;
+}
+.help .item .file .link a{
+    color: rgba(0,0,0,0.5);
+    padding-right: 50px;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.help .item .file a i {
+    font-size: 16px;
+}
+
+.help .item .file label {
+    display: none;
+}
+
+.help .item .info {
+    padding: 5px 25px;
+}
+
+.help .item .info .comments {
+    display: inline-block;
+    color: #cccccc;
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+.help .item .info .edit {
+    font-size: 12px;
+    display: inline-block;
+    float: right;
+    color: #232323;
+    text-decoration: underline;
+}
+
+.log .item ul{
+    border-top: 1px solid #f4f4f4;
+    border-bottom: 1px solid #f4f4f4;
+    list-style: none;
+    padding: 0;
+}
+.log .item ul li{
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #f4f4f4;
+    color: #232323;
+    background: transparent url(../img/avatar.png) no-repeat 15px 50%;
+    background-size: 17px 21px;
+    display: block;
+    padding: 10px 15px 10px 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.log .item ul li.photo-true{
+    background-size: 25px auto;
+    background-position: 15px 50%;
+    padding-left: 50px;
+}
+
+.log .item ul li span{
+    color: rgba(0,0,0,0.5);
+}
+
+.log .item ul li:first-child {
+    border: none;
+}
+
+.files .list {
+}
+
+.files .list .input-group {
+    position: relative;
+    margin: 10px 0;
+}
+
+.files .list .input-group input {
+    width: 50%;
+}
+
+.list-file {
+}
+
+.list-file ul {
+    padding: 0;
+    list-style: none;
+}
+
+.list-file ul li {
+    display: block;
+    padding: 5px 10px;
+    background: #eaeaea;
+    margin: 4px 0px;
+}
+
+.list-file ul li .input-group input,
+.list-file ul li a.name {
+    font-size: 14px;
+    display: inline-block;
+    padding: 0 !important;
+    height: 25px;
+    line-height: 25px;
+    width: auto;
+    color: #414141;
+}
+
+.list-file ul li .input-group input {
+    width: 90%;
+}
+
+.list-file ul li a.name {
+    text-decoration: underline;
+}
+
+.list-file ul li a.edit-name {
+    margin-left: 5px;
+    display: inline-block;
+    color: #0029ff;
+    font-size: 16px;
+}
+
+.list-file ul li.edit a.edit-name,
+.list-file ul li.edit a.name {
+    display: none;
+}
+
+.list-file ul li a.delete-file {
+    float: right;
+    color: #e60000;
+    font-size: 16px;
+}
+
+.list-file ul li .input-group {
+    float: left;
+    display: none;
+    width: 50%;
+}
+
+.list-file ul li.edit .input-group {
+    display: inline-block;
+}
+
+.list-file ul li .input-group-btn {
+    display: inline-block;
+}
+
+.list-file ul li .input-group .btn {
+    height: 25px;
+    padding: 0 5px;
+}

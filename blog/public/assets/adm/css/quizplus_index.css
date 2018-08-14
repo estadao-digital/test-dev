@@ -1,0 +1,21 @@
+
+.btn-status {
+    width: 80px;
+    padding-left: 0;
+    padding-right: 0;
+}
+.btn-status.btn-success:before {
+    content: 'Ativo';
+}
+
+.btn-status.btn-success:hover:before {
+    content: 'Desativar?';
+}
+
+.btn-status.btn-warning:before {
+    content: 'Desativado';
+}
+
+.btn-status.btn-warning:hover:before {
+    content: 'Ativar?';
+}

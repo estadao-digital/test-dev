@@ -1,0 +1,12 @@
+.blueimp-gallery-feed-item > .slides > .slide > .slide-content,
+.blueimp-gallery-home-index > .slides > .slide > .slide-content {
+    border-radius: 11px;
+}
+
+.blueimp-gallery-feed-item > .play-pause,
+.blueimp-gallery-home-index > .play-pause {
+    opacity: 0 !important;
+    display: none !important;
+}
+
+/*.blueimp-gallery-feed-item, .blueimp-gallery-home-index{}*/

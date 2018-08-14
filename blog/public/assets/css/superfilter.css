@@ -1,0 +1,122 @@
+#savefilter_modal,
+#modal-confirm {
+    z-index: 1051;
+}
+
+#form-superfilter label{
+    margin-bottom: -5px;
+}
+
+
+#superfilter_modal .modal-dialog {
+    width: calc(100% - 1%);
+    margin: 1% auto;
+}
+
+#superfilter_modal .modal-body {
+    height: calc(100vh - 150px);
+    overflow: hidden;
+}
+
+#superfilter_modal.loaded .modal-body {
+    overflow-y: auto;
+}
+
+#superfilter_modal .modal-body .saved-filters {
+    display: none;
+}
+
+#superfilter_modal .modal-body .saved-filters a.label {
+    background: #b4b4b4;
+    transition: all ease .2s;
+    margin-right: 3px;
+}
+
+#superfilter_modal .modal-body .saved-filters a.label:hover {
+    background: #a5a5a5;
+}
+
+#superfilter_modal .modal-body .saved-filters a.label i {
+    margin-left: 8px;
+    transition: all ease .2s;
+}
+
+#superfilter_modal .modal-body .saved-filters a.label i:hover {
+    transform: scale(1.7) translate(0, 0);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);
+}
+
+#superfilter_modal .chosen-container-single .chosen-single {
+    height: 34px;
+}
+
+#superfilter_modal .my-group .chosen-container-single,
+#superfilter_modal .my-group .form-control {
+    width: 50% !important;
+    float: left;
+}
+
+#superfilter_modal .input-group .form-control:last-child {
+    border-left: none;
+}
+
+#superfilter_modal .input-group .chosen-container-single .chosen-single {
+    border-radius: 5px 0 0 5px;
+}
+
+#superfilter_modal .load-filter {
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0);
+    z-index: 3;
+    border-radius: 6px;
+}
+
+#superfilter_modal.loaded .load-filter {
+    display: none;
+}
+
+
+#superfilter_modal .form-group label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.input-group.super-filter .chosen-container-multi .chosen-choices {
+    border-radius: 5px 0 0 5px;
+    min-height: 167px;
+    max-height: 55vh;
+    overflow: auto;
+}
+
+.input-group.super-filter .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+    height: 26px;
+}
+
+.input-group.super-filter .btn-superfiler {
+    background-color: #5cb85c;
+    color: #FFF;
+}
+
+.input-group.super-filter .btn-superfiler-clear {
+    background-color: #f82c21;
+}
+
+.input-group.super-filter .input-group-btn {
+    vertical-align: top;
+}
+
+.input-group.super-filter .input-group-btn .btn:first-child {
+    border-radius: 0 5px 0 0;
+}
+
+.input-group.super-filter .input-group-btn .btn:last-child {
+    border-radius: 0 0 5px 0;
+}

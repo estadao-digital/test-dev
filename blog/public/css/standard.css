@@ -1,0 +1,1216 @@
+div {
+    font-family: Tahoma, Helvetica;
+}
+
+.clsCMOn, .clsCMOver {
+    font-size: 12px;
+    padding: 2px 4px;
+    color: white;
+}
+
+#CrossLink {
+    width:330px;
+    float: right;
+}
+
+#CrossLink td {
+    background: #CeCece;
+    color: #FFFFFF;
+    font-family: verdana;
+    font-size: 10px;
+    font-weight: bolder;
+    padding:0px;
+    margin: 0px;
+}
+
+#CrossLink a {
+    font-family: verdana;
+    font-size: 10px;
+    color: #666666;
+    font-weight: normal;
+    text-decoration: none;
+    padding: 5px;
+}
+
+#CrossLink a:hover {
+    color: #C00000;
+}
+
+body {
+    font-family: Verdana;
+    font-size: 11px;
+    color: #FFFFFF;
+    background-image: url('../imagens/header-bg.png');
+    background-repeat: repeat-x; font-weight:bold
+
+}
+
+td, p, li, ul {
+    font-family: Verdana;
+    font-size: 11px;
+    color: #000000;
+    list-style-type:none; font-weight:bold
+}
+
+form {
+    margin: 0px;
+    padding: 0px;
+}
+
+#Rodape {
+    font-size: 10px;
+    color: 666666;
+    width: 778px;
+    padding-left: 10px;
+    padding-top: 5px;
+    background-color: White;
+}
+
+.FundoInfinito {
+    background-image: url(/images/locaweb/pt_BR/fundo_site.jpg);
+    background-repeat: repeat-x;
+    background-position: 0px 44px ;
+    background-color: #CACACA;
+}
+
+.pointV {
+    background-image: url(/images/locaweb/pt_BR/pontinhos_V.gif);
+    background-repeat: repeat-y;
+}
+
+.pointH {
+    background-image: url(/images/locaweb/pt_BR/pontinhos_H.gif);
+    background-repeat: repeat-x;
+}
+
+.PontVerH {
+    background-image: url(/images/locaweb/pt_BR/pontinhos_ver_H.gif);
+    background-repeat: repeat-x;
+}
+
+.PontPretV {
+    background-image: url(/images/locaweb/pt_BR/pontinhos_V.gif);
+    background-repeat: repeat-y;
+    background-position: 136px ;
+}
+
+.PontPretH {
+    background-image: url(/images/locaweb/pt_BR/pontinhos_H.gif);
+    background-repeat: repeat-x;
+    background-position: top ;
+}
+
+.PontVerV {
+    background-image: url(/images/locaweb/pt_BR/pontinhos_V.gif);
+    background-repeat: repeat-y;
+}
+
+#TxtNoticias {
+    padding: 5px;
+    line-height: 18px;
+    text-decoration: none;
+}
+
+#TxtNoticias a {
+    padding: 5px;
+    line-height: 18px;
+    color: #666666;
+    text-decoration: none;
+}
+
+#TxtNoticias  a:hover {
+    color: #C00000;
+    text-decoration: underline;
+}
+
+.TxtLinkHome {
+    color: #666666;
+    text-decoration: underline;
+}
+
+:hover.TxtLinkHome {
+    color: #C00000;
+    text-decoration: underline;
+}
+
+.TxtLinkDetaqHome {
+    color: #000000;
+    text-decoration: none;
+}
+
+:hover.TxtLinkDetaqHome {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.TxtMenu {
+    font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #EFEFEF;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+:hover.TxtMenu {
+    color: #FFCC00;
+    text-decoration: none;
+}
+
+.Txt_Titulo {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #CC0000;
+}
+
+.BoxHome {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #666666;
+    border-color: #B9B9B9;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.SombraHome {
+    background-image: url(/images/locaweb/pt_BR/f_sombra.jpg);
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
+.Formulario {
+    font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size : 10px;
+    color : #333333;
+    border : 1px solid #CCCCCC;
+    background-color : #E0E0E0;
+}
+
+.Formulario_Branco {
+    font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size : 10px;
+    color : #333333;
+    border : 1px solid #CCCCCC;
+    background-color : #FFFFFF;
+}
+
+.ButHome {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #C00000;
+    background-color: #F4F4F4;
+    border-color: #B9B9B9;
+    border-width: 1px;
+    border-style: solid;
+    padding: 0px;
+    font-weight: bold;
+}
+
+#LayerDominio {
+    position:absolute;
+    width:375px;
+    height:26px;
+    z-index:99;
+    left: 238px;
+    top: 109px;
+    visibility:	visible;
+    overflow: visible;
+}
+
+#LayerBoxEsquerda {
+    position:absolute;
+    width:164px;
+    height: 147px;
+    z-index:98;
+    left: 614px;
+    top: 113px;
+    visibility:	visible;
+    overflow: visible;
+
+}
+
+#LayerBoxEsquerda td {
+    padding-left: 13px;
+}
+
+.PainelControle {
+    margin: 5px;
+    float: right;
+}
+
+.FundoTabelaPrincipal {
+    background-image: url(/images/locaweb/pt_BR/hospedagem/fundo_tab_pricipal.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+.FundoEnquete {
+    background-image: url(/images/locaweb/pt_BR/m_destaque_enquete.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+#BoxLogin  {
+    background-image: url(/images/locaweb/pt_BR/hospedagem/fundo_box.jpg);
+    background-repeat: repeat-x;
+}
+
+#BoxLogin td {
+    padding-left: 13px;
+}
+
+.h2 {
+    font-size: 11px;
+    font-weight: normal;
+    color: #C00000;
+    padding: 5px;
+    margin: 0px;
+}
+
+.fundolistra {
+    background-image: url(/images/locaweb/pt_BR/fundo_listra.gif);
+}
+
+.fundocinza {
+    background-color: #f5f5f5;
+}
+
+#MenuLateral {
+    background-color: #f5f5f5;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #333333;
+
+}
+
+#MenuLateral li {
+    list-style: none;
+    border-bottom: 1px;
+    border-bottom-color: #DCDCDC;
+    border-bottom-style: solid;
+    border-right: 1px;
+    border-right-color: #7B7B7B;
+    border-right-style: solid;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-left: 13px;
+}
+
+
+#MenuLateral a {
+    font-family: verdana;
+    font-size: 10px;
+    color: #333333;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+#MenuLateral a:hover {
+    color: #C00000;
+}
+
+#MenuLateral .Primeiro {
+    margin-top: 5px;
+    border-right: 0px;
+    border-bottom: 0px;
+    background-image: url(/images/locaweb/pt_BR/fundo_primeira.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
+
+#MenuLateral .Primeiros {
+    padding-top: 5px;
+}
+
+#MenuLateral ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+#MenuLateral .Ultimos {
+    padding-bottom: 5px;
+    border-bottom: 0px;
+
+}
+
+.FundoSombrinha {
+    background-image: url(/images/locaweb/pt_BR/hospedagem/img_curvinha.jpg);
+    background-repeat: no-repeat;
+    background-position: top left;
+    padding: 7px;
+}
+
+.MnPrimeiro {
+    background-image: url(/images/locaweb/pt_BR/hospedagem/fundo_primeira.jpg);
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
+.txt_total {  font-family: Verdana, Arial, Helvetica, sans-serif; border-style: none}
+.txt_total2 {  font-family: Verdana, Arial, Helvetica, sans-serif; border-style: none; font-weight: bold; background-color: #EEEEEE}
+.txt_total_texto { font-family: Verdana, Arial, Helvetica, sans-serif; border-style: none ; color: #FF0000; font-weight: bold; font-size: 11}
+
+.borda_proposta {
+    font-family: "Courier New", Courier, mono;
+    font-size: 11px;
+    border: 1px solid #EFEFEF;
+    background-color: #F7F7F7;
+}
+
+.Codigo_fonte
+{
+    font-family: Courier New, Courier, mono;
+    font-size: 11px;
+    color: #666666;
+}
+.Vermelho
+{
+    font-size: 11px;
+    color: #cc0000;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;	}
+
+.fundo_imgRevenda {
+    background-image: url(/images/locaweb/pt_BR/img_fundo_revenda.jpg);
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+
+img{border:0}
+
+
+/*
+    Document   : menu_style
+    Created on : 25/07/2013, 15:13:38
+    Changelog  : 17/02/2014, 14:01:37
+    Author     : arthur
+*/
+
+/* Link Styling */
+ul.sqgmenu a {
+    color:#FFF;
+    font-style: normal;
+    text-decoration: none;
+    margin:0px;
+    width:100%;
+    display:block;
+}
+ul.sqgmenu a:active {
+    color:#DDD;
+}
+
+/* UL LI */
+ul.sqgmenu, ul.sqgmenu ul {
+    margin:0px;
+    padding:0px;
+}
+ul.sqgmenu li {
+    margin:0px;
+    padding:0px 6px;
+    font-weight: bold;
+    font-size: 13px;
+    font-family: Tahoma,sans-serif;
+    color:#FFF;
+    white-space: nowrap;
+
+    background-color:#0092df;
+    border:1px solid #777;
+
+    list-style-type: none;
+    float:left;
+
+    cursor:pointer;
+}
+ul.sqgmenu li a, ul.sqgmenu li label
+{
+    line-height:22px;
+    display:block;
+    padding:0px;
+}
+ul.sqgmenu
+{
+    display:inline-block;
+    position:relative;
+    z-index: 2;
+    /* width:100%; */
+}
+div#overwatcher {
+    position:absolute;
+    width:100%; height:100%;
+    left:0px; top:0px;
+    margin:0px; padding:0px;
+    background-color:rgba(32,42,54,0.2);
+    display:none;
+    z-index:1;
+}
+
+ul.sqgmenu li
+{
+    position:relative;
+    display:block;
+    box-shadow: 2px 2px 0px #666;
+}
+ul.sqgmenu li ul li
+{
+    display:block;
+    float:none;
+    width:auto;
+    padding-right: 70px;
+}
+
+ul.sqgmenu li ul
+{
+    display:block;
+    position:absolute;
+    top:0px;
+    left:0px;
+    box-shadow: 2px 2px 0px #888888;
+}
+ul.sqgmenu li ul.aparece
+{
+    display: block;
+}
+ul.sqgmenu li ul.naoAparece
+{
+    display: none;
+}
+
+/* hover styling */
+ul.sqgmenu li.hover, ul.sqgmenu a li.hover {
+    background-color: #B0C4DE;
+}
+
+/*
+    Document   : menu_style
+    Created on : 25/07/2013, 15:13:38
+    Changelog  : 17/02/2014, 14:01:37
+    Author     : arthur
+*/
+
+/* Link Styling */
+ul.sqgmenu a {
+    color:#FFF;
+    font-style: normal;
+    text-decoration: none;
+    margin:0px;
+    width:100%;
+    display:block;
+}
+ul.sqgmenu a:active {
+    color:#DDD;
+}
+
+/* UL LI */
+ul.sqgmenu, ul.sqgmenu ul {
+    margin:0px;
+    padding:0px;
+}
+ul.sqgmenu li {
+    margin:0px;
+    padding:0px 6px;
+    font-weight: bold;
+    font-size: 13px;
+    font-family: Tahoma,sans-serif;
+    color:#FFF;
+    white-space: nowrap;
+
+    background-color:#0092df;
+    border:1px solid #777;
+
+    list-style-type: none;
+    float:left;
+
+    cursor:pointer;
+}
+ul.sqgmenu li a, ul.sqgmenu li label
+{
+    line-height:22px;
+    display:block;
+    padding:0px;
+}
+ul.sqgmenu
+{
+    display:inline-block;
+    position:relative;
+    z-index: 2;
+    /* width:100%; */
+}
+div#overwatcher {
+    position:absolute;
+    width:100%; height:100%;
+    left:0px; top:0px;
+    margin:0px; padding:0px;
+    background-color:rgba(32,42,54,0.2);
+    display:none;
+    z-index:1;
+}
+
+ul.sqgmenu li
+{
+    position:relative;
+    display:block;
+    box-shadow: 2px 2px 0px #666;
+}
+ul.sqgmenu li ul li
+{
+    display:block;
+    float:none;
+    width:auto;
+    padding-right: 70px;
+}
+
+ul.sqgmenu li ul
+{
+    display:block;
+    position:absolute;
+    top:0px;
+    left:0px;
+    box-shadow: 2px 2px 0px #888888;
+}
+ul.sqgmenu li ul.aparece
+{
+    display: block;
+}
+ul.sqgmenu li ul.naoAparece
+{
+    display: none;
+}
+
+/* hover styling */
+ul.sqgmenu li.hover, ul.sqgmenu a li.hover {
+    background-color: #B0C4DE;
+}
+
+
+.pop{
+    display:none;
+    position:float;
+    padding:10px;
+    border:2px solid gray;
+    background-color : #FFFFFF;
+}
+.popupDadosPrincipaisEmpresa a:link, .popupDadosPrincipaisEmpresa a:visited {
+    color: #18189A;
+    font-family: Arial,Helvetica,sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+.popupDadosPrincipaisEmpresa a:hover, .popupDadosPrincipaisEmpresa a:active, .popupDadosPrincipaisEmpresa a:focus {
+    text-decoration: underline;
+}
+.popupDadosPrincipaisEmpresa select, .popupDadosPrincipaisEmpresa input, .popupDadosPrincipaisEmpresa textarea {
+    background: none repeat-y scroll 0 0 #FFFFD4;
+    color: #3C3C3C;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: lighter;
+}
+div {
+    font-family: Tahoma, Helvetica;
+}
+
+.clsCMOn, .clsCMOver {
+    font-size: 12px;
+    padding: 2px 4px;
+    color: white;
+}
+
+#CrossLink {
+    width:330px;
+    float: right;
+}
+
+#CrossLink td {
+    background: #CeCece;
+    color: #FFFFFF;
+    font-family: verdana;
+    font-size: 10px;
+    font-weight: bolder;
+    padding:0px;
+    margin: 0px;
+}
+
+#CrossLink a {
+    font-family: verdana;
+    font-size: 10px;
+    color: #666666;
+    font-weight: normal;
+    text-decoration: none;
+    padding: 5px;
+}
+
+#CrossLink a:hover {
+    color: #C00000;
+}
+
+body {
+    font-family: Verdana;
+    font-size: 11px;
+    color: #FFFFFF;
+    background-image: url('../imagens/header-bg.png');
+    background-repeat: repeat-x; font-weight:bold
+
+}
+
+td, p, li, ul {
+    font-family: Verdana;
+    font-size: 11px;
+    color: #000000;
+    list-style-type:none; font-weight:bold
+}
+
+form {
+    margin: 0px;
+    padding: 0px;
+}
+
+#Rodape {
+    font-size: 10px;
+    color: 666666;
+    width: 778px;
+    padding-left: 10px;
+    padding-top: 5px;
+    background-color: White;
+}
+
+.FundoInfinito {
+    background-image: url(/images/locaweb/pt_BR/fundo_site.jpg);
+    background-repeat: repeat-x;
+    background-position: 0px 44px ;
+    background-color: #CACACA;
+}
+
+.pointV {
+    background-image: url(/images/locaweb/pt_BR/pontinhos_V.gif);
+    background-repeat: repeat-y;
+}
+
+.pointH {
+    background-image: url(/images/locaweb/pt_BR/pontinhos_H.gif);
+    background-repeat: repeat-x;
+}
+
+.PontVerH {
+    background-image: url(/images/locaweb/pt_BR/pontinhos_ver_H.gif);
+    background-repeat: repeat-x;
+}
+
+.PontPretV {
+    background-image: url(/images/locaweb/pt_BR/pontinhos_V.gif);
+    background-repeat: repeat-y;
+    background-position: 136px ;
+}
+
+.PontPretH {
+    background-image: url(/images/locaweb/pt_BR/pontinhos_H.gif);
+    background-repeat: repeat-x;
+    background-position: top ;
+}
+
+.PontVerV {
+    background-image: url(/images/locaweb/pt_BR/pontinhos_V.gif);
+    background-repeat: repeat-y;
+}
+
+#TxtNoticias {
+    padding: 5px;
+    line-height: 18px;
+    text-decoration: none;
+}
+
+#TxtNoticias a {
+    padding: 5px;
+    line-height: 18px;
+    color: #666666;
+    text-decoration: none;
+}
+
+#TxtNoticias  a:hover {
+    color: #C00000;
+    text-decoration: underline;
+}
+
+.TxtLinkHome {
+    color: #666666;
+    text-decoration: underline;
+}
+
+:hover.TxtLinkHome {
+    color: #C00000;
+    text-decoration: underline;
+}
+
+.TxtLinkDetaqHome {
+    color: #000000;
+    text-decoration: none;
+}
+
+:hover.TxtLinkDetaqHome {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.TxtMenu {
+    font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #EFEFEF;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+:hover.TxtMenu {
+    color: #FFCC00;
+    text-decoration: none;
+}
+
+.Txt_Titulo {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #CC0000;
+}
+
+.BoxHome {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #666666;
+    border-color: #B9B9B9;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.SombraHome {
+    background-image: url(/images/locaweb/pt_BR/f_sombra.jpg);
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
+.Formulario {
+    font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size : 10px;
+    color : #333333;
+    border : 1px solid #CCCCCC;
+    background-color : #E0E0E0;
+}
+
+.Formulario_Branco {
+    font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size : 10px;
+    color : #333333;
+    border : 1px solid #CCCCCC;
+    background-color : #FFFFFF;
+}
+
+.ButHome {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #C00000;
+    background-color: #F4F4F4;
+    border-color: #B9B9B9;
+    border-width: 1px;
+    border-style: solid;
+    padding: 0px;
+    font-weight: bold;
+}
+
+#LayerDominio {
+    position:absolute;
+    width:375px;
+    height:26px;
+    z-index:99;
+    left: 238px;
+    top: 109px;
+    visibility:	visible;
+    overflow: visible;
+}
+
+#LayerBoxEsquerda {
+    position:absolute;
+    width:164px;
+    height: 147px;
+    z-index:98;
+    left: 614px;
+    top: 113px;
+    visibility:	visible;
+    overflow: visible;
+
+}
+
+#LayerBoxEsquerda td {
+    padding-left: 13px;
+}
+
+.PainelControle {
+    margin: 5px;
+    float: right;
+}
+
+.FundoTabelaPrincipal {
+    background-image: url(/images/locaweb/pt_BR/hospedagem/fundo_tab_pricipal.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+.FundoEnquete {
+    background-image: url(/images/locaweb/pt_BR/m_destaque_enquete.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+#BoxLogin  {
+    background-image: url(/images/locaweb/pt_BR/hospedagem/fundo_box.jpg);
+    background-repeat: repeat-x;
+}
+
+#BoxLogin td {
+    padding-left: 13px;
+}
+
+.h2 {
+    font-size: 11px;
+    font-weight: normal;
+    color: #C00000;
+    padding: 5px;
+    margin: 0px;
+}
+
+.fundolistra {
+    background-image: url(/images/locaweb/pt_BR/fundo_listra.gif);
+}
+
+.fundocinza {
+    background-color: #f5f5f5;
+}
+
+#MenuLateral {
+    background-color: #f5f5f5;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #333333;
+
+}
+
+#MenuLateral li {
+    list-style: none;
+    border-bottom: 1px;
+    border-bottom-color: #DCDCDC;
+    border-bottom-style: solid;
+    border-right: 1px;
+    border-right-color: #7B7B7B;
+    border-right-style: solid;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-left: 13px;
+}
+
+
+#MenuLateral a {
+    font-family: verdana;
+    font-size: 10px;
+    color: #333333;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+#MenuLateral a:hover {
+    color: #C00000;
+}
+
+#MenuLateral .Primeiro {
+    margin-top: 5px;
+    border-right: 0px;
+    border-bottom: 0px;
+    background-image: url(/images/locaweb/pt_BR/fundo_primeira.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
+
+#MenuLateral .Primeiros {
+    padding-top: 5px;
+}
+
+#MenuLateral ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+#MenuLateral .Ultimos {
+    padding-bottom: 5px;
+    border-bottom: 0px;
+
+}
+
+.FundoSombrinha {
+    background-image: url(/images/locaweb/pt_BR/hospedagem/img_curvinha.jpg);
+    background-repeat: no-repeat;
+    background-position: top left;
+    padding: 7px;
+}
+
+.MnPrimeiro {
+    background-image: url(/images/locaweb/pt_BR/hospedagem/fundo_primeira.jpg);
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
+.txt_total {  font-family: Verdana, Arial, Helvetica, sans-serif; border-style: none}
+.txt_total2 {  font-family: Verdana, Arial, Helvetica, sans-serif; border-style: none; font-weight: bold; background-color: #EEEEEE}
+.txt_total_texto { font-family: Verdana, Arial, Helvetica, sans-serif; border-style: none ; color: #FF0000; font-weight: bold; font-size: 11}
+
+.borda_proposta {
+    font-family: "Courier New", Courier, mono;
+    font-size: 11px;
+    border: 1px solid #EFEFEF;
+    background-color: #F7F7F7;
+}
+
+.Codigo_fonte
+{
+    font-family: Courier New, Courier, mono;
+    font-size: 11px;
+    color: #666666;
+}
+.Vermelho
+{
+    font-size: 11px;
+    color: #cc0000;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;	}
+
+.fundo_imgRevenda {
+    background-image: url(/images/locaweb/pt_BR/img_fundo_revenda.jpg);
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+
+img{border:0}
+
+
+/*
+    Document   : menu_style
+    Created on : 25/07/2013, 15:13:38
+    Changelog  : 17/02/2014, 14:01:37
+    Author     : arthur
+*/
+
+/* Link Styling */
+ul.sqgmenu a {
+    color:#FFF;
+    font-style: normal;
+    text-decoration: none;
+    margin:0px;
+    width:100%;
+    display:block;
+}
+ul.sqgmenu a:active {
+    color:#DDD;
+}
+
+/* UL LI */
+ul.sqgmenu, ul.sqgmenu ul {
+    margin:0px;
+    padding:0px;
+}
+ul.sqgmenu li {
+    margin:0px;
+    padding:0px 6px;
+    font-weight: bold;
+    font-size: 13px;
+    font-family: Tahoma,sans-serif;
+    color:#FFF;
+    white-space: nowrap;
+
+    background-color:#0092df;
+    border:1px solid #777;
+
+    list-style-type: none;
+    float:left;
+
+    cursor:pointer;
+}
+ul.sqgmenu li a, ul.sqgmenu li label
+{
+    line-height:22px;
+    display:block;
+    padding:0px;
+}
+ul.sqgmenu
+{
+    display:inline-block;
+    position:relative;
+    z-index: 2;
+    /* width:100%; */
+}
+div#overwatcher {
+    position:absolute;
+    width:100%; height:100%;
+    left:0px; top:0px;
+    margin:0px; padding:0px;
+    background-color:rgba(32,42,54,0.2);
+    display:none;
+    z-index:1;
+}
+
+ul.sqgmenu li
+{
+    position:relative;
+    display:block;
+    box-shadow: 2px 2px 0px #666;
+}
+ul.sqgmenu li ul li
+{
+    display:block;
+    float:none;
+    width:auto;
+    padding-right: 70px;
+}
+
+ul.sqgmenu li ul
+{
+    display:block;
+    position:absolute;
+    top:0px;
+    left:0px;
+    box-shadow: 2px 2px 0px #888888;
+}
+ul.sqgmenu li ul.aparece
+{
+    display: block;
+}
+ul.sqgmenu li ul.naoAparece
+{
+    display: none;
+}
+
+/* hover styling */
+ul.sqgmenu li.hover, ul.sqgmenu a li.hover {
+    background-color: #B0C4DE;
+}
+
+/*
+    Document   : menu_style
+    Created on : 25/07/2013, 15:13:38
+    Changelog  : 17/02/2014, 14:01:37
+    Author     : arthur
+*/
+
+/* Link Styling */
+ul.sqgmenu a {
+    color:#FFF;
+    font-style: normal;
+    text-decoration: none;
+    margin:0px;
+    width:100%;
+    display:block;
+}
+ul.sqgmenu a:active {
+    color:#DDD;
+}
+
+/* UL LI */
+ul.sqgmenu, ul.sqgmenu ul {
+    margin:0px;
+    padding:0px;
+}
+ul.sqgmenu li {
+    margin:0px;
+    padding:0px 6px;
+    font-weight: bold;
+    font-size: 13px;
+    font-family: Tahoma,sans-serif;
+    color:#FFF;
+    white-space: nowrap;
+
+    background-color:#0092df;
+    border:1px solid #777;
+
+    list-style-type: none;
+    float:left;
+
+    cursor:pointer;
+}
+ul.sqgmenu li a, ul.sqgmenu li label
+{
+    line-height:22px;
+    display:block;
+    padding:0px;
+}
+ul.sqgmenu
+{
+    display:inline-block;
+    position:relative;
+    z-index: 2;
+    /* width:100%; */
+}
+div#overwatcher {
+    position:absolute;
+    width:100%; height:100%;
+    left:0px; top:0px;
+    margin:0px; padding:0px;
+    background-color:rgba(32,42,54,0.2);
+    display:none;
+    z-index:1;
+}
+
+ul.sqgmenu li
+{
+    position:relative;
+    display:block;
+    box-shadow: 2px 2px 0px #666;
+}
+ul.sqgmenu li ul li
+{
+    display:block;
+    float:none;
+    width:auto;
+    padding-right: 70px;
+}
+
+ul.sqgmenu li ul
+{
+    display:block;
+    position:absolute;
+    top:0px;
+    left:0px;
+    box-shadow: 2px 2px 0px #888888;
+}
+ul.sqgmenu li ul.aparece
+{
+    display: block;
+}
+ul.sqgmenu li ul.naoAparece
+{
+    display: none;
+}
+
+/* hover styling */
+ul.sqgmenu li.hover, ul.sqgmenu a li.hover {
+    background-color: #B0C4DE;
+}
+
+
+.pop{
+    display:none;
+    position:float;
+    padding:10px;
+    border:2px solid gray;
+    background-color : #FFFFFF;
+}
+.popupDadosPrincipaisEmpresa a:link, .popupDadosPrincipaisEmpresa a:visited {
+    color: #18189A;
+    font-family: Arial,Helvetica,sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+.popupDadosPrincipaisEmpresa a:hover, .popupDadosPrincipaisEmpresa a:active, .popupDadosPrincipaisEmpresa a:focus {
+    text-decoration: underline;
+}
+.popupDadosPrincipaisEmpresa select, .popupDadosPrincipaisEmpresa input, .popupDadosPrincipaisEmpresa textarea {
+    background: none repeat-y scroll 0 0 #FFFFD4;
+    color: #3C3C3C;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: lighter;
+}

@@ -1,0 +1,7 @@
+.form-filter .open-filter {
+    margin-right: 0;
+}
+
+.form-filter:not(.closed) .btn-group-clear-filter {
+    right: 0;
+}

@@ -1,0 +1,281 @@
+.incident {
+}
+
+.incident .main.hg100 {
+    overflow: auto;
+}
+
+.incident .list-incident * {
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.incident #create-troubleshoot {
+    font-size: 25px;
+    opacity: 0.2;
+    color: #232323;
+    font-weight: 400;
+    display: inline-block;
+    margin-left: 10px;
+    text-decoration: underline;
+}
+
+.glyphicon {
+    font-family: 'Glyphicons Halflings' !important;
+}
+
+.incident .box {
+    margin: 20px 0;
+    vertical-align: top;
+    background: #FFF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    min-height: 300px;
+    padding: 20px 25px;
+}
+
+.incident .list-incident .incident .header {
+    background: transparent url(../img/incident.png) no-repeat 20px 50%;
+    padding: 20px 20px 20px 60px;
+    color: #232323;
+    height: auto;
+}
+
+.incident .list-incident .incident .header h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    text-shadow: 0 0 0 #232323;
+    cursor: pointer;
+
+}
+
+.incident .list-incident .incident .header h3 span.title-incident {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 50%;
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+}
+
+.incident .list-incident .incident .header h3 a {
+    text-shadow: 0 0 0 #232323;
+    color: #232323;
+    display: none;
+}
+
+.incident .list-incident .item:hover .incident .header h3 a {
+    display: inline;
+}
+
+.incident .list-incident .incident .header p {
+    margin: 0;
+    padding: 3px 0 0 0;
+    font-size: 12px;
+    min-height: 40px;
+
+}
+
+.incident .list-incident .incident .header p span {
+    color: #d65a00;
+}
+
+.incident .list-incident .incident > ul {
+    border-top: 1px solid #f4f4f4;
+    border-bottom: 1px solid #f4f4f4;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.incident .list-incident .incident > ul > li {
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #f4f4f4;
+}
+
+.incident .list-incident .incident > ul > li:first-child {
+    border: none;
+}
+
+.incident .list-incident .incident > ul > li > a {
+    color: #232323;
+    background: transparent url(../img/doc.png) no-repeat 15px 50%;
+    background-size: 17px 21px;
+    display: block;
+    padding: 10px 15px 10px 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.incident .list-incident .incident > ul > li > .diagnostic {
+    /*display: none;*/
+}
+
+.incident .list-incident .incident > ul > li > .diagnostic ul {
+    list-style: none;
+    padding: 5px 15px 15px 15px;
+    margin: 0;
+}
+
+.incident .list-incident .incident > ul > li > .diagnostic ul > li {
+    font-size: 13px;
+}
+
+.incident .list-incident .incident > ul > li > .diagnostic ul > li input {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.incident .list-incident .incident > ul > li > .diagnostic ul > li label {
+    font-weight: 100;
+    cursor: pointer;
+    color: #7e7e7e;
+    padding: 2px 10px 2px 10px;
+    width: 100%;
+    background: #f4f4f4;
+    margin-bottom: 2px;
+}
+
+.incident .list-incident .incident > ul > li > .diagnostic ul > li .icon-check {
+    font: normal normal normal 14px/1 FontAwesome;
+    width: 15px;
+    font-size: 17px;
+}
+
+.incident .list-incident .incident > ul > li > .diagnostic ul > li input ~ .icon-check:before {
+    content: "\f096";
+}
+
+.incident .list-incident .incident > ul > li > .diagnostic ul > li input:checked ~ .icon-check:before {
+    content: "\f046";
+}
+
+.incident .list-incident .incident > ul > li:nth-child(n+6) {
+    display: none;
+}
+
+.incident .list-incident .item.active {
+    margin-bottom: 20px;
+}
+
+.incident .list-incident .item.active .incident > ul > li:nth-child(n+5) {
+    display: block;
+}
+
+.incident .list-incident .incident .all {
+    color: #232323;
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    padding: 10px 0 10px 40px;
+}
+
+.incident .list-incident .item.limit-true .incident .all {
+    display: none;
+}
+
+.incident .result-search .incident .header {
+    background-image: url('../img/search.png');
+}
+
+.incident .result-search {
+    display: none;
+}
+
+.incident.search .result-search {
+    display: block;
+}
+
+.incident.search .list-incident {
+    display: none;
+}
+
+
+#dataTable .fa-folder-open {
+    color: #00CC00;
+}
+
+/* tbody > tr > td:hover > div:not(.btn-group) {
+    overflow: visible;
+    background: #e8e8e8;
+    white-space: nowrap;
+    width: auto;
+    position: absolute;
+    padding: 0 12px;
+    zoom: 100%;
+    z-index: 999;
+} */
+
+/* tbody > tr > td > div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: -7px 0;
+    line-height: 35px;
+} */
+
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 10px 6px;
+}
+
+.col-order {
+    padding: 18px 6px 0px;
+}
+
+.col-order a:active {
+    text-decoration: none;
+
+}
+
+table#dataTable thead tr th {
+    border-right: 1px solid rgba(204, 204, 204, 0.31);
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child {
+    position: relative;
+    padding-left: 30px !important;
+    cursor: pointer;
+}
+
+.list-colunm .icon-list {
+    padding: 4px 9px 4px;
+    background: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 14px;
+}
+
+.list-colunm .icon-list a {
+    color: #9b9b9b;
+}
+
+.icon-list ul li a i {
+    color: #439943;
+    margin-right: 6px;
+}
+
+.list-colunm {
+    position: relative;
+}
+
+.list-colunm .icon-list ul {
+    position: absolute;
+    top: 30px;
+}
+
+.list-colunm .icon-list ul li a {
+    color: #9b9b9b;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.check-none {
+    color: #ccc !important;
+}

@@ -1,0 +1,191 @@
+.nav li a {
+
+    color: #FF7908;
+}
+
+.nav-pills > li.active > a {
+    background-color: #FF7908 !important;
+    color: #ffffff !important;
+}
+
+.nav-pills > li > a {
+    border-radius: 4px 4px 0px 0px;
+
+}
+
+.nav-pills > li > a:hover {
+    background-color: #F9F9F9;
+
+}
+
+
+
+
+.item.avatar .avatar-default img {
+    width: 52px;
+}
+
+.item.avatar .list-avatar {
+    margin-top: 0;
+    padding: 0;
+}
+
+.item.avatar .list-avatar .pl {
+    display: inline-block;
+    margin-right: -9px;
+    margin-bottom: 10px;
+    background-color: #FFF !important;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    position: relative;
+    padding: 4px;
+}
+.dataTables_wrapper table th {
+    border-right: 0px !important;
+}
+
+.item.avatar .list-avatar a img {
+    width: 80px;
+}
+
+.item.avatar .list-avatar a .delete-avatar {
+    position: absolute;
+    bottom: -7px;
+    right: -3px;
+    z-index: 1;
+    padding: 2px 3px;
+    background: red;
+    box-shadow: -1px -1px 2px #000;
+    transition: all ease-in-out .2s;
+    cursor: pointer;
+}
+
+.item.avatar .list-avatar a .delete-avatar i {
+    color: #FFF;
+}
+
+.item.avatar .list-avatar a .delete-avatar:hover {
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    bottom: 0;
+    right: 0;
+    font-size: 20px;
+    padding: 32px 35px;
+    background: rgba(255, 0, 0, 0.8);
+}
+
+.item.avatar .list-avatar button {
+    margin-top: 10px;
+    float: right;
+}
+
+.item.avatar .new-avatar button {
+    padding: 12px 12px;
+}
+
+.btn-group.style-buttom {
+    width: 100%;
+}
+
+.btn-group.style-buttom label {
+    width: 50%;
+}
+
+.login-img img {
+    max-height: 200px;
+}
+
+.item.icons{}
+.item.icons .icon-default{}
+.item.icons .icon-default img{
+    width: 52px;
+}
+
+.item.icons .icon-default > div > img{
+    background-color: #f3f3f3!important;
+    padding: 14px 10px!important;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    width: 73px;
+}
+
+.item.icons .list-icon{
+    border-top: 1px solid #cccccc;
+    margin-top: 10px;
+    padding: 10px 0px 0;
+}
+
+.item.icons .list-icon a{
+    display: inline-block;
+    margin: 0 5px;
+    background-color: #FFF!important;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    position: relative;
+    padding: 3px;
+}
+
+#preview .label-img {
+    position: relative;
+    display: inline-block;
+}
+
+#preview .delete-icon,
+#preview-video .delete-icon,
+.item.icons .list-icon a .delete-icon{
+    position: absolute;
+    bottom: -7px;
+    right: -3px;
+    z-index: 1;
+    padding: 2px 3px;
+    background: red;
+    box-shadow: -1px -1px 2px #000;
+    transition: all ease-in-out .2s;
+}
+
+#preview .delete-icon,
+#preview-video .delete-icon {
+    padding: 5px 10px;
+}
+
+#preview .delete-icon i,
+#preview-video .delete-icon i,
+.item.icons .list-icon a .delete-icon i{
+    color: #FFF;
+}
+
+#preview .delete-icon,
+#preview-video .delete-icon {
+    text-align: center;
+    bottom: 0;
+    right: 0;
+}
+
+#preview .delete-icon:hover,
+#preview-video .delete-icon:hover,
+.item.icons .list-icon a .delete-icon:hover{
+    width: 100%;
+    height: 100%;
+    box-shadow:none;
+    bottom: 0;
+    right: 0;
+    font-size: 20px;
+    padding: 18px 21px;
+    background: rgba(255, 0, 0, 0.8);
+}
+
+#preview .delete-icon:hover,
+#preview-video .delete-icon:hover {
+    cursor: pointer;
+    font-size: 30px;
+}
+
+#preview .delete-icon:hover i,
+#preview-video .delete-icon:hover i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -11px;
+}

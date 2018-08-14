@@ -1,0 +1,17 @@
+.dataTables_wrapper table td {
+    word-break: break-all;
+}
+
+.dataTables_wrapper table th .fix-width {
+    display: block;
+    width: 100%;
+}
+
+.dataTables_wrapper table th {
+    border-right: 1px solid rgba(204, 204, 204, 0.3) !important;
+}
+
+.dataTables_wrapper table th.cursor-ew-resize {
+    border-right-color: rgba(204, 204, 204, 0.5) !important;
+    cursor: ew-resize;
+}

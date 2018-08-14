@@ -1,0 +1,118 @@
+.quiz-filter form .form-group input[type=text] {
+    padding: 5px 5px !important;
+}
+
+input.default {
+    width: 100% !important;
+}
+
+.btn-status {
+    width: 80px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn-status.btn-success:before {
+    content: 'Aberto';
+}
+
+.btn-status.btn-success:hover:before {
+    content: 'Finalizar?';
+}
+
+.btn-status.btn-warning:before {
+    content: 'Finalizado';
+}
+
+.btn-status.btn-warning:hover:before {
+    content: 'Abrir?';
+}
+
+label.toggle-button input ~ .status-check,
+label.toggle-button span,
+label.toggle-button {
+    width: 110px;
+}
+
+label.toggle-button input:checked ~ .status-uncheck {
+    left: -110px !important;
+}
+
+.modal {
+    overflow: auto !important;
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child {
+    position: relative;
+    padding-left: 30px !important;
+    cursor: pointer;
+}
+
+/* tbody > tr > td:hover > div:not(.btn-group) {
+    overflow: visible;
+    background: #e8e8e8;
+    white-space: nowrap;
+    width: auto;
+    position: absolute;
+    padding: 9px 13px;
+    zoom: 100%;
+    z-index: 999;
+} */
+
+/* body > tr > td > div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: -7px 0;
+    line-height: 35px;
+} */
+
+/* table.dataTable tbody th, table.dataTable tbody td {
+    padding: 10px 6px;
+} */
+
+/* table#groups thead tr th {
+   border-right: 1px solid rgba(204, 204, 204, 0.31);
+}  */
+
+.list-colunm .icon-list {
+    padding: 7px 9px 5px;
+    background: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 14px;
+}
+
+.list-colunm .icon-list a {
+    color: #9b9b9b;
+}
+
+.icon-list ul li a i {
+    color: #439943;
+    margin-right: 6px;
+}
+
+.list-colunm {
+    position: relative;
+}
+
+.list-colunm .icon-list ul {
+    position: absolute;
+    top: 30px;
+}
+
+.list-colunm .icon-list ul li a {
+    color: #9b9b9b;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.check-none {
+    color: #ccc !important;
+}
+
+.form-filter:not(.closed) .btn-group-clear-filter {
+    right: 120px;
+}

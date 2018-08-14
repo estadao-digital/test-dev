@@ -1,0 +1,152 @@
+td.stars div{
+    position: relative;
+    background: #e0e0e0;
+    overflow: hidden;
+}
+
+td.stars span{
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 0;
+    height: 100%;
+    width: 0;
+    background: #ecd300;
+    text-indent: -9999px;
+}
+
+td.stars img{
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.post-filter span {
+    line-height: 1.4 !important;
+}
+
+.post-filter form .form-group input[type=text] {
+    padding: 5px 5px !important;
+    font-size: 100%;
+    font-family: 'Ubuntu';
+}
+
+.post-filter form .form-group .input-group-addon {
+    padding: 1px 10px;
+}
+
+.rate-total {
+    padding: 1px 0;
+    display: inline;
+    position: relative;
+    top: 1px;
+    margin-left: 10px;
+    font-size: 13px !important;
+}
+
+.rate-total i {
+    margin-right: 5px;
+}
+
+.chosen-container-single .chosen-single {
+    padding: 5px 0px 0px 8px;
+    height: 33px;
+}
+
+.chosen-container-single .chosen-single div b {
+    margin-top: 5px;
+}
+
+input.default {
+    width: 100% !important;
+}
+
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 10px 6px;
+}
+
+.col-order {
+    padding: 18px 6px 0px;
+}
+
+.col-order a:active{
+    text-decoration: none;
+
+}
+
+table#posts thead tr th {
+    border-right: 1px solid rgba(204, 204, 204, 0.31);
+}
+
+table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child,
+table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child {
+    position: relative;
+    padding-left: 30px!important;
+    cursor: pointer;
+}
+
+.icon-list ul li a i {
+    color: #439943;
+    margin-right: 6px;
+}
+
+.list-colunm  {
+    position: relative;
+}
+
+.list-colunm .icon-list ul {
+    position: absolute;
+    top: 30px;
+}
+
+.list-colunm > .icon-list > ul > li > a {
+    color: #9b9b9b;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.check-none {
+    color: #ccc !important;
+}
+
+/* botão texto vertical default */
+
+.text-vertical a {
+    float: left;
+    padding: 4px 9px 4px;
+    background: #eeeeee;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #9b9b9b;
+
+}
+
+.text-vertical {
+    width: 32px;
+    position: relative;
+    right: 0;
+
+}
+
+.icon-pad {
+    padding: 4px 8px !important;
+}
+
+.broken-text {
+    white-space: normal !important;
+    overflow: visible !important;
+    margin: 0 0 !important;
+    line-height: 1.4 !important;
+    background: transparent !important;
+    zoom: normal;
+    width: auto;
+    position: relative !important;
+    padding: 0 0 !important;
+}
+
+
+
+

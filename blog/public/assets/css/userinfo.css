@@ -1,0 +1,137 @@
+.userinfo{
+    cursor: pointer;
+}
+
+#user-info {
+    background: #f3f3f3;
+    box-shadow: -3px 3px 25px #D3D3D3;
+    transition: all ease .3s;
+    z-index: -1;
+    padding: 30px 15px 15px 0;
+    overflow: auto;
+    display: none;
+    height: 0;
+}
+
+#user-info.open {
+    position: absolute;
+    right: 0;
+    width: 400px;
+    z-index: 999;
+    display: block;
+}
+
+#user-info .close {
+    float: none;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+#user-info h2 {
+    font-family: 'Ubuntu', sans-serif;
+    color: #b2b2b2;
+    text-align: center;
+    font-size: 16px;
+}
+
+#user-info .user-image{
+    height: 120px;
+    width: 120px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-image > img {
+    height: 100%;
+    width: 100%;
+}
+
+#user-info .info-profile{
+    width: calc(100% - 100px);
+    margin: 30px auto 0;
+    color: #b2b2b2;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+#user-info .info-profile a{
+    float: right;
+    color: #b2b2b2;
+    margin-top: -8px;
+}
+
+#user-info .box {
+    border-radius: 10px;
+    background-color: rgb(253, 253, 253);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.05);
+    margin: 20px auto 0;
+    width: calc(100% - 100px);
+    padding: 15px 20px;
+    color: #b2b2b2;
+    font-size: 13px;
+    display: none;
+}
+#user-info .box.show-true {
+    display: block;
+}
+
+#user-info .box .pre{
+    -webkit-line-clamp: inherit;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+
+
+#user-info .box h4 {
+    font-size: 14px;
+    font-family: "Verdana";
+    color: rgb(35, 35, 35);
+    text-shadow: 0 0 0 rgb(35, 35, 35);
+    margin: 0 0 5px 0;
+}
+
+.box.show-true > span, .icon-form span {
+    font-weight: 600;
+    color: #3c3c3c;
+    font-size: 14px;
+}
+
+.icon-form.box > span > i {
+    position: relative;
+    left: 0px;
+    text-indent: 0px;
+    padding: 0px 12px 0px 0px;
+    top: -2px;
+}
+
+.icon-form.box.show-true div, .small-style,
+.icon-form .pre, .icon-form div, .icon-form-list > span {
+    font-size: 13px !important;
+    color: #9E9E9E;
+    font-weight: 300;
+    padding: 0px 0px 0px 23px;
+}
+
+.center-inform > div {
+    text-align: center;
+    font-size: 17.16px;
+    font-weight: bold;
+    margin: 20px 0px;
+}
+
+.center-inform > div, .center-inform > div > span {
+    text-align: center;
+}
+
+.small-style.pater-n {
+    padding: 0;
+}

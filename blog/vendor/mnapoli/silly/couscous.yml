@@ -1,0 +1,30 @@
+baseUrl: http://mnapoli.fr/silly
+
+title: Silly - CLI micro-framework based on Symfony Console
+
+menu:
+    items:
+        home:
+            text: Introduction
+            relativeUrl:
+        definition:
+            text: Command definition
+            relativeUrl: docs/command-definition.html
+        callable:
+            text: Command callables
+            relativeUrl: docs/command-callables.html
+        helpers:
+            text: Console helpers
+            relativeUrl: docs/helpers.html
+        dependency-injection:
+            text: Dependency injection
+            relativeUrl: docs/dependency-injection.html
+        php-di:
+            text: The PHP-DI edition
+            relativeUrl: docs/php-di.html
+        pimple:
+            text: The Pimple edition
+            relativeUrl: docs/pimple.html
+        contributing:
+            text: Contributing
+            relativeUrl: contributing.html

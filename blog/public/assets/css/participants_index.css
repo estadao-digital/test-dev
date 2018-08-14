@@ -1,0 +1,64 @@
+#ui-layout-east{
+    background: #f3f3f3 !important;
+}
+.participants .item{
+    background: none;
+    padding-top:10px;
+    padding-left: 0;
+}
+.participants .item .comment{
+    font-size: 12px;
+}
+.participants .level-points, .participants .nick {
+    color: #b2b2b2;
+    font-weight: 400;
+    margin: 0;
+}
+.participants .like-comment li {
+    padding: 0;
+}
+.participants .item .img-user {
+    border-radius: 50px;
+    display:block;
+    margin: 0 auto;
+    width: 60%;
+}
+
+.participants .item .list-options {
+    margin-top: 15px;
+}
+.participants .item .list-options .fa-paper-plane{
+    font-size: 20px;
+    color: #a4a4a4;
+    opacity: 0.6;
+}
+.participants .list-options .popover-content {
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.participants .list-options .popover-content a{
+    font-size: 12px;
+    font-family: 'Ubuntu', sans-serif;
+    color:#b2b2b2;
+}
+.participants .hashtag {
+    color: #a4a4a4;
+    font-size: 22px;
+    opacity: 0.7;
+    font-weight: 500;
+}
+.participants .title{
+    opacity: 0.4;
+    font-weight: 400;
+}
+.participants .participants-count{
+    font-weight: bold;
+    opacity: 0.9;
+}
+.participants .item .links{
+    padding-top: 10px;
+}
+.participants .item .level,.participants .item .points{
+    font-size: 12px;
+}

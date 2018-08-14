@@ -1,0 +1,46 @@
+.profile .item {
+    margin: 10px 0;
+}
+.profile .container-box {
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px 100px;
+    border-radius: 10px;
+    -webkit-box-shadow: 6px -5px 31px -13px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px -5px 31px -13px rgba(0,0,0,0.75);
+    box-shadow: 6px 3px 31px -13px rgba(0,0,0,0.75);
+    width: 100%;
+    overflow: hidden;
+}
+.profile .input-email {
+    margin-bottom: 20px;
+}
+.profile label {
+    font-size: 16px;
+}
+.profile .input-name,
+.profile .input-image,
+.profile .input-email,
+.profile .input-user,
+.profile .input-password,
+.profile .input-password2,
+.profile .input-last-name{
+    font-style: italic;
+    font-size: 16px;
+    background-color: #f3f3f3 ;
+    width: 100%;
+    height: 45px;
+}
+.profile .btn-send{
+    background-image: none;
+    border: none;
+    background-color: #e67d25;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: table;
+    color: #fff;
+    margin-right: 20px;
+}

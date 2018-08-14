@@ -1,0 +1,88 @@
+.beebotlog > .item > .header > h3 {
+    color: #9b9b9b;
+}
+
+.beebot .box-send {
+    margin-top: 30px;
+}
+
+.beebot .item {
+    margin: 20px 0;
+}
+
+.beebotlog,
+.beebot {
+    background: #fff;
+    padding: 20px 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: 6px -5px 31px -13px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 6px -5px 31px -13px rgba(0, 0, 0, 0.75);
+    box-shadow: 6px 3px 31px -13px rgba(0, 0, 0, 0.75);
+    width: 100%;
+    margin: 0 auto 35px;
+    height: auto;
+}
+
+.beebot .btn-send {
+    background-image: none;
+    border: none;
+    background-color: #e67d25;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: table;
+    color: #fff;
+    margin-right: 20px;
+}
+
+.beebotlog {
+    padding: 20px 0;
+}
+
+.beebotlog .item .header {
+    background: transparent url(../../img/history.png) no-repeat 20px 50%;
+    padding: 20px 20px 20px 60px;
+    color: #232323;
+    height: auto;
+}
+
+.beebotlog .item .header h3 {
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.beebotlog .item ul {
+    border-top: 1px solid #f4f4f4;
+    border-bottom: 1px solid #f4f4f4;
+    list-style: none;
+    padding: 0;
+}
+
+.beebotlog .item ul li {
+    margin: 0;
+    border-top: 1px solid #f4f4f4;
+    color: #232323;
+    background: transparent url(../../img/avatar.png) no-repeat 15px 50%;
+    background-size: 17px 21px;
+    display: block;
+    padding: 10px 15px 10px 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.beebotlog .item ul li.photo-true {
+    background-size: 25px auto;
+    background-position: 15px 50%;
+    padding-left: 50px;
+}
+
+.beebotlog .item ul li span {
+    color: #d65a00;
+}
+
+.log .item ul li:first-child {
+    border: none;
+}
