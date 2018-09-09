@@ -1,0 +1,30 @@
+<div class="content">
+    <div class="div-msg">
+        <div class="alert alert-danger" id="div-msg-danger" style="display: none;">
+            Corrida Inválida.
+        </div>
+        <div class="alert alert-success" id="div-msg-success" style="display: none;">
+            Corrida Inválida.
+        </div>
+    </div>
+    <div class="container">
+        <form method="POST" action="Marca.class.php?action=cadastrar">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="marca">Marca</label>
+                        <input type="text" class="form-control" id="marca" name="marca" placeholder="Marca do Veiculo">
+                    </div>
+                    <button class="btn btn-success" onclick="cadastrarMarca()" type="button">Cadastrar</button>
+
+
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>

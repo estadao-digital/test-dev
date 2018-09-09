@@ -1,0 +1,44 @@
+  <div class="content">
+
+    <div class="container">
+        <div class="div-msg">
+            <div class="alert alert-danger" id="div-msg-danger" style="display: none;">
+                Corrida Inválida.
+            </div>
+            <div class="alert alert-success" id="div-msg-success" style="display: none;">
+                Corrida Inválida.
+            </div>
+        </div>
+      <form method="PUT" action="Carro.class.php?action=alterar" id="form-cadastrar">
+        <div class="row">
+            <input type="hidden" value="" id="id" name="id">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="modelo-alterar">Modelo</label>
+              <input type="text" name="modelo" class="form-control" value="" id="modelo-alterar" placeholder="Modelo do Veiculo">
+            </div>
+
+
+          </div>
+          <div class="col-md-4">
+
+            <div class="form-group">
+              <label for="ano">Ano</label>
+              <input type="text" name="ano" class="form-control" value="" id="ano" placeholder="Ano do Veiculo">
+            </div>  
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="marca">Marca</label>
+              <select class="form-control" name="marca" id="marca">
+                <option></option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-success" type="button" onclick="editarCarro()">Alterar</button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
