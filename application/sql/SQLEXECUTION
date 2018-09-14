@@ -1,0 +1,13 @@
+SQLEXECUTION
+
+
+
+
+CREATE TABLE `crud_base`.`tabCarro` (
+  `intId` INT NOT NULL AUTO_INCREMENT,
+  `intAno` INT NULL,
+  `strModelo` VARCHAR(45) NOT NULL,
+  `strMarca` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`intId`));
+
+INSERT INTO `crud_base`.`tabCarro` (`intAno`, `strModelo`, `strMarca`) VALUES ('2005', 'Flex', 'Gol');
