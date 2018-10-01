@@ -18,6 +18,65 @@
 <body>
 
   <script src="js/main.js"></script>
+
+  <script>
+    $(document).ready(function(){
+        var ajax = $.ajax({
+
+    url: "dadosUsuario.php",
+    contentType: "application/json; charset=utf-8",  
+
+    type: "POST",
+
+
+    dataType: "json",
+ /*  sucess:function(data){
+        $("#respostaServer").html(data.d);
+        alert(data);
+    },
+    error:function(textStatus,t){
+        alert(t);
+    }
+    */
+});
+
+
+
+ajax.done(function(data) {
+ //console.log(resposta)
+      //  $("#respostaServer").html(data);
+        //   alert(data); 
+    for (i in data){
+             $("#Marca").text(data[i].Nome);
+              $("#ModeloCarro").text(data[i].idade);
+               $("#AnoCarro").text(data[i].Games);
+//$("#respostaServer").each(data, function(k,v){
+                   //$(this).html(v);
+             //});
+    };  
+});
+
+
+
+ajax.fail(function(jqXHR, textStatus) {
+    console.log("Request falhou: " + textStatus);
+});
+
+
+    })
+   
+</script>
+<div class="container">
+      <div class="col-sm-4">
+            <label id="Marca"></label>
+    </div>
+       <div class="col-sm-4">
+            <label id="ModeloCarro"></label>
+    </div>
+      <div class="col-sm-4">
+            <label id="AnoCarro"></label>
+    </div>
+</div>
 </body>
 
 </html>
