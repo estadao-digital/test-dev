@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "marca": "GM",
+    "modelo": "Corsa",
+    "ano": "2012"
+  },
+  {
+    "id": "2",
+    "marca": "Volks",
+    "modelo": "Gol",
+    "ano": "2015"
+  },
+  {
+    "id": "3",
+    "marca": "Fiat",
+    "modelo": "Siena",
+    "ano": "2010"
+  },
+  {
+    "id": "4",
+    "marca": "Mercedez",
+    "modelo": "C200",
+    "ano": "2013"
+  },
+  {
+    "id": "5",
+    "marca": "Ford",
+    "modelo": "Ecosport",
+    "ano": "2018"
+  },
+  {
+    "id": "6",
+    "marca": "Fiat",
+    "modelo": "Palio",
+    "ano": "2011"
+  },
+  {
+    "id": "7",
+    "marca": "GM",
+    "modelo": "Celta",
+    "ano": "2005"
+  },
+  {
+    "id": "8",
+    "marca": "Jeep",
+    "modelo": "Renegate",
+    "ano": "2017"
+  },
+  {
+    "id": "9",
+    "marca": "GM",
+    "modelo": "S10",
+    "ano": "2011"
+  },
+  {
+    "id": "10",
+    "marca": "Volks",
+    "modelo": "Passat",
+    "ano": "2007"
+  }
+]
