@@ -1,0 +1,13 @@
+body{
+    background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+}
+
+.container{
+	padding:2em;
+	margin-top:2em;
+}
+
+.error{
+	color: #f00;
+	font-weight: 500;
+}
