@@ -1,0 +1,39 @@
+version: "3.1"
+services:
+
+    mysql:
+      image: mysql:8.0
+      container_name: mysql
+      working_dir: /var/www/test-dev
+      volumes:
+        - ./../:/var/www/test-dev
+      environment:
+        - MYSQL_ROOT_PASSWORD=toor
+        - MYSQL_DATABASE=testdev
+        - MYSQL_USER=user
+        - MYSQL_PASSWORD=password
+      ports:
+        - "3310:3306"
+
+    webserver:
+      image: nginx:alpine
+      container_name: webserver
+      working_dir: /var/www/test-dev
+      volumes:
+          - ./../:/var/www/test-dev
+          - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      links:
+        - mysql
+      ports:
+       - "9000:80"
+
+    php-fpm:
+      build: docker/php-fpm
+      container_name: php-fpm
+      working_dir: /var/www/test-dev
+      volumes:
+          - ./../:/var/www/test-dev
+          - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
+      links:
+        - mysql
+
