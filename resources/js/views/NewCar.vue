@@ -32,6 +32,7 @@
 </template>
 
 <script>
+require('./../api');
 import axios from "axios";
 
 export default {
@@ -59,12 +60,10 @@ export default {
                 year: document.getElementById('year').value
             };
 
-            let url = 'http://172.19.0.1:9000/api/carros';
+            let url = URL_CARROS;
 
             axios.post(url, car)
-                .then(response => {
-                    window.location = 'http://172.19.0.1:9000/';
-                })
+                .then(response => {})
                 .catch(ex => {
                     this.errors.push(ex)
                 })
@@ -74,11 +73,10 @@ export default {
 
     },
     destroyed() {
-
+        window.history.back()
     },
     created() {
-        console.log('test');
-        console.log(this.cars);
+
     }
 }
 </script>

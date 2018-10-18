@@ -49,6 +49,7 @@
 </template>
 
 <script>
+require('./../api');
 import axios from "axios";
 
 export default {
@@ -67,7 +68,7 @@ export default {
 
     },
     mounted() {
-        let url = 'http://172.19.0.1:9000/api/carros';
+        let url = URL_CARROS;
         let config = {};
         axios.get(url, config)
             .then(response => {
@@ -81,8 +82,7 @@ export default {
 
     },
     created() {
-        console.log('test');
-        console.log(this.cars);
+        console.log(URL_CARROS);
     }
 }
 </script>
