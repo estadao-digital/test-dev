@@ -11,9 +11,9 @@
           <th style="width:5%">ID</th>
           <th style="width:25%">NOME</th>
           <th style="width:25%">MARCA</th>
-          <th style="width:8%">MODELO</th>
-          <th style="width:8%">ANO</th>
-          <th style="width:5%">AÇÔES</th>
+          <th style="width:10%">MODELO</th>
+          <th style="width:5%">ANO</th>
+          <th style="width:30%">AÇÔES</th>
         </tr>
         </thead>
         <tbody>
@@ -49,40 +49,40 @@
 </template>
 
 <script>
-    import axios from "axios";
+import axios from "axios";
 
-    export default {
-        components: {},
-        name: 'Cars',
-        data() {
-            return {
-                title : 'Cars',
-                cars : null,
-            }
-        },
-        computed: {
-
-        },
-        methods: {
-
-        },
-        mounted() {
-            let url = 'http://172.19.0.1:9000/api/carros';
-            let config = {};
-            axios.get(url, config)
-                .then(response => {
-                    this.cars = response.data.data
-                })
-                .catch(ex => {
-                    this.errors.push(ex)
-                })
-        },
-        destroyed() {
-
-        },
-        created() {
-          console.log('test');
-          console.log(this.cars);
+export default {
+    components: {},
+    name: 'Cars',
+    data() {
+        return {
+            title : 'Cars',
+            cars : null,
         }
+    },
+    computed: {
+
+    },
+    methods: {
+
+    },
+    mounted() {
+        let url = 'http://172.19.0.1:9000/api/carros';
+        let config = {};
+        axios.get(url, config)
+            .then(response => {
+                this.cars = response.data.data
+            })
+            .catch(ex => {
+                this.errors.push(ex)
+            })
+    },
+    destroyed() {
+
+    },
+    created() {
+        console.log('test');
+        console.log(this.cars);
     }
+}
 </script>
