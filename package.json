@@ -12,11 +12,22 @@
     "devDependencies": {
         "axios": "^0.18",
         "bootstrap": "^4.0.0",
-        "cross-env": "^5.1",
+        "bootstrap-vue": "^2.0.0-rc.11",
+        "cross-env": "^5.2.0",
         "jquery": "^3.2",
         "laravel-mix": "^2.0",
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
         "vue": "^2.5.7"
+    },
+    "dependencies": {
+        "vue-router": "^3.0.1",
+        "@fortawesome/fontawesome-svg-core": "^1.2.5",
+        "@fortawesome/free-solid-svg-icons": "^5.4.0",
+        "@fortawesome/vue-fontawesome": "^0.1.1"
+    },
+    "engines": {
+        "node": ">= 6.0.0",
+        "npm": ">= 3.0.0"
     }
 }

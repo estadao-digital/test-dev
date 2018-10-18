@@ -15,10 +15,10 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->increments('id')->comment('Identification of car.');
-            $table->string('name')->comment('Name of car.');
-            $table->string('brand')->comment('Brand of car.');
-            $table->string('model')->comment('Model of car.');
-            $table->date('year')->comment('Year of car.');
+            $table->string('name', 32)->comment('Name of car.');
+            $table->string('brand', 32)->comment('Brand of car.');
+            $table->string('model', 32)->comment('Model of car.');
+            $table->string('year', 4)->comment('Year of car.');
             $table->dateTime('created')->comment('Time the row is created.');
             $table->dateTime('updated')->nullable()->comment('Time this row is updated.');
         });

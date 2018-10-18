@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\CarService;
 
+header("Access-Control-Allow-Origin: *");
+
 class CarController extends Controller
 {
     /**

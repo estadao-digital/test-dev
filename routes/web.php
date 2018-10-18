@@ -11,5 +11,4 @@
 |
 */
 
-Route::get('/', 'Application\\HomeController@default')
-        ->name('application');
+Route::get('/{any}', 'Site\\SPAController@index')->where('any', '.*');
