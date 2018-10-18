@@ -16,13 +16,7 @@ export default {
   name: 'AppMenu',
   data() {
     return {
-      items: [
-        {
-          title: 'Users',
-          icon: 'users',
-          link: '/users'
-        },
-      ]
+      items: []
     }
   },
   computed: {

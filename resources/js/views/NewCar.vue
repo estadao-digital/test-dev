@@ -52,7 +52,7 @@ export default {
     },
     methods: {
         postNewCar(){
-            var car = {
+            let car = {
                 name : document.getElementById('name').value,
                 brand: document.getElementById('brand').value,
                 model: document.getElementById('model').value,
@@ -60,9 +60,11 @@ export default {
             };
 
             let url = 'http://172.19.0.1:9000/api/carros';
-            let config = { body: car };
-            axios.post(url, config)
-                .then(response => {})
+
+            axios.post(url, car)
+                .then(response => {
+                    window.location = 'http://172.19.0.1:9000/';
+                })
                 .catch(ex => {
                     this.errors.push(ex)
                 })
