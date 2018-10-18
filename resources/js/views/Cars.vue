@@ -1,7 +1,7 @@
 <template>
   <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
     <div class="btn-toolbar mb-2 mb-md-0">
-      <button class="btn btn-sm btn-outline-success"><font-awesome-icon icon="plus-circle" />&nbsp;Create</button>
+      <router-link :to="{ name: 'new-car' }"><font-awesome-icon icon="plus-circle" />&nbsp;CREATE CAR</router-link>
     </div>
     <br>
     <div class="table-responsive" v-if="cars">
@@ -21,6 +21,7 @@
           <td>{{ car.id }}</td>
           <td>{{ car.name }}</td>
           <td>{{ car.brand }}</td>
+          <td>{{ car.model }}</td>
           <td>{{ car.year }}</td>
           <td class="crud">
             <ul>
