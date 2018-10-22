@@ -1,0 +1,31 @@
+<div class="container">
+    <form @submit.prevent="validateBeforeSubmit">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="inputBrand">Marca</label>
+                <select name="brand_id" data-vv-as="Marca" v-validate="'required'" :class="{'input': true, 'alert-danger': errors.has('brand_id')}" type="text" class="form-control" v-model="form.brand_id">
+                    <option v-for="brand in brands" :value="brand.id">{{ brand.name }}</option>
+                </select>
+                <span v-show="errors.has('brand_id')" class="text-danger">{{ errors.first('brand_id') }}</span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="inputModel">Modelo</label>
+                <input name="model" data-vv-as="Modelo" v-validate="'required'" :class="{'input': true, 'alert-danger': errors.has('model')}" type="text" class="form-control" v-model="form.model" placeholder="Digite o Modelo">
+                <span v-show="errors.has('model')" class="text-danger">{{ errors.first('model') }}</span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="inputYear">Ano</label>
+                <input name="year" data-vv-as="Ano" v-validate="'required'" :class="{'input': true, 'alert-danger': errors.has('year')}" type="text" class="form-control" v-model="form.year" placeholder="Digite o Ano">
+                <span v-show="errors.has('year')" class="text-danger">{{ errors.first('year') }}</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-info">Salvar</button>
+        <router-link class="btn btn-secondary" :to="{ name: 'ListarCarros' }">Voltar</router-link>
+    </form>      
+</div>
