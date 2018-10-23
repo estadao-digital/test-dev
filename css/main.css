@@ -1,0 +1,93 @@
+div.main {
+
+}
+
+.adicionar {
+    margin-top: 10px;
+    float: right;
+}
+
+div.top_input_field {
+    width: 100%;
+    height:50px;
+}
+
+div.top_input_field input {
+    float:right;
+}
+
+
+div.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: gray;
+    background-color: rgba(150,150,150,.5);
+    display:none;
+}
+div.overlay div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255,255,255,.5);
+    display:none;
+}
+
+.bs-docs-header {
+    position: relative;
+    padding: 30px 0;
+    color: #cdbfe3;text-align: center;text-shadow: 0 1px 0 rgba(0,0,0,.1);background-color: #6f5499;
+}
+
+.bs-docs-header h1, .bs-docs-header p {
+    text-align: left;
+}
+
+.curtain {
+    position:fixed;height:100%;width:100%;background:rgb(0,0,0,0.25);z-index:4;
+
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+}
+
+form.addCarro {
+    position: fixed;
+    background: rgb(250,251,240);
+    padding: 30px;
+    padding-bottom: 0px;
+    width:600px;
+    left:50%;
+    margin-left:-300px;
+    z-index: 5;
+}
+
+form.addCarro div.form-group,
+form.addCarro div.form-group label {
+    height:35px;
+}
+
+form.addCarro div.form-group label {
+    width:65px;
+    margin-top: 6px;
+}
+
+.curtain.ng-hide-add, .curtain.ng-hide-remove {
+    -webkit-transition : 1s ease-in-out opacity;
+    -moz-transition    : 1s ease-in-out opacity;
+    -ms-transition     : 1s ease-in-out opacity;
+    -o-transition      : 1s ease-in-out opacity;
+    transition         : 1s ease-in-out opacity;
+    opacity            : 1;
+}
+
+.curtain.ng-hide {
+    opacity : 0;
+}
