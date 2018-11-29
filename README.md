@@ -1,54 +1,38 @@
-Teste para desenvolvedor do Estadão
-==============================
+# SISTEMA DE CADASTRO DE CARROS
 
-Olá candidato,
+## CARACTERÍSTICAS
 
-Esse teste consiste em 2 etapas para avaliarmos seu conhecimento em PHP e Front-End (HTML5, CSS e JavaScript)
+-   Laravel 5.7
+-   VueJs + Vuex + Vue Router
+-   Axios
+-   Vuetify + Vee Validate + Material Design Icons 
 
-Para realizar o teste, você deve dar um fork neste repositório e depois clona-lo na pasta <document_root> da máquina que está realizando o teste.
+## BACKEND
 
-Crie um branch com seu nome, e quando finalizar todo o desenvolvimento, você deverá enviar um pull-request com sua versão.
+-   [laravel/laravel](https://github.com/laravel/laravel)
+-   [barryvdh/laravel-cors](https://github.com/barryvdh/laravel-cors)
 
-O teste
---------
+## FRONTEND
 
-### Back-End/PHP
+-   [vue-cli](https://github.com/vuejs/vue-cli)
+-   [vue](https://vuejs.org)
+-   [vuex](https://vuex.vuejs.org/)
+-   [vue-router](https://router.vuejs.org/)
+-   [axios](https://github.com/axios/axios)
+-   [Vuetify](https://vuetifyjs.com/en/)
+-   [VeeValidate](https://baianat.github.io/vee-validate/)
+-   [material-design-icons-iconfont](https://www.npmjs.com/package/material-design-icons-iconfont)
 
-A primeira etapa será o desenvolvimento **backend/PHP**:
+## INSTALAÇÃO
 
-**Descrição:**
+1.   Clone o repositorio
+2. 
+-   Copiar o env de acordo com o servidor `.env.dev` ou `.env.prd` para `.env`
+-   Rodar o comando `php artisan key:generate`
+-   Configurar o banco de dados de sua preferencia no arquivo `.env`
+-   Rodar o comando `php artisan migrate`
 
-- Você deverá desenvolver uma 'mini api' para que seja possível realizar operações CRUD do objeto Carro.
-> **Obs:**
-> - Você pode usar arquivo (txt, json) como banco de dados.
-> - Cada carro deve ter ID, Marca, Modelo, Ano.
 
-Sugerimos o retorno dessa 'mini api' nas seguinte urls:
+## CHANGELOG
 
- - `/carros` - [GET] deve retornar todos os carros cadastrados.
- - `/carros` - [POST] deve cadastrar um novo carro.
- - `/carros/{id}`[GET] deve retornar o carro com ID especificado.
- - `/carros/{id}`[PUT] deve atualizar os dados do carro com ID especificado.
- - `/carros/{id}`[DELETE] deve apagar o carro com ID especificado.
-
-### Front-End
-
-Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Application) e nela deve ser possível:
-
-- Ver a lista de carros cadastrados
-- Criar um novo carro
-- Editar um carro existente
-- Apagar um carro existente
-
-> **Obs:**
-> - A página deve ser responsiva.
-> - A página deve funcionar 100% via AJAX, sem outros carregamentos de páginas.
-> - Ao criar/editar um carro, o campo "marca" deverá ser um `SELECT`
-
-### Observações importantes:
-
-- Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
-- Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.
-- Você pode usar ferramentas de automação (Grunt, Gulp), mas deverá informar o uso completo para funcionamento do teste.
-- Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.
-- Será considerado ponto positivo o tempo gasto na realização do teste. Menos tempo e tudo funcionando conforme pedido será melhor avaliado.
+Verificar as mudanças realizadas no arquivo [CHANGELOG](CHANGELOG.md).
