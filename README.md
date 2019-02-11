@@ -52,3 +52,52 @@ Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Ap
 - Você pode usar ferramentas de automação (Grunt, Gulp), mas deverá informar o uso completo para funcionamento do teste.
 - Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.
 - Será considerado ponto positivo o tempo gasto na realização do teste. Menos tempo e tudo funcionando conforme pedido será melhor avaliado.
+
+### Requisitos
+- PHP >= 7.1.3
+- OpenSSL PHP Extension
+- PDO PHP Extension
+- Mbstring PHP Extension
+- Tokenizer PHP Extension
+- XML PHP Extension
+- Ctype PHP Extension
+- JSON PHP Extension
+- BCMath PHP Extension
+- COMPOSER
+- NPM
+
+### Instalação
+- Este projeto utiliza Laravel 5.7 como backend e Vuejs 2 para fazer o front-end
+
+- Clone o repositorio `git clone https://github.com/matheusisla/test-dev.git`
+- Acesse a pasta `cd teste/`
+- Execute o comando `composer install`
+- Execute o comando `npm install`
+- crie uma cópia do arquivo .env.example com o nome .env `cp .env.example .env`
+- crie um arquivo database.sqlite na pasta database
+- abra o arquivo .env e edit nas linha subsitua :
+
+> - DB_CONNECTION=mysql
+> - DB_HOST=127.0.0.1
+> - DB_PORT=3306
+> - DB_DATABASE=homestead
+> - DB_USERNAME=homestead
+> - DB_PASSWORD=secret
+
+Por apenas ou por suas credenciais do mysql
+> - DB_CONNECTION=sqlite
+- Salve o arquivo
+- Execute o comando `php artisan key:generate`
+- Execute o comando `php artisan migrate` irá instalar a estrutura de banco de dados
+- Execute o comando `php artisan db:seed` este comando irá adicionar dados ficticios 
+- Para compilar o frontend `npm run prod` minificado
+- Para executar sem ter a necessidade de configurar um virtual host `php artisan serve` se for configurar utilizar a pasta public como document root
+
+### Observações:
+- Códigos de scss e css ficam no diretório `/resources/sass/` quando compilados ficam em `/public/css`
+- Códigos js ficam no diretório `/resources/js/` e os components do vue `/resources/js/components/` quando compilados ficam em `/public/js`
+- Códigos fonte das views ficam no diretório `/resources/views/`
+- Códigos fonte das rotas web ficam em `/routes/web.php`
+- Códigos fonte das rotas API ficam em `/routes/api.php`
+- Códigos com estrutura do banco de dados `/database/migrations`
+- Códigos com estrutura do dados ficticios `/database/seeds`
