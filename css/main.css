@@ -1,0 +1,41 @@
+.logo {
+  background-color: #343a40;
+}
+
+#margin-center {
+  margin: auto;
+  margin-top: 50px;
+}
+
+.logo h1 {
+  font-family: "Satisfy", cursive;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #fff;
+}
+
+.wrap {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  background-color: #343a40;
+  color: #fff;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-weight: bold;
+}
+
+#margin {
+  margin: auto;
+  margin-top: 50px;
+}
+
+body {
+  overflow-x: hidden;
+}
