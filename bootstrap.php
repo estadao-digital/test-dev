@@ -14,4 +14,3 @@ $container = $repositoryProvider->register($container);
 $container = $serviceProvider->register($container);
 
 new Routes\CarRoutes('/carros', $container);
-new Routes\CarRoutes('/tests', $container);
