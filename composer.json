@@ -1,0 +1,22 @@
+{
+    "name": "api/mvc",
+    "require": {
+        "php": ">=7.0"
+    },
+    "minimus-stability": "alpha",
+    "authors": [
+      {
+        "name": "Gian Weigert Rodrigues",
+        "email": "gian.rodrigues@hotmail.com"
+      }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Frame\\": "vendor/Frame",
+            "Api\\": "Api"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+  }
