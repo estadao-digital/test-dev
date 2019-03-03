@@ -3,11 +3,23 @@ import React, {Component} from "react";
 
 import axios from 'axios';
 import uuidv4 from 'uuid/v4';
+import serialize from 'form-serialize';
 
 import InfoCarro from './components/InfoCarro';
 import Botao from './components/Botao';
 
 import '../css/main.scss';
+
+const marcas = [
+    "VW",
+    "Chevrolet",
+    "FIAT",
+    "Ford",
+    "Nissan",
+    "Mitsubishi",
+    "Volvo",
+    "BMW"
+];
 
 class App extends React.Component {
     formRef;
@@ -19,9 +31,13 @@ class App extends React.Component {
         this.state = {
             exibirForm: false,
             novoCadastro: false,
+            exibirMsg: false,
+            tipoMsg: '',
+            textoMsg: '',
             modelo: '',
             marca: '',
             ano: '',
+            id: '',
             carros: []
         }
 
@@ -34,10 +50,12 @@ class App extends React.Component {
         this.handleClickSave = this.handleClickSave.bind(this);
         this.handleClickEditar = this.handleClickEditar.bind(this);
         this.handleClickDelete = this.handleClickDelete.bind(this);
+        this.handleChangeSelect = this.handleChangeSelect.bind(this);
+        this.handleClickVoltar = this.handleClickVoltar.bind(this);
+        this.removeMsg = this.removeMsg.bind(this);
 
         this.getCarros();
     }
-
 
     getCarros(id){
         let url = '';
@@ -48,19 +66,18 @@ class App extends React.Component {
         }
         axios.get(url)
             .then(res => {
-                let data = [];
-                data = res.data['carros'];
-                if(data.length >= 1){
+                if(res.data['carros']){
                     this.setState({
-                        carros: data
+                        carros: res.data['carros']
                     });
                 }else{
                     this.setState({
                         exibirForm: true,
                         novoCadastro: false,
-                        modelo: data.modelo,
-                        marca: data.marca,
-                        ano: data.ano
+                        modelo: res.data.modelo,
+                        marca: res.data.marca,
+                        ano: res.data.ano,
+                        id: res.data.id
                     }, () => {
                         this.inputModeloRef.current.focus();
                     });
@@ -68,47 +85,104 @@ class App extends React.Component {
             })
             .catch(error => {
                 console.error(error);
+                this.setState({
+                    exibirMsg: true,
+                    tipoMsg: 'erro',
+                    textoMsg: 'Não foi possível carregar os dados.'
+                }, () => {
+                    this.removeMsg();
+                })
             });
+    }
+
+    removeMsg() {
+        setTimeout(() => {
+            this.setState({
+                exibirMsg: false,
+                tipoMsg: '',
+                textoMsg: ''
+            })
+        }, 3000);
+    }
+
+    handleChangeSelect(e) {
+        this.setState({
+            marca: e.target.value
+        })
     }
 
     handleClickNovo(e) {
         this.setState({
             exibirForm: true,
-            novoCadastro: true
+            novoCadastro: true,
+            id: '',
+            modelo: '',
+            marca: '',
+            ano: ''
         }, () => {
             this.inputModeloRef.current.focus();
         });
     }
 
     handleClickCadastrar(e) {
-        dataCarro = '';
-        axios.post(`http://localhost:8080/estadao/api.php?path=carros`, {dataCarro})
+        var headers = {
+            'Content-Type': 'application/json'
+        }
+        let dataCarro = serialize(this.formRef.current, { hash: true, empty: true});
+        axios.post(`http://localhost:8080/estadao/api.php?path=carros`, dataCarro, {headers: headers})
             .then(res => {
-                console.log(res);
                 if (res.status === 200) {
                     this.setState({
-                        exibirForm: false
+                        exibirForm: false,
+                        exibirMsg: true,
+                        tipoMsg: 'sucesso',
+                        textoMsg: 'Cadastrado com Sucesso'
+                    }, () => {
+                        this.removeMsg()
+                        this.getCarros();
                     });
                 }
             })
             .catch(error => {
                 console.error(error);
+                this.setState({
+                    exibirMsg: true,
+                    tipoMsg: 'erro',
+                    textoMsg: 'Não foi possível fazer o cadastro.'
+                }, () => {
+                    this.removeMsg();
+                })
             });
     }
 
     handleClickSave(e, id) {
-        dataCarro = '';
-        axios.put(`http://localhost:8080/estadao/api.php?path=carros/${id}`, {dataCarro})
+        var headers = {
+            'Content-Type': 'application/json'
+        }
+        let dataCarro = serialize(this.formRef.current, { hash: true, empty: true});
+        axios.put(`http://localhost:8080/estadao/api.php?path=carros/${id}`, dataCarro, {headers: headers})
             .then(res => {
-                console.log(res);
                 if (res.status === 200) {
                     this.setState({
-                        exibirForm: false
+                        exibirForm: false,
+                        exibirMsg: true,
+                        tipoMsg: 'sucesso',
+                        textoMsg: 'Editado com Sucesso'
+                    }, () => {
+                        this.removeMsg()
+                        this.getCarros();
                     });
                 }
             })
             .catch(error => {
                 console.error(error);
+                this.setState({
+                    exibirMsg: true,
+                    tipoMsg: 'erro',
+                    textoMsg: 'Não foi possível editar o registro.'
+                }, () => {
+                    this.removeMsg();
+                })
             });
     }
 
@@ -117,20 +191,37 @@ class App extends React.Component {
     }
 
     handleClickDelete(e, id) {
-        axios.delete(`http://localhost:8080/estadao/api.php?path=carros/${id}`)
+        var headers = {
+            'Content-Type': 'application/json'
+        }
+        axios.delete(`http://localhost:8080/estadao/api.php?path=carros/${id}`, {headers: headers})
             .then(res => {
                 if (res.status === 200) {
                     this.setState({
                         exibirForm: false,
                         novoCadastro: false,
+                        exibirMsg: true,
+                        tipoMsg: 'sucesso',
+                        textoMsg: 'Registro foi excluído.',
                         modelo: '',
                         marca: '',
-                        ano: ''
+                        ano: '',
+                        id: ''
+                    }, () => {
+                        this.removeMsg();
+                        this.getCarros();
                     });
                 } 
             })
             .catch(err => {
                 console.error(err);
+                this.setState({
+                    exibirMsg: true,
+                    tipoMsg: 'erro',
+                    textoMsg: 'Não foi possível deletar o registro.'
+                }, () => {
+                    this.removeMsg();
+                })
             });
     }
 
@@ -142,22 +233,44 @@ class App extends React.Component {
         this.setState(partialState);
     }
 
+    handleClickVoltar(e) {
+        this.setState({
+            exibirForm: false
+        });
+    }
+
     render() {
         return (
             <div className="caixaPrincipal">
                 <header>
                     <div className="caixaBotaoNovo">
-                        <Botao
-                            classeContainer='containerBotaoNovo'
-                            classe='botaoNovo' 
-                            nome='botaoNovo' 
-                            valor='Novo' 
-                            click={(e) => this.handleClickNovo(e)}
-                            />
+                        { !this.state.exibirForm &&
+                            <Botao
+                                classeContainer='containerBotaoNovo'
+                                classe='botaoNovo' 
+                                nome='botaoNovo' 
+                                valor='Novo' 
+                                click={(e) => this.handleClickNovo(e)}
+                                />
+                        }
+                        { this.state.exibirForm &&
+                            <Botao
+                                classeContainer='containerBotaoVoltar'
+                                classe='botaoVoltar' 
+                                nome='botaoVoltar' 
+                                valor='Voltar' 
+                                click={(e) => this.handleClickVoltar(e)}
+                                />
+                        }
                     </div>
                     Carros
                 </header>
                 <main>
+                    {this.state.exibirMsg &&
+                        <div className="caixaMsg">
+                            <span className={"msgSistema "+this.state.tipoMsg}>{this.state.textoMsg}</span>
+                        </div>
+                    }
                     { !this.state.exibirForm &&
                         <div className="listaCarros">
                             {this.state.carros.map((carro) => {
@@ -171,8 +284,13 @@ class App extends React.Component {
                         <div className="formCarros">
                             <form ref={this.formRef} className="formularioDetalhe">
                                 <input ref={this.inputModeloRef} type='text' name='modelo' placeholder="modelo" value={this.state.modelo} className='input inputModelo' onChange={(e) => this.handleChangeInput(e)} />
-                                <input type='text' name='marca' placeholder="marca" value={this.state.marca} className='input inputMarca' onChange={(e) => this.handleChangeInput(e)} />
-                                <input type='number' name='ano' placeholder="ano" value={this.state.ano} className='input inputAno' onChange={(e) => this.handleChangeInput(e)} />
+                                <select name="marca" value={this.state.marca} onChange={(e) => this.handleChangeSelect(e)} className="selectMarcaFabricante">
+                                    <option value=''>Selecione</option>
+                                    {marcas.map((option) => {
+                                        return <option key={uuidv4()} className="optionsMarca" value={option}>{option}</option>;
+                                    })}
+                                </select>
+                                <input type='text' name='ano' placeholder="ano" value={this.state.ano} className='input inputAno' onChange={(e) => this.handleChangeInput(e)} />
                                 { this.state.novoCadastro &&
                                     <Botao
                                         classeContainer='containerBotaoSalvar'
@@ -189,14 +307,14 @@ class App extends React.Component {
                                             classe='botaoSalvar' 
                                             nome='botaoSalvar' 
                                             valor='Salvar' 
-                                            click={(e) => this.handleClickSave(e)}
+                                            click={(e) => this.handleClickSave(e, this.state.id)}
                                             />
                                         <Botao
                                             classeContainer='containerBotaoExcluir'
                                             classe='botaoExcluir' 
                                             nome='botaoExcluir' 
                                             valor='Excluir' 
-                                            click={(e) => this.handleClickDelete(e)}
+                                            click={(e) => this.handleClickDelete(e, this.state.id)}
                                             />
                                     </div>
                                 }

@@ -1,6 +1,11 @@
 <?php
     require_once('Carro.class.php');
 
+    header('Access-Control-Allow-Origin: *', false);
+    header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
+    header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X- Request-With');
+    header('Content-type: application/json');
+
     if(!array_key_exists('path', $_GET)){
         echo 'Error path missing';
         exit;
@@ -23,9 +28,7 @@
     $json = json_decode($contents, true);
 
     $method = $_SERVER['REQUEST_METHOD'];
-
-    header('Content-type: application/json');
-    header('Access-Control-Allow-Origin: *');
+    
     $body = file_get_contents('php://input');
 
     $carroObject = new Carro();

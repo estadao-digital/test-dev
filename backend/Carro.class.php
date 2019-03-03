@@ -28,7 +28,7 @@ class Carro {
                 if($encontrado >= 0){
                     echo json_encode($data[$encontrado]);
                 }else{
-                    echo 'Error';
+                    echo 'Error: Id não localizado';
                 }
             }
         }else{
@@ -54,7 +54,7 @@ class Carro {
     public function saveCarro($data, $json, $body, $param){
         if($data){
             if($param == ''){
-                echo "Error: Codigo nao informado";
+                echo "Error: Código não informado";
             }else{
                 $encontrado = self::localizaPorID($data, $param);
 
@@ -66,7 +66,7 @@ class Carro {
                     $json["carros"] = $data;
                     file_put_contents('carros.json', json_encode($json));
                 }else{
-                    echo 'Error: Id nao localizado';
+                    echo 'Error: Id não localizado';
                     exit;
                 }
             }
@@ -78,7 +78,7 @@ class Carro {
     public function removeCarro($data, $json, $param){
         if($data){
             if($param == ''){
-                echo "Error";
+                echo "Error: Parametro nao localizado";
             }else{
                 $encontrado = self::localizaPorID($data, $param);
                 if($encontrado >= 0){
@@ -87,12 +87,12 @@ class Carro {
                     $json["carros"] = $data;
                     file_put_contents('carros.json', json_encode($json));
                 }else{
-                    echo 'Error';
+                    echo 'Error: Id não localizado';
                     exit;
                 }
             }
         }else{
-            echo 'Error';
+            echo 'Error: Dados não encontrados';
         }
     }
 }

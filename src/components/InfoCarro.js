@@ -4,7 +4,7 @@ export default class InfoCarro extends Component {
 
     handleClick(e) {
         if (typeof this.props.click == 'function')
-            this.props.click(e, this.props); 
+            this.props.click(e, this.props.id); 
     }
 
     render() {
