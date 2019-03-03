@@ -1,0 +1,138 @@
+$cor-texto: #f5f5f5;
+
+html,
+body,
+div#root {
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.caixaPrincipal {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 25%;
+    padding: 26px;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.caixaBotaoNovo {
+    position: absolute;
+    left: 11%;
+    bottom: 26px;
+    width: 80px;
+    height: 42%;
+}
+
+main {
+    width: 100%;
+    height: 85%;
+}
+
+.listaCarros {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    padding: 14px;
+    margin: 0 auto;
+    // text-align: center;
+}
+
+.infoCarro {
+    display: inline-block;
+    vertical-align: middle;
+    width: 300px;
+    height: 90px;
+    color: #000;
+    padding: 10px 16px;
+    margin-top: 16px;
+    margin-right: 16px;
+    border: 1px solid #261BFF;
+    background: #FFF;
+    text-align: left;
+    cursor: pointer;
+
+    &:hover {
+        color: #FFF;
+        background: #261BFF;
+    }
+
+    span {
+        display: block;
+        width: 100%;
+    }
+}
+
+.formCarros {
+    width: 50%;
+    height: 240px;
+    margin: 40px auto 0;
+    // border: 1px solid #261BFF;
+    background: #FFF;
+}
+
+.formularioDetalhe {
+    width: 100%;
+    height: auto;
+    padding: 30px;
+
+    & .input {
+        height: 32px;
+        border: none;
+        border: 1px solid #000;
+        margin-right: 10px;
+        margin-bottom: 16px;
+        color: #000;
+        padding: 2px 6px;
+        border: 1px solid #261BFF;
+        background: #FFF;
+
+        &::placeholder {
+            color: #000;
+        }
+    }
+    
+    & .inputModelo,
+    & .inputAno,
+    & .inputMarca {
+        width: 90%;
+        font-size: 20px;
+    }
+}
+
+.containerBotao {
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    width: auto;
+    vertical-align: top;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.botao {
+    position: relative;
+    width: 100px;
+    height: 100%;
+    border: none;
+    border-radius: 4px;
+    color: #000;
+    font-family: 'Roboto-Medium', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+        background: #CCC;
+    }
+}
