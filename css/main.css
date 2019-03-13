@@ -1,0 +1,181 @@
+body {
+  background: #f4f7fa;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: #5a6779;
+}
+.app {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+button {
+  padding: 5px 10px;
+  border: 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #fff;
+  transition: all .2s;
+  cursor: pointer;
+}
+button:hover {
+  filter: contrast(120%);
+}
+main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px;
+  transition: all .3s;
+}
+main header {
+  margin-bottom: 20px;
+}
+main header button {
+  float: right;
+  background: #28bd8b;
+}
+main header:after {
+  display: block;
+  clear: both;
+  content: '';
+}
+main table {
+  width: 100%;
+  background: #fff;
+  border: 2px solid #e2e7ec;
+  text-align: center;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+main table thead {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  color: #919cab;
+  border: 2px solid #e2e7ec;
+}
+main table thead td {
+  padding: 10px;
+}
+main table tbody tr {
+  border-bottom: 1px solid #e2e7ec;
+}
+main table tbody tr:last-child {
+  border-bottom: 0;
+}
+main table tbody td {
+  padding: 5px 10px;
+}
+main table tbody td i {
+  cursor: pointer;
+}
+main table tbody td .fa-edit {
+  margin-right: 5px;
+}
+main table tbody td .fa-trash {
+  color: #ea5a5a;
+}
+@keyframes opacity {
+  0% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.75;
+  }
+}
+.input {
+  border: 1px solid #ffffff22;
+  margin: 10px 0;
+  padding: 5px;
+}
+.input label {
+  width: 9%;
+  float: left;
+  padding: 5px;
+  margin: 0 1% 0 0;
+  text-align: left;
+}
+.input input,
+.input select {
+  float: left;
+  background: transparent;
+  border: 0;
+  padding: 5px;
+}
+.input input {
+  width: 90%;
+}
+.input select {
+  width: 100%;
+  background: #282c37;
+}
+.input:after {
+  display: block;
+  clear: both;
+  content: '';
+}
+.modals {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 50%;
+  height: 100vh;
+  background: #282c37;
+  transition: all .3s;
+  padding: 20px;
+  color: #fff;
+}
+.modals header {
+  margin-bottom: 20px;
+}
+.modals header .fa-angle-right {
+  font-size: 20px;
+  cursor: pointer;
+}
+.form {
+  display: none;
+}
+.form h3 {
+  font-size: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+  text-transform: uppercase;
+}
+.form button {
+  background: #23b1f7;
+  float: right;
+}
+.form.active {
+  display: block;
+}
+.delete {
+  display: none;
+}
+.delete button {
+  background: #ea5a5a;
+}
+.delete.active {
+  display: block;
+}
+@media only screen and (max-width: 768px) {
+  main {
+    padding: 10px;
+  }
+  .modals {
+    width: 100%;
+  }
+  .input label {
+    width: 19%;
+  }
+  .input input {
+    width: 80%;
+  }
+}
+/*# sourceMappingURL=main.css.map */

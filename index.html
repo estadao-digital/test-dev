@@ -10,13 +10,76 @@
 
   <!-- Place favicon.ico in the root directory -->
 
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <script src="js/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
+<div class="app">
+  <main>
+    <div class="container">
+      <header>
+        <button id="adicionar">Adicionar</button>
+      </header>
+      <section>
+        <table>
+          <thead>
+          <tr>
+            <td>ID</td>
+            <td>Modelo</td>
+            <td>Marca</td>
+            <td>Ano</td>
+            <td></td>
+          </tr>
+          </thead>
+          <tbody>
 
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+  <div class="modals">
+    <header>
+      <i class="fas fa-angle-right"></i>
+    </header>
+    <div class="form">
+      <h3>Adicionar Carro</h3>
+      <form>
+        <div class="input">
+          <select name="marca">
+            <option value="default">Marca</option>
+            <option value="Fiat">Fiat</option>
+            <option value="Volkswagen">Volkswagen</option>
+            <option value="General Motors">General Motors</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Renault">Renault</option>
+            <option value="Ford">Ford</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Honda">Honda</option>
+            <option value="Citröen">Citröen</option>
+          </select>
+        </div>
+        <div class="input">
+          <label for="modelo">Modelo</label><input id="modelo" name="modelo" />
+        </div>
+        <div class="input">
+          <label for="ano">Ano</label><input id="ano" name="ano" />
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+    <div class="delete">
+      <p>Você tem certeza que deseja excluir o item <span class="id"></span>?</p>
+      <button>Sim</button>
+    </div>
+  </div>
+</div>
   <script src="js/main.js"></script>
 </body>
 
