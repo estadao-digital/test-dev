@@ -15,7 +15,38 @@ $(document).ready(function() {
 
 
 $(".store-car").on('click', function() {
-  carroCreate()
+
+  $('#carroForm').validate({
+    rules: {
+      'carro[modelo]': {required: true},
+      'carro[marca]': {required: true},
+      'carro[ano]': {required: true, minlength: 4}
+    },
+
+    messages: {
+      'carro[modelo]': {required: 'O campo Modelo é obrigatorio. '},
+      'carro[marca]': {required: 'O campo Marca é obrigatorio. '},
+      'carro[ano]': {required: 'O campo Ano é obrigatorio. ', minlength: 'O campo Ano deve ter no mínimo 4 digitos. '}
+    },
+
+    errorPlacement: function(error, element){
+      if(element.hasClass('modelo')) {
+        error.appendTo($('.modelo-error'))
+      }
+
+      if(element.hasClass('marca')) {
+        error.appendTo($('.marca-error'))
+      }
+
+      if(element.hasClass('ano')) {
+        error.appendTo($('.ano-error'))
+      }
+    }
+  })
+
+  if ($('#carroForm').valid()) {
+    carroCreate()
+  }
 })
 
 // ROUTE 'carros' METHOD 'POST'
@@ -69,7 +100,30 @@ function carroEdit(id) {
 
 
 $(".update-car").on('click', function() {
-  carroUpdate()
+
+  $('#carroForm').validate({
+    rules: rules,
+
+    messages: messages,
+
+    errorPlacement: function(error, element){
+      if(element.hasClass('modelo')) {
+        error.appendTo($('.modelo-error'))
+      }
+
+      if(element.hasClass('marca')) {
+        error.appendTo($('.marca-error'))
+      }
+
+      if(element.hasClass('ano')) {
+        error.appendTo($('.ano-error'))
+      }
+    }
+  })
+
+  if ($('#carroForm').valid()) {
+    carroUpdate()
+  }
 })
 
 // ROUTE 'carros/{id}' METHOD 'PUT'
@@ -143,3 +197,9 @@ function carroDelete() {
     }
   })
 }
+
+$('.cancelar').on('click', function() {
+  $('#carroForm').each (function() {
+    this.reset();
+  });
+})

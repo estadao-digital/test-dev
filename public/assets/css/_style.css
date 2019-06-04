@@ -50,3 +50,12 @@ thead {
   background-color: #0d562b;
   color:white;
 }
+
+.error-list {
+  list-style-type: none;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}

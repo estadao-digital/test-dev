@@ -22,7 +22,7 @@
 
       <div class="modal-footer">
 
-        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-home"></i></button>
+        <button type="button" class="btn btn-danger cancelar" data-dismiss="modal"><i class="fa fa-home"></i></button>
 
         <button type="button" class="store-car btn btn-info"><i class="fa fa-save"></i></button>
 

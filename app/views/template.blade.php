@@ -13,7 +13,7 @@
 
     @yield('CSS')
   </head>
-  
+
   <body>
 
     <div class="header">
@@ -49,6 +49,7 @@
     <script src="{{ asset('assets/plugins/bootstrap-toggle/js/bootstrap-toggle.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap-table/js/bootstrap-table.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap-table/js/bootstrap-table-locale-all.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('assets/js/$_main.js') }}"></script>
     <script src="{{ asset('assets/js/$_table.js') }}"></script>
 

@@ -24,8 +24,6 @@
         )
       }}
 
-      <div class="modelo-error"></div>
-
     </div>
 
   </div>
@@ -57,8 +55,6 @@
         )
       }}
 
-      <div class="marca-error"></div>
-
     </div>
 
   </div>
@@ -85,13 +81,18 @@
         )
       }}
 
-      <div class="ano-error"></div>
-
     </div>
 
   </div>
 
+</div>
 
+<div class="form-row">
+  <ul class="error-list">
+    <li class="error modelo-error"></li>
+    <li class="error marca-error"></li>
+    <li class="error ano-error"></li>
+  </ul>
 </div>
 
 {{ Form::close() }}

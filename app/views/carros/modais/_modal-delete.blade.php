@@ -50,7 +50,7 @@
 
       <div class="modal-footer">
 
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-home"></i></button>
+        <button type="button" class="btn btn-secondary cancelar" data-dismiss="modal"><i class="fa fa-home"></i></button>
 
         {{ Form::open(['id' => 'deleteForm', 'url' => '']) }}
 
