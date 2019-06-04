@@ -13,6 +13,7 @@
 
     @yield('CSS')
   </head>
+  
   <body>
 
     <div class="header">
@@ -33,18 +34,16 @@
 
     <div id="modais">
 
-      @include('carros/_modal-create')
+      @include('carros/modais/_modal-create')
 
-      @include('carros/_modal-edit')
+      @include('carros/modais/_modal-edit')
 
-      @include('carros/_modal-delete')
+      @include('carros/modais/_modal-delete')
 
-      @include('carros/_modal-error')
+      @include('carros/modais/_modal-error')
 
     </div>
 
-
-    <script type="text/javascript">const main_url = '{{ url('/') }}/';</script>
     <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap-toggle/js/bootstrap-toggle.min.js') }}"></script>

@@ -22,7 +22,7 @@ $(".store-car").on('click', function() {
 function carroCreate() {
 
   $.ajax({
-    url: main_url+'carros',
+    url: 'carros',
     method: 'POST',
     data: {
       modelo: $('#modalCreate_').find('.modelo').val(),
@@ -46,11 +46,12 @@ function carroCreate() {
   })
 }
 
+
 // ROUTE 'carros/{id}' METHOD 'GET'
 function carroEdit(id) {
 
   $.ajax({
-    url: main_url+'carros/'+id,
+    url: 'carros/'+id,
     method: 'GET',
     success: function(data) {
       $('#modalEdit_').find('.modelo').val(data.modelo)
@@ -101,7 +102,7 @@ function carroUpdate() {
 function carroDeleteGet(id) {
 
   $.ajax({
-    url: main_url+'carros/'+id,
+    url: 'carros/'+id,
     method: 'GET',
     success: function(data) {
       $('#modalDelete_').find('.modelo').html(data.modelo)
@@ -117,6 +118,7 @@ function carroDeleteGet(id) {
   })
 }
 
+
 $(".delete-car").on('click', function() {
   carroDelete()
 })
@@ -124,7 +126,6 @@ $(".delete-car").on('click', function() {
 // ROUTE 'carros/{id}' METHOD 'DELETE'
 function carroDelete() {
   var url = $('#modalDelete_').find('#deleteForm').attr('url')
-  var id = url.split('/')
 
   $.ajax({
     url: $('#modalDelete_').find('#deleteForm').attr('url'),
