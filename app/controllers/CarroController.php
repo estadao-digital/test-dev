@@ -109,8 +109,6 @@ class CarroController extends Controller
 			return $e->getMessage();
 
 		}
-
-		return $id;
   }
 
 }

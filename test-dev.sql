@@ -27,14 +27,6 @@ CREATE TABLE `carros` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Extraindo dados da tabela `carros`
---
-
-INSERT INTO `carros` (`id`, `marca_id`, `modelo`, `ano`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'Teste', 2010, '2019-06-04 15:37:29', '2019-06-04 15:37:42', '2019-06-04 15:37:42'),
-(2, 1, 'Vectra', 2012, '2019-06-04 15:37:49', '2019-06-04 15:38:17', '2019-06-04 15:38:17'),
-(3, 1, 'Vectra', 2010, '2019-06-04 15:38:38', '2019-06-04 15:38:49', NULL);
 
 -- --------------------------------------------------------
 

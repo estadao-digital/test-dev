@@ -55,7 +55,6 @@ thead {
   list-style-type: none;
 }
 
-.error {
+.invalid {
   color: red;
-  font-size: 12px;
 }

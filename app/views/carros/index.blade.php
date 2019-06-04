@@ -15,11 +15,12 @@
 
 <div class="card-body">
 
-  <table id="carrosTableContainer" class="table-striped">
+  <table id="carrosTableContainer" class="table-striped table-sm">
 
     <div id="buttons-toolbar">
 
       <a
+        id="cadastrar-btn"
         class="btn btn-success"
         href="#modalCreate_"
         data-toggle="modal"

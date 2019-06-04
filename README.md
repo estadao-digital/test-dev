@@ -1,4 +1,4 @@
-###Tecnológias utilizadas
+### Tecnologias Utilizadas
 --------
 
 Back-end: Laravel (versão: 4.2)
@@ -6,7 +6,7 @@ Front-end: Bootstrap + jQuery
 
 Foi utilizada a versão 4.2 do Laravel devido a simplicidade do sistema requerido
 
-###Database
+### Database
 --------
 
 database/migrations/2019_06_01_014437_create_marcas_table.php
@@ -16,27 +16,28 @@ or
 
 test-dev.sql
 
-###Controller
+### Controllers
 --------
 
 app/Controllers/CarroController.php
 
-###Model
+### Models
 --------
 
 app/models/Marca.php
 app/models/Modelo.php
 
-###Views
+### Views
 --------
 
 app/views/template.blade.php
 app/views/carros/*
 
-###Routes
+### Routes
 --------
 
 app/routes.php
+
 ==============================
 
 Teste para desenvolvedor do Estadão

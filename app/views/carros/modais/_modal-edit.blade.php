@@ -18,6 +18,14 @@
 
         @include('carros/_form')
 
+        <div class="form-row">
+          <ul class="error-list">
+            <li class="error modelo-error-edit"></li>
+            <li class="error marca-error-edit"></li>
+            <li class="error ano-error-edit"></li>
+          </ul>
+        </div>
+
       </div>
 
       <div class="modal-footer">

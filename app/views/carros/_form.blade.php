@@ -1,4 +1,4 @@
-{{ Form::open(['id' => 'carroForm', 'url' => '']) }}
+{{ Form::open(['id' => 'carroForm', 'url' => '', 'class' => 'carroForm']) }}
 
 <div class="form-row">
 
@@ -85,14 +85,6 @@
 
   </div>
 
-</div>
-
-<div class="form-row">
-  <ul class="error-list">
-    <li class="error modelo-error"></li>
-    <li class="error marca-error"></li>
-    <li class="error ano-error"></li>
-  </ul>
 </div>
 
 {{ Form::close() }}

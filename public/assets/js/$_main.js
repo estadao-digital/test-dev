@@ -11,35 +11,48 @@ $(document).ready(function() {
 
     $('.select-marca').append(options)
   })
+
+  $('#cadastrar-btn').on('click', function() {
+    clearErrorMessages()
+  })
 })
 
 
 $(".store-car").on('click', function() {
 
   $('#carroForm').validate({
+    errorClass: 'invalid',
+    onChange: false,
+    onBlur: true,
     rules: {
       'carro[modelo]': {required: true},
       'carro[marca]': {required: true},
-      'carro[ano]': {required: true, minlength: 4}
+      'carro[ano]': {required: true, minlength: 4, maxlength: 4, min: 1900, max: 2020}
     },
 
     messages: {
       'carro[modelo]': {required: 'O campo Modelo é obrigatorio. '},
       'carro[marca]': {required: 'O campo Marca é obrigatorio. '},
-      'carro[ano]': {required: 'O campo Ano é obrigatorio. ', minlength: 'O campo Ano deve ter no mínimo 4 digitos. '}
+      'carro[ano]': {
+        required: 'O campo Ano é obrigatorio. ',
+        minlength: 'O campo Ano deve ter no mínimo 4 digitos. ',
+        maxlength: 'O campo Ano deve ter no mínimo 4 digitos. ',
+        min: 'O campo Ano deve estar entre os anos de 1900 e 2020. ',
+        max: 'O campo Ano deve estar entre os anos de 1900 e 2020. ',
+      }
     },
 
     errorPlacement: function(error, element){
       if(element.hasClass('modelo')) {
-        error.appendTo($('.modelo-error'))
+        $('.modelo-error-create').html(error)
       }
 
       if(element.hasClass('marca')) {
-        error.appendTo($('.marca-error'))
+        $('.marca-error-create').html(error)
       }
 
       if(element.hasClass('ano')) {
-        error.appendTo($('.ano-error'))
+        $('.ano-error-create').html(error)
       }
     }
   })
@@ -80,6 +93,7 @@ function carroCreate() {
 
 // ROUTE 'carros/{id}' METHOD 'GET'
 function carroEdit(id) {
+  clearErrorMessages()
 
   $.ajax({
     url: 'carros/'+id,
@@ -88,7 +102,8 @@ function carroEdit(id) {
       $('#modalEdit_').find('.modelo').val(data.modelo)
       $('#modalEdit_').find('.marca').val(data.marca_id)
       $('#modalEdit_').find('.ano').val(data.ano)
-      $('#modalEdit_').find('#carroForm').attr('url', 'carros/'+data.id)
+      $('#modalEdit_').find('.carroForm').attr('url', 'carros/'+data.id)
+      $('#modalEdit_').find('.carroForm').attr('id', 'carroEditForm')
       $('#modalEdit_').modal('show')
     },
     error: function(data){
@@ -101,27 +116,44 @@ function carroEdit(id) {
 
 $(".update-car").on('click', function() {
 
-  $('#carroForm').validate({
-    rules: rules,
+  $('#carroEditForm').validate({
+    errorClass: 'invalid',
+    onChange: false,
+    onBlur: true,
+    rules: {
+      'carro[modelo]': {required: true},
+      'carro[marca]': {required: true},
+      'carro[ano]': {required: true, minlength: 4, maxlength: 4, min: 1900, max: 2020}
+    },
 
-    messages: messages,
+    messages: {
+      'carro[modelo]': {required: 'O campo Modelo é obrigatorio. '},
+      'carro[marca]': {required: 'O campo Marca é obrigatorio. '},
+      'carro[ano]': {
+        required: 'O campo Ano é obrigatorio. ',
+        minlength: 'O campo Ano deve ter no mínimo 4 digitos. ',
+        maxlength: 'O campo Ano deve ter no mínimo 4 digitos. ',
+        min: 'O campo Ano deve estar entre os anos de 1900 e 2020. ',
+        max: 'O campo Ano deve estar entre os anos de 1900 e 2020. ',
+      }
+    },
 
     errorPlacement: function(error, element){
       if(element.hasClass('modelo')) {
-        error.appendTo($('.modelo-error'))
+        $('.modelo-error-edit').html(error)
       }
 
       if(element.hasClass('marca')) {
-        error.appendTo($('.marca-error'))
+        $('.marca-error-edit').html(error)
       }
 
       if(element.hasClass('ano')) {
-        error.appendTo($('.ano-error'))
+        $('.ano-error-edit').html(error)
       }
     }
   })
 
-  if ($('#carroForm').valid()) {
+  if ($('#carroEditForm').valid()) {
     carroUpdate()
   }
 })
@@ -130,7 +162,7 @@ $(".update-car").on('click', function() {
 function carroUpdate() {
 
   $.ajax({
-    url: $('#modalEdit_').find('#carroForm').attr('url'),
+    url: $('#modalEdit_').find('#carroEditForm').attr('url'),
     method: 'PUT',
     data: {
       modelo: $('#modalEdit_').find('.modelo').val(),
@@ -198,8 +230,8 @@ function carroDelete() {
   })
 }
 
-$('.cancelar').on('click', function() {
-  $('#carroForm').each (function() {
-    this.reset();
-  });
-})
+function clearErrorMessages() {
+  $('.error').each (function() {
+    $(this).html('');
+  })
+}
