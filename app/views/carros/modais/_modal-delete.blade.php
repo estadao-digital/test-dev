@@ -54,7 +54,7 @@
 
         {{ Form::open(['id' => 'deleteForm', 'url' => '']) }}
 
-          <a class="btn btn-danger delete-car" href=""><i class="fa fa-save"></i></a>
+          <a class="btn btn-danger text-light delete-car"><i class="fa fa-save"></i></a>
 
         {{ Form::close() }}
 
