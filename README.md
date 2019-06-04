@@ -14,7 +14,7 @@ database/migrations/2019_06_01_015308_create_carros_table.php
 
 or
 
-test-dev.sql
+test_dev.sql
 
 ### Controllers
 --------
