@@ -2,6 +2,7 @@
 --------
 
 Back-end: Laravel (versão: 4.2)
+
 Front-end: Bootstrap + jQuery
 
 ### Database
