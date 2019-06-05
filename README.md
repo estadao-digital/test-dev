@@ -4,8 +4,6 @@
 Back-end: Laravel (versão: 4.2)
 Front-end: Bootstrap + jQuery
 
-Foi utilizada a versão 4.2 do Laravel devido a simplicidade do sistema requerido
-
 ### Database
 --------
 
