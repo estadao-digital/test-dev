@@ -1,0 +1,10 @@
+Olá.
+
+Eu utilizei este arquivo GULPFILE para fazer algumas automações simples, personalizei-o com algumas rotinas e funções que costumo utilizar no meu dia-a-dia.
+
+A versão que estou utilizando é o GULP 4, ele é diferente das versões anteriores, caso precise de alguma informação à respeito, me coloco a disposição e ficarei feliz em esclarecer.
+
+Atenciosamente,
+Renato Brunetti
+recarapia@gmail.com
+(11) 97185-8846
