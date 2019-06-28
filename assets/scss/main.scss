@@ -1,0 +1,459 @@
+/**
+* Imports
+**/
+
+@import "_default/default.scss";
+
+// HEADER
+header {
+	@include box-sizing(border-box);
+	position: relative;
+	display: grid;
+	width: 100%;
+	margin: 0 auto;
+	padding: 1em;
+	background: #ff0000;
+	background-image: url('../img/api-carros-header-background-pattern.jpg');
+	background-repeat: repat;
+	text-align: center;
+	margin-bottom: 1em;
+
+	align-items: center;
+
+	div {
+		@include box-sizing(border-box);
+		position: relative;
+		display: grid;
+		width: 100%;
+		margin: 0 auto;
+		padding: 1em;
+		text-align: center;
+		border: solid 2px #fff;
+		border-radius: 0.35em;
+
+		align-items: center;
+
+		img {
+			@include box-sizing(border-box);
+			margin: 0 auto;
+			width: 100%;
+			max-width: 300px;
+			height: auto;
+			border: 0;
+			outline: none;
+		}
+	}
+}
+
+
+// SPA
+#spa {
+	@include box-sizing(border-box);
+	position: relative;
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+
+
+
+	.lista-carros, .cadastrar-carros, .btn-cadastrar {
+		@include box-sizing(border-box);
+		margin: 1em auto;
+		padding: 1em;
+		padding-bottom: 1.25em;
+		background-color: #ffffff;
+		border: solid 1px #bbbbbb;
+		border-radius: 0.35em;
+
+		ul {
+			@include box-sizing(border-box);
+
+			li {
+				@include box-sizing(border-box);
+				display: grid;
+				grid-template-columns: 0.5fr 2fr 2fr 1fr 1fr;
+				grid-template-rows: auto;
+				grid-gap: 0;
+
+				span, a {
+					@include box-sizing(border-box);
+					margin: 0;
+					padding: 0.35em;
+					border: solid 1px transparent;
+					border-right: solid 1px #bbbbbb;
+					color: #333;
+					line-height: 1.15em;
+					border-bottom: solid 1px #bbbbbb;
+					text-decoration: none;
+					outline: none;
+					align-items: center;
+
+					&:nth-child(5n) {
+						border-right: transparent;
+					}
+
+					.btn-action {
+						@include box-sizing(border-box);
+						display: inline-grid;
+						transition: all .2s ease-in-out;
+						margin: 0 0.35em;
+						padding: 0 0.1em;
+						cursor: pointer;
+
+						&:before {
+							@include box-sizing(border-box);
+							font-family: 'FontAwesomeSolid';
+							line-height: 1em;
+							border-radius: 0.15em;
+						}
+
+						&:hover {
+							transform: scale(1.45);
+						}
+					}
+					.btn-ok {
+						&:before {
+							content: '\f14a';
+							color: #5ddf0b;
+						}
+					}
+					.btn-cancel {
+						&:before {
+							content: '\f410';
+							color: #f43838;
+						}
+					}
+					.btn-edit {
+						&:before {
+							content: '\f044';
+							color: #ffe400;
+						}
+					}
+					.btn-del {
+						&:before {
+							content: '\f2ed';
+							color: #f43838;
+						}
+					}
+				}
+			}
+
+			.lncarro-edit {
+				background-color: #f7f7f7;
+				border: solid 1px #ffe400;
+			}
+			.list-blur {
+				filter: blur(2px);
+			}
+			
+
+				
+		}
+		.lista-cabecalho {
+
+			li {
+				background-color: #dddddd;
+				margin-bottom: 0.25em;
+				border: solid 1px #bbbbbb;
+
+				span {
+					text-align: center;
+					font-weight: 600;
+					font-family: 'Open Sans Condensed', sans-serif;
+					font-size: 1.15em;
+				}
+			}
+		}
+		.lista-conteudo {
+			@include box-sizing(border-box);
+			transition: all .2s ease-in-out;
+
+			li {
+				@include box-sizing(border-box);
+				transition: all .2s ease-in-out;
+
+				span, a {
+					@include box-sizing(border-box);
+					font-family: 'Open Sans', sans-serif;
+					font-size: 1.15em;
+					transition: all .2s ease-in-out;
+
+					&:nth-child(5n+1), &:nth-child(5n+4), &:nth-child(5n+5) {
+						text-align: center;
+					}
+
+					&:nth-child(5n+1) {
+						font-weight: 600;
+					}
+
+					&:nth-child(4n){
+						input {
+							text-align: center;
+						}
+					}
+
+					input, select {
+						@include box-sizing(border-box);
+						display: grid;
+						width: 100%;
+						border: 0;
+						outline: none;
+
+						background-color: #e7e7e7;
+						font-family: 'Open Sans', sans-serif;
+						font-size: 1em;
+						font-weight: 300;
+						color: #333333;
+					}
+				}
+			}
+
+			.lncarro-edit {
+				span {
+					&:nth-child(2n), &:nth-child(3n), &:nth-child(4n) {
+						padding: 0.18em 0.35em;
+					}
+				}
+			}
+		}
+	}
+
+	.btn-cadastrar {
+		@include box-sizing(border-box);
+		background-color: #ff0000;
+		color: #ffffff;
+		text-align: center;
+		cursor: pointer;
+		transition: all .2s ease-in-out;
+
+		span {
+			@include box-sizing(border-box);
+			font-family: 'Open Sans Condensed', sans-serif;
+			font-size: 1.25em;
+			font-weight: 300;
+			line-height: 1.15em;
+			padding: 0.75em 1em;
+			text-align: center;
+
+			&:before {
+				@include box-sizing(border-box);
+				font-family: 'FontAwesomeSolid';				
+				margin-right: 0.55em;
+				font-weight: 300;
+			}
+		}
+
+		.abrir {
+			&:before {
+				content: '\f5e4';
+			}
+		}
+
+		.fechar {
+			&:before {
+				content: '\f410';
+			}
+		}
+
+		&:hover {
+			background-color: #555;
+		}
+	}
+
+	.cadastrar-carros {
+		display: none;
+		margin-top: 0;
+
+		p {
+			@include box-sizing(border-box);
+			font-family: 'Open Sans', sans-serif;
+			font-size: 1.15em;
+			font-weight: 600;
+			line-height: 1.15em;
+			color: #fff;
+			text-align: center;
+			padding: 0.5em;
+			margin-bottom: 1em;
+			background-color: #999;
+		}
+
+		form {
+			@include box-sizing(border-box);
+			display: grid;
+			grid-template-columns: 1fr 3fr;
+			grid-template-rows: auto;
+			grid-gap: 0 1em;
+
+			align-items: center;
+
+			div.mostra-marca {
+				@include box-sizing(border-box);
+				background-image: #f7f7f7;
+	
+				img {
+					@include box-sizing(border-box);
+					width: 100%;
+					height: auto;
+					border: solid 1px #cccccc;
+					border-radius: 0.35em;
+					padding: 1em;
+					outline: none;
+				}
+			}
+			div.mostra-campos {
+
+				label, input, select {
+					@include box-sizing(border-box);
+					display: grid;
+					width: 100%;
+					border: 0;
+					outline: none;
+				}
+
+				label {
+					@include box-sizing(border-box);
+					font-family: 'Open Sans Condensed', sans-serif;
+					font-size: 1.15em;
+					font-weight: 600;
+					line-height: 1.15em;
+					color: #333333;
+					margin-bottom: 0.25em;
+				}
+
+				input, select {
+					@include box-sizing(border-box);
+					background-color: #e7e7e7;
+					font-family: 'Open Sans', sans-serif;
+					font-size: 1.15em;
+					font-weight: 300;
+					line-height: 1.35em;
+					color: #333333;
+					padding: 0.25em 0.5em;
+					margin-bottom: 1em;
+					border-bottom: solid 2px #cccccc;
+				}
+
+				div.btn-form {
+					@include box-sizing(border-box);
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					grid-template-rows: auto;
+					grid-gap: 0;
+					margin-top: 1.5em;
+
+					span {
+						@include box-sizing(border-box);
+						font-family: 'Open Sans Condensed', sans-serif;
+						font-size: 1.25em;
+						font-weight: 300;
+						line-height: 1.15em;
+						padding: 0.5em;
+						text-align: center;
+						color: #fff;
+						cursor: pointer;
+						margin: 0 0.5em;
+					}
+					.btn-cad {
+						background-color: green;
+					}
+					.btn-clean {
+						background-color: red;
+					}
+				}
+			}				
+		}
+	}
+}
+
+// HEADER
+footer {
+	@include box-sizing(border-box);
+	position: relative;
+	display: grid;
+	width: 100%;
+	margin: 0 auto;
+	background: #ff0000;
+	background-image: url('../img/api-carros-footer-background-pattern.jpg');
+	background-repeat: repat;
+	text-align: center;
+	margin-top: 1em;
+
+	div.footer-main {
+		@include box-sizing(border-box);
+		position: relative;
+		display: grid;
+		width: 100%;
+		margin: 0 auto;
+		padding: 1.5em 1em;
+		align-items: center;
+
+		grid-template-columns: 1fr 5fr;
+		grid-template-rows: auto;
+		grid-gap: 0;
+
+		section {
+			@include box-sizing(border-box);
+
+		}
+		.footer-logo {
+			text-align: center;
+
+			img {
+				@include box-sizing(border-box);
+				margin: 0 auto;
+				width: 100%;
+				max-width: 140px;
+				height: auto;
+				border: 0;
+				outline: none;
+				padding: 0.5em 1em;
+				border-radius: 0.35em;
+				border: solid 2px #ffffff;
+			}
+		}
+		.footer-info {
+			text-align: left;
+
+			p {
+				@include box-sizing(border-box);
+				font-family: 'Open Sans Condensed', sans-serif;
+				font-size: 1.25em;
+				font-weight: 300;
+				line-height: 1.15em;
+				color: #ffffff;
+
+				strong {
+					@include box-sizing(border-box);
+					font-weight: 600;
+					font-size: 1.15em;
+				}
+			}
+			a {
+				@include box-sizing(border-box);
+				text-decoration: none;
+				border: 0;
+				outline: none;
+				color: #ffffff;
+			}
+		}
+	}
+
+	div.footer-bottom {
+		@include box-sizing(border-box);
+		position: relative;
+		display: grid;
+		width: 100%;
+		margin: 0 auto;
+		background-color: #222;
+
+		p {
+			@include box-sizing(border-box);
+			padding: 0.85em 1em;
+			font-family: 'Open Sans Condensed', sans-serif;
+			font-size: 1em;
+			font-weight: 300;
+			line-height: 1em;
+			color: #ffffff;
+		}
+	}
+}

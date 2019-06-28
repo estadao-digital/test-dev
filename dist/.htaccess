@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+
+    # RewriteRule
+    RewriteEngine On
+	RewriteRule ^carros/([0-9-]+)/?$ carros/id.php?id=$1 [NC,L]
+
+</IfModule>

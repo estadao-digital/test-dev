@@ -1,0 +1,49 @@
+[{
+  "ID": 1,
+  "Marca": "Audi"
+}, {
+  "ID": 2,
+  "Marca": "BMW"
+}, {
+  "ID": 3,
+  "Marca": "Chevrolet"
+}, {
+  "ID": 4,
+  "Marca": "Fiat"
+}, {
+  "ID": 5,
+  "Marca": "Ford"
+}, {
+  "ID": 6,
+  "Marca": "Honda"
+}, {
+  "ID": 7,
+  "Marca": "Hyundai"
+}, {
+  "ID": 8,
+  "Marca": "Jeep"
+}, {
+  "ID": 9,
+  "Marca": "Kia"
+}, {
+  "ID": 10,
+  "Marca": "Mazda"
+}, {
+  "ID": 11,
+  "Marca": "Mercedes-Benz"
+}, {
+  "ID": 12,
+  "Marca": "Nissan"
+}, {
+  "ID": 13,
+  "Marca": "Peugeot"
+}, {
+  "ID": 14,
+  "Marca": "Renault"
+}, {
+  "ID": 15,
+  "Marca": "Toyota"
+}, {
+  "ID": 16,
+  "Marca": "Volkswagen"
+}]

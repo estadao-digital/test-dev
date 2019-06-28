@@ -1,0 +1,67 @@
+/**
+* Imports
+**/
+
+// Compass
+@import "compass/reset";
+@import "compass/css3";
+
+// Normalize
+@import "_normalize.scss";
+
+// Clearfix
+@import "clearfix/clearfix";
+
+// Fonts Externas
+@import "fonts";
+
+// FontAwesome
+@import "fontawesome/fontawesome";
+@import "fontawesome/regular";
+@import "fontawesome/solid";
+@import "fontawesome/brands";
+
+html, body {
+	height: 100%; 
+	background-color: #f7f7f7;
+}
+* { 
+	font-family: "sans", Arial, Verdana; 
+
+	&::selection {
+		background-color: rgba(255, 0, 0, 1);
+		color: #ffffff;
+	}
+}
+body {
+	width: 100%;
+	@include clearfix();
+}
+.container {
+	@include box-sizing(border-box);
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+	padding: 0 1em;
+}
+.wrap-spa {
+	@include box-sizing(border-box);
+	position: relative;
+	display: grid;
+	width: 100%;
+	margin: 0 auto;
+
+	height: 100%;
+	min-height: 100%;
+}
+.content-spa {
+	@include box-sizing(border-box);
+	position: relative;
+	display: grid;
+	width: 100%;
+	margin: 0 auto;
+
+	height: 100%;
+	min-height: 100%;
+}
