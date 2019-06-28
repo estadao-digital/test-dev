@@ -16,7 +16,7 @@ header {
 	background-image: url('../img/api-carros-header-background-pattern.jpg');
 	background-repeat: repat;
 	text-align: center;
-	margin-bottom: 1em;
+	margin-bottom: 0.25em;
 
 	align-items: center;
 
@@ -30,7 +30,7 @@ header {
 		text-align: center;
 		border: solid 2px #fff;
 		border-radius: 0.35em;
-
+		background-color: rgba(255,0,0,0.75);
 		align-items: center;
 
 		img {
@@ -43,6 +43,61 @@ header {
 			outline: none;
 		}
 	}
+}
+
+// INFO3
+section.intro {
+	@include box-sizing(border-box);
+	margin: 1em auto;
+
+	display: flex;
+	align-items: center;
+
+	&:before {
+		@include box-sizing(border-box);
+		font-family: 'FontAwesomeSolid';
+		font-size: 2.25em;
+		content: '\f1b9';
+		padding: 0.15em 0;
+		padding-right: 0.5em;
+		margin-right: 0.5em;
+		border-right: solid 1px #999;
+		color: #555;
+		float: left;
+
+		@media only screen and (max-width: 360px) {
+			font-size: 1.8em;
+			padding-right: 0.35em;
+			margin-right: 0.35em;
+		}
+	}
+
+	article {
+		@include box-sizing(border-box);
+
+		h1 {
+			@include box-sizing(border-box);
+			font-family: 'Open Sans', sans-serif;
+			font-size: 1.35em;
+			font-weight: 600;
+			line-height: 1.15em;
+			color: #555;
+			padding: 0;
+
+			@media only screen and (max-width: 360px) {
+				font-size: 1.25em;
+			}
+		}
+		span {
+			@include box-sizing(border-box);
+			font-family: 'Open Sans Condensed', sans-serif;
+			font-size: 1.1em;
+			font-weight: 300;
+			line-height: 1.15em;
+			color: #555;
+			text-transform: uppercase;
+		}
+	}	
 }
 
 
@@ -58,7 +113,7 @@ header {
 
 	.lista-carros, .cadastrar-carros, .btn-cadastrar {
 		@include box-sizing(border-box);
-		margin: 1em auto;
+		margin: 0 auto 1em;
 		padding: 1em;
 		padding-bottom: 1.25em;
 		background-color: #ffffff;
@@ -67,6 +122,26 @@ header {
 
 		ul {
 			@include box-sizing(border-box);
+			transition: all .2s ease-in-out;
+
+			@media only screen and (max-width: 720px) {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				grid-template-rows: auto;
+				grid-gap: 0.75em;
+			}
+			@media only screen and (max-width: 480px) {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-template-rows: auto;
+				grid-gap: 0.75em;
+			}
+			@media only screen and (max-width: 340px) {
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-template-rows: auto;
+				grid-gap: 0.75em;
+			}
 
 			li {
 				@include box-sizing(border-box);
@@ -74,6 +149,16 @@ header {
 				grid-template-columns: 0.5fr 2fr 2fr 1fr 1fr;
 				grid-template-rows: auto;
 				grid-gap: 0;
+				transition: all .2s ease-in-out;
+
+				@media only screen and (max-width: 720px) {
+					display: grid;
+					grid-template-columns: 1fr;
+					grid-template-rows: auto;
+					grid-gap: 0;
+					border: solid 1px #bbbbbb;
+					border-radius: 0.35em;
+				}
 
 				span, a {
 					@include box-sizing(border-box);
@@ -90,6 +175,10 @@ header {
 
 					&:nth-child(5n) {
 						border-right: transparent;
+					}
+
+					@media only screen and (max-width: 720px) {
+						border-right: 0;
 					}
 
 					.btn-action {
@@ -150,6 +239,11 @@ header {
 				
 		}
 		.lista-cabecalho {
+			transition: all .2s ease-in-out;
+
+			@media only screen and (max-width: 720px) {
+				display: none;
+			}
 
 			li {
 				background-color: #dddddd;
@@ -192,6 +286,14 @@ header {
 						}
 					}
 
+					@media only screen and (max-width: 720px) {
+						text-align: center;
+
+						&:nth-child(n) {
+							text-align: center;
+						}
+					}
+
 					input, select {
 						@include box-sizing(border-box);
 						display: grid;
@@ -204,6 +306,10 @@ header {
 						font-size: 1em;
 						font-weight: 300;
 						color: #333333;
+
+						@media only screen and (max-width: 720px) {
+							text-align: center;
+						}
 					}
 				}
 			}
@@ -283,12 +389,31 @@ header {
 			grid-template-columns: 1fr 3fr;
 			grid-template-rows: auto;
 			grid-gap: 0 1em;
+			transition: all .2s ease-in-out;
 
 			align-items: center;
+
+			@media only screen and (max-width: 860px) {
+				display: grid;
+				grid-template-columns: 2fr 4fr;
+				grid-template-rows: auto;
+				grid-gap: 0 1em;
+			}
+			@media only screen and (max-width: 640px) {
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-template-rows: auto;
+				grid-gap: 0 1em;
+			}
 
 			div.mostra-marca {
 				@include box-sizing(border-box);
 				background-image: #f7f7f7;
+				text-align: center;
+
+				@media only screen and (max-width: 640px) {
+					margin-bottom: 1em;
+				}
 	
 				img {
 					@include box-sizing(border-box);
@@ -298,6 +423,11 @@ header {
 					border-radius: 0.35em;
 					padding: 1em;
 					outline: none;
+					margin: 0 auto;
+
+					@media only screen and (max-width: 640px) {
+						max-width: 60%;
+					}
 				}
 			}
 			div.mostra-campos {
@@ -340,6 +470,13 @@ header {
 					grid-template-rows: auto;
 					grid-gap: 0;
 					margin-top: 1.5em;
+
+					@media only screen and (max-width: 640px) {
+						display: grid;
+						grid-template-columns: 1fr;
+						grid-template-rows: auto;
+						grid-gap: 1em;
+					}
 
 					span {
 						@include box-sizing(border-box);
@@ -387,16 +524,27 @@ footer {
 		padding: 1.5em 1em;
 		align-items: center;
 
-		grid-template-columns: 1fr 5fr;
+		grid-template-columns: repeat(2,1fr);
 		grid-template-rows: auto;
-		grid-gap: 0;
+		grid-gap: 1em;
+
+		@media only screen and (max-width: 340px) {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: auto;
+			grid-gap: 1em;
+		}
 
 		section {
 			@include box-sizing(border-box);
 
 		}
 		.footer-logo {
-			text-align: center;
+			text-align: right;
+
+			@media only screen and (max-width: 340px) {
+				text-align: center;
+			}
 
 			img {
 				@include box-sizing(border-box);
@@ -413,6 +561,10 @@ footer {
 		}
 		.footer-info {
 			text-align: left;
+
+			@media only screen and (max-width: 340px) {
+				text-align: center;
+			}
 
 			p {
 				@include box-sizing(border-box);

@@ -18,4 +18,19 @@
   "Marca": "Fiat",
   "Modelo": "Toro",
   "Ano": 2019
+}, {
+  "ID": 5,
+  "Marca": "Audi",
+  "Modelo": "A3",
+  "Ano": 2006
+}, {
+  "ID": 6,
+  "Marca": "BMW",
+  "Modelo": "X6",
+  "Ano": 2018
+}, {
+  "ID": 7,
+  "Marca": "Renault",
+  "Modelo": "Sandero",
+  "Ano": 2009
 }]
