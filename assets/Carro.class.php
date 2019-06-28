@@ -65,8 +65,27 @@ class Carros {
 	}
 
 	// Editar
-	public function editar() {
+	public function editar($dbJSON, $editaID) {
+		$this -> getMarca = isset($_POST['marca']) ? $_POST['marca']: '';
+		$this -> getModelo = isset($_POST['modelo']) ? $_POST['modelo']: '';
+		$this -> getAno = isset($_POST['ano']) ? $_POST['ano']: '';
 
+		$i=0;
+		foreach ($dbJSON as $carro) {
+			if ( $editaID == $carro -> ID ){
+				if ( $this -> getMarca != $carro -> Marca ){
+					$carro -> Marca = $this -> getMarca;
+				}
+				if ( $this -> getModelo != $carro -> Modelo ){
+					$carro -> Modelo = $this -> getModelo;
+				}
+				if ( $this -> getAno != $carro -> Ano ){
+					$carro -> Ano = $this -> getAno;
+				}
+				file_put_contents('carros.json', json_encode($dbJSON));
+				echo 'editado';
+			}
+		}
 	}
 
 	// Apagar

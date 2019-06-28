@@ -20,5 +20,12 @@ switch ($idINFO -> getAction) {
 			$idINFO -> getPrxID
 		);
 		break;
+
+	case 'edit':
+		$idINFO -> editar(
+			$dataJSON -> carrosJSON,
+			$idINFO -> getID
+		);
+		break;
 }
 ?>

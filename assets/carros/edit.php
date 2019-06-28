@@ -7,7 +7,7 @@
 
 	// 00 - SELECT MARCA
 	echo '
-	<span>#'.$getid.'</span>';
+	<span class="id-campo">#'.$getid.'</span>';
 
 	// 01 - SELECT MARCA
 	echo '
@@ -51,14 +51,39 @@
 
 
 <script>
-	function editaCarro(id){
+	function editaCarro(id, marca, modelo, ano){
 		var pageID = 'carros/'+id;
+
+		// Confirmar Editar
+		var editaPergunta = window.confirm(`Parece que todos os campos foram preenchidos corretamente!\nVocê quer mesmo prosseguir com essa alteração?\n\nID: ${id}\nMarca: ${marca}\nModelo: ${modelo}\nAno: ${ano}`);
+		
+		// Editar
+		if ( editaPergunta == true ) {
+			$.ajax({
+				method: "POST",
+				url: pageID,
+				data: { 
+					action: 'edit',
+					marca: marca,
+					modelo: modelo,
+					ano: ano
+				}
+			}).done(function( msg ) {
+				
+				if (msg == 'editado'){
+					// Carrega Carros
+					$('#spa').load('carros/index.php');
+				}
+			});
+		} else {
+			return false;
+		}
 	}
 
 
 
 	$('.btn-cancel').on('click', function(){
-		var confirmaCancel = confirm('Você quer mesmo cancelar essa edição?\nTodos os campos alterados serão perdidos permanentemente!');
+		var confirmaCancel = window.confirm('Você quer mesmo cancelar essa edição?\nTodos os campos alterados serão perdidos permanentemente!');
 		if ( confirmaCancel == true ){
 			$('#spa').fadeOut(100);
 			$('#spa').load('carros/index.php');
@@ -144,7 +169,7 @@
 			}
 
 			if ( iguais == 3 ){
-				var confirmaIguais = confirm('Hey! Nenhum campo foi alterado!\nVocê ainda quer alterar este carro ou prefere cancelar?');
+				var confirmaIguais = window.confirm('Hey! Nenhum campo foi alterado!\nVocê ainda quer alterar este carro ou prefere cancelar?');
 				if ( confirmaIguais == true ){
 					return false;
 				} else {
@@ -154,12 +179,13 @@
 					return false;
 				}
 			} else {
-				// Confirmação
-				var confirmaOK = confirm('Parece que todos os campos foram preenchidos corretamente!\nVocê quer mesmo fazer essa alteração?');
 
-				if ( confirmaOK == true ) {
-					//editaCarro(carroID, carroMarca, carroModelo, carroAno);
-				}
+				var editCarroID = $('.id-campo').text().replace('#','');
+				var editCarroMarca = $('.edit-campo').eq(0).val();
+				var editCarroModelo = $('.edit-campo').eq(1).val();
+				var editCarroAno = $('.edit-campo').eq(2).val();
+
+				editaCarro(editCarroID, editCarroMarca, editCarroModelo, editCarroAno);
 			}			
 		}
 	});

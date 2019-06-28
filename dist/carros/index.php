@@ -49,6 +49,8 @@
 					$('#spa').load('carros/index.php');
 				}
 			});
+		} else {
+			return false;
 		}
 	}
 
@@ -163,7 +165,7 @@
 		}
 
 		if ( campoPreenchido != 0 ) {
-			var limpaConfirma = confirm('Você deseja mesmo limpar os campos?');
+			var limpaConfirma = window.confirm('Você deseja mesmo limpar os campos?');
 			if ( limpaConfirma == true ) {
 				$('.cad-campo').val('');
 
