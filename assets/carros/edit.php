@@ -12,7 +12,7 @@
 	// 01 - SELECT MARCA
 	echo '
 	<span>
-	<select name="editmarca" id="editmarca" data-orig="'.$getmarca.'" value="'.$getmarca.'">
+	<select name="editmarca" id="editmarca" class="edit-campo" data-orig="'.$getmarca.'" value="'.$getmarca.'">
 	<option value="">Selecione a Marca</option>';
 	
 	foreach ($dataMJSON -> marcasJSON as $marca){
@@ -32,13 +32,13 @@
 	// 02 - MODELO
 	echo '
 	<span>
-	<input type="text" name="editmodelo" id="editmodelo" data-orig="'.$getmodelo.'" value="'.$getmodelo.'">
+	<input type="text" name="editmodelo" id="editmodelo" class="edit-campo" data-orig="'.$getmodelo.'" value="'.$getmodelo.'">
 	</span>';
 
 	// 03 - ANO
 	echo '
 	<span>
-	<input type="text" name="editano" id="editano" data-orig="'.$getano.'" value="'.$getano.'">
+	<input type="text" name="editano" id="editano" class="edit-campo" data-orig="'.$getano.'" value="'.$getano.'">
 	</span>';
 
 	// 03 - ACTION
@@ -51,6 +51,12 @@
 
 
 <script>
+	function editaCarro(id){
+		var pageID = 'carros/'+id;
+	}
+
+
+
 	$('.btn-cancel').on('click', function(){
 		var confirmaCancel = confirm('Você quer mesmo cancelar essa edição?\nTodos os campos alterados serão perdidos permanentemente!');
 		if ( confirmaCancel == true ){
@@ -64,6 +70,7 @@
 	$('#editmarca, #editmodelo').bind('change', function(){
 		if ( $(this).val().length == 0 && $(this).val() == '' ) {
 			alert('Hey! Não me parece uma boa ideia deixar este campo vazio agora!\nNão será possível finalizar esta alteração sem essa informação.\n\nMas se você ainda estiver em dúvida, tudo bem, pode tomar um café primeiro enquanto pensa melhor sobre essa informação, mas lembre-se de preencher este campo antes de pressionar aquele botão verdinho bem ali ao lado! ;)');
+			return false;
 		}
 	});
 
@@ -86,6 +93,7 @@
 			if ( $(this).val() == '' && $(this).val().length == 0 ){
 				// Sem Info
 				alert('Hey! Eu sei que muita gente não dá muita importância para o ano em que o carro foi fabricado, mas para nós, essa informação é muito importante!\n\nTalvez você não queira preencher agora, ou talvez tenha apagado sem querer, tudo bem, eu posso esperar você preencher novamente, mas você promete que não vai esquecer?');
+					return false;
 
 			} else {
 				// Ano Max
@@ -107,5 +115,52 @@
 
 	$('.btn-ok').on('click', function(){
 
+		// Os campos estão preenchidos!?
+		var campoPreenchido = 0;
+
+		for ($i = 0; $i < $('.edit-campo').length; $i++){
+			if ( $('.edit-campo').eq($i).val() != '' ){
+				campoPreenchido++;
+			}
+		}
+
+		if ( campoPreenchido == 0 ){
+			alert('Hey! Lembra que eu te falei sobre deixar os campos sem informação?\nVocê está me testando? Ou foi sem querer?\n\nTudo bem, vamos fazer assim, quando estiver com tudo preenchido, você pode clicar novamente neste botãozinho verdinho bem aqui!');
+				return false;
+		} else if ( campoPreenchido == 1 ){
+			alert('Hey! Alguns campos não foram preenchido!\nLembra que eu te falei que era importante preencher todos os campos?\n\nTudo bem, você parece ser legal, eu vou esperar você preencher, aí depois é só clicar novamente no botãozinho verdinho e ver a mágica acontecer!');
+				return false;
+		} else if ( campoPreenchido == 2 ){
+			alert('Hey! Algum campo não foi preenchido!\nLembra que eu te falei que era importante preencher todos os campos?\n\nTudo bem, como foi um campo só, eu vou esperar você preencher, aí depois é só clicar novamente no botãozinho verdinho e ver a mágica acontecer!');
+				return false;
+		} else if ( campoPreenchido == 3 ) {
+
+			// Campos Iguais ou Diferentes?!
+			var iguais = 0;
+			for ($c=0; $c < $('.edit-campo').length; $c++){
+				if ( $('.edit-campo').eq($c).attr('data-orig') == $('.edit-campo').eq($c).val() ){
+					iguais++;
+				}
+			}
+
+			if ( iguais == 3 ){
+				var confirmaIguais = confirm('Hey! Nenhum campo foi alterado!\nVocê ainda quer alterar este carro ou prefere cancelar?');
+				if ( confirmaIguais == true ){
+					return false;
+				} else {
+					$('#spa').fadeOut(100);
+					$('#spa').load('carros/index.php');
+					$('#spa').fadeIn(100);
+					return false;
+				}
+			} else {
+				// Confirmação
+				var confirmaOK = confirm('Parece que todos os campos foram preenchidos corretamente!\nVocê quer mesmo fazer essa alteração?');
+
+				if ( confirmaOK == true ) {
+					//editaCarro(carroID, carroMarca, carroModelo, carroAno);
+				}
+			}			
+		}
 	});
 </script>

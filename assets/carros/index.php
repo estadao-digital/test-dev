@@ -111,9 +111,6 @@
 			});
 		}
 	}
-	function editaCarro(id){
-		var pageID = 'carros/'+id;
-	}
 
 	// Click Action
 	$('.btn-action').on('click', function(){
@@ -135,18 +132,8 @@
 					getmodelo: carroModelo,
 					getano: carroAno
 				});
-
-				/*$(this).parents('li').find('span').eq(1).html(editMarca);
-				$(this).parents('li').find('span').eq(2).html(editModelo);
-				$(this).parents('li').find('span').eq(3).html(editAno);
-				$(this).parents('li').find('span').eq(4).html(editAction);
-
-				$('#editmarca').load('carros/edit-marcas-options.php', {
-					marcaoriginal: carroMarca
-				});*/
-
-			    //editaCarro(carroID, carroMarca, carroModelo, carroAno);
 			    break;
+
 			case 'del':
 				apagaCarro(carroID, carroMarca, carroModelo, carroAno);
 				break;
@@ -203,7 +190,8 @@
 			// Ano Vazio
 			if ( $(this).val() == '' && $(this).val().length == 0 ){
 				// Sem Info
-				alert('Hey! Eu sei que muita gente não dá muita importância para o ano em que o carro foi fabricado, mas aqui ela é importante!\n\nTalvez você não queira preencher agora, tudo bem, eu posso esperar, mas você promete que não vai esquecer?')
+				alert('Hey! Eu sei que muita gente não dá muita importância para o ano em que o carro foi fabricado, mas aqui ela é importante!\n\nTalvez você não queira preencher agora, tudo bem, eu posso esperar, mas você promete que não vai esquecer?');
+				return false;
 
 			} else {
 
