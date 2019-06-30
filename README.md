@@ -12,7 +12,7 @@ Este projeto consiste de um CRUD em PHP, que é acessado por meio de uma API res
 ### Front-End
 - HTML
 - CSS
-- Javascrip
+- Javascript
 - VueJS
 - jQuery
 - Bootstrap
@@ -38,3 +38,10 @@ $ php -S localhost:9999
 
 ### Pré-Requisitos
  - [PHP](https://www.php.net/downloads.php)
+ 
+### Referências
+- [PHP](https://php.net/)
+- [VueJS](https://vuejs.org/)
+- [jQuery](https://jquery.com/)
+- [Toastr](https://codeseven.github.io/toastr/)
+- [Bootstrap](https://getbootstrap.com/)
