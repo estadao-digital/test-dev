@@ -1,7 +1,7 @@
 Teste para desenvolvedor: Teste-Dev
 ==============================
  
-API rest de carros com front-end para interação com api; 
+Este projeto consiste de um CRUD em PHP, que é acessado por meio de uma API rest, e também possui um Front-end para interagir com a API.
 
 --------
 
@@ -19,6 +19,7 @@ API rest de carros com front-end para interação com api;
 
 ### Como usar
 ````
+$ git clone https://github.com/stdioh321/test-dev.git
 $ cd test-dev
 $ php -S localhost:9999
 ````
@@ -32,5 +33,8 @@ $ php -S localhost:9999
  - `/server/api.php/carros/{id}`[GET] Retorna um carro especifico.
  - `/server/api.php/carros/{id}`[PUT] Atualiza um carro já existente.
  - `/server/api.php/carros/{id}`[DELETE] Deleta uma carro.
+
+--------
+
 ### Pré-Requisitos
  - [PHP](https://www.php.net/downloads.php)
