@@ -1,22 +1,194 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html lang="">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title></title>
+  <title>Test Dev</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Place favicon.ico in the root directory -->
-
-  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
-  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <!-- Importa o Framework css Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Importa o Framework css Font-Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Importa o Framework css Toastr -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+  <!-- Importa o Framework js VueJs -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+  
+  <!-- Importa o Framework js axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  
+  <!-- Importa o Framework js jQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    
+    <!-- Importa o Framework js Toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+   
+  <!-- Importa o Framework js Bootstrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
+  <div class="container-fluid" id="app">
 
+    <div class="row">
+      <div class="col-md-6">
+
+        <h3>Novo Carro</h3>
+        <!-- Formulário de inserção de um novo carro -->
+        <form v-on:submit.prevent="onSubmit($event)">
+          <div class="form-group">
+            <label for="marca">Marca</label>
+            <select name="marca" id="marca" class="form-control" v-model='currentCarro.carro_marca' required>
+              <option disabled value="">Escolha uma marca</option>
+              <option v-text="item" v-for="item in marcas"></option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="modelo">Modelo</label>
+            <input type="text" class="form-control" id="modelo" placeholder="Modelo" required
+              v-model='currentCarro.carro_modelo'>
+
+          </div>
+          <div class="form-group">
+            <label for="ano">Ano</label>
+            <input type="number" id="ano" class="form-control" placeholder="2000" required
+              v-model='currentCarro.carro_ano' min="1900" max="2019">
+
+          </div>
+
+          <button type="submit" class="btn btn-primary"
+            :disabled="!currentCarro.carro_modelo || !currentCarro.carro_marca || !currentCarro.carro_ano">Enviar</button>
+        </form>
+
+      </div>
+
+      <div class="col-md-6">
+        <h3>
+          Lista de Carros
+        </h3>
+        <!-- Tabela de exibição de todos os carros existentes na base de dados -->
+        <table class="table table-striped" v-if="carros.length > 0">
+          <tr>
+            <td>Marca</td>
+            <td>Modelo</td>
+            <td>Ano</td>
+            <td>
+              <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
+            </td>
+            <td>
+              <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+            </td>
+          </tr>
+
+          <tr v-for="carro in carros">
+            <td :title="carro.carro_id">
+              <span data-toggle="modal" data-target="#myModal" @click="showModalCarro(carro)">
+                {{carro.carro_marca}}
+              </span>
+            </td>
+            <td>{{carro.carro_modelo}}</td>
+            <td>{{carro.carro_ano}}</td>
+            <td>
+              <span class="edit-carro" href="" data-toggle="modal" data-target="#modalEditCarro"
+                @click="showModalCarro(carro)">
+                <i class="fa fa-pencil-square fa-lg" aria-hidden="true"></i>
+              </span>
+            </td>
+            <td>
+              <span class="remove-carro" href="" @click="removeCarro(carro)">
+                <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
+              </span>
+            </td>
+
+
+          </tr>
+
+        </table>
+        <h3 v-else>
+          <i class="fa fa-frown-o fa-lg" aria-hidden="true"></i>
+          Não existem carros registrados.
+        </h3>
+      </div>
+    </div>
+
+    <!-- Componente Modal para exibição do carro selecionado -->
+
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h2 class="modal-title">Marca - {{tmpCarro.carro_marca}}</h2>
+          </div>
+          <div class="modal-body">
+            <h3>Modelo - {{tmpCarro.carro_modelo}}</h3>
+            <h4>
+              Ano - {{tmpCarro.carro_ano}}
+            </h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Componente Modal para exibição do carro selecionado para a edição -->
+    <div class="modal fade" id="modalEditCarro" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h2 class="modal-title">
+              Editar Carro
+            </h2>
+          </div>
+          <div class="modal-body">
+            <!-- Formulário de edição do carro selecionado -->
+            <form @submit.prevent="onSubmitEdit">
+              <div class="form-group">
+                <label for="marca">Marca</label>
+                <select name="marca" id="marca" class="form-control" v-model='carroEdit.carroEdit.carro_marca' required>
+                  <option disabled value="">Escolha uma marca</option>
+                  <option v-text="item" v-for="item in marcas"></option>
+                </select>
+
+              </div>
+              <div class="form-group">
+                <label for="modelo">Modelo</label>
+                <input type="text" class="form-control" id="modelo" placeholder="Modelo" required
+                  v-model='carroEdit.carroEdit.carro_modelo'>
+              </div>
+              <div class="form-group">
+                <label for="ano">Ano</label>
+                <input type="number" id="ano" class="form-control" placeholder="2000" required
+                  v-model='carroEdit.carroEdit.carro_ano' min="1900" max="2019">
+
+              </div>
+
+              <button type="submit" class="btn btn-primary"
+                :disabled="!carroEdit.carroEdit.carro_modelo || !carroEdit.carroEdit.carro_marca || !carroEdit.carroEdit.carro_ano">
+                Atualizar</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="js/main.js"></script>
 </body>
 

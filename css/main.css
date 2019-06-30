@@ -1,0 +1,32 @@
+
+    .edit-carro,
+    .remove-carro {
+      cursor: pointer;
+    }
+
+    .fa-trash {
+      color: red;
+    }
+
+    .fa-pencil-square {
+      color: green;
+    }
+
+    tbody>tr:nth-child(1)>td {
+      font-weight: bolder;
+      /* border: solid red 1px; */
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+      transition: opacity .5s;
+
+    }
+
+    .fade-enter,
+    .fade-leave-to
+
+    /* .fade-leave-active em versões anteriores a 2.1.8 */
+      {
+      opacity: 0;
+    }
