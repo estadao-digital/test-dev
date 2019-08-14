@@ -262,6 +262,7 @@
           url:"cadastra_carros.php",
           success:function(r){
             if(r == 1){
+              $('#formCadastra')[0].reset();
               alertify.success('Carro criado com sucesso');
               $('#tabela').load('carros.php');
             }else{
