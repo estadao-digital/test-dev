@@ -12,8 +12,8 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/carros','CarrosController@index');
-Route::post('/carros','CarrosController@cadastrarVeiculo');
-Route::get('/carros/{id}','CarrosController@buscarVeiculo');
-Route::put('/carros/{id}','CarrosController@atualizarVeiculo');
-Route::delete('/carros/{id}','CarrosController@deletarVeiculo');
+Route::get('/carros','CarrosController@index')->name('lista_carros');
+Route::post('/carros','CarrosController@cadastrarVeiculo')->name('cadastra_carro');
+Route::get('/carros/{id}','CarrosController@buscarVeiculo')->name('buscar_carro');
+Route::put('/carros/{id}','CarrosController@atualizarVeiculo')->name('atualiza_carro');
+Route::delete('/carros/{id}','CarrosController@deletarVeiculo')->name('remove_carro');

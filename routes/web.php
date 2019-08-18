@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/carros', function () {
+    return view('carros');
 });
+
+
+Route::get('/novo',function(){
+    return view('novo');
+});
+
+Route::get('/edit/{id}','CarrosController@edit');

@@ -8,7 +8,18 @@ class CarrosController extends Controller {
 
     public function index() {
 
-        $carros = file_get_contents(base_path('storage/app/public/carros.txt'));
+        //$carros = file_get_contents(base_path('storage/app/public/carros.txt'));
+        $file = fopen(base_path('storage/app/public/carros.txt'), 'r');
+        $carros = array();
+        while (!feof($file)) {
+            $linha = fgets($file, 1024);
+            if(empty($linha)){
+                continue;
+            }else{
+                $carros[] = $linha;
+            }
+        }
+        
         return response()->json([
                     'status' => 'ok',
                     'data' => $carros
@@ -47,9 +58,9 @@ class CarrosController extends Controller {
     }
 
     public function atualizarVeiculo($id, Request $request) {
-
+        
         $novosDados = $request['id'] . ',' . $request['marca'] . ',' . $request['modelo'] . ',' . $request['ano'] . "\n";
-
+        
         $dadosAtuais = null;
         $file = base_path('storage/app/public/carros.txt');
         $carros = fopen($file, 'r');
@@ -86,6 +97,29 @@ class CarrosController extends Controller {
         fclose($carros);
         file_put_contents($file, $dadosAtuais);
         return $this->index();
+    }
+    
+    public function edit($id){
+        $marcas = array(
+            array('marca'=>'GM','nome'=>'GM'),
+            array('marca'=>'Fiat','nome' =>'Fiat'),
+            array('marca'=> 'VW','nome'=>'Volksvagem'),
+            array('marca'=>'FORD','nome'=>'FORD')
+            );
+        $response = $this->buscarVeiculo($id);
+        $dados = $response->getData()->data;
+        $dados = explode(',',preg_replace("/\r?\n/","", $dados));
+        
+        $carro['id'] = $dados[0];
+        $carro['marca'] = $dados[1];
+        $carro['modelo'] = $dados[2];
+        $carro['ano'] = $dados[3];
+        
+        
+        return view('editar',[
+            'carro' => $carro,
+            'marcas' => $marcas
+        ]);
     }
 
 }
