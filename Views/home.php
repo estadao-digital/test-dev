@@ -123,6 +123,41 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="viewCarro" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Carro <span class="carro-nome"></span></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <form>
+                        <div class="form-group">
+                                <label>Marca</label>
+                                <input name="carro-marca" type="text" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Modelo</label>
+                                <input name="carro-modelo" type="text" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Ano</label>
+                                <input name="carro-ano" type="text" class="form-control" disabled maxlength="4">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

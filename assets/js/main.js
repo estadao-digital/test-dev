@@ -7,6 +7,7 @@ function loadCarros() {
             montaLinha(data)
             editCarro()
             deleteCarro()
+            viewCarro()
         }
     })
 }
@@ -27,6 +28,24 @@ function montaLinha(data) {
         $('#carros>tbody').append(html)
     })
 
+}
+
+function viewCarro(){
+    $('.carro-view').click(function(e){
+        e.preventDefault()
+        var id = $(this).data('id')
+
+        $.ajax({
+            type: 'GET',
+            url: BASE_URL+'carros/'+id,
+            dataType: 'JSON',
+            success: function(data){
+                $('input[name=carro-modelo]').val(data.modelo)
+                $('input[name=carro-ano]').val(data.ano)
+                $('input[name=carro-marca]').val(data.marca)
+            }
+        })
+    })
 }
 
 function editCarro(){
