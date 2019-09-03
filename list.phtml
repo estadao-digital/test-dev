@@ -1,0 +1,206 @@
+<?php
+$dados = $this->getResult();
+
+?>
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Place favicon.ico in the root directory -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <br />
+    
+    <h3 align="center">PHP Mysql REST API CRUD</h3>
+    <br />
+    <div align="right" style="margin-bottom:5px;">
+      <button type="button" name="add_button" id="add_button" class="btn btn-success btn-xs">Adicionar</button>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Ano</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody> </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
+
+<div id="apicrudModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" id="api_crud_form">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Adicionar Carros</h4>
+                  </div>
+                  <div class="modal-body">
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">Selecione uma marca</label>
+                        <select class="form-control" name="marca" id="marca">
+                            <option>AUDI</option>
+                            <option>CHEVROLET</option>
+                            <option>FIAT</option>
+                            <option>FORD</option>
+                            <option>RENAULT</option>
+                            <option>HYUNDAI</option>
+                            <option>TOYOTA</option>
+                            <option>CITROËN</option>
+                            <option>PEUGEOT</option>
+                            <option>NISSAN</option>
+                            <option>VOLKSWAGEN</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Modelo</label>
+                        <input type="text" name="modelo" id="modelo" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Ano</label>
+                        <input type="text" name="ano" id="ano" class="form-control" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="hidden_id" id="hidden_id" />
+                    <input type="hidden" name="action" id="action" value="insert" />
+                    <input type="submit" name="button_action" id="button_action" class="btn btn-info" value="Insert" />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+            </form>
+        </div>
+      </div>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+    fetch_data();
+
+    function fetch_data()
+    {
+        $.ajax({
+            url:"fetch.php",
+            success:function(data)
+            {
+                $('tbody').html(data);
+            }
+        })
+    }
+
+    $('#add_button').click(function(){
+        $('#action').val('insert');
+        $('#button_action').val('Insert');
+        $('.modal-title').text('Edit Data');
+        $('#apicrudModal').modal('show');
+    });
+
+    $('#api_crud_form').on('submit', function(event){
+        event.preventDefault();
+        if($('#marca').val() == '')
+        {
+            alert("Insira a marca");
+        }
+        else if($('#modelo').val() == '')
+        {
+            alert("Insira o modelo");
+        }
+        else if($('#ano').val() == '')
+        {
+            alert("Insira o ano de fabricação");
+        }
+        else
+        {
+            var form_data = $(this).serialize();
+            $.ajax({
+                url:"carro.class.php",
+                method:"POST",
+                data:form_data,
+                success:function(data)
+                {
+                    fetch_data();
+                    $('#api_crud_form')[0].reset();
+                    $('#apicrudModal').modal('hide');
+                    if(data == 'insert')
+                    {
+                        alert("Data Inserted using PHP API");
+                    }
+                    if(data == 'update')
+                    {
+                        alert("Data Updated using PHP API");
+                    }
+                }
+            });
+        }
+    });
+
+    $(document).on('click', '.edit', function(){
+        var id = $(this).attr('id');
+        var action = 'fetch_single';
+        $.ajax({
+            url:"carro.class.php",
+            method:"POST",
+            data:{id:id, action:action},
+            dataType:"json",
+            success:function(data)
+            {
+                $('#hidden_id').val(id);
+                $('#modelo').val(data.modelo);
+                $('#marca').val(data.marca);
+                $('#ano').val(data.ano);
+                $('#action').val('update');
+                $('#button_action').val('Update');
+                $('.modal-title').text('Edit Data');
+                $('#apicrudModal').modal('show');
+
+            }
+        })
+    });
+    
+
+$(document).on('click', '.delete', function(){
+        var id = $(this).attr("id");
+        var action = 'delete';
+        if(confirm("Tem certeza de que deseja remover esses dados?"))
+        {
+            $.ajax({
+                url:"carro.class.php",
+                method:"POST",
+                data:{id:id, action:action},
+                success:function(data)
+                {
+                    fetch_data();
+                    alert("Dados excluídos com sucesso");
+                }
+            });
+        }
+    });
+});
+
+
+</script>

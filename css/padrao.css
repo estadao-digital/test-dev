@@ -1,0 +1,50 @@
+#main{	
+	margin: 0 auto;
+	width: 999px;
+}
+#header .capa {
+	width: 281px;
+	height: 91px;
+	float: left;
+	margin-right: 30px;
+}
+#header .titulo {
+	background-color: #F3F3F3;
+	height: 91px;
+}
+#header .msgAlerta {
+	background-color: #F3F3F3;
+	font-family: sans-serif;
+	color: #930000;
+	padding: 1px 2px 1px 30px;
+	margin-top: 110px;
+}
+#dados{	
+	margin-top: 50px;
+}
+.clear {
+	clear: both;
+}
+.imgTab{
+	width: 120px;
+	height: 90px;
+}
+th{
+	background-color: #12265A;
+	font-family: sans-serif;
+	color: #FFF;
+	font-size: 15px;
+	font-weight: bold;
+}
+.trCinza{
+	background-color: #F3F3F3;
+	font-family: sans-serif;
+	font-size: 12px;
+	text-align: left;
+}
+.tdProduto
+{ 
+	padding: 15px; 
+	min-width: 300px;
+}
+.tdPreco{ padding: 15px; }

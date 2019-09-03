@@ -1,0 +1,28 @@
+{
+  "carros": [
+    {
+      "marca": "CHEVROLET",
+      "modelo": "Corsa Hatch",
+      "ano": "2010",
+      "id": 10
+    },
+    {
+      "marca": "VOLKSWAGEN",
+      "modelo": "GOL ",
+      "ano": "2019",
+      "id": 11
+    },
+    {
+      "marca": "CHEVROLET",
+      "modelo": "Onix",
+      "ano": "2019",
+      "id": 12
+    },
+    {
+      "marca": "CHEVROLET",
+      "modelo": "COBALT",
+      "ano": "2020",
+      "id": 13
+    }
+  ]
+}
