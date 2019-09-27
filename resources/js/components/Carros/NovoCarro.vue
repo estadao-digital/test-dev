@@ -25,7 +25,7 @@
                         </option>
                     </select>
                 </div>
-                <router-link to="/" class="btn default">Voltar</router-link>
+                <router-link to="/" class="btn btn-light">Voltar</router-link>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
             </form>
         </div>

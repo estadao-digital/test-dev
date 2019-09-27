@@ -22,7 +22,7 @@
                     <input type="text" class="form-control" id="marca" v-model="carro.marca.nome" disabled>
                 </div>
             </template>
-            <router-link to="/" class="btn default">Voltar</router-link>
+            <router-link to="/" class="btn btn-light">Voltar</router-link>
         </div>
     </div>
 </template>
@@ -48,7 +48,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>
