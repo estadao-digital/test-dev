@@ -1931,6 +1931,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EditarCarro",
   created: function created() {
@@ -1986,6 +1987,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -2130,6 +2132,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home",
   mounted: function mounted() {
@@ -2138,6 +2144,11 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     carros: function carros() {
       return this.$store.getters.carros;
+    }
+  },
+  methods: {
+    deletar: function deletar(id) {
+      this.$store.dispatch('deleteCarro', id);
     }
   }
 });
@@ -37715,16 +37726,20 @@ var render = function() {
                   }
                 }
               },
-              _vm._l(_vm.marcas, function(marca) {
-                return _c("option", { domProps: { value: marca.id } }, [
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(marca.nome) +
-                      "\n                    "
-                  )
-                ])
-              }),
-              0
+              [
+                _c("option", { attrs: { value: "" } }, [_vm._v("Selecione")]),
+                _vm._v(" "),
+                _vm._l(_vm.marcas, function(marca) {
+                  return _c("option", { domProps: { value: marca.id } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(marca.nome) +
+                        "\n                    "
+                    )
+                  ])
+                })
+              ],
+              2
             )
           ]),
           _vm._v(" "),
@@ -37884,16 +37899,20 @@ var render = function() {
                   }
                 }
               },
-              _vm._l(_vm.marcas, function(marca) {
-                return _c("option", { domProps: { value: marca.id } }, [
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(marca.nome) +
-                      "\n                    "
-                  )
-                ])
-              }),
-              0
+              [
+                _c("option", { attrs: { value: "" } }, [_vm._v("Selecione")]),
+                _vm._v(" "),
+                _vm._l(_vm.marcas, function(marca) {
+                  return _c("option", { domProps: { value: marca.id } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(marca.nome) +
+                        "\n                    "
+                    )
+                  ])
+                })
+              ],
+              2
             )
           ]),
           _vm._v(" "),
@@ -38030,7 +38049,23 @@ var render = function() {
                           )
                         ],
                         1
-                      )
+                      ),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.deletar(carro.id)
+                              }
+                            }
+                          },
+                          [_vm._v("Deletar")]
+                        )
+                      ])
                     ])
                   })
             ],
@@ -38057,9 +38092,11 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Ano")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Detalhar")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Ver")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Editar")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Editar")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Deletar")])
       ])
     ])
   },
@@ -54743,6 +54780,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     atualizarListagemMarcas: function atualizarListagemMarcas(state, payload) {
       state.marcas = payload;
+    },
+    removeCarro: function removeCarro(state, payload) {
+      var index = state.carros.findIndex(function (item) {
+        return item.id === payload;
+      });
+      state.carros.splice(index, 1);
     }
   },
   actions: {
@@ -54754,6 +54797,11 @@ __webpack_require__.r(__webpack_exports__);
     getMarcas: function getMarcas(context) {
       axios.get('/api/marcas').then(function (response) {
         context.commit('atualizarListagemMarcas', response.data);
+      });
+    },
+    deleteCarro: function deleteCarro(context, id) {
+      axios["delete"]("api/carros/".concat(id)).then(function () {
+        return context.commit('removeCarro', id);
       });
     }
   }

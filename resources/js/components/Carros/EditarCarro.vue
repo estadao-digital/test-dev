@@ -19,6 +19,7 @@
                 <div class="form-group">
                     <label for="marca">Marca</label>
                     <select class="form-control" id="marca" v-model="carro.marca_id">
+                        <option value="">Selecione</option>
                         <option v-for="marca in marcas" v-bind:value="marca.id">
                             {{marca.nome}}
                         </option>

@@ -11,8 +11,9 @@
                     <th scope="col">Modelo</th>
                     <th scope="col">Marca</th>
                     <th scope="col">Ano</th>
-                    <th scope="col">Detalhar</th>
+                    <th scope="col">Ver</th>
                     <th scope="col">Editar</th>
+                    <th scope="col">Deletar</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -33,6 +34,9 @@
                         <td>
                             <router-link :to="`/carro/editar/${carro.id}`">Editar</router-link>
                         </td>
+                        <td>
+                            <a href="#" v-on:click.prevent="deletar(carro.id)">Deletar</a>
+                        </td>
                     </tr>
                 </template>
                 </tbody>
@@ -50,6 +54,11 @@
         computed: {
             carros(){
                 return this.$store.getters.carros;
+            }
+        },
+        methods: {
+            deletar(id){
+                this.$store.dispatch('deleteCarro', id)
             }
         }
     }

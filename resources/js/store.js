@@ -17,6 +17,10 @@ export default {
         },
         atualizarListagemMarcas(state, payload){
             state.marcas = payload;
+        },
+        removeCarro(state, payload){
+            let index = state.carros.findIndex(item => item.id === payload);
+            state.carros.splice(index, 1);
         }
     },
     actions: {
@@ -31,6 +35,11 @@ export default {
                 .then((response) => {
                     context.commit('atualizarListagemMarcas', response.data);
                 });
+        },
+        deleteCarro(context, id){
+            axios.delete(`api/carros/${id}`)
+                .then(() => context.commit('removeCarro', id));
+
         }
     }
 }
