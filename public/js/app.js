@@ -1847,8 +1847,64 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "NovoCarro"
+  name: "NovoCarro",
+  mounted: function mounted() {
+    this.$store.dispatch('getMarcas');
+  },
+  computed: {
+    marcas: function marcas() {
+      return this.$store.getters.marcas;
+    }
+  },
+  data: function data() {
+    return {
+      carro: {
+        modelo: '',
+        ano: '',
+        marca_id: ''
+      },
+      errors: null
+    };
+  },
+  methods: {
+    add: function add() {
+      var _this = this;
+
+      this.errors = null;
+      axios.post('/api/carros', this.$data.carro).then(function () {
+        _this.$router.push('/');
+      })["catch"](function (error) {
+        _this.errors = error.response.data;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -37246,10 +37302,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Carros/NovoCarro.vue?vue&type=template&id=29bf8416&scoped=true&":
-/*!*******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Carros/NovoCarro.vue?vue&type=template&id=29bf8416&scoped=true& ***!
-  \*******************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Carros/NovoCarro.vue?vue&type=template&id=29bf8416&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Carros/NovoCarro.vue?vue&type=template&id=29bf8416& ***!
+  \*******************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -37261,20 +37317,158 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("h5", { staticClass: "card-header" }, [_vm._v("Novo Carro")]),
+  return _c("div", { staticClass: "card" }, [
+    _c("h5", { staticClass: "card-header" }, [_vm._v("Novo Carro")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body" }, [
+      _vm.errors
+        ? _c("div", { staticClass: "errors" }, [
+            _c(
+              "div",
+              { staticClass: "alert alert-danger", attrs: { role: "alert" } },
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.errors.message) +
+                    "\n            "
+                )
+              ]
+            )
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("div", { staticClass: "card-body" })
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.add($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "modelo" } }, [_vm._v("Modelo")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.carro.modelo,
+                  expression: "carro.modelo"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "modelo",
+                placeholder: "Digite o modelo"
+              },
+              domProps: { value: _vm.carro.modelo },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.carro, "modelo", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "ano" } }, [_vm._v("Ano")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.carro.ano,
+                  expression: "carro.ano"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "ano", placeholder: "Digite o ano" },
+              domProps: { value: _vm.carro.ano },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.carro, "ano", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "marca" } }, [_vm._v("Marca")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.carro.marca_id,
+                    expression: "carro.marca_id"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { id: "marca" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.carro,
+                      "marca_id",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              _vm._l(_vm.marcas, function(marca) {
+                return _c("option", { domProps: { value: marca.id } }, [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(marca.nome) +
+                      "\n                    "
+                  )
+                ])
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { staticClass: "btn default", attrs: { to: "/" } },
+            [_vm._v("Voltar")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+            [_vm._v("Cadastrar")]
+          )
+        ],
+        1
+      )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -53622,7 +53816,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _NovoCarro_vue_vue_type_template_id_29bf8416_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NovoCarro.vue?vue&type=template&id=29bf8416&scoped=true& */ "./resources/js/components/Carros/NovoCarro.vue?vue&type=template&id=29bf8416&scoped=true&");
+/* harmony import */ var _NovoCarro_vue_vue_type_template_id_29bf8416___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NovoCarro.vue?vue&type=template&id=29bf8416& */ "./resources/js/components/Carros/NovoCarro.vue?vue&type=template&id=29bf8416&");
 /* harmony import */ var _NovoCarro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NovoCarro.vue?vue&type=script&lang=js& */ "./resources/js/components/Carros/NovoCarro.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -53634,11 +53828,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _NovoCarro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _NovoCarro_vue_vue_type_template_id_29bf8416_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _NovoCarro_vue_vue_type_template_id_29bf8416_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _NovoCarro_vue_vue_type_template_id_29bf8416___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _NovoCarro_vue_vue_type_template_id_29bf8416___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "29bf8416",
+  null,
   null
   
 )
@@ -53664,19 +53858,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Carros/NovoCarro.vue?vue&type=template&id=29bf8416&scoped=true&":
-/*!*************************************************************************************************!*\
-  !*** ./resources/js/components/Carros/NovoCarro.vue?vue&type=template&id=29bf8416&scoped=true& ***!
-  \*************************************************************************************************/
+/***/ "./resources/js/components/Carros/NovoCarro.vue?vue&type=template&id=29bf8416&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/Carros/NovoCarro.vue?vue&type=template&id=29bf8416& ***!
+  \*************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NovoCarro_vue_vue_type_template_id_29bf8416_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./NovoCarro.vue?vue&type=template&id=29bf8416&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Carros/NovoCarro.vue?vue&type=template&id=29bf8416&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NovoCarro_vue_vue_type_template_id_29bf8416_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NovoCarro_vue_vue_type_template_id_29bf8416___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./NovoCarro.vue?vue&type=template&id=29bf8416& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Carros/NovoCarro.vue?vue&type=template&id=29bf8416&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NovoCarro_vue_vue_type_template_id_29bf8416___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NovoCarro_vue_vue_type_template_id_29bf8416_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NovoCarro_vue_vue_type_template_id_29bf8416___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -53924,22 +54118,34 @@ var routes = [{
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
-    carros: []
+    carros: [],
+    marcas: []
   },
   getters: {
     carros: function carros(state) {
       return state.carros;
+    },
+    marcas: function marcas(state) {
+      return state.marcas;
     }
   },
   mutations: {
     atualizarListagemCarros: function atualizarListagemCarros(state, payload) {
       state.carros = payload;
+    },
+    atualizarListagemMarcas: function atualizarListagemMarcas(state, payload) {
+      state.marcas = payload;
     }
   },
   actions: {
     getCarros: function getCarros(context) {
       axios.get('/api/carros').then(function (response) {
         context.commit('atualizarListagemCarros', response.data);
+      });
+    },
+    getMarcas: function getMarcas(context) {
+      axios.get('/api/marcas').then(function (response) {
+        context.commit('atualizarListagemMarcas', response.data);
       });
     }
   }
