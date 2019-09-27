@@ -2,10 +2,8 @@
     <div class="card">
         <h5 class="card-header">Novo Carro</h5>
         <div class="card-body">
-            <div class="errors" v-if="errors">
-                <div class="alert alert-danger" role="alert">
-                    {{errors.message}}
-                </div>
+            <div class="alert alert-danger" role="alert" v-if="errors">
+                {{errors.message}}
             </div>
             <form @submit.prevent="add">
                 <div class="form-group">
