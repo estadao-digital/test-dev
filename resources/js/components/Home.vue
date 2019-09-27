@@ -19,7 +19,7 @@
                 <tbody>
                 <template v-if="!carros.length">
                     <tr>
-                        <td colspan="4" class="text-center">Nenhum carro foi adicionado até agora</td>
+                        <td colspan="7" class="text-center">Nenhum carro foi adicionado até agora</td>
                     </tr>
                 </template>
                 <template v-else>
@@ -58,7 +58,20 @@
         },
         methods: {
             deletar(id){
-                this.$store.dispatch('deleteCarro', id)
+                this.$swal({
+                    title: 'Você tem certeza?',
+                    text: "Realmente deseja deletar este carro? Depois de deletado este dado não poderá ser recuperado.",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sim, deletar!',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.value) {
+                        this.$store.dispatch('deleteCarro', id);
+                    }
+                });
             }
         }
     }

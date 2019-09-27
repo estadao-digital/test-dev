@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Teste para o Estadão</a>
+            <router-link to="/" class="navbar-brand">Teste para o Estadão</router-link>
         </div>
     </nav>
 </template>
