@@ -1889,6 +1889,94 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Carros/EditarCarro.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Carros/EditarCarro.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "EditarCarro",
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/carros/".concat(this.$route.params.id)).then(function (response) {
+      _this.carro = response.data;
+    })["catch"](function (error) {
+      console.log(error.response.data);
+      _this.error = error.response.data;
+    });
+  },
+  mounted: function mounted() {
+    this.$store.dispatch('getMarcas');
+  },
+  computed: {
+    marcas: function marcas() {
+      return this.$store.getters.marcas;
+    }
+  },
+  data: function data() {
+    return {
+      carro: {
+        modelo: '',
+        ano: '',
+        marca_id: ''
+      },
+      error: null
+    };
+  },
+  methods: {
+    edit: function edit() {
+      var _this2 = this;
+
+      this.errors = null;
+      axios.put("/api/carros/".concat(this.$route.params.id), this.$data.carro).then(function () {
+        _this2.$router.push('/');
+      })["catch"](function (error) {
+        _this2.error = error.response.data;
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Carros/NovoCarro.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Carros/NovoCarro.vue?vue&type=script&lang=js& ***!
@@ -1948,7 +2036,7 @@ __webpack_require__.r(__webpack_exports__);
         ano: '',
         marca_id: ''
       },
-      errors: null
+      error: null
     };
   },
   methods: {
@@ -1959,7 +2047,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/api/carros', this.$data.carro).then(function () {
         _this.$router.push('/');
       })["catch"](function (error) {
-        _this.errors = error.response.data;
+        _this.error = error.response.data;
       });
     }
   }
@@ -1999,6 +2087,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -37456,19 +37548,19 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.carro.marca_id,
-                      expression: "carro.marca_id"
+                      value: _vm.carro.marca.nome,
+                      expression: "carro.marca.nome"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "text", id: "marca", disabled: "" },
-                  domProps: { value: _vm.carro.marca_id },
+                  domProps: { value: _vm.carro.marca.nome },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.carro, "marca_id", $event.target.value)
+                      _vm.$set(_vm.carro.marca, "nome", $event.target.value)
                     }
                   }
                 })
@@ -37482,6 +37574,175 @@ var render = function() {
       ],
       2
     )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Carros/EditarCarro.vue?vue&type=template&id=6ffdce14&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Carros/EditarCarro.vue?vue&type=template&id=6ffdce14&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card" }, [
+    _c("h5", { staticClass: "card-header" }, [_vm._v("Editar Carro")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body" }, [
+      _vm.error
+        ? _c(
+            "div",
+            { staticClass: "alert alert-danger", attrs: { role: "alert" } },
+            [
+              _vm._v(
+                "\n            " + _vm._s(_vm.error.message) + "\n        "
+              )
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.edit($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "modelo" } }, [_vm._v("Modelo")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.carro.modelo,
+                  expression: "carro.modelo"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "modelo",
+                placeholder: "Digite o modelo"
+              },
+              domProps: { value: _vm.carro.modelo },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.carro, "modelo", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "ano" } }, [_vm._v("Ano")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.carro.ano,
+                  expression: "carro.ano"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "ano", placeholder: "Digite o ano" },
+              domProps: { value: _vm.carro.ano },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.carro, "ano", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "marca" } }, [_vm._v("Marca")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.carro.marca_id,
+                    expression: "carro.marca_id"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { id: "marca" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.carro,
+                      "marca_id",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              _vm._l(_vm.marcas, function(marca) {
+                return _c("option", { domProps: { value: marca.id } }, [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(marca.nome) +
+                      "\n                    "
+                  )
+                ])
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { staticClass: "btn default", attrs: { to: "/" } },
+            [_vm._v("Voltar")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+            [_vm._v("Editar")]
+          )
+        ],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -37510,13 +37771,13 @@ var render = function() {
     _c("h5", { staticClass: "card-header" }, [_vm._v("Novo Carro")]),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
-      _vm.errors
+      _vm.error
         ? _c(
             "div",
             { staticClass: "alert alert-danger", attrs: { role: "alert" } },
             [
               _vm._v(
-                "\n            " + _vm._s(_vm.errors.message) + "\n        "
+                "\n            " + _vm._s(_vm.error.message) + "\n        "
               )
             ]
           )
@@ -37757,6 +38018,18 @@ var render = function() {
                           )
                         ],
                         1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        [
+                          _c(
+                            "router-link",
+                            { attrs: { to: "/carro/editar/" + carro.id } },
+                            [_vm._v("Editar")]
+                          )
+                        ],
+                        1
                       )
                     ])
                   })
@@ -37784,7 +38057,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Ano")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Detalhar")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Detalhar")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Editar")])
       ])
     ])
   },
@@ -54061,6 +54336,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Carros/EditarCarro.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/Carros/EditarCarro.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EditarCarro_vue_vue_type_template_id_6ffdce14_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditarCarro.vue?vue&type=template&id=6ffdce14&scoped=true& */ "./resources/js/components/Carros/EditarCarro.vue?vue&type=template&id=6ffdce14&scoped=true&");
+/* harmony import */ var _EditarCarro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditarCarro.vue?vue&type=script&lang=js& */ "./resources/js/components/Carros/EditarCarro.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EditarCarro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditarCarro_vue_vue_type_template_id_6ffdce14_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditarCarro_vue_vue_type_template_id_6ffdce14_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "6ffdce14",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Carros/EditarCarro.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Carros/EditarCarro.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/Carros/EditarCarro.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditarCarro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./EditarCarro.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Carros/EditarCarro.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditarCarro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Carros/EditarCarro.vue?vue&type=template&id=6ffdce14&scoped=true&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/Carros/EditarCarro.vue?vue&type=template&id=6ffdce14&scoped=true& ***!
+  \***************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditarCarro_vue_vue_type_template_id_6ffdce14_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./EditarCarro.vue?vue&type=template&id=6ffdce14&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Carros/EditarCarro.vue?vue&type=template&id=6ffdce14&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditarCarro_vue_vue_type_template_id_6ffdce14_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditarCarro_vue_vue_type_template_id_6ffdce14_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Carros/NovoCarro.vue":
 /*!******************************************************!*\
   !*** ./resources/js/components/Carros/NovoCarro.vue ***!
@@ -54350,6 +54694,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Home */ "./resources/js/components/Home.vue");
 /* harmony import */ var _components_Carros_NovoCarro__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Carros/NovoCarro */ "./resources/js/components/Carros/NovoCarro.vue");
 /* harmony import */ var _components_Carros_DetalharCarro__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Carros/DetalharCarro */ "./resources/js/components/Carros/DetalharCarro.vue");
+/* harmony import */ var _components_Carros_EditarCarro__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Carros/EditarCarro */ "./resources/js/components/Carros/EditarCarro.vue");
+
 
 
 
@@ -54362,6 +54708,9 @@ var routes = [{
 }, {
   path: '/carro/:id',
   component: _components_Carros_DetalharCarro__WEBPACK_IMPORTED_MODULE_2__["default"]
+}, {
+  path: '/carro/editar/:id',
+  component: _components_Carros_EditarCarro__WEBPACK_IMPORTED_MODULE_3__["default"]
 }];
 
 /***/ }),

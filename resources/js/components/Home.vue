@@ -12,6 +12,7 @@
                     <th scope="col">Marca</th>
                     <th scope="col">Ano</th>
                     <th scope="col">Detalhar</th>
+                    <th scope="col">Editar</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,6 +29,9 @@
                         <td>{{ carro.ano }}</td>
                         <td>
                             <router-link :to="`/carro/${carro.id}`">Ver</router-link>
+                        </td>
+                        <td>
+                            <router-link :to="`/carro/editar/${carro.id}`">Editar</router-link>
                         </td>
                     </tr>
                 </template>

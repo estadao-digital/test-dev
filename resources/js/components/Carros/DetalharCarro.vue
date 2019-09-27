@@ -19,7 +19,7 @@
 
                 <div class="form-group">
                     <label for="marca">Marca</label>
-                    <input type="text" class="form-control" id="marca" v-model="carro.marca_id" disabled>
+                    <input type="text" class="form-control" id="marca" v-model="carro.marca.nome" disabled>
                 </div>
             </template>
             <router-link to="/" class="btn default">Voltar</router-link>

@@ -1,11 +1,11 @@
 <template>
     <div class="card">
-        <h5 class="card-header">Novo Carro</h5>
+        <h5 class="card-header">Editar Carro</h5>
         <div class="card-body">
             <div class="alert alert-danger" role="alert" v-if="error">
                 {{error.message}}
             </div>
-            <form @submit.prevent="add">
+            <form @submit.prevent="edit">
                 <div class="form-group">
                     <label for="modelo">Modelo</label>
                     <input type="text" class="form-control" id="modelo" placeholder="Digite o modelo" v-model="carro.modelo">
@@ -25,7 +25,7 @@
                     </select>
                 </div>
                 <router-link to="/" class="btn default">Voltar</router-link>
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <button type="submit" class="btn btn-primary">Editar</button>
             </form>
         </div>
     </div>
@@ -33,7 +33,17 @@
 
 <script>
     export default {
-        name: "NovoCarro",
+        name: "EditarCarro",
+        created(){
+            axios.get(`/api/carros/${this.$route.params.id}`)
+                .then(response => {
+                    this.carro = response.data;
+                })
+                .catch(error => {
+                    console.log(error.response.data);
+                    this.error = error.response.data
+                });
+        },
         mounted(){
             this.$store.dispatch('getMarcas')
         },
@@ -53,10 +63,10 @@
             }
         },
         methods: {
-            add(){
+            edit(){
                 this.errors = null;
 
-                axios.post('/api/carros', this.$data.carro)
+                axios.put(`/api/carros/${this.$route.params.id}`, this.$data.carro)
                     .then(() => {
                         this.$router.push('/');
                     })
@@ -68,3 +78,7 @@
         }
     }
 </script>
+
+<style scoped>
+
+</style>
