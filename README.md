@@ -1,54 +1,51 @@
-Teste para desenvolvedor do Estadão
-==============================
+# CakePHP Application Skeleton
 
-Olá candidato,
+[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
+[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
 
-Esse teste consiste em 2 etapas para avaliarmos seu conhecimento em PHP e Front-End (HTML5, CSS e JavaScript)
+A skeleton for creating applications with [CakePHP](https://cakephp.org) 3.x.
 
-Para realizar o teste, você deve dar um fork neste repositório e depois clona-lo na pasta <document_root> da máquina que está realizando o teste.
+The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
 
-Crie um branch com seu nome, e quando finalizar todo o desenvolvimento, você deverá enviar um pull-request com sua versão.
+## Installation
 
-O teste
---------
+1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
+2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
 
-### Back-End/PHP
+If Composer is installed globally, run
 
-A primeira etapa será o desenvolvimento **backend/PHP**:
+```bash
+composer create-project --prefer-dist cakephp/app
+```
 
-**Descrição:**
+In case you want to use a custom app dir name (e.g. `/myapp/`):
 
-- Você deverá desenvolver uma 'mini api' para que seja possível realizar operações CRUD do objeto Carro.
-> **Obs:**
-> - Você pode usar arquivo (txt, json) como banco de dados.
-> - Cada carro deve ter ID, Marca, Modelo, Ano.
+```bash
+composer create-project --prefer-dist cakephp/app myapp
+```
 
-Sugerimos o retorno dessa 'mini api' nas seguinte urls:
+You can now either use your machine's webserver to view the default home page, or start
+up the built-in webserver with:
 
- - `/carros` - [GET] deve retornar todos os carros cadastrados.
- - `/carros` - [POST] deve cadastrar um novo carro.
- - `/carros/{id}`[GET] deve retornar o carro com ID especificado.
- - `/carros/{id}`[PUT] deve atualizar os dados do carro com ID especificado.
- - `/carros/{id}`[DELETE] deve apagar o carro com ID especificado.
+```bash
+bin/cake server -p 8765
+```
 
-### Front-End
+Then visit `http://localhost:8765` to see the welcome page.
 
-Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Application) e nela deve ser possível:
+## Update
 
-- Ver a lista de carros cadastrados
-- Criar um novo carro
-- Editar um carro existente
-- Apagar um carro existente
+Since this skeleton is a starting point for your application and various files
+would have been modified as per your needs, there isn't a way to provide
+automated upgrades, so you have to do any updates manually.
 
-> **Obs:**
-> - A página deve ser responsiva.
-> - A página deve funcionar 100% via AJAX, sem outros carregamentos de páginas.
-> - Ao criar/editar um carro, o campo "marca" deverá ser um `SELECT`
+## Configuration
 
-### Observações importantes:
+Read and edit `config/app.php` and setup the `'Datasources'` and any other
+configuration relevant for your application.
 
-- Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
-- Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.
-- Você pode usar ferramentas de automação (Grunt, Gulp), mas deverá informar o uso completo para funcionamento do teste.
-- Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.
-- Será considerado ponto positivo o tempo gasto na realização do teste. Menos tempo e tudo funcionando conforme pedido será melhor avaliado.
+## Layout
+
+The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) (v5) CSS
+framework by default. You can, however, replace it with any other library or
+custom styles.

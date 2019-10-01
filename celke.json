@@ -1,0 +1,21 @@
+[
+{"type":"header","version":"4.7.9","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"celke"},
+{"type":"table","name":"carros","database":"celke","data":
+[
+{"id":"3","marca":"ford","modelo":"fusion","ano":"2008","created":"2019-10-01 03:36:38","modified":"2019-10-01 03:36:38"},
+{"id":"4","marca":"renault","modelo":"sedan","ano":"2019","created":"2019-10-01 03:37:19","modified":"2019-10-01 03:37:19"},
+{"id":"5","marca":"Fiat","modelo":"Palio","ano":"2001","created":"2019-10-01 03:43:18","modified":"2019-10-01 03:43:18"}
+]
+}
+,{"type":"table","name":"users","database":"celke","data":
+[
+{"id":"17","name":"daniel","email":"daniel@moot.com.br","username":"danielescadas","password":"$2y$10$LSULSaj9Hyuzw3BzUtGgoOCGEq0HLamPOvtDKKlupzZ7Rzb0N.UHa","imagem":null,"created":"2019-09-26 02:27:27","modified":"2019-09-26 02:27:27"},
+{"id":"16","name":"mario","email":"mario@hotmail.com","username":"mario","password":"$2y$10$\/VOjIncT2masWoJNp4j0UOplTFIHO6OSWql.HhYHmBSgfHkppw8t6","imagem":null,"created":"2019-09-26 01:44:40","modified":"2019-09-26 01:44:40"},
+{"id":"5","name":"Felipe Santos","email":"fesantos@hotmail.com","username":"fesantosodsp","password":"$2y$10$myx9oxbnA\/yQVtEQUvCBtewk1bNrC72x4kpoFBVFHrVqY6\/zqfrsu","imagem":null,"created":"2019-02-27 22:51:09","modified":"2019-02-27 22:51:09"},
+{"id":"6","name":"Ester Rodrigues","email":"ester@hotmail.com","username":"esterrods","password":"$2y$10$G3VgtZ2Y12fS9E\/qpcHelebLaImaABtvjbc2MDbybHWaMOWjciHB.","imagem":null,"created":"2019-02-27 22:53:47","modified":"2019-02-27 22:53:47"},
+{"id":"7","name":"Monica Souza","email":"monica@hotmail.com","username":"monica","password":"$2y$10$hD1mabRQolg17qKHwGRscO9XOmcBvRrT\/hn58MKNP6.v0s0cpCaTu","imagem":null,"created":"2019-02-27 22:54:34","modified":"2019-02-27 22:54:34"},
+{"id":"15","name":"lucas","email":"lucas.goncalves@buonny.com.br","username":"lucas.goncalves","password":"$2y$10$ZcdI6jkSM9iHnc0UqcgxIuykqVYDMLCuvR7kZycEgz90L5sHnGYMe","imagem":null,"created":"2019-09-26 01:24:15","modified":"2019-09-26 01:24:15"}
+]
+}
+]
