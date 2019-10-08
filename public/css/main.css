@@ -1,0 +1,8 @@
+.container {
+    border: 1px solid;
+    padding-bottom: 45px;
+}
+
+.result {
+    background-color: #ffff00;
+}

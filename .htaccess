@@ -5,4 +5,11 @@
     RewriteCond %{REQUEST_FILENAME} !-f
 
     # RewriteRule
+    #########################################################################################################
+    # Utilizo o Nginx mas caso eu utilizasse o Apache, a configuração para reescrita seria algo conf. abaixo:
+    #########################################################################################################
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
 </IfModule>
