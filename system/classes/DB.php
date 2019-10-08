@@ -28,18 +28,25 @@ class DB
 
     public function Insert($object)
     {
-        $json = json_decode(file_get_contents($this->jsonfile), true);
-        $object->id = count($json) + 1;
-        
-        if(is_array($json)){
-            $json[] = $object;
-        }else{
-            $json = array($object);
-        }
+        $status = false;
+        $response = null;
+        try{
+            $json = json_decode(file_get_contents($this->jsonfile), true);
+            $object->id = count($json) + 1;
+            
+            if(is_array($json)){
+                $json[] = $object;
+            }else{
+                $json = array($object);
+            }
+    
+            $jsonstr = json_encode($json);
+            file_put_contents($this->jsonfile, $jsonstr);
+            $status = true;
+            $response = $object->id;
+        }catch(Exception $e){}
 
-        $jsonstr = json_encode($json);
-        file_put_contents($this->jsonfile, $jsonstr);
-        return true;
+        return (object)array("status" => $status, "response" => $response);
     }
 
     public function Update($object, $id)
