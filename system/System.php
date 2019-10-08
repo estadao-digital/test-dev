@@ -69,3 +69,19 @@ class System{
 
 
 }
+
+
+spl_autoload_register(
+    function ($class){
+        $file = dirname(__FILE__) . "/classes/$class.php";
+        
+        if(file_exists($file))
+            require_once($file);
+
+        $file = BASE . "/api/classes/$class.php";
+        
+        if(file_exists($file))
+            require_once($file);
+        
+    }
+);
