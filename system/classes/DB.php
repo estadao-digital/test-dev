@@ -42,4 +42,74 @@ class DB
         return true;
     }
 
+    public function Update($object, $id)
+    {
+        $json = json_decode(file_get_contents($this->jsonfile), true);
+        $array = array();
+
+        $found = false;
+
+        foreach($json as $k => $v)
+        {
+            if($v["id"] == $id){
+                $object->id = $id;
+                $array[] = $object;
+                $found = true;
+            }else{
+                $array[] = (object)$v;
+            }
+        }
+
+        if(!$found)
+            return -1;
+
+        $jsonstr = json_encode($array);
+        file_put_contents($this->jsonfile, $jsonstr);
+        return true;
+    }
+
+    public function Delete($id)
+    {
+        $json = json_decode(file_get_contents($this->jsonfile), true);
+        $array = array();
+
+        $found = true;
+
+        foreach($json as $k => $v)
+        {
+            if($v["id"] == $id){
+                $found = true;
+            }else{
+                $array[] = (object)$v;
+            }
+        }
+
+        if(!$found)
+            return -1;
+
+        $jsonstr = json_encode($array);
+        file_put_contents($this->jsonfile, $jsonstr);
+        return true;
+    }
+
+    public function Select($id = 0)
+    {
+        $json = json_decode(file_get_contents($this->jsonfile), true);
+        $array = array();
+
+        $found = false;
+        foreach($json as $k => $v)
+        {
+            if($v["id"] == $id || $id == 0){
+                $array[] = (object)$v;
+                $found = true;
+            }
+        }
+
+        if(!$found)
+            return -1;
+
+        return $array;
+    }
+
 }
