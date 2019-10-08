@@ -2,13 +2,23 @@
 
 class CarroController
 {
-    public function Teste(){
-        echo "teste";
+
+    // [.*] -> /
+    public function Teste()
+    {
+        $car = new Carro();
+        $car->id = 2;
+        $car->modelo = "aaa";
+        $car->marca = "bbb";
+        $car->ano = 2017;
+
+        $db = new DB("Carro");
+        $db->Insert($car);
     }
 
-    // [GET, POST] -> carros/
-    public function LerAdicionarCarros(){
-
+    // [GET, POST] -> /carros
+    public function LerAdicionarCarros()
+    {
         if(Request::Method() == "GET"){
             echo "GET";
         }
@@ -19,8 +29,9 @@ class CarroController
 
     }
 
-    // [GET, PUT, DELETE] -> carro/(?P<id>[0-9]+?)
-    public function Carros(){
+    // [GET, PUT, DELETE] -> /carro/(?P<id>[0-9]+?)
+    public function Carros()
+    {
         if(Request::Method() == "GET"){
             echo "GET";
         }

@@ -5,8 +5,12 @@
 
 
     System::setUrl(array(
+        "" => "api.CarroController.Teste",
         "carros"                 => "api.CarroController.LerAdicionarCarros",
         "carros/(?P<id>[0-9]+?)" => "api.CarroController.Carro",
     ));
 
     new System();
+
+
+    

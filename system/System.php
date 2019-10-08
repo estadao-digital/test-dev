@@ -78,7 +78,7 @@ spl_autoload_register(
         if(file_exists($file))
             require_once($file);
 
-        $file = BASE . "/api/classes/$class.php";
+        $file = BASE . "/classes/$class.php";
         
         if(file_exists($file))
             require_once($file);
