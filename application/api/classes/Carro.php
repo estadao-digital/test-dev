@@ -36,7 +36,7 @@ class Carro
     public static function GetAll()
     {
         $db = new DB("Carros");
-        return $db->Select();
+        return $db->Select()->response;
     }
 
     public static function GetById($id)

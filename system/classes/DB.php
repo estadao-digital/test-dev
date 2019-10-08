@@ -101,22 +101,41 @@ class DB
 
     public function Select($id = 0)
     {
-        $json = json_decode(file_get_contents($this->jsonfile), true);
-        $array = array();
+        $status = false;
+        $response = null;
 
-        $found = false;
-        foreach($json as $k => $v)
-        {
-            if($v["id"] == $id || $id == 0){
-                $array[] = (object)$v;
-                $found = true;
+        try{
+            $json = json_decode(file_get_contents($this->jsonfile), true);
+            $array = array();
+            
+            $found = false;
+
+            if(count($json) > 0){
+
+                foreach($json as $k => $v)
+                {
+                    if($v["id"] == $id || $id == 0){
+                        $array[] = (object)$v;
+                        $found = true;
+                    }
+                }
+                
+                if(!$found){
+                    $response = "Registro não encontrado";
+                }else{
+                    $status = true;
+                    $response = $array;
+                }
+
+            }else{
+                $status = true;
+                $response = array();
             }
-        }
 
-        if(!$found)
-            return -1;
 
-        return $array;
+        } catch(Exception $e) {}
+
+        return (object)array("response" => $response, "status" => $status);
     }
 
 }
