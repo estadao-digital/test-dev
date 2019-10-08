@@ -5,7 +5,7 @@
 
 
     System::setUrl(array(
-        "" => "teste"
+        "" => "api.CarroController.Teste"
     ));
 
     new System();
