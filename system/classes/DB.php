@@ -32,7 +32,8 @@ class DB
         $response = null;
         try{
             $json = json_decode(file_get_contents($this->jsonfile), true);
-            $object->id = count($json) + 1;
+
+            $object->id = (end($json)["id"] == null) ? 1 : end($json)["id"] + 1;
             
             if(is_array($json)){
                 $json[] = $object;
