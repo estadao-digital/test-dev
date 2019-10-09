@@ -60,6 +60,13 @@ class DB
         {
             if($v["id"] == $id){
                 $object->id = $id;
+
+                foreach($object as $key => $val){
+                    if($val == null || $val == ""){
+                        $object->{$key} = $v[$key];
+                    }
+                }
+
                 $array[] = $object;
                 $found = true;
             }else{

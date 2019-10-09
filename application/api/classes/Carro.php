@@ -45,9 +45,10 @@ class Carro
         return $db->Select($id);
     }
 
-    public function Update()
+    public function Update($id)
     {
-
+        $db = new DB("Carros");
+        return $db->Update($this, $id);
     }
 
     public function Delete()

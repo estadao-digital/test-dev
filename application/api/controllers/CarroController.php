@@ -9,6 +9,8 @@ class CarroController
         header('Content-Type: application/json');
         $this->get = Request::Get();
         $this->post = Request::Post();
+        $this->put = Request::Put();
+        $this->delete  = Request::Delete();
     }
 
     // [.*] -> /
@@ -40,6 +42,7 @@ class CarroController
                 $carro = new Carro($this->post);
 
                 if($carro->Create()){
+                    $status = true;
                     $response = "Carro inserido com sucesso!";
                 }
 
@@ -54,6 +57,14 @@ class CarroController
     // [GET, PUT, DELETE] -> /carro/(?P<id>[0-9]+?)
     public function Carros()
     {
+        if (!strcasecmp($_SERVER['REQUEST_METHOD'], 'DELETE')) {
+            parse_str(file_get_contents('php://input'), $_DELETE);
+        }
+        if (!strcasecmp($_SERVER['REQUEST_METHOD'], 'PUT')) {
+
+            parse_str(file_get_contents('php://input'), $_PUT);
+        }
+
         $status = false;
         $response = "Erro inesperado!";
         // Retorna dados do carro com ID especificado
@@ -71,7 +82,14 @@ class CarroController
         // Atualizar os dados do carro com ID especificado
         if(Request::Method() == "PUT")
         {
-            echo "PUT";
+            $carro = new Carro($this->put);
+            
+            if($carro->Update($this->get->id))
+            {
+                $response = "Carro atualizado com sucesso!";
+                $status = true;
+            }
+
         }
 
         // Apagar o carro com ID especificado
