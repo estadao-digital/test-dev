@@ -5,29 +5,55 @@ RC.host = (document.querySelector("body").getAttribute("host") != undefined) ? d
 RC.getAllCars = function(){
     var xhr = new XMLHttpRequest();
 
-    var cars = [];
+    response = null;
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-            cars = JSON.parse(this.responseText);
+            respose = JSON.parse(this.responseText);
         }
     });
 
     xhr.open("GET", "http://localhost/carros");
     xhr.send();
-    return cars;
+
+    return response;
 }
 
 RC.getCar = function(id){
 
     var xhr = new XMLHttpRequest();
-    var cars = [];
+    
+    var response = null;
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-            cars = JSON.parse(this.responseText);
+            response = JSON.parse(this.responseText);
         }
     });
 
     xhr.open("GET", "http://localhost/carros/" + id);
     xhr.send();
-    return cars[0];
+    return response;
+}
+
+RC.deleteCar = function(){
+
+    var data = new FormData();
+    data.append("marca", "Teste");
+    data.append("modelo", "Teste");
+    data.append("ano", "2020");
+
+    var xhr = new XMLHttpRequest();
+    var response = null;
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            response = JSON.parse(this.responseText);
+        }
+    });
+
+    xhr.open("DELETE", "http://localhost/carros/1");
+    xhr.setRequestHeader("cache-control", "no-cache");
+    xhr.setRequestHeader("postman-token", "7226111c-93c7-e858-36b1-07ee0b6d1ab8");
+
+    xhr.send(data);
+    return response;
+
 }
