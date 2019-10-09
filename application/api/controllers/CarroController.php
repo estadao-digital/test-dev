@@ -84,10 +84,14 @@ class CarroController
         {
             $carro = new Carro($this->put);
             
-            if($carro->Update($this->get->id))
-            {
-                $response = "Carro atualizado com sucesso!";
-                $status = true;
+            if($this->get->id > 0 && count(Carro::GetById($this->get->id)) > 0){
+                if($carro->Update($this->get->id))
+                {
+                    $response = "Carro atualizado com sucesso!";
+                    $status = true;
+                }
+            }else{
+                $response = "Insira uma ID válida!";
             }
 
         }
@@ -95,7 +99,25 @@ class CarroController
         // Apagar o carro com ID especificado
         if(Request::Method() == "DELETE")
         {
-            echo "DELETE";
+            if($this->get->id > 0)
+            {
+                if(count(Carro::GetById($this->get->id)) > 0)
+                {
+                    $carro = Carro::GetById($this->get->id)[0];
+                
+                    if($carro->Delete())
+                    {
+                        $status = true;
+                        $response = "Carro excluido com sucesso!";
+                    }
+
+                }else{
+                    $response = "Carro não encontrado!";
+                }
+    
+            }else{
+                echo "Insira uma ID válida";
+            }
         }
 
         return json_encode(array("response" => $response, "status" => $status));

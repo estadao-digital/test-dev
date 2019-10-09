@@ -84,6 +84,9 @@ class DB
 
     public function Delete($id)
     {
+        $status = false;
+        $response = null;
+
         $json = json_decode(file_get_contents($this->jsonfile), true);
         $array = array();
 
@@ -93,17 +96,22 @@ class DB
         {
             if($v["id"] == $id){
                 $found = true;
+                $response = "Deletado com sucesso!";
+                $status = true;
             }else{
                 $array[] = (object)$v;
             }
         }
 
-        if(!$found)
+        if(!$found){
+            $response = "Registro não encontrado!";
             return -1;
+        }
 
         $jsonstr = json_encode($array);
         file_put_contents($this->jsonfile, $jsonstr);
-        return true;
+        
+        return (object)array("status" => $status, "response" => $response);
     }
 
     public function Select($id = 0)

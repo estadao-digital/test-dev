@@ -42,7 +42,16 @@ class Carro
     public static function GetById($id)
     {
         $db = new DB("Carros");
-        return $db->Select($id);
+        $result = $db->Select($id);
+        $cars = array();
+
+        if($result->status){
+            foreach($result->response as $v){
+                $cars[] = new Carro($v);
+            }
+        }
+        
+        return $cars;
     }
 
     public function Update($id)
@@ -53,7 +62,9 @@ class Carro
 
     public function Delete()
     {
-
+        $db = new DB("Carros");
+        $result = $db->Delete($this->id);
+        return $result->status;
     }
 
     public static function Validate($car)
