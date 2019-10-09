@@ -19,7 +19,6 @@ RC.getAllCars = function(){
 }
 
 RC.getCar = function(id){
-
     var xhr = new XMLHttpRequest();
     
     var response = null;
@@ -34,7 +33,7 @@ RC.getCar = function(id){
     return response;
 }
 
-RC.deleteCar = function(){
+RC.UpdateCar = function(){
 
     var data = new FormData();
     data.append("marca", "Teste");
@@ -50,10 +49,24 @@ RC.deleteCar = function(){
     });
 
     xhr.open("DELETE", "http://localhost/carros/1");
-    xhr.setRequestHeader("cache-control", "no-cache");
-    xhr.setRequestHeader("postman-token", "7226111c-93c7-e858-36b1-07ee0b6d1ab8");
 
     xhr.send(data);
     return response;
 
 }
+
+RC.deleteCar = function(){
+    var xhr = new XMLHttpRequest();
+    var response = null;
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            response = JSON.parse(this.responseText);
+        }
+    });
+
+    xhr.open("DELETE", "http://localhost/carros/1");
+
+    xhr.send();
+    return response;
+}
+
