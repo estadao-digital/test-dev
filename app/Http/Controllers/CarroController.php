@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
 use App\Carro;
 
 class CarroController extends Controller
@@ -10,11 +11,23 @@ class CarroController extends Controller
     public function listarCarros() 
     {
         $carros = Carro::all();
+
+        return response()->json([
+            'success'=>true, 
+            'message' => "" , 
+            'data' => $carros
+        ], 200);
     }
 
     public function obterCarro($idCarro) 
     {
         $carro = Carro::where("id", $idCarro)->get();
+
+        return response()->json([
+            'success'=>true, 
+            'message' => "" , 
+            'data' => $carro
+        ], 200);
     }
 
     public function deletarCarro($idCarro) 
@@ -24,10 +37,13 @@ class CarroController extends Controller
 
     public function registrarCarro(Request $request) 
     {
-        $dados = $request->all();
+        $dados =  (object) json_decode($request->getContent());
 
-        $validade = Validator::validate();
+        $validator = Validator::make((array)$dados, Carro::rules());
 
+        if ($validator->fails()) 
+            return response()->json(['error'=>$validator->errors()], 401);            
+        
         $carro = Carro::create([
             "marca" => $dados->marca,
             "modelo" => $dados->modelo,
@@ -35,7 +51,14 @@ class CarroController extends Controller
             "custo" => $dados->custo,
             "placa" => $dados->placa,
             "venda" => $dados->venda,
+            "cambio" => $dados->cambio
         ]);
+
+        return response()->json([
+            'success'=>true, 
+            'message' => "Carro cadastrado com sucesso!" , 
+            'data' => $carro
+        ], 200);
     }
 
     public function atualizarCarro(Request $request) 
