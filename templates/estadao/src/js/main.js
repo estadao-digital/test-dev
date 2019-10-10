@@ -71,11 +71,7 @@ RC.getCar = function(id){
 }
 
 RC.UpdateCar = function(){
-
-    var data = new FormData();
-    data.append("marca", "Teste");
-    data.append("modelo", "Teste");
-    data.append("ano", "2020");
+    var data = new FormData(document.querySelector("form"));
 
     var xhr = new XMLHttpRequest();
     var response = null;
@@ -85,7 +81,70 @@ RC.UpdateCar = function(){
         }
     });
 
-    xhr.open("DELETE", "http://localhost/carros/1", false);
+    xhr.open("PUT", "http://localhost/carros/" + document.querySelector("input[name=id]").value, false);
+
+    xhr.send(data);
+
+
+    var data = new FormData();
+    data.append("marca", document.querySelector("input[name=marca]").value);
+    data.append("modelo", document.querySelector("input[name=modelo]").value);
+    data.append("ano", document.querySelector("input[name=ano]").value);
+
+    // var xhr = new XMLHttpRequest();
+    // xhr.withCredentials = true;
+
+    // xhr.addEventListener("readystatechange", function () {
+    // if (this.readyState === 4) {
+    //     console.log(this.responseText);
+    // }
+    // });
+
+    // xhr.open("PUT", "http://localhost/carros/" + document.querySelector("input[name=id]").value);
+    // xhr.setRequestHeader("cache-control", "no-cache");
+    // xhr.setRequestHeader("postman-token", "07c553f1-2d65-07bf-50c3-17f994c9e839");
+
+    // xhr.send(data);
+
+
+
+
+    if(response.status){
+        document.querySelector(".resposta").setAttribute("style", "color: green");
+        document.querySelector(".resposta").innerText = response.response;
+        
+        setTimeout(function(){
+            RC.fadeOut(".resposta");
+            setTimeout(function(){
+                RC.LoadHome();
+            }, 2000);
+        }, 1500);
+
+    }
+    else{
+        document.querySelector(".resposta").setAttribute("style", "color: red");
+        document.querySelector(".resposta").innerText = response.response;
+        
+        setTimeout(function(){
+            RC.fadeOut(".resposta");
+            
+        }, 1500);
+
+    }
+}
+
+RC.InsertCar = function(){
+    var data = new FormData(document.querySelector("form"));
+
+    var xhr = new XMLHttpRequest();
+    var response = null;
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            response = JSON.parse(this.responseText);
+        }
+    });
+
+    xhr.open("POST", "http://localhost/carros", false);
 
     xhr.send(data);
     return response;
@@ -154,7 +213,28 @@ RC.LoadUpdateForm  = function(id){
 
     var car = RC.getCar(id).response[0];
     
+    document.querySelector("input[name=id]").setAttribute("value", car.id);
     document.querySelector("input[name=modelo]").setAttribute("value", car.modelo);
     document.querySelector("input[name=marca]").setAttribute("value", car.marca);
     document.querySelector("input[name=ano]").setAttribute("value", car.ano);
+
+    document.querySelector("form").addEventListener("submit", function(e){
+        e.preventDefault();
+        RC.UpdateCar();
+    });
+
+}
+
+RC.fadeOut = function(target) {
+    var fadeTarget = document.querySelector(target);
+    var fadeEffect = setInterval(function () {
+        if (!fadeTarget.style.opacity) {
+            fadeTarget.style.opacity = 1;
+        }
+        if (fadeTarget.style.opacity > 0) {
+            fadeTarget.style.opacity -= 0.1;
+        } else {
+            clearInterval(fadeEffect);
+        }
+    }, 200);
 }
