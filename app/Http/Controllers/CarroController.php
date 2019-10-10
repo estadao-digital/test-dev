@@ -19,9 +19,9 @@ class CarroController extends Controller
         ], 200);
     }
 
-    public function obterCarro($idCarro) 
+    public function obterCarro($id) 
     {
-        $carro = Carro::where("id", $idCarro)->get();
+        $carro = Carro::where("id", $id)->get();
 
         return response()->json([
             'success'=>true, 
@@ -30,9 +30,15 @@ class CarroController extends Controller
         ], 200);
     }
 
-    public function deletarCarro($idCarro) 
+    public function deletarCarro($id) 
     {
-        $carro = Carro::where("id", $idCarro)->delete();
+        $carro = Carro::where("id", $id)->delete();
+
+        return response()->json([
+            'success'=>true, 
+            'message' => "carro deletado com sucesso!" , 
+            'data' => []
+        ], 200);
     }
 
     public function registrarCarro(Request $request) 
@@ -63,15 +69,27 @@ class CarroController extends Controller
 
     public function atualizarCarro(Request $request) 
     {
-        $dados = $request->all();
+        $dados =  (object) json_decode($request->getContent());
 
-        $carro = Carro::where("id", $dados->idCarro)->update([
+        $validator = Validator::make((array)$dados, Carro::rules());
+
+        if ($validator->fails()) 
+            return response()->json(['error'=>$validator->errors()], 401);
+
+        $carro = Carro::where("id", $dados->id)->update([
             "marca" => $dados->marca,
             "modelo" => $dados->modelo,
             "ano" => $dados->ano,
             "custo" => $dados->custo,
             "placa" => $dados->placa,
             "venda" => $dados->venda,
+            "cambio" => $dados->cambio
         ]);
+
+        return response()->json([
+            'success'=>true, 
+            'message' => "Carro atualizado com sucesso!" , 
+            'data' => Carro::find($dados->id)
+        ], 200);
     }
 }
