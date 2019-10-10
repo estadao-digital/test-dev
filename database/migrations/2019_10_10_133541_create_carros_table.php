@@ -15,7 +15,6 @@ class CreateCarrosTable extends Migration
     {
         Schema::create('carros', function (Blueprint $table) {
             $table->bigIncrements('id');
-            //$table->string('nome');
             $table->string('modelo');
             $table->string('marca');
             $table->string('ano');
