@@ -34,17 +34,11 @@ RC.getAllCars = function(){
         
         a = document.createElement("a");
         a.setAttribute("id", car.id);
-        a.setAttribute("class", "btn btn-primary editar_carro");
+        a.setAttribute("class", "btn btn-primary act");
+        a.setAttribute("act", "load_update_form");
         a.innerText = "Ver/Editar";
-        
-        a.addEventListener("click", function(e){
-            e.preventDefault();
-            RC.LoadUpdateForm(this.getAttribute("id"));
-        });
-
 
         card_footer.append(a);
-
         card.append(card_body);
         card.append(card_footer);
         car_element.append(card);
@@ -81,33 +75,14 @@ RC.UpdateCar = function(){
         }
     });
 
-    xhr.open("PUT", "http://localhost/carros/" + document.querySelector("input[name=id]").value, false);
+    xhr.open("PUT", RC.host + "carros/" + document.querySelector("input[name=id]").value, false);
 
     xhr.send(data);
-
 
     var data = new FormData();
     data.append("marca", document.querySelector("input[name=marca]").value);
     data.append("modelo", document.querySelector("input[name=modelo]").value);
     data.append("ano", document.querySelector("input[name=ano]").value);
-
-    // var xhr = new XMLHttpRequest();
-    // xhr.withCredentials = true;
-
-    // xhr.addEventListener("readystatechange", function () {
-    // if (this.readyState === 4) {
-    //     console.log(this.responseText);
-    // }
-    // });
-
-    // xhr.open("PUT", "http://localhost/carros/" + document.querySelector("input[name=id]").value);
-    // xhr.setRequestHeader("cache-control", "no-cache");
-    // xhr.setRequestHeader("postman-token", "07c553f1-2d65-07bf-50c3-17f994c9e839");
-
-    // xhr.send(data);
-
-
-
 
     if(response.status){
         document.querySelector(".resposta").setAttribute("style", "color: green");
@@ -144,10 +119,32 @@ RC.InsertCar = function(){
         }
     });
 
-    xhr.open("POST", "http://localhost/carros", false);
+    xhr.open("POST", RC.host + "carros", false);
 
     xhr.send(data);
-    return response;
+
+    if(response.status){
+        document.querySelector(".resposta").setAttribute("style", "color: green");
+        document.querySelector(".resposta").innerText = response.response;
+        
+        setTimeout(function(){
+            RC.fadeOut(".resposta");
+            setTimeout(function(){
+                RC.LoadHome();
+            }, 2000);
+        }, 1500);
+
+    }
+    else{
+        document.querySelector(".resposta").setAttribute("style", "color: red");
+        document.querySelector(".resposta").innerText = response.response;
+        
+        setTimeout(function(){
+            RC.fadeOut(".resposta");
+            
+        }, 1500);
+
+    }
 
 }
 
@@ -192,8 +189,15 @@ RC.LoadInsertForm = function(id){
         }
     });
 
-    xhr.open("GET", RC.host + "insert_form", false);
+    xhr.open("GET", RC.host + "form", false);
     xhr.send();
+
+    document.querySelector("#content").innerHTML = pagina;
+
+    document.querySelector("form").addEventListener("submit", function(e){
+        e.preventDefault();
+        RC.InsertCar();
+    });
 
 }
 
@@ -206,7 +210,7 @@ RC.LoadUpdateForm  = function(id){
         }
     });
 
-    xhr.open("GET", RC.host + "update_form", false);
+    xhr.open("GET", RC.host + "form", false);
     xhr.send();
 
     document.querySelector("#content").innerHTML = pagina;

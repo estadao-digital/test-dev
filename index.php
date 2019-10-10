@@ -14,7 +14,7 @@
     System::setUrl(array(
         ""              => "spa.MainController.Page",
         "home"          => "spa.MainController.Home",
-        "update_form"   => "spa.MainController.UpdateForm",
+        "form"          => "spa.MainController.Form",
     ));
 
     new System();

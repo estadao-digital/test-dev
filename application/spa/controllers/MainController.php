@@ -17,11 +17,11 @@ class MainController
         $a->loadView("home.phtml");
     }
 
-    // [GET] -> update_form
-    public function UpdateForm()
+    // [GET] -> form
+    public function Form()
     {
         $a = new Template("estadao");
-        $a->loadView("update_form.phtml");
+        $a->loadView("form.phtml");
     }
 
 }
