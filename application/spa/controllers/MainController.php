@@ -3,15 +3,25 @@
 class MainController
 {
 
+    public function Page()
+    {
+        $a = new Template("estadao");
+        $a->title = "Index";
+        $a->display();
+    }
+    
+    // [GET] -> home
     public function Home()
     {
         $a = new Template("estadao");
-        $a->display();
+        $a->loadView("home.phtml");
     }
 
-    public function emoH()
+    // [GET] -> update_form
+    public function UpdateForm()
     {
-        
+        $a = new Template("estadao");
+        $a->loadView("update_form.phtml");
     }
 
 }
