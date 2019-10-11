@@ -1,24 +1,80 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title></title>
-  <meta name="description" content="">
+  <meta charset="UTF-8">
+  <title>Francisco Mat - Simple CRUD with Vue.js</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Place favicon.ico in the root directory -->
-
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+<!-- partial:index.partial.html -->
 
-  <script src="js/main.js"></script>
-  a
+<div id="app">
+  <h4 class="head"> Carros CRUD - SliceTI</h4>
+  <div class="container">
+
+    <table class="table-responsive bordered highlight centered hoverable z-depth-2" v-show="carros.length">
+      <thead>
+        <tr>
+          <th v-for="column in columns">
+            {{column}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(carro,index) in carros">
+          <td>
+            {{carro.id}}
+          </td>
+          <td>
+            <input type="text" v-model="carro.marca" @keyup="update_id('marca', carro.marca, carro.id)" />
+          </td>
+          <td>
+            <input type="text" v-model="carro.modelo" />
+          </td>
+          <td>
+            <input type="text" v-model="carro.ano" /> 
+          </td>
+          
+          <td style="width: 18%;">
+            <a href="#!" class="btn waves-effect waves-light red darken-2" @click="delete_id(carro.id)"><i class="material-icons">delete</i>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="input-field">
+              <input placeholder="Marca" ref="lname" v-model="input.marca" id="lname" type="text">
+              <label for="lname">Marca</label>
+            </div>
+          </td>
+          <td>
+            <div class="input-field">
+              <input placeholder="Modelo" v-model="input.modelo" id=",pde" type="text">
+              <label for="fname">Modelo</label>
+            </div>
+          </td>
+          <td>
+            <div class="input-field">
+              <input placeholder="Ano" v-model="input.ano" id="age" type="text">
+              <label for="age">Ano</label>
+            </div>
+          </td>
+
+          <td><a href="#!" @click="add" class="btn btn-waves green darken-2"><i class="material-icons">add</i></a></td>
+        </tr>
+      </tbody>
+    </table>  
+  </div>
+
+</div>
+
+<script src="vue.min.js"></script>
+<script src="axios.min.js"></script>
+<script src="script.js"></script>
+
 </body>
-
 </html>

@@ -1,0 +1,28 @@
+body {
+  background-color: #005F93;
+  /*background: linear-gradient(#005F93, transparent), linear-gradient(90deg, #005F93, transparent), linear-gradient(-90deg, #116FA3, transparent);
+  background-blend-mode: screen;*/
+}
+
+div:first-child {
+  margin: 20px 0;
+}
+div:first-child table:first-of-type {
+  margin: 15px 2px;
+  background: #ffffff !important;
+}
+div:first-child table:last-of-type {
+  margin: 15px 2px;
+  background: #fdfdef !important;
+}
+div:first-child .head {
+  text-align: center;
+  margin: 45px 35px;
+  color: #FFF;
+}
+div:first-child .img-container {
+  text-align: center;
+}
+.input-field label {
+  top: -1.2rem !important;
+}

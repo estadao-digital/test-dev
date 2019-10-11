@@ -1,4 +1,6 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+
 require_once 'limonade.php';
 require_once 'lemon_mysql.php';
 
