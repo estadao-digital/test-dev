@@ -19,7 +19,3 @@ Route::get('/carros/{id}',    'CarroController@obterCarro'); // retorna um carro
 Route::put('/carros/{id}', 'CarroController@atualizarCarro'); // atualiza os dados de um carro pelo ID
 Route::delete('/carros/{id}', 'CarroController@deletarCarro'); // deleta um carro pelo ID
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
