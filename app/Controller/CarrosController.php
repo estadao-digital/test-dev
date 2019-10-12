@@ -1,6 +1,6 @@
 <?php
 //session_start(); # Absolutamente nenhum estado.
-include 'app/Models/Carro.php';
+include '../app/Models/Carro.php';
 
 class CarrosController{
 
@@ -53,11 +53,16 @@ class CarrosController{
     public function get($params) {
         try{
             $carro = new Carro();
-            if(isset($params)) {
+            if(isset($params['id'])) {
                 $carro->load($params);
+                print json_encode($carro->fetch()[0]);
+                exit();
             }
-            print json_encode($carro->fetch());
 
+            foreach($carro->fetch() as $objProduto) {
+                $arrProdutos[] = json_decode(json_encode($objProduto), true);
+            }
+            print json_encode($arrProdutos);
         }catch(Exception $e) {
             print $e->getMessage();
         }
