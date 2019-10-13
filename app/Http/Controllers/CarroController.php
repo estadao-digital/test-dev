@@ -57,7 +57,8 @@ class CarroController extends Controller
             "custo" => $dados->custo,
             "placa" => $dados->placa,
             "venda" => $dados->venda,
-            "cambio" => $dados->cambio
+            "cambio" => $dados->cambio,
+            "link_img" => $dados->link_img
         ]);
 
         return response()->json([
@@ -83,7 +84,8 @@ class CarroController extends Controller
             "custo" => $dados->custo,
             "placa" => $dados->placa,
             "venda" => $dados->venda,
-            "cambio" => $dados->cambio
+            "cambio" => $dados->cambio,
+            "link_img" => $dados->link_img
         ]);
 
         return response()->json([

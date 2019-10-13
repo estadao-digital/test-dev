@@ -11,7 +11,7 @@ class Carro extends Model
 
     // -- configuração dos campos permitidos para inclusão/edição
     protected $fillable = [
-        "marca", "modelo", "ano", "placa", "cambio", "custo", "venda"
+        "marca", "modelo", "ano", "placa", "cambio", "custo", "venda", "link_img"
     ];
 
     // -- regras definidas para cadastrar/editar um carro
