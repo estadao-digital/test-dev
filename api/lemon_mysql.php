@@ -40,10 +40,9 @@ function check_database_is_installed($c) {
 		$sql = file_get_contents('table_carros_plain_sql_builder_seeder.sql');
 
 		if ($c->multi_query($sql)) {
-			echo "Installation complete.";
+			return "Installation complete.";
 		} else {
-			echo "Erros installing database.";
-			die();
+			return "Erros installing database.";
 		}
 	}
 }

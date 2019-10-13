@@ -1,5 +1,5 @@
 <?php
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: *'); //CORS
 
 require_once 'limonade.php';
 require_once 'lemon_mysql.php';

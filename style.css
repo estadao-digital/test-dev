@@ -26,3 +26,7 @@ div:first-child .img-container {
 .input-field label {
   top: -1.2rem !important;
 }
+select {
+  display: block !important;
+  margin-bottom: 14px;
+}

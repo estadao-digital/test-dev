@@ -2,6 +2,7 @@ var vm = new Vue({
   el: '#app',
   data: {
     columns: ['id', 'Marca', 'Modelo', 'Ano'],
+    marcas: ['Volkswagen', 'FIAT', 'FORD', 'BMW', 'Renault', 'Gurgel', 'Cherry'],
     input : [],
     carros: [],
   },
@@ -11,10 +12,21 @@ var vm = new Vue({
   methods: {
     update_screen() {
       axios.get("api/carros").then((r)=>{
+        if(r.data=="Installation complete.") {
+          alert("Instalado banco de dados...");
+          location.reload();
+        }
         this.carros = r.data;
       });
     },
     add() {
+      if(this.input.marca==undefined)
+        alert("Favor preencher a marca");
+      else if(this.input.modelo=="")
+        alert("Favor preencher a modelo");
+      else if(this.input.ano=="")
+        alert("Favor preencher a ano");
+      else 
       axios.post("api/carros", {"marca":this.input.marca, "modelo":this.input.modelo, "ano":this.input.ano}).then((r)=>{
         this.input.marca=this.input.modelo=this.input.ano="";
         this.update_screen();

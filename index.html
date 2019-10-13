@@ -30,13 +30,17 @@
             {{carro.id}}
           </td>
           <td>
-            <input type="text" v-model="carro.marca" @keyup="update_id('marca', carro.marca, carro.id)" />
+            <select v-model="carro.marca" @change="update_id('marca', carro.marca, carro.id)">
+              <option 
+                v-for="marca in marcas"
+                :bind="marca">{{marca}}</option>
+            </select>
           </td>
           <td>
-            <input type="text" v-model="carro.modelo" />
+            <input type="text" v-model="carro.modelo"  @keyup="update_id('modelo', carro.modelo, carro.id)"/>
           </td>
           <td>
-            <input type="text" v-model="carro.ano" /> 
+            <input type="text" v-model="carro.ano"  @keyup="update_id('ano', carro.ano, carro.id)"/> 
           </td>
           
           <td style="width: 18%;">
@@ -46,20 +50,24 @@
         </tr>
         <tr>
           <td colspan="2">
-            <div class="input-field">
-              <input placeholder="Marca" ref="lname" v-model="input.marca" id="lname" type="text">
-              <label for="lname">Marca</label>
+            <div class="input-field" style="margin-top: -8px;">
+              <select v-model="input.marca" >
+                <option 
+                  v-for="marca in marcas"
+                  :bind="marca">{{marca}}</option>
+              </select>
+              <label for="fmarca">Marca</label>
             </div>
           </td>
           <td>
             <div class="input-field">
-              <input placeholder="Modelo" v-model="input.modelo" id=",pde" type="text">
+              <input placeholder="Modelo" v-model="input.modelo" type="text">
               <label for="fname">Modelo</label>
             </div>
           </td>
           <td>
             <div class="input-field">
-              <input placeholder="Ano" v-model="input.ano" id="age" type="text">
+              <input placeholder="Ano" v-model="input.ano" type="text">
               <label for="age">Ano</label>
             </div>
           </td>
