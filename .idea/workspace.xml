@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7c70e4e9-de02-4b7c-af9f-1bf180fe7b55" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controller/CarrosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/CarrosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Carro.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Carro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/view.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="155" column="27" lean-forward="true" selection-start-line="155" selection-start-column="27" selection-end-line="155" selection-end-column="27" />
+            <state relative-caret-position="746">
+              <caret line="225" selection-start-line="225" selection-end-line="225" />
               <folding>
                 <element signature="e#288#295#1" expanded="true" />
                 <element signature="e#204#211#1" expanded="true" />
@@ -141,15 +136,15 @@
         <option value="$PROJECT_DIR$/app/Controller/CarrosController.php" />
         <option value="$PROJECT_DIR$/app/Models/Carro.php" />
         <option value="$PROJECT_DIR$/public/css/main.css" />
-        <option value="$PROJECT_DIR$/public/js/main.js" />
         <option value="$PROJECT_DIR$/public/view.php" />
+        <option value="$PROJECT_DIR$/public/js/main.js" />
       </list>
     </option>
   </component>
-  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpServers">
     <servers>
       <server host="local.estadao" id="d596f054-737b-42fa-983d-daea659a23bf" name="local.estadao" />
+      <server host="localhost" id="dafeac9a-7802-42e4-af4e-5dd65286d433" name="localhost" port="8000" />
     </servers>
   </component>
   <component name="ProjectConfigurationFiles">
@@ -244,18 +239,18 @@
       <updated>1570562361425</updated>
       <workItem from="1570562362607" duration="17130000" />
       <workItem from="1570798451894" duration="3300000" />
-      <workItem from="1570801771358" duration="61025000" />
+      <workItem from="1570801771358" duration="62595000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81455000" />
+    <option name="totallyTimeSpent" value="83025000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29615796" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.29615796" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -336,10 +331,17 @@
     <entry file="file://$PROJECT_DIR$/public/css/main.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/DDLs_DMLs.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="2" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="155" column="27" lean-forward="true" selection-start-line="155" selection-start-column="27" selection-end-line="155" selection-end-column="27" />
+        <state relative-caret-position="746">
+          <caret line="225" selection-start-line="225" selection-end-line="225" />
           <folding>
             <element signature="e#288#295#1" expanded="true" />
             <element signature="e#204#211#1" expanded="true" />

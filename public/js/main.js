@@ -222,6 +222,7 @@ $(document).ready(function(){
                 $('#excludeModal').modal('hide');
                 showSuccess('excluído');
                 loadList();
+                prepareFormToCreate();
             }
         });
     });
