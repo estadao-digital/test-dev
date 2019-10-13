@@ -19,22 +19,41 @@ include '../app/Models/Carro.php';
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <!--Others-->
-  <!-- <link rel="stylesheet" href="/assets/css/jquery.sweet-dropdown.min.css"> -->
 
+  <link rel="shortcut icon" href="img/favicon.ico">
 
   <title>Estadão</title>
 </head>
 <body>
 
+<!-- Modal -->
+<div class="modal fade" id="excludeModal" tabindex="-1" role="dialog" aria-labelledby="excludeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="excludeModalLabel">Excluir Carro</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Deseja realmente excluir este carro?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button data-href-exclude="#" data-modelo="" data-marca="" type="button" class="btn btn-primary confirmar-exclusao">Confirmar exclusão</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <header>
   <div class="container">
     <div class="row justify-content-center">
 
-      <div class="col-3 pt-2">
-        <div class="box-logo text-center py-3">
-          <img src="/img/logo-blue.svg"/>
-        </div>
+      <div class="col-8 box-logo text-center pt-5">
+        <img src="/img/logo-blue.svg"  />
       </div>
 
     </div>
@@ -45,47 +64,31 @@ include '../app/Models/Carro.php';
 <div class="container-fluid">
 
   <div class="row justify-content-center">
-    <div class="col-8 pb-2 cad-box">
+    <div class="col-12 pb-2 cad-box">
 
       <div class="container">
 
         <div class="row justify-content-center">
-          <div class="col-12" align="right">
-                <a class="btn btn-primary" href="#" id="limpar"><span class="font-white"> Limpar / Cadastrar </span></a>
-          </div>
-        </div>
-
-        <div class="row justify-content-center">
 
           <!--Edição de dados perfil Usuario-->
-          <div class="col-12 mt-4">
+          <div class="col-9 mt-4">
             <form class="edit-profile-form" id="formCarro">
               <div class="form-row">
 
-                <!--Primeiro bloco do mobile e primeira a esquerda desktop-->
                 <div class="col-12">
-                  <div class="row">
+                  <div class="row row-content"> <!-- content-line é usado no JS pra colocar os alerts -->
 
-                    <!--Exibir apenas ao sucesso do envio do formulario-->
-                    <?php
-                    if (isset($created) && $created == true) {
+                    <!-- O JS injeta os alerts do Bootstrap 4 aqui, via prepend() method. -->
 
-                      print '
-                      <div class="col-12 alert alert-success text-center">
-                        Sucesso! Produto criado com sucesso.
-                      </div>';
-                    } elseif(isset($error) && $error == true) {
-                      print '
-                      <div class="col-12 alert alert-danger text-center">
-                        Erro! Ocorreu um erro ao gravar o produto.
-                      </div>';
-                    }
-                    ?>
+                    <div class="col-12 mt-3" align="right">
+                      <div class="row row-alteracao">
+                      </div>
+                    </div>
 
                     <div class="form-group col-12">
                       <label for="marca">Marca</label>
                       <select class="form-control" name="marca" id="marca">
-                        <option value="0" selected>-- Selecione uma Marca --</option>
+                        <option value="0" selected>Escolha uma marca</option>
                         <option value="GM">GM</option>
                         <option value="Fiat">Fiat</option>
                         <option value="Volkswagem">Volkswagem</option>
@@ -102,13 +105,13 @@ include '../app/Models/Carro.php';
                       <input class="form-control" type="text" name="ano" id="ano" value=""/>
                     </div>
 
-                      <div class="col-12 mt-4">
+                    <div class="form-group col-12">
                         <div class="row justify-content-center">
-                          <div class="form-group col-6 d-none d-lg-block">
-                              <a id="salvar" data-product-id-change="0" class="btn btn-danger w-100"> Salvar cadastro</span> </a>
-                          </div>
+                            <div class="col-12 text-center">
+                                <button id="salvar" data-product-id-change="0" class="btn btn-danger btn-salvar"> Salvar Cadastro </button>
+                            </div>
                         </div>
-                      </div>
+                    </div>
 
                     </div>
                   </div>
@@ -123,12 +126,19 @@ include '../app/Models/Carro.php';
 
         <div class="row justify-content-center">
             <div class="col-12 mt-4">
-              <table class="table">
+              <!-- id="table-list" foi usado como ponto de partida para a declaração dos eventos de click nos ícones
+              edit e delete. Ocorre que o JQuery não funciona após o append() ou html() da nova listagem vinda do
+              servidor. Ao carregar a listagem pela primeira vez, o seletor $(".editIcon") funcionava sem problemas. Ao
+              carregar novos ícones com o mesmo class, o JQuery para de funcionar. A solução para o problema foi partir
+              de um componente pai que não foi recarregado e logo em seguida indicar o class dos ícones. -->
+
+
+              <table class="table" id="table-list">
                   <thead>
                   <tr>
                       <th scope="col">Marca</th>
-                      <th scope="col">Modelo</th>
-                      <th scope="col">Ano</th>
+                      <th class="col-modelo" scope="col">Modelo</th>
+                      <th class="col-ano" scope="col">Ano</th>
                       <th class="text-center" scope="col">Alterar</th>
                       <th class="text-center" scope="col">Excluir</th>
                   </tr>
@@ -147,11 +157,15 @@ include '../app/Models/Carro.php';
                       foreach ($products as $product) {
                           print '
                             <tr>
-                              <th scope="row">' . $product->marca .'</th>
-                              <td>' . $product->modelo .'</td>
-                              <td>' . $product->ano .'</td>
-                              <td class="text-center"><a href="/carros/'. $product->id .'/?XDEBUG_SESSION_START" class="alterar"> <i class="fas fa-edit"></i> </a></td>
-                              <td class="text-center"><a href="/carros/' . $product->id . '" class="deletar"> <i class="fa fa-trash fa-2" aria-hidden="true"></i> </a></td>
+                              <td>' . $product->marca .'</td>
+                              <td class="col-modelo">' . $product->modelo .'</td>
+                              <td class="col-ano">' . $product->ano .'</td>
+                              <td class="text-center"> <!-- Editar -->
+                                <a href="/carros/'. $product->id .'" class="editIcon"><i class="fas fa-edit"></i></a>
+                              </td>
+                              <td class="text-center"> <!-- Excluir -->
+                                <a href="/carros/' . $product->id . '" data-toggle="modal" data-target="#excludeModal" class="deleteIcon"><i class="fa fa-trash fa-2" aria-hidden="true"></i></a>
+                              </td>
                             </tr>';
                       }
                       ?>
@@ -169,6 +183,7 @@ include '../app/Models/Carro.php';
 
 </div>
 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

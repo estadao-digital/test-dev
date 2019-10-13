@@ -1,11 +1,24 @@
-.container {
-    padding-bottom: 45px;
+@media (max-width: 992px){
+    .box-logo img{
+        width: 220px;
+    }
 }
 
-.result {
-    background-color: #ffff00;
-}
+@media (max-width: 576px){
+    .box-logo img{
+        width: 180px;
+    }
 
-.font-white {
-    color: #fff;
+    .col-marca {
+        display: none;
+    }
+
+    .col-modelo {
+        display: none;
+    }
+
+    .col-ano {
+        display: none;
+    }
+
 }

@@ -4,21 +4,47 @@ include '../app/Models/Carro.php';
 
 class CarrosController{
 
+
+    private function valida($params) {
+        # Com framework a maioria das validações seriam colocadas no Request.
+        $arrError = [];
+        if(!isset($params['marca']) || trim($params['marca']) == '' || trim($params['marca']) == '0') {
+            $arrError[] = 'A Marca deve ser selecionada!';
+        }
+
+        if(!isset($params['modelo']) || trim($params['modelo']) == '') {
+            $arrError[] = 'O Modelo deve ser informado!';
+        }
+
+        if(!isset($params['ano']) || trim($params['ano']) == '') {
+            $arrError[] = 'O Ano deve ser informado!';
+        } elseif(!intval($params['ano'])) {
+            $arrError[] = 'O Ano inválido!';
+        }
+
+        return $arrError;
+    }
+
     # Representa a inserção/criação. O verbo real enviado via browser é identificado no index.php
     /**
      * Na maioria dos projetos é interessante ter uma camada de serviço com um método que por exemplo insere o novo
      * carro no banco, agenda o envio de email para o gestor responsável em algum sistema de filas (redis, RabbitMQ, etc)
-     * por exemplo. Como aqui não é o caso, o carregamento da model Carro será realizado aqui mesmo na camada
-     * Controller.
+     * por exemplo. Como aqui é apenas um teste, o carregamento da model Carro será realizado aqui na camada Controller.
      *
-     * Também utilizaria o Swagger para ter uma interface onde fosse possível testar a API de maneira isolada,
-     * independente do Front. Usei o Postman para esta tarefa.
-     *
-     * Não criei validações. No Laravel eu costumava criar as rules nos próprios Requests quando possível.
+     * Em um ambiente real com framework seria interessante usar o Swagger para ter uma interface onde fosse possível
+     * testar a API de maneira isolada, independente do Front. Usei o Postman neste caso.
      *
      */
     public function post($params) {
         try{
+            $arrError = $this->valida($params);
+            if(count($arrError)) {
+                http_response_code(400);
+                header('Content-type: application/json');
+                print json_encode($arrError);
+                exit();
+            }
+
             $carro = new Carro();
             $carro->load($params);
             $carro->insert();

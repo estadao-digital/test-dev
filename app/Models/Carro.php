@@ -94,6 +94,8 @@ class Carro {
         if(isset($this->id)) {
             $sql .= ' where id = :id';
         }
+        $sql .= ' order by id desc';
+
         $conn = Connect::prepare($sql);
         $conn->bindValue('id', $this->id);
         $conn->execute();
