@@ -1937,6 +1937,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.listar();
@@ -1944,6 +1962,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       carros: [],
+      errors: false,
+      success: false,
+      errors_create: [],
       carro: {
         id: 0,
         marca: '',
@@ -1980,40 +2001,49 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _storeCar = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _this$carro, marca, modelo, ano, cambio, valor, custo, link_img, opts, res;
+        var _this2 = this;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log(this.carro);
-                _this$carro = this.carro, marca = _this$carro.marca, modelo = _this$carro.modelo, ano = _this$carro.ano, cambio = _this$carro.cambio, valor = _this$carro.valor, custo = _this$carro.custo, link_img = _this$carro.link_img;
-                opts = {
-                  method: 'POST',
+                axios({
                   headers: {
-                    'Content-Type': 'application/json'
+                    Accept: "application/json",
+                    ContentType: "application/json",
+                    Authorization: "Bearer qxQnd4ZXzCAw5Ip1Cw1H0i3HOUcI7awf2js3g4aj"
                   },
-                  body: JSON.stringify({
-                    marca: marca,
-                    modelo: modelo,
-                    ano: ano,
-                    cambio: cambio,
-                    valor: valor,
-                    custo: custo,
-                    link_img: link_img
-                  })
-                };
-                _context.next = 5;
-                return fetch('http://127.0.0.1:8000/api/carros', opts).then(function (res) {
-                  return res.json();
-                }).then(function (res) {
-                  return JSON.parse(res.data);
+                  method: 'post',
+                  // verbo http
+                  url: 'http://127.0.0.1:8000/api/carros',
+                  // url
+                  data: {
+                    marca: this.carro.marca,
+                    modelo: this.carro.modelo,
+                    ano: this.carro.ano,
+                    cambio: this.carro.cambio,
+                    venda: this.carro.valor,
+                    custo: this.carro.custo,
+                    link_img: this.carro.link_img,
+                    placa: this.carro.placa
+                  }
+                }).then(function (response) {
+                  if (response.data.error) {
+                    _this2.errors_create = response.data.error;
+                    _this2.errors = true;
+                    _this2.success = false;
+                  } else {
+                    alert("Carro cadastrado com sucesso!");
+                    _this2.errors = false;
+                    _this2.success = true;
+
+                    _this2.listar();
+                  }
+                })["catch"](function (error) {
+                  console.log(error);
                 });
 
-              case 5:
-                res = _context.sent;
-
-              case 6:
+              case 1:
               case "end":
                 return _context.stop();
             }
@@ -38109,6 +38139,35 @@ var render = function() {
               _c("h3", [_vm._v("Novo veículo  ")]),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _vm.errors === true
+                    ? _c(
+                        "div",
+                        { staticClass: "alert alert-warning" },
+                        _vm._l(_vm.errors_create, function(errors) {
+                          return _c("span", { key: errors.key }, [
+                            _c("b", [_vm._v(" " + _vm._s(errors[0]) + " ")]),
+                            _vm._v(" "),
+                            _c("br")
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _vm.success === true
+                    ? _c("div", { staticClass: "alert alert-success" }, [
+                        _c("b", [_vm._v(" Um novo carro foi cadastrado ")])
+                      ])
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-md-4" }, [
                   _c("span", [_vm._v("marca")]),
                   _vm._v(" "),
@@ -38375,7 +38434,7 @@ var render = function() {
                         })
                       : _vm._e(),
                     _vm._v(" "),
-                    carro.link_img == null
+                    carro.link_img == null || carro.link_img == ""
                       ? _c("img", {
                           staticClass: "rounded float-left img-thumbnail",
                           attrs: {

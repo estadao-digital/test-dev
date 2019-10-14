@@ -44,11 +44,11 @@ class CarroController extends Controller
     public function registrarCarro(Request $request) 
     {
         $dados =  (object) json_decode($request->getContent());
-
-        $validator = Validator::make((array)$dados, Carro::rules());
+        
+        $validator = Validator::make((array)json_decode($request->getContent()), Carro::rules());
 
         if ($validator->fails()) 
-            return response()->json(['error'=>$validator->errors()], 401);            
+            return response()->json(['error'=>$validator->errors()], 200);            
         
         $carro = Carro::create([
             "marca" => $dados->marca,

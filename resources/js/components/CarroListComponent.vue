@@ -4,6 +4,24 @@
         <div v-if="showCreateForm === true" >
             <h3>Novo veículo  </h3>
             <div class="row">
+                <div class="col-md-12">
+                    <div v-if="errors === true" class="alert alert-warning">
+                        <span v-for="errors in errors_create" v-bind:key="errors.key">
+                            <b> {{errors[0]}} </b> <br>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div v-if="success === true" class="alert alert-success">
+                        
+                            <b> Um novo carro foi cadastrado </b>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-4">
                     <span>marca</span>
                     <input class="form-control col-md-12" type="text" v-model="carro.marca" />
@@ -48,7 +66,7 @@
                             v-bind:src="carro.link_img" 
                             class="rounded float-left img-thumbnail" 
                             alt="">
-                        <img v-if="carro.link_img == null" 
+                        <img v-if="carro.link_img == null || carro.link_img == ''" 
                             src="https://www.freeiconspng.com/uploads/no-image-icon-11.PNG" 
                             class="rounded float-left img-thumbnail" 
                             alt="">
@@ -85,6 +103,9 @@
         data () {
         return {
                 carros: [],
+                errors: false,
+                success: false,
+                errors_create: [],
                 carro: {
                     id: 0,
                     marca: '',
@@ -117,16 +138,41 @@
                 this.showCreateForm = false;
             },
             storeCar : async function() {
-                console.log(this.carro);
-                const { marca, modelo, ano, cambio, valor, custo, link_img} = this.carro;
-                const opts = {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ marca, modelo, ano, cambio, valor, custo, link_img })
-                };
-                const res = await fetch('http://127.0.0.1:8000/api/carros', opts).
-                    then(res => res.json()).
-                    then(res => JSON.parse(res.data));
+                axios({
+                    headers: {
+                        Accept: "application/json",
+                        ContentType: "application/json",
+                        Authorization: "Bearer qxQnd4ZXzCAw5Ip1Cw1H0i3HOUcI7awf2js3g4aj"
+                    },
+                    method: 'post', // verbo http
+                    url: 'http://127.0.0.1:8000/api/carros', // url
+                    
+                    data: {
+                            marca : this.carro.marca,
+                            modelo: this.carro.modelo,
+                            ano: this.carro.ano,
+                            cambio: this.carro.cambio,
+                            venda: this.carro.valor,
+                            custo: this.carro.custo,
+                            link_img: this.carro.link_img,
+                            placa: this.carro.placa,
+                        }
+                    })
+                    .then(response => {
+                        if(response.data.error){
+                            this.errors_create = response.data.error;
+                            this.errors = true;
+                            this.success = false;
+                        } else {
+                            alert("Carro cadastrado com sucesso!");
+                            this.errors = false;
+                            this.success = true;
+                            this.listar();
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                })
             },
             getCar : function () {
 
