@@ -130,7 +130,7 @@
                     <div class="col-md-4">
                         <img v-if="carro.link_img != null" 
                             v-bind:src="carro.link_img" 
-                            class="rounded float-left img-thumbnail" 
+                            class="rounded float-left img-thumbnail"  
                             alt="">
                         <img v-if="carro.link_img == null || carro.link_img == ''" 
                             src="https://www.freeiconspng.com/uploads/no-image-icon-11.PNG" 
