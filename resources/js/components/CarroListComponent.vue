@@ -202,7 +202,7 @@
         methods: {
             listar : function (){
                 this.loading = true;
-                axios.get('http://127.0.0.1:8000/api/carros')
+                axios.get('https://test-dev-estadao.herokuapp.com/api/carros')
                     .then(response => {
                         this.carros = response.data.data; 
                     })
