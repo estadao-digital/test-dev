@@ -10,7 +10,7 @@ class CarroController extends Controller
 {
     public function listarCarros() 
     {
-        $carros = Carro::all();
+        $carros = Carro::orderBy('created_at')->get();
 
         return response()->json([
             'success'=>true, 
@@ -21,7 +21,7 @@ class CarroController extends Controller
 
     public function obterCarro($id) 
     {
-        $carro = Carro::where("id", $id)->get();
+        $carro = Carro::where("id", $id)->get()[0];
 
         return response()->json([
             'success'=>true, 
@@ -71,11 +71,11 @@ class CarroController extends Controller
     public function atualizarCarro(Request $request) 
     {
         $dados =  (object) json_decode($request->getContent());
-
-        $validator = Validator::make((array)$dados, Carro::rules());
+        info(json_encode($dados));
+        $validator = Validator::make((array)json_decode($request->getContent()), Carro::rules());
 
         if ($validator->fails()) 
-            return response()->json(['error'=>$validator->errors()], 401);
+            return response()->json(['error'=>$validator->errors()], 200);
 
         $carro = Carro::where("id", $dados->id)->update([
             "marca" => $dados->marca,

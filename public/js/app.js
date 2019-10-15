@@ -1955,6 +1955,72 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.listar();
@@ -1962,40 +2028,62 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       carros: [],
-      errors: false,
-      success: false,
+      errorsCreate: false,
+      successCreate: false,
+      successEdit: false,
       errors_create: [],
+      errorsEdit: false,
+      carroEdit: {
+        id: 0,
+        marca: '',
+        modelo: '',
+        ano: '',
+        cambio: '',
+        venda: 0,
+        custo: 0,
+        link_img: ""
+      },
       carro: {
         id: 0,
         marca: '',
         modelo: '',
         ano: '',
         cambio: '',
-        valor: 0,
+        venda: 0,
         custo: 0,
         link_img: ""
       },
-      showCreateForm: false
+      showCreateForm: false,
+      showEditForm: false,
+      loading: false
     };
   },
   methods: {
     listar: function listar() {
       var _this = this;
 
+      this.loading = true;
       axios.get('http://127.0.0.1:8000/api/carros').then(function (response) {
         _this.carros = response.data.data;
       })["catch"](function (error) {
         console.log(error);
-        _this.errored = true;
       })["finally"](function () {
         return _this.loading = false;
       });
     },
     openCreateForm: function openCreateForm(event) {
       this.showCreateForm = true;
+      this.closeEditForm();
     },
     closeCreateForm: function closeCreateForm() {
       this.showCreateForm = false;
+    },
+    openEditForm: function openEditForm() {
+      this.showEditForm = true;
+      this.closeCreateForm();
+    },
+    closeEditForm: function closeEditForm() {
+      this.showEditForm = false;
     },
     storeCar: function () {
       var _storeCar = _asyncToGenerator(
@@ -2007,6 +2095,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                this.loading = true;
                 axios({
                   headers: {
                     Accept: "application/json",
@@ -2022,7 +2111,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     modelo: this.carro.modelo,
                     ano: this.carro.ano,
                     cambio: this.carro.cambio,
-                    venda: this.carro.valor,
+                    venda: this.carro.venda,
                     custo: this.carro.custo,
                     link_img: this.carro.link_img,
                     placa: this.carro.placa
@@ -2030,20 +2119,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }).then(function (response) {
                   if (response.data.error) {
                     _this2.errors_create = response.data.error;
-                    _this2.errors = true;
-                    _this2.success = false;
+                    _this2.errorsCreate = true;
+                    _this2.successCreate = false;
                   } else {
-                    alert("Carro cadastrado com sucesso!");
-                    _this2.errors = false;
-                    _this2.success = true;
+                    _this2.errorsCreate = false;
+                    _this2.successCreate = true; //this.closeCreateForm();
 
                     _this2.listar();
                   }
                 })["catch"](function (error) {
                   console.log(error);
+                })["finally"](function () {
+                  return _this2.loading = false;
                 });
 
-              case 1:
+              case 2:
               case "end":
                 return _context.stop();
             }
@@ -2057,10 +2147,92 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return storeCar;
     }(),
-    getCar: function getCar() {},
-    editCar: function editCar() {},
-    confirmDeleteCar: function confirmDeleteCar() {},
-    deleteCar: function deleteCar() {}
+    getCar: function getCar(id) {
+      var _this3 = this;
+
+      this.loading = true;
+      axios.get('http://127.0.0.1:8000/api/carros/' + id).then(function (response) {
+        console.log(response.data.data);
+        _this3.carroEdit = response.data.data;
+
+        _this3.openEditForm();
+      })["catch"](function (error) {
+        console.log(error);
+      })["finally"](function () {
+        return _this3.loading = false;
+      });
+    },
+    editCar: function editCar() {
+      var _this4 = this;
+
+      this.loading = true;
+      axios({
+        headers: {
+          Accept: "application/json",
+          ContentType: "application/json",
+          Authorization: "Bearer qxQnd4ZXzCAw5Ip1Cw1H0i3HOUcI7awf2js3g4aj"
+        },
+        method: 'put',
+        // verbo http
+        url: 'http://127.0.0.1:8000/api/carros',
+        // url
+        data: {
+          id: this.carroEdit.id,
+          marca: this.carroEdit.marca,
+          modelo: this.carroEdit.modelo,
+          ano: this.carroEdit.ano,
+          cambio: this.carroEdit.cambio,
+          venda: this.carroEdit.venda,
+          custo: this.carroEdit.custo,
+          link_img: this.carroEdit.link_img,
+          placa: this.carroEdit.placa
+        }
+      }).then(function (response) {
+        if (response.data.error) {
+          _this4.errors_edit = response.data.error;
+          _this4.errorsEdit = true;
+          _this4.successEdit = false;
+        } else {
+          _this4.errorsEdit = false;
+          _this4.successEdit = true; //this.closeEditForm();
+
+          _this4.listar();
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      })["finally"](function () {
+        return _this4.loading = false;
+      });
+    },
+    deleteCar: function deleteCar(id) {
+      var _this5 = this;
+
+      this.loading = true;
+      axios({
+        headers: {
+          Accept: "application/json",
+          ContentType: "application/json",
+          Authorization: "Bearer qxQnd4ZXzCAw5Ip1Cw1H0i3HOUcI7awf2js3g4aj"
+        },
+        method: 'delete',
+        url: 'http://127.0.0.1:8000/api/carros/' + id
+      }).then(function (response) {
+        if (response.data.error) {
+          //this.errors_create = response.data.error;
+          _this5.errors = true;
+          _this5.success = false;
+        } else {
+          _this5.errors = false;
+          _this5.success = true;
+
+          _this5.listar();
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      })["finally"](function () {
+        return _this5.loading = false;
+      });
+    }
   }
 });
 
@@ -38134,13 +38306,326 @@ var render = function() {
     _c(
       "div",
       [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _vm.loading == true
+              ? _c("div", { staticClass: "progress" }, [
+                  _c("div", {
+                    staticClass:
+                      "progress-bar progress-bar-striped progress-bar-animated",
+                    staticStyle: { width: "100%" },
+                    attrs: {
+                      role: "progressbar",
+                      "aria-valuenow": "100",
+                      "aria-valuemin": "0",
+                      "aria-valuemax": "100"
+                    }
+                  })
+                ])
+              : _vm._e()
+          ])
+        ]),
+        _vm._v(" "),
+        _vm.showEditForm === true
+          ? _c("div", [
+              _c("br"),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Edição dos dados do veículo")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _vm.errorsEdit === true
+                    ? _c(
+                        "div",
+                        { staticClass: "alert alert-warning" },
+                        _vm._l(_vm.errors_edit, function(errors) {
+                          return _c("span", { key: errors.key }, [
+                            _c("b", [_vm._v(" " + _vm._s(errors[0]) + " ")]),
+                            _vm._v(" "),
+                            _c("br")
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _vm.successEdit === true
+                    ? _c("div", { staticClass: "alert alert-success" }, [
+                        _c("b", [_vm._v(" O carro foi editado com sucesso ")])
+                      ])
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.carroEdit.id,
+                        expression: "carroEdit.id"
+                      }
+                    ],
+                    staticClass: "form-control col-md-12",
+                    attrs: { type: "hidden" },
+                    domProps: { value: _vm.carroEdit.id },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.carroEdit, "id", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("marca")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.carroEdit.marca,
+                        expression: "carroEdit.marca"
+                      }
+                    ],
+                    staticClass: "form-control col-md-12",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.carroEdit.marca },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.carroEdit, "marca", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("modelo")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.carroEdit.modelo,
+                        expression: "carroEdit.modelo"
+                      }
+                    ],
+                    staticClass: "form-control col-md-12",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.carroEdit.modelo },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.carroEdit, "modelo", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("ano")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.carroEdit.ano,
+                        expression: "carroEdit.ano"
+                      }
+                    ],
+                    staticClass: "form-control col-md-12",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.carroEdit.ano },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.carroEdit, "ano", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("placa")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.carroEdit.placa,
+                        expression: "carroEdit.placa"
+                      }
+                    ],
+                    staticClass: "form-control col-md-12",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.carroEdit.placa },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.carroEdit, "placa", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("span", [_vm._v("câmbio")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.carroEdit.cambio,
+                        expression: "carroEdit.cambio"
+                      }
+                    ],
+                    staticClass: "form-control col-md-12",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.carroEdit.cambio },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.carroEdit, "cambio", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("custo R$")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.carroEdit.custo,
+                        expression: "carroEdit.custo"
+                      }
+                    ],
+                    staticClass: "form-control col-md-12",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.carroEdit.custo },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.carroEdit, "custo", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("valor de venda R$")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.carroEdit.venda,
+                        expression: "carroEdit.venda"
+                      }
+                    ],
+                    staticClass: "form-control col-md-12",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.carroEdit.venda },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.carroEdit, "venda", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("span", [_vm._v("cole aqui o endereço web da imagem")]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.carroEdit.link_img,
+                        expression: "carroEdit.link_img"
+                      }
+                    ],
+                    staticClass: "form-control col-md-12",
+                    attrs: { cols: "30", rows: "10" },
+                    domProps: { value: _vm.carroEdit.link_img },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.carroEdit, "link_img", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger float-right",
+                      staticStyle: {
+                        "margin-top": "15px",
+                        "margin-bottom": "10px"
+                      },
+                      on: { click: _vm.closeEditForm }
+                    },
+                    [_vm._v("cancelar")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success float-right",
+                      staticStyle: {
+                        "margin-top": "15px",
+                        "margin-bottom": "10px"
+                      },
+                      on: { click: _vm.editCar }
+                    },
+                    [_vm._v("Atualizar dados")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(0)
+            ])
+          : _vm._e(),
+        _vm._v(" "),
         _vm.showCreateForm === true
           ? _c("div", [
+              _c("br"),
+              _vm._v(" "),
               _c("h3", [_vm._v("Novo veículo  ")]),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-md-12" }, [
-                  _vm.errors === true
+                  _vm.errorsCreate === true
                     ? _c(
                         "div",
                         { staticClass: "alert alert-warning" },
@@ -38159,7 +38644,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-md-12" }, [
-                  _vm.success === true
+                  _vm.successCreate === true
                     ? _c("div", { staticClass: "alert alert-success" }, [
                         _c("b", [_vm._v(" Um novo carro foi cadastrado ")])
                       ])
@@ -38322,19 +38807,19 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.carro.valor,
-                        expression: "carro.valor"
+                        value: _vm.carro.venda,
+                        expression: "carro.venda"
                       }
                     ],
                     staticClass: "form-control col-md-12",
                     attrs: { type: "text" },
-                    domProps: { value: _vm.carro.valor },
+                    domProps: { value: _vm.carro.venda },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.carro, "valor", $event.target.value)
+                        _vm.$set(_vm.carro, "venda", $event.target.value)
                       }
                     }
                   })
@@ -38397,20 +38882,22 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(0)
+              _vm._m(1)
             ])
           : _vm._e(),
         _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
         _vm.showCreateForm === false
           ? _c("h3", [
-              _vm._v("Lista de Veículos "),
+              _vm._v("Listagem "),
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-info float-right",
+                  staticClass: "btn btn-info float-right btn-sm",
                   on: { click: _vm.openCreateForm }
                 },
-                [_vm._v("criar novo veiculo")]
+                [_vm._v("novo")]
               )
             ])
           : _vm._e(),
@@ -38421,7 +38908,7 @@ var render = function() {
             {
               key: carro.id,
               staticClass: "card border-primary",
-              staticStyle: { "margin-top": "10px" }
+              staticStyle: { "margin-top": "20px" }
             },
             [
               _c("div", { staticClass: "card-body" }, [
@@ -38502,7 +38989,35 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(1, true)
+                  _c("div", { staticClass: "col-md-4" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary col-md-6 btn-sm",
+                        on: {
+                          click: function($event) {
+                            return _vm.getCar(carro.id)
+                          }
+                        }
+                      },
+                      [_vm._v("editar registro")]
+                    ),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger btn-sm col-md-6",
+                        staticStyle: { "margin-top": "10px" },
+                        on: {
+                          click: function($event) {
+                            return _vm.deleteCar(carro.id)
+                          }
+                        }
+                      },
+                      [_vm._v("excluir")]
+                    )
+                  ])
                 ])
               ])
             ]
@@ -38526,23 +39041,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4" }, [
-      _c(
-        "a",
-        { staticClass: "btn btn-primary col-md-6 btn-sm", attrs: { href: "" } },
-        [_vm._v("editar registro")]
-      ),
-      _c("br"),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-danger btn-sm col-md-6",
-          staticStyle: { "margin-top": "10px" },
-          attrs: { href: "" }
-        },
-        [_vm._v("excluir")]
-      )
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [_c("hr")])
     ])
   }
 ]
