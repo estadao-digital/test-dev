@@ -123,7 +123,6 @@
         </div>
         <br>
         <h3  v-if="showCreateForm === false">Listagem <button class="btn btn-info float-right btn-sm" v-on:click="openCreateForm">novo</button> </h3>
-        
         <div  class="card border-primary" v-for="carro in carros" v-bind:key="carro.id" style="margin-top:20px">
             <div class="card-body">
                 <div class="row">
@@ -210,20 +209,6 @@
                         console.log(error)
                     })
                     .finally(() => this.loading = false)
-            },
-            openCreateForm : function (event) {
-                this.showCreateForm = true;
-                this.closeEditForm();
-            },
-            closeCreateForm : function () {
-                this.showCreateForm = false;
-            },
-            openEditForm : function () {
-                this.showEditForm = true;
-                this.closeCreateForm();
-            },
-            closeEditForm : function () {
-                this.showEditForm = false;
             },
             storeCar : async function() {
                 this.loading = true;
@@ -341,6 +326,20 @@
                     .catch(error => {
                         console.log(error)
                 }).finally(() => this.loading = false)
+            },
+            openCreateForm : function (event) {
+                this.showCreateForm = true;
+                this.closeEditForm();
+            },
+            closeCreateForm : function () {
+                this.showCreateForm = false;
+            },
+            openEditForm : function () {
+                this.showEditForm = true;
+                this.closeCreateForm();
+            },
+            closeEditForm : function () {
+                this.showEditForm = false;
             }
         }
     }
