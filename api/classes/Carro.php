@@ -62,7 +62,8 @@
 
         public static function getCarros() {
 
-            $sql = MySql::conectar()->prepare("SELECT * FROM `tb_carros`");
+            $sql = MySql::conectar()->prepare("SELECT C.id AS id, M.marca AS marca, C.modelo AS modelo, C.ano AS ano FROM `tb_carros` AS C INNER JOIN 
+            `tb_marcas` AS M ON C.marca = M.id");
             $sql->execute();
             
             if($sql->rowCount() > 0) {
@@ -79,12 +80,30 @@
 
         public static function getCarro($id) {
 
-            $sql = MySql::conectar()->prepare("SELECT * FROM `tb_carros` WHERE id = ?");
+            $sql = MySql::conectar()->prepare("SELECT C.id AS id, M.marca AS marca, C.modelo AS modelo, C.ano AS ano FROM `tb_carros` AS C INNER JOIN 
+            `tb_marcas` AS M ON C.marca = M.id WHERE C.id = ?");
             $sql->execute(array($id));
             
             if($sql->rowCount() > 0) {
 
                 return $sql->fetch();
+
+            }else {
+
+                return false;
+
+            }
+
+        }
+
+        public static function getMarcas() {
+
+            $sql = MySql::conectar()->prepare("SELECT * FROM `tb_marcas`");
+            $sql->execute();
+            
+            if($sql->rowCount() > 0) {
+
+                return $sql->fetchAll();
 
             }else {
 

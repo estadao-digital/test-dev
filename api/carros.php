@@ -10,14 +10,15 @@
 
         $path = explode('/',$_GET['url']);
 
-        if(!isset($path[1]) && $path[0] == 'carros') {
+        if($path[0] == 'carros' && empty($path[1])) {
 
+            
+            
             $listar = Carro::getCarros();
 
             if($listar != false) {
 
                 $retorno['status'] = 'true';
-                //$retorno['dados'] = $listar;
 
                 $cont = 0;
                 foreach ($listar as $key => $value) {
@@ -34,30 +35,42 @@
         }else {
 
             $id = $path[1];
+            $getCar = Carro::getCarro($path[1]);
 
-            $validaId = new ValidaCarro();
-            $valId = $validaId->validaId($id);
+            if($getCar != false) {
 
-            if($valId == false) {
+                $validaId = new ValidaCarro();
+                $valId = $validaId->validaId($id);
 
-                $getCarro = Carro::getCarro($id);
+                if($valId == false) {
 
-                if($getCarro != false) {
+                    $getCarro = Carro::getCarro($id);
 
-                    $retono['status'] = 'true';
-                    $retorno['id'] = $getCarro['id'];
-                    $retorno['marca'] = $getCarro['marca'];
-                    $retorno['modelo'] = $getCarro['modelo'];
-                    $retorno['ano'] = $getCarro['ano'];
+                    if($getCarro != false) {
+
+                        $retono['status'] = 'true';
+                        $retorno['id'] = $getCarro['id'];
+                        $retorno['marca'] = $getCarro['marca'];
+                        $retorno['modelo'] = $getCarro['modelo'];
+                        $retorno['ano'] = $getCarro['ano'];
+
+                    }
+                    
+
+                }else {
+
+                    $retorno = $valId;
 
                 }
-                
 
             }else {
 
-                $retorno = $valId;
+                $retorno['status'] = 'false';
+                $retorno['erro'] = 'O id informado não existe';
 
             }
+
+            
 
         }       
         
