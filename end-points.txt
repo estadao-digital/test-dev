@@ -1,0 +1,35 @@
+url: http://localhost:8080/test-dev/api/marcas
+Método: GET
+Lista todas as marcas no banco de dados
+
+*********************************************
+
+url: http://localhost:8080/test-dev/api/carros
+Método: GET
+Lista todos os carros do banco de dados
+
+*********************************************
+
+url: http://localhost:8080/test-dev/api/carros/1
+Método: GET
+Lista o carro com id 1 no banco de dados
+
+*********************************************
+
+url: http://localhost:8080/test-dev/api/carros
+Método: POST
+Cadastra um carro no banco de dados
+
+*********************************************
+
+url: http://localhost:8080/test-dev/api/carros/1
+Método: PUT
+Atualiza o carro de id 1 no banco de dados
+
+*********************************************
+
+url: http://localhost:8080/test-dev/api/carros/1
+Método: DELETE
+Deleta o carro de id 1 no banco de dados
+
+*********************************************

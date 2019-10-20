@@ -1,4 +1,4 @@
-var BASE_URL = $('base').attr('base');
+var BASE_URL = "http://localhost:8080/final/api";//base url api
 
 $(document).ready(function(){
 	var uriHash = window.location.hash//get hash url #example
@@ -17,8 +17,9 @@ var loadTableData = function(table,action = {edit:false, delete: false}){
 	$.ajax({
 		url:BASE_URL+'api/carros',
 		method:'GET',
-		headers:{"token":'3DFTaNupO5WSV142LxeiXgcZfOmWazto5pqN46rcNrsbCaRQrAt1BtD2xJyrIJkn'},
+		headers:{"TOKEN":window.localStorage.getItem('token')},
 		success:function(data){
+			console.log(data);
 			if(data.status && data.data.length > 0){
 				var carros = data.data;
 				var html = "";
@@ -60,21 +61,21 @@ var actionButton = function(event){
 //get marcas of select
 var getMarcas = function(carro = false){
 	$.ajax({
-		url:BASE_URL+'api/marcas',
-        method:'GET',
-        dataType: "json",
-		headers:{"token":'3DFTaNupO5WSV142LxeiXgcZfOmWazto5pqN46rcNrsbCaRQrAt1BtD2xJyrIJkn'},
+		url:BASE_URL+'/marcas',
+		method:'GET',
+		headers:{"TOKEN":window.localStorage.getItem('token')},
 		success:function(data){
+			if(data.redirect){window.location.href = "/login.php"}
 			html = ""
 			for (var i = data.length - 1; i >= 0; i--) {
-				html += "<option value='"+data[i].id+"'>"+data[i].marca+"</option>"
+				html += "<option value='"+data[i].marca+"'>"+data[i].marca+"</option>"
 			}
 			$('#marcas,#marcas').html(html)
 			if(carro){
 			$('.edit-form input[name=id]').val(carro.id)
 			$('.edit-form input[name=modelo]').val(carro.modelo)
 			$('.edit-form input[name=ano]').val(carro.ano)
-			$('#marcas').val(carro.id)
+			$('#marcas').val(carro.marca)
 			}
 		},
 		error:ajaxError
@@ -91,13 +92,13 @@ var sendEdit = function(event){
 		ano:$('input[name=ano]',this).val()
 	}
 	$.ajax({
-		url:"api/carros/"+id,
+		url:"/api/carros/"+id,
 		method:"PUT",
 		data: JSON.stringify(send),
-		headers:{"token":'3DFTaNupO5WSV142LxeiXgcZfOmWazto5pqN46rcNrsbCaRQrAt1BtD2xJyrIJkn'},
+		headers:{"TOKEN":window.localStorage.getItem('token')},
 		success:function(data){
+			if(data.redirect){window.location.href = "/login.php"}
 			if(data.status){
-                alert("Carro atualizado com sucesso!");
 				loadSection('#list')
 				loadTableData('#list')
 				$('.edit-form input[name=id]').val("")
@@ -118,12 +119,12 @@ var addCarro = function(event){
 	event.preventDefault()
 	that = this
 	$.ajax({
-		url:"api/carros",
+		url:"/api/carros",
 		method:"POST",
 		data: $(this).serialize(),
-		headers:{"token":'3DFTaNupO5WSV142LxeiXgcZfOmWazto5pqN46rcNrsbCaRQrAt1BtD2xJyrIJkn'},
+		headers:{"TOKEN":window.localStorage.getItem('token')},
 		success:function(data){
-            alert("Carro adicionado com sucesso!");
+			if(data.redirect){window.location.href = "/login.php"}
 			if(data.status){
 				loadSection('#list')
 				loadTableData('#list')
@@ -136,18 +137,18 @@ var addCarro = function(event){
 		},
 		error:ajaxError
 	})
-	return true
+	return false
 }
 
 //delete item carro
 var deleteCarro = function(id){
 	$.ajax({
-		url:BASE_URL+'api/carros/'+id,
+		url:BASE_URL+'/carros/'+id,
 		method:"DELETE",
-		headers:{"token":'3DFTaNupO5WSV142LxeiXgcZfOmWazto5pqN46rcNrsbCaRQrAt1BtD2xJyrIJkn'},
+		headers:{"TOKEN":window.localStorage.getItem('token')},
 		success:function(data){
+			if(data.redirect){window.location.href = "/login.php"}
 			if(data.status){
-                alert("Carro deletado com sucesso!");
 				loadSection('#list')
 				loadTableData('#list')
 			}else{

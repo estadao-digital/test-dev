@@ -4,7 +4,7 @@
 
         public function validaMarca($marca) {
 
-            if(empty($marca) || strlen($marca) < 4 || is_numeric($marca)) {
+            if(empty($marca)) {
 
                 $retorno['status'] = 'false';
                 $retorno['erro'] = 'O formato da marca não é valido';
@@ -21,7 +21,7 @@
 
         public function validaModelo($modelo) {
 
-            if(empty($modelo) || strlen($modelo) < 4 || is_numeric($modelo)) {
+            if(empty($modelo) || strlen($modelo) < 3 || is_numeric($modelo)) {
 
                 $retorno['status'] = 'false';
                 $retorno['erro'] = 'O formato do modelo não é valido';

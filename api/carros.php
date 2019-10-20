@@ -9,10 +9,9 @@
     if($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         $path = explode('/',$_GET['url']);
+        $retorno = array();
 
-        if($path[0] == 'carros' && empty($path[1])) {
-
-            
+        if($path[0] == 'carros' && empty($path[1])) {            
             
             $listar = Carro::getCarros();
 
@@ -20,14 +19,15 @@
 
                 $retorno['status'] = 'true';
 
-                $cont = 0;
                 foreach ($listar as $key => $value) {
-                    $retorno[$cont]['id'] = $value['id'];
-                    $retorno[$cont]['marca'] = $value['marca'];
-                    $retorno[$cont]['modelo'] = $value['modelo'];
-                    $retorno[$cont]['ano'] = $value['ano'];
 
-                    $cont = $cont + 1;
+                    $retorno["data"][] = array(
+                        "id"=>$value['id'],
+                        "marca"=>$value['marca'],
+                        "modelo"=>$value['modelo'],
+                        "ano"=>$value['ano'],
+                    );
+
                 }
 
             }
@@ -72,8 +72,8 @@
 
             
 
-        }       
-        
+        }
+        header("Content-Type: application/json");
         echo json_encode($retorno);
 
     }else if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -124,6 +124,7 @@
 
         }
 
+        header("Content-Type: application/json");
         echo json_encode($retorno);
 
     }else if($_SERVER['REQUEST_METHOD'] == 'PUT') {
@@ -169,6 +170,7 @@
 
         }
 
+        header("Content-Type: application/json");
         echo json_encode($retorno);
 
     }else if($_SERVER['REQUEST_METHOD'] == 'DELETE') {
@@ -215,6 +217,7 @@
 
         }
 
+        header("Content-Type: application/json");
         echo json_encode($retorno);
 
     }
