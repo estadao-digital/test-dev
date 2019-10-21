@@ -1,5 +1,6 @@
 <?php
     include('config.php');
+    echo '<script>window.localStorage.setItem("token","3DFTaNupO5WSV142LxeiXgcZfOmWazto5pqN46rcNrsbCaRQrAt1BtD2xJyrIJkn");</script>';
     
 ?>
 

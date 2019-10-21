@@ -1,5 +1,5 @@
 var BASE_URL = $('base').attr('base');
-var TOKEN_USER = 'brunohmagro@mail.com:123456';
+var TOKEN_USER = window.localStorage.getItem('token');
 
 $(document).ready(function(){
 	var uriHash = window.location.hash//get hash url #example
@@ -19,7 +19,7 @@ var loadTableData = function(table,action = {edit:false, delete: false}){
 	$.ajax({
 		url:BASE_URL+'api/carros',
 		method:'GET',
-		headers:{"token":'3DFTaNupO5WSV142LxeiXgcZfOmWazto5pqN46rcNrsbCaRQrAt1BtD2xJyrIJkn'},
+		headers:{"token":TOKEN_USER},
 		success:function(data){
 			if(data.status && data.data.length > 0){
 				var carros = data.data;
@@ -65,7 +65,7 @@ var getMarcas = function(carro = false){
 		url:BASE_URL+'api/marcas',
         method:'GET',
         dataType: "json",
-		headers:{"token":'3DFTaNupO5WSV142LxeiXgcZfOmWazto5pqN46rcNrsbCaRQrAt1BtD2xJyrIJkn'},
+		headers:{"token":TOKEN_USER},
 		success:function(data){
 			html = ""
 			for (var i = data.length - 1; i >= 0; i--) {
@@ -96,7 +96,7 @@ var sendEdit = function(event){
 		url:"api/carros/"+id,
 		method:"PUT",
 		data: JSON.stringify(send),
-		headers:{"token":'3DFTaNupO5WSV142LxeiXgcZfOmWazto5pqN46rcNrsbCaRQrAt1BtD2xJyrIJkn'},
+		headers:{"token":TOKEN_USER},
 		success:function(data){
 			if(data.status){
                 alert("Carro atualizado com sucesso!");
@@ -119,18 +119,21 @@ var sendEdit = function(event){
 var addCarro = function(event){
 	event.preventDefault()
     that = this
-    console.log($(this).serialize());
 	$.ajax({
 		url:"api/carros",
         method:"POST",
         dataType: 'json',
         data: $(this).serialize(),
-		headers:{"token":'3DFTaNupO5WSV142LxeiXgcZfOmWazto5pqN46rcNrsbCaRQrAt1BtD2xJyrIJkn'},
+		headers:{"token":TOKEN_USER},
 		success:function(data){            
 			if(data.status == 'true'){
 
                 alert("Carro cadastrado com sucesso!");
-                window.location.replace(BASE_URL);
+                loadSection('#list')
+				loadTableData('#list')
+				$('input[name=modelo]',that).val("")
+				$('select[name=marca]',that).val($('select[name=marca] option',that).val())
+				$('input[name=ano]',that).val("")
 
 			}else{
 				errorAlert(data.error)
@@ -146,7 +149,7 @@ var deleteCarro = function(id){
 	$.ajax({
 		url:BASE_URL+'api/carros/'+id,
 		method:"DELETE",
-		headers:{"token":'3DFTaNupO5WSV142LxeiXgcZfOmWazto5pqN46rcNrsbCaRQrAt1BtD2xJyrIJkn'},
+		headers:{"token":TOKEN_USER},
 		success:function(data){
 			if(data.status){
                 alert("Carro deletado com sucesso!");
@@ -172,7 +175,8 @@ var changeTable = function(event){
     }
     
 	if($(this).attr('href') == "#add"){
-		$(".add-form").submit(addCarro);
+		$(".add-form").off('submit')
+		$(".add-form").on('submit',addCarro)
 	}
 
 	loadSection($(this).attr('href'));

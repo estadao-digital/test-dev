@@ -12,7 +12,7 @@
     spl_autoload_register($autoload);
 
     //DEFINIÇÃO DAS CONSTANTES DE DIRETÓRIO
-    define('INCLUDE_PATH','http://localhost:8080/test-dev/');
+    define('INCLUDE_PATH','http://localhost/test-dev/');
 
     //DEFINIÇÃO DOS DADOS DE ACESSO PARA O BANCO DE DADOS
     define('HOST','localhost');
