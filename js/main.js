@@ -1,4 +1,5 @@
 var BASE_URL = $('base').attr('base');
+var TOKEN_USER = 'brunohmagro@mail.com:123456';
 
 $(document).ready(function(){
 	var uriHash = window.location.hash//get hash url #example
@@ -14,6 +15,7 @@ $(document).ready(function(){
 
 //load itens table
 var loadTableData = function(table,action = {edit:false, delete: false}){
+
 	$.ajax({
 		url:BASE_URL+'api/carros',
 		method:'GET',

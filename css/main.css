@@ -1,23 +1,17 @@
+.hidden { 
+    display: none
+}
 
+.alerta{
+    width: 50%;
+    position: absolute;
+    top: 0;
+    left: 25%;
+    height: auto;
+}
 
-@media screen and (max-width: 350px) {
-
-    .container {
-
-        width: 100%;
-
+@media(max-device-width: 798px){
+    form, input, select, button{
+        font-size: 2.3rem!important
     }
-
-    .add-form {
-
-        width: 100%;
-
-    }
-
-    .form-group {
-
-        width: 100% !important;
-
-    }
-
 }

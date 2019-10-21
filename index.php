@@ -1,7 +1,6 @@
 <?php
-
     include('config.php');
-
+    
 ?>
 
 <!doctype html>
@@ -178,5 +177,8 @@
 <script src="<?php echo PATH; ?>js/vendor/modernizr-2.8.3.min.js"></script>
 <script src="<?php echo PATH; ?>js/bootstrap.min.js"></script>
 <script src="<?php echo PATH; ?>js/main.js"></script>
+<script>
+
+</script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Out-2019 às 04:31
+-- Tempo de geração: 21-Out-2019 às 04:03
 -- Versão do servidor: 10.4.6-MariaDB
 -- versão do PHP: 7.3.9
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tb_carros` (
   `id` int(11) NOT NULL,
-  `marca` int(11) NOT NULL,
+  `id_marca` int(10) NOT NULL,
   `modelo` varchar(50) NOT NULL,
   `ano` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -39,19 +39,13 @@ CREATE TABLE `tb_carros` (
 -- Extraindo dados da tabela `tb_carros`
 --
 
-INSERT INTO `tb_carros` (`id`, `marca`, `modelo`, `ano`) VALUES
-(1, 1, 'Argo', 2012),
-(3, 1, 'Argo', 2014),
-(4, 3, 'Gol', 2019),
-(5, 4, 'Corsa', 2008),
-(6, 3, 'Golf', 2013),
-(7, 9, 'Fusion', 2017),
-(8, 9, 'Fiesta', 2014),
-(9, 1, 'Argo', 2019),
-(10, 2, 'Kicks', 2019),
-(11, 4, 'Marajó', 1985),
-(12, 1, 'Toro', 2018),
-(13, 1, 'Toro', 2015);
+INSERT INTO `tb_carros` (`id`, `id_marca`, `modelo`, `ano`) VALUES
+(1, 1, 'Fusion', 2015),
+(2, 1, 'Fiesta', 2012),
+(3, 2, 'Polo', 2011),
+(4, 2, 'Uno', 2013),
+(6, 3, 'Fit', 2010),
+(7, 8, 'Corola', 2019);
 
 -- --------------------------------------------------------
 
@@ -60,7 +54,7 @@ INSERT INTO `tb_carros` (`id`, `marca`, `modelo`, `ano`) VALUES
 --
 
 CREATE TABLE `tb_marcas` (
-  `id` int(11) NOT NULL,
+  `id_marca` int(11) NOT NULL,
   `marca` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -68,7 +62,7 @@ CREATE TABLE `tb_marcas` (
 -- Extraindo dados da tabela `tb_marcas`
 --
 
-INSERT INTO `tb_marcas` (`id`, `marca`) VALUES
+INSERT INTO `tb_marcas` (`id_marca`, `marca`) VALUES
 (1, 'Fiat'),
 (2, 'Nissam'),
 (3, 'Wolksvagem'),
@@ -93,7 +87,7 @@ ALTER TABLE `tb_carros`
 -- Índices para tabela `tb_marcas`
 --
 ALTER TABLE `tb_marcas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_marca`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -103,13 +97,13 @@ ALTER TABLE `tb_marcas`
 -- AUTO_INCREMENT de tabela `tb_carros`
 --
 ALTER TABLE `tb_carros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `tb_marcas`
 --
 ALTER TABLE `tb_marcas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
