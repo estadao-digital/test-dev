@@ -16,7 +16,7 @@
 
             $cont = 0;
             foreach ($listar as $key => $value) {
-                $retorno[$cont]['id'] = $value['id'];
+                $retorno[$cont]['id_marca'] = $value['id_marca'];
                 $retorno[$cont]['marca'] = $value['marca'];
 
                 $cont = $cont + 1;

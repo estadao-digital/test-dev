@@ -23,6 +23,7 @@
 
                     $retorno["data"][] = array(
                         "id"=>$value['id'],
+                        "id_marca"=>$value['id_marca'],
                         "marca"=>$value['marca'],
                         "modelo"=>$value['modelo'],
                         "ano"=>$value['ano'],
@@ -50,6 +51,7 @@
 
                         $retono['status'] = 'true';
                         $retorno['id'] = $getCarro['id'];
+                        $retorno['id_marca'] = $getCarro['id_marca'];
                         $retorno['marca'] = $getCarro['marca'];
                         $retorno['modelo'] = $getCarro['modelo'];
                         $retorno['ano'] = $getCarro['ano'];

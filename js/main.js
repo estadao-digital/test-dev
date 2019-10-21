@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 	loadTableData(uriHash)
 
-	getMarcas()
+    getMarcas()
 
 })
 
@@ -67,14 +67,14 @@ var getMarcas = function(carro = false){
 		success:function(data){
 			html = ""
 			for (var i = data.length - 1; i >= 0; i--) {
-				html += "<option value='"+data[i].id+"'>"+data[i].marca+"</option>"
+				html += "<option value='"+data[i].id_marca+"'>"+data[i].marca+"</option>"
 			}
 			$('#marcas,#marcas').html(html)
 			if(carro){
-			$('.edit-form input[name=id]').val(carro.id)
-			$('.edit-form input[name=modelo]').val(carro.modelo)
-			$('.edit-form input[name=ano]').val(carro.ano)
-			$('#marcas').val(carro.id)
+                $('.edit-form input[name=id]').val(carro.id)
+                $('.edit-form input[name=modelo]').val(carro.modelo)
+                $('.edit-form input[name=ano]').val(carro.ano)
+                $('.edit-form select').val(carro.id_marca)
 			}
 		},
 		error:ajaxError
@@ -116,27 +116,27 @@ var sendEdit = function(event){
 //add item carro
 var addCarro = function(event){
 	event.preventDefault()
-	that = this
+    that = this
+    console.log($(this).serialize());
 	$.ajax({
 		url:"api/carros",
-		method:"POST",
-		data: $(this).serialize(),
+        method:"POST",
+        dataType: 'json',
+        data: $(this).serialize(),
 		headers:{"token":'3DFTaNupO5WSV142LxeiXgcZfOmWazto5pqN46rcNrsbCaRQrAt1BtD2xJyrIJkn'},
-		success:function(data){
-            alert("Carro adicionado com sucesso!");
-			if(data.status){
-				loadSection('#list')
-				loadTableData('#list')
-				$('input[name=modelo]',that).val("")
-				$('select[name=marca]',that).val("")
-				$('input[name=ano]',that).val("")
+		success:function(data){            
+			if(data.status == 'true'){
+
+                alert("Carro cadastrado com sucesso!");
+                window.location.replace(BASE_URL);
+
 			}else{
 				errorAlert(data.error)
 			}			
 		},
 		error:ajaxError
 	})
-	return true
+	return false
 }
 
 //delete item carro
@@ -160,14 +160,17 @@ var deleteCarro = function(id){
 
 //change table menu
 var changeTable = function(event){
+
 	if($(this).attr('href') == '#edit') {
-		loadTableData($(this).attr('href'), {edit:true,delete:false})
-	}
+		loadTableData($(this).attr('href'), {edit:true,delete:false});
+    }
+    
 	if($(this).attr('href') == '#delete') {
-		loadTableData($(this).attr('href'), {edit:false,delete:true})
-	}
+		loadTableData($(this).attr('href'), {edit:false,delete:true});
+    }
+    
 	if($(this).attr('href') == "#add"){
-		$(".add-form").submit(addCarro)
+		$(".add-form").submit(addCarro);
 	}
 
 	loadSection($(this).attr('href'));
@@ -196,15 +199,14 @@ var loadSection = function(hash){
 
 //function show error
 var errorAlert = function(error){
-	$('.error .alert').html(error)
-	$('.error').removeClass('hidden')
+	$('.error .alert').html(error);
+	$('.error').removeClass('hidden');
 	setTimeout(function(){
-		$('.error').addClass('hidden')
+		$('.error').addClass('hidden');
 	},3000)
 }
 
 //atribute error ajax
 var ajaxError = function(err){
-	errorAlert("Ocorreu um erro no sistema")
-	console.log(err)
+	errorAlert("Ocorreu um erro no sistema");
 }

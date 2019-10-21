@@ -62,8 +62,10 @@
 
         public static function getCarros() {
 
-            $sql = MySql::conectar()->prepare("SELECT C.id AS id, M.marca AS marca, C.modelo AS modelo, C.ano AS ano FROM `tb_carros` AS C INNER JOIN 
-            `tb_marcas` AS M ON C.marca = M.id");
+            //$sql = MySql::conectar()->prepare("SELECT *  FROM `tb_carros`");
+            $sql = MySql::conectar()->prepare("SELECT C.id AS id, C.id_marca as id_marca, 
+            M.marca AS marca, C.modelo AS modelo, C.ano AS ano FROM `tb_carros` AS C 
+            INNER JOIN `tb_marcas` AS M ON C.id_marca = M.id_marca");
             $sql->execute();
             
             if($sql->rowCount() > 0) {
@@ -80,8 +82,9 @@
 
         public static function getCarro($id) {
 
-            $sql = MySql::conectar()->prepare("SELECT C.id AS id, M.marca AS marca, C.modelo AS modelo, C.ano AS ano FROM `tb_carros` AS C INNER JOIN 
-            `tb_marcas` AS M ON C.marca = M.id WHERE C.id = ?");
+            $sql = MySql::conectar()->prepare("SELECT C.id AS id, C.id_marca as id_marca, 
+            M.marca AS marca, C.modelo AS modelo, C.ano AS ano FROM `tb_carros` AS C 
+            INNER JOIN `tb_marcas` AS M ON C.id_marca = M.id_marca WHERE C.id = ?");
             $sql->execute(array($id));
             
             if($sql->rowCount() > 0) {
@@ -115,7 +118,7 @@
 
         public function updateCar() {
 
-            $sql = MySql::conectar()->prepare("UPDATE `tb_carros` SET marca = ?,modelo = ?,
+            $sql = MySql::conectar()->prepare("UPDATE `tb_carros` SET id_marca = ?,modelo = ?,
             ano = ? WHERE id = ?");
             if($sql->execute(array($this->getMarca(),$this->getModelo(),$this->getAno(),
             $this->getId()))) {
