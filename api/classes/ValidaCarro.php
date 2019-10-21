@@ -7,7 +7,7 @@
             if(empty($marca)) {
 
                 $retorno['status'] = 'false';
-                $retorno['erro'] = 'O formato da marca n√£o √© valido';
+                $retorno['erro'] = 'O formato da marca n„o È v·lido';
 
                 return $retorno;
 
@@ -38,7 +38,7 @@
 
         public function validaAno($ano) {
 
-            if(empty($ano) || strlen($ano) < 4 || !is_numeric($ano)) {
+            if(empty($ano) || strlen($ano) <> 4 || !is_numeric($ano)) {
 
                 $retorno['status'] = 'false';
                 $retorno['erro'] = 'O formato do ano n√£o √© valido';

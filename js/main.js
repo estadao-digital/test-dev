@@ -21,7 +21,7 @@ var loadTableData = function(table,action = {edit:false, delete: false}){
 		method:'GET',
 		headers:{"token":TOKEN_USER},
 		success:function(data){
-			if(data.status && data.data.length > 0){
+			if(data.status == 'true' && data.data.length > 0){
 				var carros = data.data;
 				var html = "";
 				for (var i = carros.length - 1; i >= 0; i--) {
@@ -35,13 +35,19 @@ var loadTableData = function(table,action = {edit:false, delete: false}){
 					html += "</tr>"
 				}
 				$(table+" table tbody").html(html)
+				
 				if(action.edit || action.delete){
 					$(table+" button").click(actionButton)
 				}
+			}else {
+
+				errorAlert(data.erro);
+
 			}
 		},
 		error:ajaxError
 	})
+	return false
 }
 
 //action button edit and delete
@@ -107,7 +113,7 @@ var sendEdit = function(event){
 				$('.edit-form input[name=ano]').val("")
 				$('.modal-edit').modal('hide')
 			}else{
-				errorAlert(data.error)
+				errorAlert(data.erro)
 			}
 		},
 		error:ajaxError
@@ -129,14 +135,16 @@ var addCarro = function(event){
 			if(data.status == 'true'){
 
                 alert("Carro cadastrado com sucesso!");
-                loadSection('#list')
-				loadTableData('#list')
-				$('input[name=modelo]',that).val("")
-				$('select[name=marca]',that).val($('select[name=marca] option',that).val())
-				$('input[name=ano]',that).val("")
+                loadSection('#list');
+				loadTableData('#list');
+				$('input[name=modelo]',that).val("");
+				$('select[name=marca]',that).val($('select[name=marca] option',that).val());
+				$('input[name=ano]',that).val("");
 
 			}else{
-				errorAlert(data.error)
+				errorAlert(data.marca.erro);
+				errorAlert(data.ano.erro);
+				errorAlert(data.modelo.erro);
 			}			
 		},
 		error:ajaxError
@@ -152,11 +160,12 @@ var deleteCarro = function(id){
 		headers:{"token":TOKEN_USER},
 		success:function(data){
 			if(data.status){
-                alert("Carro deletado com sucesso!");
-				loadSection('#list')
-				loadTableData('#list')
+				alert("Carro deletado com sucesso!");
+				window.location.replace(BASE_URL);
+				//loadSection('#list')
+				//loadTableData('#list')
 			}else{
-				errorAlert(data.error)
+				errorAlert(data.erro)
 			}
 		},
 		error:ajaxError
@@ -214,5 +223,7 @@ var errorAlert = function(error){
 
 //atribute error ajax
 var ajaxError = function(err){
+
 	errorAlert("Ocorreu um erro no sistema");
+	
 }

@@ -29,7 +29,7 @@
     }else {
 
         $retorno['status'] = 'false';
-        $retorno['erro'] = 'MÃ©todo enviado incorreto';
+        $retorno['erro'] = 'Método enviado incorreto';
         echo json_encode($retorno);
     }
 

@@ -51,7 +51,7 @@
 
     <div class="row error hidden m-3">
         <div class="col-12">
-            <div class="alert alert-danger"></div>
+            <div class="alert alert-danger text-center"></div>
         </div>
     </div>
 
@@ -83,7 +83,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="">Model</label>
+                            <label for="">Modelo</label>
                             <input name="modelo"  class='form-control' type="text">
                         </div>
                         <div class="form-group">

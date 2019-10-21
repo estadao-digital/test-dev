@@ -31,6 +31,11 @@
 
                 }
 
+            }else {
+
+                $retorno['status'] = 'false';
+                $retorno['erro'] = 'Nenhum registro localizado';
+
             }
 
         }else {
@@ -68,7 +73,7 @@
             }else {
 
                 $retorno['status'] = 'false';
-                $retorno['erro'] = 'O id informado n√£o existe';
+                $retorno['erro'] = 'O id informado n„o existe';
 
             }
 
@@ -104,7 +109,7 @@
                 }else {
 
                     $retorno['status'] = 'false';
-                    $retorno['erro'] = 'Erro ao processar a requisi√ß√£o de cadastro';
+                    $retorno['erro'] = 'Erro ao processar a requisiÁ„o de cadastro';
 
                 }
 
@@ -122,7 +127,7 @@
         }else {
 
             $retorno['status'] = 'false';
-            $retorno['erro'] = 'Todos os par√¢metros s√£o necess√°rios para requisi√ß√£o';
+            $retorno['erro'] = 'Todos os par‚metros s„o necess·rios para requisiÁ„o';
 
         }
 

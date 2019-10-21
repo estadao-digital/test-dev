@@ -1,0 +1,13 @@
+Olá, primeiro quero agradecer a oportunidade de participar desse processo.
+
+Para configuração do sistema, basta alterar a constante definida em:
+
+test-dev/config.php
+- Apenas definição para rotear o diretório
+
+test-dev/api/configApi.php
+- Definição para rotear o diretório;
+- Definição de acesso ao banco de dados.
+
+Att.
+Bruno

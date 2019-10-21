@@ -62,7 +62,6 @@
 
         public static function getCarros() {
 
-            //$sql = MySql::conectar()->prepare("SELECT *  FROM `tb_carros`");
             $sql = MySql::conectar()->prepare("SELECT C.id AS id, C.id_marca as id_marca, 
             M.marca AS marca, C.modelo AS modelo, C.ano AS ano FROM `tb_carros` AS C 
             INNER JOIN `tb_marcas` AS M ON C.id_marca = M.id_marca");

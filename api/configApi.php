@@ -11,10 +11,10 @@
     };
     spl_autoload_register($autoload);
 
-    //DEFINI√á√ÉO DAS CONSTANTES DE DIRET√ìRIO
+    //DEFINI«√O DAS CONSTANTES DE DIRET”RIO
     define('INCLUDE_PATH','http://localhost/test-dev/');
 
-    //DEFINI√á√ÉO DOS DADOS DE ACESSO PARA O BANCO DE DADOS
+    //DEFINI«√O DOS DADOS DE ACESSO PARA O BANCO DE DADOS
     define('HOST','localhost');
     define('USER','root');
     define('PASSWORD','');
