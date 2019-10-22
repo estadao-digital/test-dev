@@ -1,7 +1,11 @@
 <?php
 require_once('Core/Rotas.php');
+require_once('Model/Model.php');
+require_once('Model/Carro.class.php');
+
 route('/', function () {
-    return "Hello World";
+    $model = new Carro();
+    return $model->create_table();
 });
 route('/about', function () {
     return "Hello form the about route";
