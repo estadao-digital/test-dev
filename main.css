@@ -1,0 +1,21 @@
+
+#barra-top{
+    background: linear-gradient(to bottom right, #cfe8e3,#08B5FF);
+    align-items: center;
+}
+#content{
+  background:linear-gradient(to bottom right, #ffffff, #f7f7f7);
+  min-height: 600px;
+  align-items: center;
+}
+body{
+  background: linear-gradient(to bottom right, #91E5FF, #fcfeff);
+
+}
+.title{
+  text-align: center;
+  font-weight:300;
+}
+form .col-md-6{
+  margin-bottom:2%;
+}
