@@ -1,8 +1,9 @@
 <?php
 // Require composer autoloader
+require_once 'Controller/Carros.php';
 require __DIR__ . '/vendor/autoload.php';
-require 'Controller/Carros.php';
 
+$controller = new CarroController();
 // Create Router instance
 $router = new \Bramus\Router\Router();
 
@@ -22,7 +23,7 @@ $router->get('/carros/{id}', function($id) {
     echo $id;
 });
 $router->get('/carros', function() {
-    echo 'wwww';
+    echo $controller->index();
 });
 
 

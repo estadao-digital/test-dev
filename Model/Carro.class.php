@@ -1,5 +1,6 @@
 <?php
-
+require_once 'Icarro.php';
+require_once 'Model.php';
 
 class Carro extends Model implements Icarro{
 public function __construct(){
