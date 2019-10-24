@@ -1,0 +1,23 @@
+{
+    "name": "diogo/test-dev",
+    "description": "API and Views",
+    "require": {
+        "slim/slim": "^4.3",
+        "doctrine/orm": "^2.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Entities\\": "src/",
+            "Models\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Diogo Filho de Morais",
+            "email": "analise.federal@gmail.com"
+        }
+    ]
+}
