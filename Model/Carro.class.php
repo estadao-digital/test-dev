@@ -1,25 +1,25 @@
 <?php
 
 
-class Carro extends Model{
+class Carro extends Model implements Icarro{
 
 public function index(){
 
 }
 public function create_table(){
-     $tabela = file_get_contents( "./car.sql" );
+     $tabela = file_get_contents( "car.sql" );
      return $this->query($tabela,[]);
 }
-public function show(){
+public function show($id){
 
-    }
+}
 public function create(){
 
-        }
-public function update(){
+}
+public function update($id){
 
-            }
-public function destroy(){
+}
+public function destroy($id){
 
 }
 }

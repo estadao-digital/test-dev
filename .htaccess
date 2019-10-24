@@ -2,7 +2,7 @@
     RewriteEngine On
 
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ rotas.php [NC,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ rotas.php/$1 [QSA,L]
 </IfModule>

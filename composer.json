@@ -1,0 +1,12 @@
+{
+    "name": "nuclear/test-dev",
+    "authors": [
+        {
+            "name": "gabrielmonzato",
+            "email": "gabrielmonzato20@gmail.com"
+        }
+    ],
+    "require": {
+        "bramus/router": "~1.4"
+    }
+}
