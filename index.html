@@ -13,22 +13,88 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
 
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
+<style>
+#barra-top{
+    background: linear-gradient(to bottom right, #cfe8e3,#08B5FF);
+    align-items: center;
+}
+#content{
+  background:linear-gradient(to bottom right, #ffffff, #f7f7f7);
+  min-height: 600px;
+  align-items: center;
+}
+body{
+  background: linear-gradient(to bottom right, #91E5FF, #fcfeff);
 
+}
+.title{
+  text-align: center;
+  font-weight:300;
+}
+form .col-md-6{
+  margin-bottom:2%;
+}
+</style>
 <body>
   <nav class="site-header sticky-top py-1">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <div class="container d-flex flex-column  justify-content-between" id='barra-top' >
       <a class="py-2" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"></circle><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path></svg>
+       <i class='fa fa-car'></i>
       </a>
-      <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
-      <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
+
 
     </div>
   </nav>
+   <div class="container d-flex flex-column justify-content-center" id='content' >
+   <form>
+   <h1 class='title'>Cadastro</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="First name">
+    </div>
+    <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Last name">
+    </div>
+        <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Last name">
+    </div>
+        <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Last name">
+    </div>
+  </div>
+  <div class='row'>
+   <div class="col-md-12">
+  <button class='btn btn-primary'>Cadastrar</button>
+  <button class='btn btn-danger'>Limpar</button>
+  </div>
+  </div>
+</form>
+<div class="col-md-12" style="padding-top: 4%;">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+      <td scope="col">#</td>
+      <td scope="col">First</td>
+      <td scope="col">Last</td>
+      <td scope="col">Handle</td>
+    </tr>
+  </tbody>
+  </table>
+  </div>
+   </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

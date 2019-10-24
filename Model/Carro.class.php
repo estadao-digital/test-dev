@@ -2,7 +2,9 @@
 
 
 class Carro extends Model implements Icarro{
-
+public function __construct(){
+     $this->create_table();
+}
 public function index(){
 
 }
