@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Teste dos Carros</title>
+    <link rel="shortcut icon" type="image/png" href="images/car-icon.png"/>
 </head>
 
 <body>
@@ -13,14 +14,15 @@
         <hr>
         <hr>
 
-        <div  class="container">
+        <div class="container-fluid">
+            <div class="col-xl-6 "></div>
             <h1>Lista de Carros</h1>
             <button class="btn btn-success" data-toggle="modal" data-target="#salvarModal">Adicionar</button>
             <p style="color: #00a;" v-if="cars.loading">Carregando...</p>
             <div v-else>
                 <p style="color: #aa0;" v-if="!cars.list.length">Nenhum carro encontrado</p>
                 <div v-else>
-                    <table class="table">
+                    <table class="table" id="table-carros">
                         <thead>
                         <tr>
                             <th>Id</th>
@@ -55,6 +57,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
     <script src="js/home.js"></script>
 </body>
 </html>

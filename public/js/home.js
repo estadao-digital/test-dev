@@ -1,7 +1,7 @@
 var App = new Vue({
     el: '#AppVue',
     data: {
-        api: '/api/carros',
+        api: '/api/carros/',
 
         cars: {
             loading: false,
@@ -40,13 +40,25 @@ var App = new Vue({
                 error: false,
                 messages: [],
             },
+
+            marca: {
+                value: '',
+                error: false,
+                messages: [],
+            },
+
+            ano: {
+                value: '',
+                error: false,
+                messages: [],
+            },
         },
     },
     methods: {
         loadCars: function () {
             App.cars.loading = true;
 
-            axios.get(App.api + '/').then(req => {
+            axios.get(App.api).then(req => {
                 App.cars.list = [];
 
                 for (var i in req.data.data) {
@@ -98,34 +110,61 @@ var App = new Vue({
                 return;
             }
 
-            axios.get(App.api, {
-                params: {
-                    action: 'add-car',
-                    modelo: App.newCar.modelo.value,
-                },
-            }).then(req => {
-                App.newCar.modelo.value = '';
-                App.loadCars();
+            Swal.fire({
+                title: 'Deseja confirmar?',
+                text: "Será salvo um novo carro",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim'
+            }).then((result) => {
+                if (result.value) {
+                    axios.post(App.api, {
+                        modelo: App.newCar.modelo.value,
+                        marca: App.newCar.marca.value,
+                        ano: App.newCar.ano.value,
+                    }).then(req => {
+                        App.newCar.modelo.value = '';
+                        Swal.fire(
+                            'Sucesso!',
+                            req.data.msg,
+                            'success'
+                        );
+                        $("#salvarModal").modal('toggle');
+                        App.loadCars();
+                    });
+                }
             });
+
         },
         removeCar: function (id) {
-            axios.get(App.api, {
-                params: {
-                    action: 'remove-car',
-                    id: id,
-                },
-            }).then(req => {
-                App.cancelEditCar();
+            axios.delete(App.api + id).then(req => {
+                Swal.fire({
+                    title: 'Deseja confirmar?',
+                    text: "As alterações não serão revertidas",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sim'
+                }).then((result) => {
+                    if (result.value) {
+                        Swal.fire(
+                            'Sucesso!',
+                            req.data.msg,
+                            'success'
+                        )
+                    }
+                })
                 App.loadCars();
             });
         },
         selectCar: function (car) {
             App.currentCar.id = car.id;
             App.currentCar.modelo.value = car.modelo;
-        },
-        cancelEditCar: function () {
-            App.currentCar.id = '';
-            App.currentCar.modelo.value = '';
+            App.currentCar.marca.value = car.marca;
+            App.currentCar.ano.value = car.ano;
         },
         editCar: function () {
             App.currentCar.error = false;
@@ -135,6 +174,15 @@ var App = new Vue({
             App.currentCar.modelo.messages = [];
             App.currentCar.modelo.value = App.currentCar.modelo.value.trim();
 
+            App.currentCar.marca.error = false;
+            App.currentCar.marca.messages = [];
+            App.currentCar.marca.value = App.currentCar.marca.value.trim();
+
+            App.currentCar.ano.error = false;
+            App.currentCar.ano.messages = [];
+            App.currentCar.ano.value = App.currentCar.ano.value.trim();
+
+
             var error = false;
 
             if (App.currentCar.modelo.value == '') {
@@ -143,24 +191,53 @@ var App = new Vue({
                 App.currentCar.modelo.messages.push('Campo obrigatorio');
             };
 
+            if (App.currentCar.marca.value == '') {
+                error = true;
+                App.currentCar.marca.error = true;
+                App.currentCar.marca.messages.push('Campo obrigatorio');
+            };
+
+            if (App.currentCar.ano.value == '') {
+                error = true;
+                App.currentCar.ano.error = true;
+                App.currentCar.ano.messages.push('Campo obrigatorio');
+            };
+
             if (error) {
                 App.currentCar.error = true;
                 App.currentCar.messages.push('Verifique todos os campos');
                 return;
             }
 
-            axios.get(App.api, {
-                params: {
-                    action: 'edit-car',
-                    id: App.currentCar.id,
-                    modelo: App.currentCar.modelo.value,
-                },
-            }).then(req => {
-                App.cancelEditCar();
-                App.loadCars();
+            Swal.fire({
+                title: 'Deseja confirmar?',
+                text: "As alterações não serão revertidas",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim'
+            }).then((result) => {
+                if (result.value) {
+                    axios.put(App.api + App.currentCar.id, {
+                        modelo: App.currentCar.modelo.value,
+                        marca: App.currentCar.marca.value,
+                        ano: App.currentCar.ano.value,
+                    }).then(req => {
+                        Swal.fire(
+                            'Sucesso!',
+                            req.data.msg,
+                            'success'
+                        )
+                        $("#editarModal").modal('toggle');
+                        App.loadCars();
+                    });
+                }
             });
+
         },
     },
 });
 
 App.loadCars();
+$("#table-carros").DataTable();
