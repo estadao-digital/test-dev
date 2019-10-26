@@ -1,0 +1,35 @@
+<div id="editarModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Novo carro</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form @submit.prevent="editCar()">
+                    <h1>Editar ({{ currentCar.id }})</h1>
+
+                    <p style="color: red;" v-if="currentCar.error">{{ currentCar.messages }}</p>
+
+                    <p>
+                        <label for="iptModelo">Modelo</label>
+                        <input type="text" id="iptModelo" v-model="currentCar.modelo.value" :disabled="!currentCar.id">
+                    <p style="color: red;" v-if="currentCar.modelo.error">{{ currentCar.modelo.messages }}</p>
+                    </p>
+
+                    <p>
+                        <button :disabled="!currentCar.id">Salvar</button>
+                        <button :disabled="!currentCar.id" @click.prevent="cancelEditCar()">Cancelar</button>
+                    </p>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Editar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>

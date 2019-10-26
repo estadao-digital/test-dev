@@ -1,0 +1,43 @@
+<div id="salvarModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Novo carro</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form @submit.prevent="addCar()">
+                    <div class="alert alert-danger" v-if="newCar.error">
+                        <p>{{ newCar.messages.join(' | ') }}</p>
+                    </div>
+                    <p>
+                        <label for="iptModelo">Modelo</label>
+                        <input type="text" id="iptModelo" class="form-control" v-model="newCar.modelo.value">
+                    <p style="color: red;" v-if="newCar.modelo.error">{{ newCar.modelo.messages.join(' | ') }}</p>
+
+                    <p>
+                    <div class="col-xl-6">
+                        <label for="iptModelo">Marca</label>
+                        <input type="text" id="iptModelo" class="form-control" v-model="newCar.marca.value">
+                    </div>
+                    <p style="color: red;" v-if="newCar.marca.error">{{ newCar.marca.messages.join(' | ') }}</p>
+
+                    <p>
+                    <div>
+                        <label for="iptModelo">Ano</label>
+                        <input type="text" id="iptModelo" class="form-control" v-model="newCar.ano.value">
+                    </div>
+                    <p style="color: red;" v-if="newCar.ano.error">{{ newCar.ano.messages.join(' | ') }}</p>
+                    </p>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" @click.prevent="addCar()">Salvar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechars</button>
+            </div>
+        </div>
+    </div>
+</div>
