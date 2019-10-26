@@ -139,26 +139,27 @@ var App = new Vue({
 
         },
         removeCar: function (id) {
-            axios.delete(App.api + id).then(req => {
-                Swal.fire({
-                    title: 'Deseja confirmar?',
-                    text: "As alterações não serão revertidas",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Sim'
-                }).then((result) => {
-                    if (result.value) {
-                        Swal.fire(
-                            'Sucesso!',
-                            req.data.msg,
-                            'success'
-                        )
-                    }
-                })
-                App.loadCars();
-            });
+            Swal.fire({
+                title: 'Deseja confirmar?',
+                text: "As alterações não serão revertidas",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim'
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire(
+                        'Sucesso!',
+                        req.data.msg,
+                        'success'
+                    );
+                    axios.delete(App.api + id).then(req => {
+                        App.loadCars();
+                    });
+                }
+            })
+
         },
         selectCar: function (car) {
             App.currentCar.id = car.id;
@@ -239,5 +240,8 @@ var App = new Vue({
     },
 });
 
+$(document).ready(function () {
+    $("#table-carros").DataTable();
+});
+
 App.loadCars();
-$("#table-carros").DataTable();
