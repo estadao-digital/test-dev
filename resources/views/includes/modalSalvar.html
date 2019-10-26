@@ -19,15 +19,21 @@
 
                     <p>
                     <div class="col-xl-6">
-                        <label for="iptModelo">Marca</label>
-                        <input type="text" id="iptModelo" class="form-control" v-model="newCar.marca.value">
+                        <label for="iptMarca">Marca</label>
+                        <select type="text" id="iptMarca" class="form-control" v-model="newCar.marca.value">
+                            <option value="">Escolha</option>
+                            <option value="Fiat">Fiat</option>
+                            <option value="Audi">Audi</option>
+                            <option value="Gm">Gm</option>
+                            <option value="Mercedes">Mercedes</option>
+                        </select>
                     </div>
                     <p style="color: red;" v-if="newCar.marca.error">{{ newCar.marca.messages.join(' | ') }}</p>
 
                     <p>
                     <div>
-                        <label for="iptModelo">Ano</label>
-                        <input type="text" id="iptModelo" class="form-control" v-model="newCar.ano.value">
+                        <label for="iptAno">Ano</label>
+                        <input type="text" id="iptAno" class="form-control" v-model="newCar.ano.value">
                     </div>
                     <p style="color: red;" v-if="newCar.ano.error">{{ newCar.ano.messages.join(' | ') }}</p>
                     </p>

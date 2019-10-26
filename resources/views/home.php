@@ -20,12 +20,11 @@
             <button class="btn btn-success" data-toggle="modal" data-target="#salvarModal">Adicionar</button>
             <p style="color: #00a;" v-if="cars.loading">Carregando...</p>
             <div v-else>
-                <p style="color: #aa0;" v-if="!cars.list.length">Nenhum carro encontrado</p>
-                <div v-else>
-                    <table class="table" id="table-carros">
+                <div >
+                    <table id="table_carros" class="table table-striped table-bordered w-75">
                         <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>#</th>
                             <th>Modelo</th>
                             <th>Marca</th>
                             <th>Ano</th>
@@ -33,7 +32,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="car in cars.list">
+                        <tr v-if="!cars.list.length">
+                            <td colspan="5" class="alert alert-danger">Nenhum carro cadastrado</td>
+                        </tr>
+                        <tr v-for="car in cars.list" v-else>
                             <td>{{ car.id }}</td>
                             <td>{{ car.modelo }}</td>
                             <td>{{ car.marca }}</td>
@@ -57,8 +59,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-
     <script src="js/home.js"></script>
 </body>
 </html>

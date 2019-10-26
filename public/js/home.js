@@ -132,6 +132,7 @@ var App = new Vue({
                             'success'
                         );
                         $("#salvarModal").modal('toggle');
+                        App.resetCar();
                         App.loadCars();
                     });
                 }
@@ -149,17 +150,23 @@ var App = new Vue({
                 confirmButtonText: 'Sim'
             }).then((result) => {
                 if (result.value) {
-                    Swal.fire(
-                        'Sucesso!',
-                        req.data.msg,
-                        'success'
-                    );
                     axios.delete(App.api + id).then(req => {
-                        App.loadCars();
+                        Swal.fire({
+                            title: 'Sucesso',
+                            text: req.data.msg,
+                            type: 'success'
+                        }).then((result) => {
+                            App.loadCars();
+                        });
                     });
                 }
             })
 
+        },
+        resetCar: function() {
+            App.newCar.modelo.value = '';
+            App.newCar.marca.value = '';
+            App.newCar.ano.value = '';
         },
         selectCar: function (car) {
             App.currentCar.id = car.id;
@@ -240,8 +247,6 @@ var App = new Vue({
     },
 });
 
-$(document).ready(function () {
-    $("#table-carros").DataTable();
-});
+// $("#table_carros").DataTable();
 
 App.loadCars();
