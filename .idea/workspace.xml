@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="68859339-4612-498b-979a-fdc35614a5d9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CarrosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CarrosController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cars.json" beforeDir="false" afterPath="$PROJECT_DIR$/cars.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/modalEditar.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/modalEditar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/includes/modalSalvar.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/modalSalvar.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="35" column="69" selection-start-line="35" selection-start-column="69" selection-end-line="35" selection-end-column="69" />
+            <state relative-caret-position="383">
+              <caret line="63" column="94" selection-start-line="63" selection-start-column="94" selection-end-line="63" selection-end-column="94" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -29,19 +31,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cars.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="103" selection-start-column="103" selection-end-column="103" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
+            <state relative-caret-position="547">
+              <caret line="250" column="26" selection-start-line="250" selection-start-column="26" selection-end-line="250" selection-end-column="26" />
               <folding>
                 <element signature="e#103#164#0" />
                 <element signature="e#183#615#0" />
@@ -55,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/includes/modalEditar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="86" selection-start-line="32" selection-start-column="86" selection-end-line="32" selection-end-column="86" />
+            <state relative-caret-position="195">
+              <caret line="21" column="102" selection-start-line="21" selection-start-column="102" selection-end-line="21" selection-end-column="102" />
               <folding>
                 <element signature="e#381#388#1#HTML" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -74,13 +67,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/includes/modalSalvar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="577">
-              <caret line="41" column="18" lean-forward="true" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+            <state relative-caret-position="262">
+              <caret line="29" column="26" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="29" selection-end-column="26" />
               <folding>
                 <element signature="e#405#412#1" expanded="true" />
                 <element signature="n#style#0;n#p#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#4;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#6;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Request/CarroRequest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+              <folding>
+                <element signature="e#117#160#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,11 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CarrosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="31" column="29" lean-forward="true" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-              <folding>
-                <element signature="e#40#68#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="-495">
+              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -143,9 +145,9 @@
       <find>newCar</find>
       <find>car</find>
       <find>Lista de Carros</find>
-      <find>2020</find>
       <find>selectCar</find>
       <find>table-carros</find>
+      <find>2020</find>
       <find>Nenhum carro encontrado</find>
     </findStrings>
   </component>
@@ -161,19 +163,20 @@
         <option value="$PROJECT_DIR$/app/Http/Resources/CarrosResource.php" />
         <option value="$PROJECT_DIR$/app/Services/CarrosService.php" />
         <option value="$PROJECT_DIR$/app/Repositories/CarrosRepository.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CarrosController.php" />
         <option value="$PROJECT_DIR$/resources/views/includes/ModalEditar.php" />
         <option value="$PROJECT_DIR$/resources/js/home.js" />
-        <option value="$PROJECT_DIR$/resources/views/includes/modalEditar.html" />
         <option value="$PROJECT_DIR$/cars.json" />
         <option value="$PROJECT_DIR$/resources/views/home.php" />
-        <option value="$PROJECT_DIR$/resources/views/includes/modalSalvar.html" />
         <option value="$PROJECT_DIR$/public/js/home.js" />
+        <option value="$PROJECT_DIR$/resources/views/includes/modalSalvar.html" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Request/CarroRequest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CarrosController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Request/CarroRequest.php" />
+        <option value="$PROJECT_DIR$/resources/views/includes/modalEditar.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="683" />
     <option name="y" value="25" />
     <option name="width" value="683" />
     <option name="height" value="743" />
@@ -190,51 +193,6 @@
               <item name="teste-estadao" type="b2602c69:ProjectViewProjectNode" />
               <item name="teste-estadao" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="teste-estadao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teste-estadao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teste-estadao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teste-estadao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teste-estadao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teste-estadao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teste-estadao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teste-estadao" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teste-estadao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teste-estadao" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teste-estadao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teste-estadao" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teste-estadao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teste-estadao" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teste-estadao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teste-estadao" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -245,13 +203,14 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Vetor/www/movida_dev" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../docker-lumen/www/apilumen" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http" />
       <recent name="$PROJECT_DIR$/public/js" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -281,12 +240,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572019223789</updated>
-      <workItem from="1572019224907" duration="22033000" />
+      <workItem from="1572019224907" duration="25726000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22033000" />
+    <option name="totallyTimeSpent" value="25726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
@@ -369,16 +328,6 @@
     <entry file="file://$PROJECT_DIR$/resources/js/app.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CarrosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="31" column="29" lean-forward="true" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/storage/framework/views/0c39d1228086c3051dd3ccc976febd7197a1df20.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -393,16 +342,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/includes/modalEditar.html">
+    <entry file="file://$PROJECT_DIR$/public/js/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="86" selection-start-line="32" selection-start-column="86" selection-end-line="32" selection-end-column="86" />
+        <state relative-caret-position="547">
+          <caret line="250" column="26" selection-start-line="250" selection-start-column="26" selection-end-line="250" selection-end-column="26" />
           <folding>
-            <element signature="e#381#388#1#HTML" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#4;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#6;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#103#164#0" />
+            <element signature="e#183#615#0" />
+            <element signature="e#638#847#0" />
+            <element signature="e#901#1220#0" />
+            <element signature="e#3935#4690#0" />
+            <element signature="e#2557#2662#0" />
+            <element signature="e#3666#5479#0" />
           </folding>
         </state>
       </provider>
@@ -410,14 +361,41 @@
     <entry file="file://$PROJECT_DIR$/cars.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="103" selection-start-column="103" selection-end-column="103" />
+          <caret column="52" selection-start-column="52" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="63" column="94" selection-start-line="63" selection-start-column="94" selection-end-line="63" selection-end-column="94" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Request/CarroRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#117#160#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CarrosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-495">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/includes/modalSalvar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="41" column="18" lean-forward="true" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+        <state relative-caret-position="262">
+          <caret line="29" column="26" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="29" selection-end-column="26" />
           <folding>
             <element signature="e#405#412#1" expanded="true" />
             <element signature="n#style#0;n#p#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -427,28 +405,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/includes/modalEditar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="35" column="69" selection-start-line="35" selection-start-column="69" selection-end-line="35" selection-end-column="69" />
+        <state relative-caret-position="195">
+          <caret line="21" column="102" selection-start-line="21" selection-start-column="102" selection-end-line="21" selection-end-column="102" />
           <folding>
-            <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
-          <folding>
-            <element signature="e#103#164#0" />
-            <element signature="e#183#615#0" />
-            <element signature="e#638#847#0" />
-            <element signature="e#901#1220#0" />
-            <element signature="e#3935#4690#0" />
-            <element signature="e#2557#2662#0" />
-            <element signature="e#3666#5479#0" />
+            <element signature="e#381#388#1#HTML" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#4;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#6;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

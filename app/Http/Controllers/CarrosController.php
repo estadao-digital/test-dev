@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\Http\Services\CarrosService;
-use App\Http\Resources\CarrosResource;
+use App\Http\Request\CarroRequest;
 use Exception;
 
 class CarrosController extends Controller
@@ -53,7 +53,7 @@ class CarrosController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(CarroRequest $request)
     {
         try {
             $data = $request->only('marca','modelo','ano');
@@ -73,7 +73,7 @@ class CarrosController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(CarroRequest $request, $id)
     {
         try {
             $data = $request->only('marca','modelo','ano');

@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <p style="color: red;" v-if="currentCar.error">{{ currentCar.messages }}</p>
+                    <p style="color: red;" v-if="currentCar.error">{{ currentCar.messages.join(' | ') }}</p>
 
                     <p>
                         <label for="iptModelo">Modelo</label>
@@ -17,8 +17,16 @@
                     <p style="color: red;" v-if="currentCar.modelo.error">{{ currentCar.modelo.messages.join(' | ') }}</p>
 
                     <p>
-                        <label for="iptMarca">Marca</label>
-                        <input type="text" class="form-control" id="iptMarca" v-model="currentCar.marca.value">
+                        <div class="col-xl-6">
+                            <label for="iptMarca">Marca</label>
+                            <select type="text" id="iptMarca" class="form-control" v-model="currentCar.marca.value">
+                                <option value="">Escolha</option>
+                                <option value="Fiat">Fiat</option>
+                                <option value="Audi">Audi</option>
+                                <option value="Gm">Gm</option>
+                                <option value="Mercedes">Mercedes</option>
+                            </select>
+                        </div>
                     <p style="color: red;" v-if="currentCar.marca.error">{{ currentCar.marca.messages.join(' | ') }}</p>
 
                     <p>
@@ -30,7 +38,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" @click.prevent="editCar()">Editar</button>
+                <button type="button" class="btn btn-success" @click.prevent="editCar()">Editar</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             </div>
         </div>
