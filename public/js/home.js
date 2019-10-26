@@ -166,14 +166,15 @@ var App = new Vue({
                             title: 'Erro',
                             text: 'Erro ao tentar enviar a solicitação para remover o carro',
                             type: 'danger'
-                        })
+                        });
                         return;
                     }
                     axios.delete(App.api + id).then(req => {
                         Swal.fire({
                             title: 'Sucesso',
                             text: req.data.msg,
-                            type: 'success'
+                            type: 'success',
+                            confirmButtonColor: '#4cae4c'
                         }).then((result) => {
                             App.loadCars();
                         });
