@@ -278,6 +278,5 @@ var App = new Vue({
     },
 });
 
-// $("#table_carros").DataTable();
 $("#iptAno").mask('9999');
 App.loadCars();

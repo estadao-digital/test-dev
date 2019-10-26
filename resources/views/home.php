@@ -23,28 +23,28 @@
                 <div >
                     <table id="table_carros" class="table table-striped table-bordered w-75">
                         <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Modelo</th>
-                            <th>Marca</th>
-                            <th>Ano</th>
-                            <th>Ações</th>
-                        </tr>
+                            <tr>
+                                <th>#</th>
+                                <th>Modelo</th>
+                                <th>Marca</th>
+                                <th>Ano</th>
+                                <th>Ações</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr v-if="!cars.list.length">
-                            <td colspan="5" class="alert alert-danger">Nenhum carro cadastrado</td>
-                        </tr>
-                        <tr v-for="car in cars.list" v-else>
-                            <td>{{ car.id }}</td>
-                            <td>{{ car.modelo }}</td>
-                            <td>{{ car.marca }}</td>
-                            <td>{{ car.ano }}</td>
-                            <td>
-                                <button data-toggle="modal" data-target="#editarModal" class="btn btn-secondary" @click.prevent="selectCar(car)"><span class="glyphicon glyphicon-pencil"></span></button>
-                                <button class="btn btn-danger" @click.prevent="removeCar(car.id)"><span class="glyphicon glyphicon-trash"></span></button>
-                            </td>
-                        </tr>
+                            <tr v-if="!cars.list.length">
+                                <td colspan="5" class="alert alert-danger">Nenhum carro cadastrado</td>
+                            </tr>
+                            <tr v-for="car in cars.list" v-else>
+                                <td>{{ car.id }}</td>
+                                <td>{{ car.modelo }}</td>
+                                <td>{{ car.marca }}</td>
+                                <td>{{ car.ano }}</td>
+                                <td>
+                                    <button data-toggle="modal" data-target="#editarModal" class="btn btn-secondary" @click.prevent="selectCar(car)"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    <button class="btn btn-danger" @click.prevent="removeCar(car.id)"><span class="glyphicon glyphicon-trash"></span></button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
