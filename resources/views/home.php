@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Teste dos Carros</title>
+    <title>Teste prático - Lucas Longordi</title>
     <link rel="shortcut icon" type="image/png" href="images/car-icon.png"/>
 </head>
 
 <body>
     <div id="AppVue">
-        <hr>
-        <hr>
 
         <div class="container-fluid">
             <div class="col-xl-6 "></div>
             <h1>Lista de Carros</h1>
+            <hr>
             <button class="btn btn-success" data-toggle="modal" data-target="#salvarModal">Adicionar</button>
+            <hr>
             <p style="color: #00a;" v-if="cars.loading">Carregando...</p>
             <div v-else>
                 <div >

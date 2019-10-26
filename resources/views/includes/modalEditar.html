@@ -9,12 +9,12 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <p style="color: red;" v-if="currentCar.error">{{ currentCar.messages.join(' | ') }}</p>
+                    <p class="alert alert-danger" v-if="currentCar.error">{{ currentCar.messages.join(' | ') }}</p>
 
                     <p>
                         <label for="iptModelo">Modelo</label>
                         <input type="text" class="form-control" id="iptModelo" v-model="currentCar.modelo.value">
-                    <p style="color: red;" v-if="currentCar.modelo.error">{{ currentCar.modelo.messages.join(' | ') }}</p>
+                    <p class="alert alert-danger" v-if="currentCar.modelo.error">{{ currentCar.modelo.messages.join(' | ') }}</p>
 
                     <p>
                         <div class="col-xl-6">
@@ -27,12 +27,12 @@
                                 <option value="Mercedes">Mercedes</option>
                             </select>
                         </div>
-                    <p style="color: red;" v-if="currentCar.marca.error">{{ currentCar.marca.messages.join(' | ') }}</p>
+                    <p class="alert alert-danger" v-if="currentCar.marca.error">{{ currentCar.marca.messages.join(' | ') }}</p>
 
                     <p>
                         <label for="iptAno">Ano</label>
                         <input type="text" class="form-control" id="iptAno" v-model="currentCar.ano.value">
-                    <p style="color: red;" v-if="currentCar.ano.error">{{ currentCar.ano.messages.join(' | ') }}</p>
+                    <p class="alert alert-danger" v-if="currentCar.ano.error">{{ currentCar.ano.messages.join(' | ') }}</p>
                     </p>
                 </form>
 

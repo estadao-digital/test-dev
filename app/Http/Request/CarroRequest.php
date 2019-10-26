@@ -22,33 +22,30 @@ class CarroRequest extends FormRequest
     public function rules()
     {
         return [
-            'modelo' => 'string|required',
-            'marca' => 'string|required',
+            'modelo' => 'required',
+            'marca' => 'required',
             'ano' => 'numeric|required'
         ];
     }
 
     protected function failedValidation(Validator $validator)
     {
-        $errors = $validator->errors()->all();
-        foreach ($errors as $error) {
-            throw new HttpResponseException(response()->json(
-                [
-                    "success" => false,
-                    "data" => [],
-                    "msg" => $error
-                ]
-            ));
-        }
+        $errors = $validator->errors();
+        throw new HttpResponseException(response()->json(
+            [
+                "success" => false,
+                "data" => [],
+                "msg" => "Verifique os campos",
+                "error" => $errors
+            ]
+        ));
     }
 
     public function messages()
     {
         return [
-            'modelo.string' => 'Modelo deve ser uma string',
             'modelo.required' => 'Modelo é um campo obrigatório',
             'marca.required' => 'Marca é um campo obrigatório',
-            'marca.string' => 'Marca deve ser uma string',
             'ano.numeric' => 'Ano deve ser um número',
             'ano.required' => 'Ano é um campo obrigatório',
         ];

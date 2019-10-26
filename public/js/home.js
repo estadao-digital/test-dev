@@ -69,69 +69,80 @@ var App = new Vue({
             });
         },
         addCar: function () {
-            App.newCar.error = false;
-            App.newCar.messages = [];
-
-            App.newCar.modelo.error = false;
-            App.newCar.modelo.messages = [];
-            App.newCar.modelo.value = App.newCar.modelo.value.trim();
-
-            App.newCar.marca.error = false;
-            App.newCar.marca.messages = [];
-            App.newCar.marca.value = App.newCar.marca.value.trim();
-
-            App.newCar.ano.error = false;
-            App.newCar.ano.messages = [];
-            App.newCar.ano.value = App.newCar.ano.value.trim();
-
-            var error = false;
-
-            if (App.newCar.modelo.value == '') {
-                error = true;
-                App.newCar.modelo.error = true;
-                App.newCar.modelo.messages.push('Campo obrigatorio');
-            };
-
-            if (App.newCar.marca.value == '') {
-                error = true;
-                App.newCar.marca.error = true;
-                App.newCar.marca.messages.push('Campo obrigatorio');
-            };
-
-            if (App.newCar.ano.value == '') {
-                error = true;
-                App.newCar.ano.error = true;
-                App.newCar.ano.messages.push('Campo obrigatorio');
-            };
-
-            if (error) {
-                App.newCar.error = true;
-                App.newCar.messages.push('Verifique todos os campos');
-                return;
-            }
-
             Swal.fire({
                 title: 'Deseja confirmar?',
                 text: "Será salvo um novo carro",
                 type: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
+                confirmButtonColor: '#4cae4c',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Sim'
             }).then((result) => {
                 if (result.value) {
+                    App.newCar.error = false;
+                    App.newCar.messages = [];
+
+                    App.newCar.modelo.error = false;
+                    App.newCar.modelo.messages = [];
+                    App.newCar.modelo.value = App.newCar.modelo.value.trim();
+
+                    App.newCar.marca.error = false;
+                    App.newCar.marca.messages = [];
+                    App.newCar.marca.value = App.newCar.marca.value.trim();
+
+                    App.newCar.ano.error = false;
+                    App.newCar.ano.messages = [];
+                    App.newCar.ano.value = App.newCar.ano.value.trim();
+
+                    var error = false;
+
+                    if (App.newCar.modelo.value == '') {
+                        error = true;
+                        App.newCar.modelo.error = true;
+                        App.newCar.modelo.messages.push('Campo obrigatorio');
+                    };
+
+                    if (App.newCar.marca.value == '') {
+                        error = true;
+                        App.newCar.marca.error = true;
+                        App.newCar.marca.messages.push('Campo obrigatorio');
+                    };
+
+                    if (App.newCar.ano.value == '') {
+                        error = true;
+                        App.newCar.ano.error = true;
+                        App.newCar.ano.messages.push('Campo obrigatorio');
+                    };
+
+                    if (error) {
+                        App.newCar.error = true;
+                        App.newCar.messages.push('Verifique todos os campos');
+                        return;
+                    }
+
                     axios.post(App.api, {
                         modelo: App.newCar.modelo.value,
                         marca: App.newCar.marca.value,
                         ano: App.newCar.ano.value,
                     }).then(req => {
                         App.newCar.modelo.value = '';
-                        Swal.fire(
-                            'Sucesso!',
-                            req.data.msg,
-                            'success'
-                        );
-                        $("#salvarModal").modal('toggle');
+
+                        if(req.data.error != undefined) {
+                            App.newCar.error = true;
+                            App.newCar.messages = [req.data.msg];
+                            for(var i in req.data.error) {
+                                App.newCar[i].error = true;
+                                App.newCar[i].messages.push(req.data.error[i].join(' | '));
+                            }
+                        } else {
+                            Swal.fire({
+                                title: 'Sucesso!',
+                                text: req.data.msg,
+                                type: 'success',
+                                confirmButtonColor: '#00ff00'
+                            });
+                            $("#salvarModal").modal('toggle');
+                        }
                         App.resetCar();
                         App.loadCars();
                     });
@@ -145,11 +156,19 @@ var App = new Vue({
                 text: "As alterações não serão revertidas",
                 type: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
+                confirmButtonColor: '#4cae4c',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Sim'
             }).then((result) => {
                 if (result.value) {
+                    if(id == "") {
+                        Swal.fire({
+                            title: 'Erro',
+                            text: 'Erro ao tentar enviar a solicitação para remover o carro',
+                            type: 'danger'
+                        })
+                        return;
+                    }
                     axios.delete(App.api + id).then(req => {
                         Swal.fire({
                             title: 'Sucesso',
@@ -175,70 +194,81 @@ var App = new Vue({
             App.currentCar.ano.value = car.ano;
         },
         editCar: function () {
-            App.currentCar.error = false;
-            App.currentCar.messages = [];
-
-            App.currentCar.modelo.error = false;
-            App.currentCar.modelo.messages = [];
-            App.currentCar.modelo.value = App.currentCar.modelo.value.trim();
-
-            App.currentCar.marca.error = false;
-            App.currentCar.marca.messages = [];
-            App.currentCar.marca.value = App.currentCar.marca.value.trim();
-
-            App.currentCar.ano.error = false;
-            App.currentCar.ano.messages = [];
-            App.currentCar.ano.value = App.currentCar.ano.value.trim();
-
-
-            var error = false;
-
-            if (App.currentCar.modelo.value == '') {
-                error = true;
-                App.currentCar.modelo.error = true;
-                App.currentCar.modelo.messages.push('Campo obrigatorio');
-            };
-
-            if (App.currentCar.marca.value == '') {
-                error = true;
-                App.currentCar.marca.error = true;
-                App.currentCar.marca.messages.push('Campo obrigatorio');
-            };
-
-            if (App.currentCar.ano.value == '') {
-                error = true;
-                App.currentCar.ano.error = true;
-                App.currentCar.ano.messages.push('Campo obrigatorio');
-            };
-
-            if (error) {
-                App.currentCar.error = true;
-                App.currentCar.messages.push('Verifique todos os campos');
-                return;
-            }
-
             Swal.fire({
                 title: 'Deseja confirmar?',
                 text: "As alterações não serão revertidas",
                 type: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
+                confirmButtonColor: '#4cae4c',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Sim'
             }).then((result) => {
+                App.currentCar.error = false;
+                App.currentCar.messages = [];
+
+                App.currentCar.modelo.error = false;
+                App.currentCar.modelo.messages = [];
+                App.currentCar.modelo.value = App.currentCar.modelo.value.trim();
+
+                App.currentCar.marca.error = false;
+                App.currentCar.marca.messages = [];
+                App.currentCar.marca.value = App.currentCar.marca.value.trim();
+
+                App.currentCar.ano.error = false;
+                App.currentCar.ano.messages = [];
+                App.currentCar.ano.value = App.currentCar.ano.value.trim();
+
+
+                var error = false;
+
+                if (App.currentCar.modelo.value == '') {
+                    error = true;
+                    App.currentCar.modelo.error = true;
+                    App.currentCar.modelo.messages.push('Campo obrigatorio');
+                };
+
+                if (App.currentCar.marca.value == '') {
+                    error = true;
+                    App.currentCar.marca.error = true;
+                    App.currentCar.marca.messages.push('Campo obrigatorio');
+                };
+
+                if (App.currentCar.ano.value == '') {
+                    error = true;
+                    App.currentCar.ano.error = true;
+                    App.currentCar.ano.messages.push('Campo obrigatorio');
+                };
+
+                if (error) {
+                    App.currentCar.error = true;
+                    App.currentCar.messages.push('Verifique todos os campos');
+                    return;
+                }
+
                 if (result.value) {
                     axios.put(App.api + App.currentCar.id, {
                         modelo: App.currentCar.modelo.value,
                         marca: App.currentCar.marca.value,
                         ano: App.currentCar.ano.value,
                     }).then(req => {
-                        Swal.fire(
-                            'Sucesso!',
-                            req.data.msg,
-                            'success'
-                        )
-                        $("#editarModal").modal('toggle');
-                        App.loadCars();
+
+                        if(req.data.error != undefined) {
+                            App.currentCar.error = true;
+                            App.currentCar.messages = [req.data.msg];
+                            for(var i in req.data.error) {
+                                App.currentCar[i].error = true;
+                                App.currentCar[i].messages.push(req.data.error[i].join(' | '));
+                            }
+                        } else {
+                            Swal.fire({
+                                title: 'Sucesso!',
+                                text: req.data.msg,
+                                type: 'success',
+                                confirmButtonColor: '#4cae4c'
+                            });
+                            $("#editarModal").modal('toggle');
+                            App.loadCars();
+                        }
                     });
                 }
             });
