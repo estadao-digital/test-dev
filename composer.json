@@ -2,7 +2,7 @@
     "name": "diogo/test-dev",
     "description": "API and Views",
     "require": {
-        "slim/slim": "^4.3",
+        "slim/slim": "2.6.3",
         "doctrine/orm": "^2.6"
     },
     "require-dev": {
@@ -10,6 +10,8 @@
     },
     "autoload": {
         "psr-4": {
+            "Abstracts\\": "src/",
+            "AbstractDAO\\": "src/",
             "Entities\\": "src/",
             "Models\\": "src/"
         }

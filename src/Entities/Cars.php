@@ -2,12 +2,14 @@
 
 namespace Entities;
 
+use Abstracts\AbstractCARS;
+
 /**
  * @Entity
  * @Table(name="Cars")
  */
 
-class Cars 
+class Cars extends AbstractCARS
 {
 
     /**
@@ -15,22 +17,22 @@ class Cars
      * @Column(name="id", type="integer")
      * @GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    public $id;
     
     /**
      * @var string @Column(type="string", length=50)
      */
-    private $brand;
+    public $brand;
 
     /**
      * @var string @Column(type="string", length=50)
      */
-    private $model;
+    public $model;
     
     /**
      * @var string @Column(type="string", length=9)
      */
-    private $year;
+    public $year;
 
     function __construct($id = null, $brand = null, $model = null, $year = null)
     {
@@ -38,6 +40,20 @@ class Cars
         $this->brand    = $brand;
         $this->model    = $model;
         $this->year     = $year;
+    }
+
+    public static function construct($array)
+    {
+        $obj = new Cars();
+        $obj->setId($array['id']);
+        $obj->setBrand($array['brand']);
+        $obj->setModel($array['model']);
+        $obj->setYear($array['year']);
+    }
+
+    function setId($id)
+    {
+        $this->id = $id;
     }
 
     function setBrand($brand)
@@ -53,6 +69,32 @@ class Cars
     function setYear($year)
     {
         $this->year = $year;
+    }
+
+    function getId(){
+        return $this->id;
+    }
+
+    function getBrand(){
+        return $this->brand;
+    }
+
+    function getModel(){
+        return $this->model;
+    }
+
+    function getYear(){
+        return $this->year;
+    }
+
+    function toArray()
+    {
+        return [
+            "id"    => $this->id,
+            "brand" => $this->brand,
+            "model" => $this->model,
+            "year"  => $this->year
+        ];
     }
 
 }
