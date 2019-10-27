@@ -2,20 +2,43 @@
 
 $loader = require __DIR__ . '/vendor/autoload.php';
 
-use Entities\Cars;
-use Models\CarsDAO;
-
 $app = new \Slim\Slim();
 
-$cars =  new Cars();
-$carsDAO = new CarsDAO();
-
-$app->get('(/)', function () use ($carsDAO) {
-    echo json_encode($carsDAO->findAll()->toArray());
+$app->get('(/)', function () {
+    echo json_encode(null);
 });
 
-$app->get('/cars(/(:id))', function ($id = null) use ($carsDAO) {
-    echo json_encode($carsDAO->find($id));
+$app->get('/cars(/(:id))', function ($id = null) 
+{
+    $cars =  new Models\Cars();
+    
+    if (!$id) {
+        echo json_encode($cars->findAll());
+    } else {
+        echo json_encode($cars->find($id));
+    }
+    
+});
+
+$app->post('/cars(/)', function() {
+    $app = \Slim\Slim::getInstance();
+    $json = json_decode($app->request()->getBody());
+    
+    $car = new Models\Cars();
+    echo json_encode($car->insert($json));
+});
+
+$app->put('/cars(/(:id))', function($id = null) {
+    $app = \Slim\Slim::getInstance();
+    $json = json_decode($app->request()->getBody());
+    
+    $car = new Models\Cars();
+    echo json_encode($car->update($json, $id));
+});
+
+$app->delete('/cars(/(:id))', function($id = null) {    
+    $car = new Models\Cars();
+    echo json_encode($car->delete($id));
 });
 
 $app->run();

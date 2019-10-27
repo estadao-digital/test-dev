@@ -10,9 +10,6 @@
     },
     "autoload": {
         "psr-4": {
-            "Abstracts\\": "src/",
-            "AbstractDAO\\": "src/",
-            "Entities\\": "src/",
             "Models\\": "src/"
         }
     },
