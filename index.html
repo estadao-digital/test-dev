@@ -1,33 +1,137 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html lang="en">
 
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title></title>
-	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="https://getbootstrap.com/docs/3.4/favicon.ico">
+	<link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/theme/">
 
-	<!-- Place favicon.ico in the root directory -->
+	<title>Theme Template for Bootstrap</title>
 
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/main.css">
-	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+	<!-- Bootstrap core CSS -->
+	<link href="https://getbootstrap.com/docs/3.4/dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap theme -->
+	<link href="https://getbootstrap.com/docs/3.4/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<link href="https://getbootstrap.com/docs/3.4/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="https://getbootstrap.com/docs/3.4/examples/theme/theme.css" rel="stylesheet">
+
+	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<script src="https://getbootstrap.com/docs/3.4/assets/js/ie-emulation-modes-warning.js"></script>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
 
-	<input type="text" name="marca" placeholder="Marca">
-	<select name="marca" >
-		<option value="">Selecione uma Marca</option>
-		<option value="Fiat">Fiat</option>
-	</select>
-	<input type="text" name="modelo" placeholder="Modelo">
-	<input type="date" name="ano" placeholder="Ano">
-	<button onclick="post(); get()">Enviar</button>
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Bootstrap Framework</a>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
 
+	<div class="container theme-showcase" role="main">
+
+		<!-- Main jumbotron for a primary marketing message or call to action -->
+		<div class="jumbotron">
+			<h3>Bem vindo ao Sistema CARS</h3>
+			<p>Aqui você pode cadastrar, editar e remover todos os carros que desejar.</p>
+		</div>
+
+		<label class="message"></label>
+
+		<div class="col-md-3">
+			<div class="form-group">
+				<label>Marca</label>
+				<select name="brand" id="brand" class="form-control">
+					<option value="">Selecione uma Marca</option>
+					<option value="BMW">BMW</option>
+					<option value="Fiat">Fiat</option>
+					<option value="Jaguar">Jaguar</option>
+					<option value="Mercedes">Mercedes</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="col-md-3">
+			<div class="form-group">
+				<label>Modelo</label>
+				<input type="text" name="model" class="form-control" placeholder="Modelo">
+			</div>
+		</div>
+
+		<div class="col-md-3">
+			<div class="form-group">
+				<label>Ano</label>
+				<input type="text" name="year" class="form-control" placeholder="Ano">
+			</div>
+		</div>
+
+		<div class="col-md-12">
+			<button onclick="post(); get()" class="btn btn-success">Enviar</button>
+		</div>
+
+		<div class="col-md-12">
+			<div class="page-header">
+				<h3>Carros Cadastrados</h3>
+				<div class="row">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>MARCA</th>
+								<th>MODELO</th>
+								<th>ANO</th>
+								<th>Update</th>
+								<th>Delete</th>
+							</tr>
+						</thead>
+						<tbody id="tabela">
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div> <!-- /container -->
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="js/main.js"></script>
+	<script>
+		window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+	</script>
+	<script src="https://getbootstrap.com/docs/3.4/dist/js/bootstrap.min.js"></script>
+	<script src="https://getbootstrap.com/docs/3.4/assets/js/docs.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="https://getbootstrap.com/docs/3.4/assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="public/js/main.js"></script>
+
 </body>
 
 </html>

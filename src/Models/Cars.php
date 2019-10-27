@@ -26,7 +26,7 @@ class Cars
     function find($id)
     {
         $sql = "SELECT * FROM Cars WHERE id = :id";
-        
+
         $data = $this->conn->prepare($sql);
         $data->bindValue(':id', $id);
         $data->execute();
@@ -37,7 +37,7 @@ class Cars
     function findAll()
     {
         $sql = "SELECT * FROM Cars";
-        
+
         $data = $this->conn->prepare($sql);
         $data->execute();
 
@@ -49,12 +49,10 @@ class Cars
         $sql = "INSERT INTO Cars(brand, model, year) VALUES(:brand, :model, :year)";
 
         $data = $this->conn->prepare($sql);
-        $data->bindValue(':brand', $obj->brand);
-        $data->bindValue(':model', $obj->model);
-        $data->bindValue(':year', $obj->year);
+        $data->bindValue(':brand', $obj['brand']);
+        $data->bindValue(':model', $obj['model']);
+        $data->bindValue(':year', $obj['year']);
         $data->execute();
-
-        return ["message"=>"success","action"=>"insert"];
     }
 
     function update($obj, $id)
@@ -63,12 +61,10 @@ class Cars
 
         $data = $this->conn->prepare($sql);
         $data->bindValue(':id', $id);
-        $data->bindValue(':brand', $obj->brand);
-        $data->bindValue(':model', $obj->model);
-        $data->bindValue(':year', $obj->year);
+        $data->bindValue(':brand', $obj['brand']);
+        $data->bindValue(':model', $obj['model']);
+        $data->bindValue(':year', $obj['year']);
         $data->execute();
-
-        return ["message"=>"success","action"=>"update"];
     }
 
     function delete($id)
@@ -78,8 +74,5 @@ class Cars
         $data = $this->conn->prepare($sql);
         $data->bindValue(':id', $id);
         $data->execute();
-
-        return ["message"=>"success","action"=>"delete"];
     }
-
 }
