@@ -28,8 +28,12 @@ $router->get('/carros', function() {
     $controller = new CarroController();
     $controller->index();
 });
+$router->get('/carros', function() {
+    $controller = new CarroController();
+    $controller->index();
+});
 
 
 // Run it!
-$router->run();;
+$router->run();
 ?>
