@@ -1,4 +1,6 @@
 <?php
+namespace Models;
+
 interface iCarro
 {
     public function index();

@@ -1,6 +1,7 @@
 <?php
 // Require composer autoloader
-require_once 'Controller/Carros.php';
+require_once('Controller/CarroController.php');
+use Controller\CarroController;
 require __DIR__ . '/vendor/autoload.php';
 
 $controller = new CarroController();
@@ -20,10 +21,12 @@ $router->put('/carros/{id}', function($id) {
     echo 'hello word';
 });
 $router->get('/carros/{id}', function($id) {
-    echo $id;
+    $controller = new CarroController();
+    $controller->show($id);
 });
 $router->get('/carros', function() {
-    echo $controller->index();
+    $controller = new CarroController();
+    $controller->index();
 });
 
 

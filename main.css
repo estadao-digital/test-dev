@@ -9,7 +9,7 @@
   align-items: center;
 }
 body{
-  background: linear-gradient(to bottom right, #91E5FF, #fcfeff);
+  background:  linear-gradient(to right, rgba(181,209,238,1) 0%, rgba(42,148,229,1) 50%, rgba(190,215,239,1) 100%);
 
 }
 .title{

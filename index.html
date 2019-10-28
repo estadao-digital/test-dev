@@ -35,33 +35,122 @@
    <h1 class='title'>Cadastro</h1>
   <div class="row">
     <div class="col-md-6">
-      <input type="text" class="form-control" placeholder="First name">
+      <input type="text" class="form-control" placeholder="Modelo" name="modelo">
     </div>
     <div class="col-md-6">
-      <input type="text" class="form-control" placeholder="Last name">
+      <select class="form-control" name="marca">
+        <option value="">Selecione uma Marca</option>
+        <option value="1">Acura</option>
+        <option value="2">Agrale</option>
+        <option value="3">Alfa Romeo</option>
+        <option value="4">AM Gen</option>
+        <option value="5">Asia Motors</option>
+        <option value="189">ASTON MARTIN</option>
+        <option value="6">Audi</option>
+        <option value="207">Baby</option>
+        <option value="7">BMW</option>
+        <option value="8">BRM</option>
+        <option value="123">Bugre</option>
+        <option value="10">Cadillac</option>
+        <option value="11">CBT Jipe</option>
+        <option value="136">CHANA</option>
+        <option value="182">CHANGAN</option>
+        <option value="161">CHERY</option>
+        <option value="12">Chrysler</option>
+        <option value="13">Citroën</option>
+        <option value="14">Cross Lander</option>
+        <option value="15">Daewoo</option>
+        <option value="16">Daihatsu</option>
+        <option value="17">Dodge</option>
+        <option value="147">EFFA</option>
+        <option value="18">Engesa</option>
+        <option value="19">Envemo</option>
+        <option value="20">Ferrari</option>
+        <option value="21">Fiat</option>
+        <option value="149">Fibravan</option>
+        <option value="22">Ford</option>
+        <option value="190">FOTON</option>
+        <option value="170">Fyber</option>
+        <option value="199">GEELY</option>
+        <option value="23">GM - Chevrolet</option>
+        <option value="153">GREAT WALL</option>
+        <option value="24">Gurgel</option>
+        <option value="152">HAFEI</option>
+        <option value="213">HITECH ELETRIC</option>
+        <option value="25">Honda</option>
+        <option value="26">Hyundai</option>
+        <option value="27">Isuzu</option>
+        <option value="208">IVECO</option>
+        <option value="177">JAC</option>
+        <option value="28">Jaguar</option>
+        <option value="29">Jeep</option>
+        <option value="154">JINBEI</option>
+        <option value="30">JPX</option>
+        <option value="31">Kia Motors</option>
+        <option value="32">Lada</option>
+        <option value="171">LAMBORGHINI</option>
+        <option value="33">Land Rover</option>
+        <option value="34">Lexus</option>
+        <option value="168">LIFAN</option>
+        <option value="127">LOBINI</option>
+        <option value="35">Lotus</option>
+        <option value="140">Mahindra</option>
+        <option value="36">Maserati</option>
+        <option value="37">Matra</option>
+        <option value="38">Mazda</option>
+        <option value="211">Mclaren</option>
+        <option value="39">Mercedes-Benz</option>
+        <option value="40">Mercury</option>
+        <option value="167">MG</option>
+        <option value="156">MINI</option>
+        <option value="41">Mitsubishi</option>
+        <option value="42">Miura</option>
+        <option value="43">Nissan</option>
+        <option value="44">Peugeot</option>
+        <option value="45">Plymouth</option>
+        <option value="46">Pontiac</option>
+        <option value="47">Porsche</option>
+        <option value="185">RAM</option>
+        <option value="186">RELY</option>
+        <option value="48">Renault</option>
+        <option value="195">Rolls-Royce</option>
+        <option value="49">Rover</option>
+        <option value="50">Saab</option>
+        <option value="51">Saturn</option>
+        <option value="52">Seat</option>
+        <option value="183">SHINERAY</option>
+        <option value="157">smart</option>
+        <option value="125">SSANGYONG</option>
+        <option value="54">Subaru</option>
+        <option value="55">Suzuki</option>
+        <option value="165">TAC</option>
+        <option value="56">Toyota</option>
+        <option value="57">Troller</option>
+        <option value="58">Volvo</option>
+        <option value="59">VW - VolksWagen</option>
+        <option value="163">Wake</option>
+        <option value="120">Walk</option>
+      </select>
     </div>
         <div class="col-md-6">
-      <input type="text" class="form-control" placeholder="Last name">
+      <input type="text" class="form-control" placeholder="Ano" name='ano'>
     </div>
         <div class="col-md-6">
-      <input type="text" class="form-control" placeholder="Last name">
+          <button class='btn btn-primary' onclick="submit_form(this.event)">Cadastrar</button>
+          <button class='btn btn-danger'>Limpar</button>
     </div>
   </div>
-  <div class='row'>
-   <div class="col-md-12">
-  <button class='btn btn-primary'>Cadastrar</button>
-  <button class='btn btn-danger'>Limpar</button>
-  </div>
-  </div>
+
 </form>
 <div class="col-md-12" style="padding-top: 4%;">
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">ID</th>
+      <th scope="col">MARCA</th>
+      <th scope="col">MODELO</th>
+      <th scope="col">ANO</th>
+      <th scope="col">Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -70,16 +159,17 @@
       <td scope="col">First</td>
       <td scope="col">Last</td>
       <td scope="col">Handle</td>
+      <td scope="col">Handle</td>
     </tr>
   </tbody>
   </table>
   </div>
    </div>
-
+<script src="js/main.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
+
 </body>
 
 </html>
