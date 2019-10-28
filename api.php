@@ -1,6 +1,11 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
+session_start();
+
+header('Access-Control-Request-Methods: *');
+header('Access-Control-Request-Headers: *');
+
+header('Access-Control-Allow-Origin:  *');
 header('Access-Control-Allow-Methods: *');
 header('Access-Control-Allow-Headers: *');
 
@@ -8,65 +13,71 @@ $loader = require __DIR__ . '/vendor/autoload.php';
 
 $app = new \Slim\Slim();
 
-$app->get('(/)', function () {
+/**
+ * SELECT METHODS
+ */
+
+$app->get('/cars(/)', function () {
     $cars =  new Models\Cars();
     echo json_encode($cars->findAll());
 });
 
 $app->get('/cars(/(:id))', function ($id = null) {
     $cars =  new Models\Cars();
-    if (!$id) {
-        echo json_encode($cars->findAll());
-    } else {
-        echo json_encode($cars->find($id));
-    }
+    echo json_encode($cars->find($id));
 });
+
+/**
+ * INSERT METHOD
+ */
 
 $app->post('/cars(/)', function () {
     $car = new Models\Cars();
 
-    $json = [
-        'brand' => $_POST['brand'],
-        'model' => $_POST['model'],
-        'year' => $_POST['year'],
-    ];
+    $app = \Slim\Slim::getInstance();
+    $json = json_decode($app->request()->getBody());
 
-    $car->insert($json);
+    echo json_encode($car->insert($json));
 });
 
 $app->post('/cars(/(:id))', function ($id = null) {
     $car = new Models\Cars();
 
-    if (isset($_POST['id'])) {
-        $json = [
-            'id' => $_POST['id'],
-            'brand' => $_POST['brand'],
-            'model' => $_POST['model'],
-            'year' => $_POST['year'],
-        ];
+    $app = \Slim\Slim::getInstance();
+    $json = json_decode($app->request()->getBody());
 
-        $car->update($json, $id);
-
+    if (!$json) {
+        echo json_encode($car->delete($id));
     } else {
-        $car->delete($id);
-
+        echo json_encode($car->update($json, $id));
     }
+
 });
+
+/**
+ * UPDATE METHOD
+ */
 
 $app->put('/cars(/(:id))', function ($id = null) {
+    $car = new Models\Cars();
+
     $app = \Slim\Slim::getInstance();
     $json = json_decode($app->request()->getBody());
 
-    $car = new Models\Cars();
-    $car->update($json, $id);
+    echo json_encode($car->update($json, $id));
 });
+
+/**
+ * DELETE METHOD
+ */
 
 $app->delete('/cars(/(:id))', function ($id = null) {
-    $app = \Slim\Slim::getInstance();
-    $json = json_decode($app->request()->getBody());
-
     $car = new Models\Cars();
-    $car->delete($json);
+    echo json_encode($car->delete($id));
 });
+
+/**
+ * RUN API
+ */
 
 $app->run();

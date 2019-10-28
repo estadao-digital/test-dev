@@ -16,7 +16,7 @@ class Cars
         $this->model    = $model;
         $this->year     = $year;
 
-        $conn = new PDO('mysql:host=localhost;dbname=estadao', 'root', '', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+        $conn = new PDO('mysql:host=localhost;dbname=estadao', 'estadao', 'secret', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $conn->setAttribute(PDO::ATTR_ORACLE_NULLS, PDO::NULL_EMPTY_STRING);
 
@@ -49,10 +49,12 @@ class Cars
         $sql = "INSERT INTO Cars(brand, model, year) VALUES(:brand, :model, :year)";
 
         $data = $this->conn->prepare($sql);
-        $data->bindValue(':brand', $obj['brand']);
-        $data->bindValue(':model', $obj['model']);
-        $data->bindValue(':year', $obj['year']);
+        $data->bindValue(':brand', $obj->brand);
+        $data->bindValue(':model', $obj->model);
+        $data->bindValue(':year', $obj->year);
         $data->execute();
+
+        return ['status' => 200];
     }
 
     function update($obj, $id)
@@ -61,10 +63,12 @@ class Cars
 
         $data = $this->conn->prepare($sql);
         $data->bindValue(':id', $id);
-        $data->bindValue(':brand', $obj['brand']);
-        $data->bindValue(':model', $obj['model']);
-        $data->bindValue(':year', $obj['year']);
+        $data->bindValue(':brand', $obj->brand);
+        $data->bindValue(':model', $obj->model);
+        $data->bindValue(':year', $obj->year);
         $data->execute();
+    
+        return ['status' => 200];
     }
 
     function delete($id)
@@ -74,5 +78,7 @@ class Cars
         $data = $this->conn->prepare($sql);
         $data->bindValue(':id', $id);
         $data->execute();
+
+        return ['status' => 200];
     }
 }

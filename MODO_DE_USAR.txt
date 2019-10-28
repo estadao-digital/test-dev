@@ -1,0 +1,21 @@
+Olá, este é o guia de como usar a API CARS.
+
+1 - Inicie o serviço do PHP com digitando o seguinte comando no terminal:
+
+    php -S localhost:8080/cars api.php
+
+2 - Para fazer os testes dos verbos HTTP basta abrir seu navegador ou o POSTMAN:
+
+    GET  - http://localhost:8080/cars
+    GET  - http://localhost:8080/cars/{id}
+
+    POST - http://localhost:8080/cars
+        (via POSTMAN) Na aba *Body* e Subaba *RAW* digite: {"brand":"Jaguar","model":"JXX","year":"1995"}
+
+    PUT  - http://localhost:8080/cars/{id}
+        (via POSTMAN) Na aba *Body* e Subaba *RAW* digite: {"brand":"Aston Marting","model":"Vanquish","year":"2018"}
+
+    DELETE - http://localhost:8080/cars/{id}
+        (via POSTMAN)
+
+3 - Para testar a interface gráfica basta abrir o arquivo index.html com o seeviço PHP iniciado e começar a cadastrar, editar e deletar os dados.
