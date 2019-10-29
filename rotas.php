@@ -24,9 +24,9 @@ $router->get('/carros/{id}', function($id) {
     $controller = new CarroController();
     $controller->show($id);
 });
-$router->get('/carros', function() {
+$router->post('/carros', function() {
     $controller = new CarroController();
-    $controller->index();
+    $controller->create();
 });
 $router->get('/carros', function() {
     $controller = new CarroController();

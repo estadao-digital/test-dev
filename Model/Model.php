@@ -36,17 +36,17 @@ public function select($sintexe,$campos){
                 'marca' => $row['marca'],
                 'ano' => $row['ano']
             ];
-            // PUSH POST DATA IN OUR $posts_array ARRAY
+          
             array_push($carros, $carros_data);
         }
-        //SHOW POST/POSTS IN JSON FORMAT
+    
         echo json_encode($carros);
      
     
     }
     else{
-        //IF THER IS NO POST IN OUR DATABASE
-        echo json_encode(['message'=>'No post found']);
+       
+        echo json_encode(['message'=>'Sem dados']);
     }
 
     
@@ -60,7 +60,7 @@ public function query($sintexe,$campos){
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $query= $connection->prepare($sintexe);
     $query->execute($campos);
-    return 'inserido';
+    echo 'inserido';
     
     }catch(PDOException $e){
      return "Falha na conexão:".$e->getMessage();   

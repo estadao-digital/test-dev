@@ -27,9 +27,8 @@ public function show($id){
      return $this->select($query,[]);
 }
 public function create(){
-     $req = json_decode(file_get_contents("php://input"));
-$query='INSERT INTO USUARIO(MODELO,MARCA,ANO)VALUES(:MODELO,:MARCA,:ANO)';
-return $this->select($query,[':NOME' =>$req->modelo,':MARCA'=>$req->marca,':ANO'=>$req->ano]);
+$query='INSERT INTO USUARIO(MODELO,MARCA,ANO)VALUES('.$_POST['modelo'].','.$_POST['marca'].','.$_POST['ano'].')';
+return $this->query($query,[]);
 }
 public function update($id){
 

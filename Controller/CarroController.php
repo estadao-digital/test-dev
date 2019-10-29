@@ -14,7 +14,8 @@ use Models\Carro;
         return $this->model->show($id);
     }
     public function create(){
-    
+
+        return $this->model->create();
     }
     public function update($id){
     
