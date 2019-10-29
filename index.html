@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html class="no-js" lang="">
 
 <head>
@@ -38,7 +38,7 @@
       <input type="text" class="form-control" placeholder="Modelo" name="modelo">
     </div>
     <div class="col-md-6">
-      <select class="form-control" name="marca">
+      <select class="form-control" name="marca" id='marca'>
         <option value="">Selecione uma Marca</option>
         <option value="1">Acura</option>
         <option value="2">Agrale</option>
@@ -140,7 +140,7 @@
   </div>
   <div class="col-md-6">
     <button class='btn btn-primary' onclick="submit_form()">Cadastrar</button>
-    <button class='btn btn-danger'>Limpar</button>
+    <button class='btn btn-danger' onclick='limpa_campos()'>Limpar</button>
 </div>
 
 <div class="col-md-12" style="padding-top: 4%;">
@@ -155,13 +155,7 @@
     </tr>
   </thead>
   <tbody>
-      <tr>
-      <td scope="col">#</td>
-      <td scope="col">First</td>
-      <td scope="col">Last</td>
-      <td scope="col">Handle</td>
-      <td scope="col">Handle</td>
-    </tr>
+    
   </tbody>
   </table>
   </div>
@@ -179,10 +173,10 @@
           <form id="edit_car">
            <div class="row">
              <div class="col-md-6">
-               <input type="text" class="form-control" placeholder="Modelo" name="modelo">
+               <input type="text" class="form-control" placeholder="Modelo" name="modelo_edit">
              </div>
              <div class="col-md-6">
-               <select class="form-control" name="marca">
+               <select class="form-control" name="marca_edit" >
                  <option value="">Selecione uma Marca</option>
                  <option value="1">Acura</option>
                  <option value="2">Agrale</option>
@@ -277,7 +271,7 @@
                </select>
              </div>
                  <div class="col-md-6">
-               <input type="text" class="form-control" placeholder="Ano" name='ano'>
+               <input type="text" class="form-control" placeholder="Ano" name='ano_edit'>
              </div>
               
            </div>
@@ -287,7 +281,7 @@
         <div class="modal-footer">
           
           <div class="col-md-6">
-            <button class='btn btn-primary' type='button' onclick="submit_form()">Cadastrar</button>
+            <button class='btn btn-primary' type='button' id='btn_edit'>Editar</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
       </div>
         </div>
@@ -298,21 +292,25 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Título do modal</h5>
+          <h5 class="modal-title">Excluir Carro</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>Texto do corpo do modal, é aqui.</p>
+          <h3 id='frase_excluir'></h3>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary">Salvar mudanças</button>
+         <button type="button" class="btn btn-primary" id='btn_destroy'>Excluir</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+         
+      
+        
         </div>
       </div>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script src="js/main.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

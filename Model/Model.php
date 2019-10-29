@@ -54,14 +54,19 @@ public function select($sintexe,$campos){
      return "Falha na conexão:".$e->getMessage();   
     }
 }
-public function query($sintexe,$campos){
+public function query($sintexe,$campos,$tipo){
     try {
     $connection = new PDO("mysql:host=".$this->host.";dbname=heroku_59fa39afa14a72d", $this->usuario, $this->senha);
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $query= $connection->prepare($sintexe);
     $query->execute($campos);
-    echo 'inserido';
-    
+    if($tipo == 1)
+   echo json_encode(["message"=>"Cadastro efetuado com sucesso"]);
+    else if($tipo ==2){
+        echo  json_encode(["message"=>"Atualização efetuado com sucesso"]);
+    }else{
+        echo json_encode(["message"=>"Exclusão efetuado com sucesso"]);   
+    } 
     }catch(PDOException $e){
      return "Falha na conexão:".$e->getMessage();   
     }

@@ -26,15 +26,17 @@ public function show($id){
      $query = 'SELECT * FROM USUARIO Where id ='.$id;
      return $this->select($query,[]);
 }
-public function create(){
-$query='INSERT INTO USUARIO(MODELO,MARCA,ANO)VALUES('.$_POST['modelo'].','.$_POST['marca'].','.$_POST['ano'].')';
-return $this->query($query,[]);
+public function create($modelo,$marca,$ano){
+$query='INSERT INTO USUARIO(MODELO,MARCA,ANO)VALUES('."'".$modelo."','".$marca."','".$ano."')";
+return $this->query($query,[],1);
 }
-public function update($id){
-
+public function update($modelo,$marca,$ano,$id){
+     $query='UPDATE  USUARIO SET modelo='."'".$modelo."',marca='".$marca."',ano='".$ano."' WHERE id=".$id;
+      return $this->query($query,[],2);
 }
 public function destroy($id){
-
+     $query='DELETE FROM USUARIO WHERE id ='.$id;
+     return $this->query($query,[],3);
 }
 }
 ?>

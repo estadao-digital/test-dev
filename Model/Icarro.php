@@ -5,7 +5,8 @@ interface iCarro
 {
     public function index();
     public function show($id);
-    public function create();
-    public function update($id);
+    public function create($modelo,$marca,$ano);
+    public function update($id,$modelo,$marca,$ano);
+    public function destroy($id);
 }
 ?>

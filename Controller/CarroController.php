@@ -14,14 +14,21 @@ use Models\Carro;
         return $this->model->show($id);
     }
     public function create(){
-
-        return $this->model->create();
+        $dados = json_decode(file_get_contents('php://input'));
+        $ano =$dados->ano;
+        $modelo =$dados->modelo;
+        $marca =$dados->marca;
+       return $this->model->create($modelo,$marca,$ano);
     }
     public function update($id){
-    
+        $dados = json_decode(file_get_contents('php://input'));
+        $ano =$dados->ano;
+        $modelo =$dados->modelo;
+        $marca =$dados->marca;
+       return $this->model->update($modelo,$marca,$ano,$id);
     }
     public function destroy($id){
-    
+        return $this->model->destroy($id);
     }
      
  }
