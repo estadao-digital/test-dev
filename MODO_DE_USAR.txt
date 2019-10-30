@@ -1,6 +1,6 @@
 Olá, este é o guia de como usar a API CARS.
 
-1 - Inicie o serviço do PHP com digitando o seguinte comando no terminal:
+1 - Inicie o serviço do PHP digitando o seguinte comando no terminal:
 
     php -S localhost:8080/cars api.php
 
@@ -18,4 +18,4 @@ Olá, este é o guia de como usar a API CARS.
     DELETE - http://localhost:8080/cars/{id}
         (via POSTMAN)
 
-3 - Para testar a interface gráfica basta abrir o arquivo index.html com o seeviço PHP iniciado e começar a cadastrar, editar e deletar os dados.
+3 - Para testar a interface gráfica basta abrir o arquivo index.html com o serviço PHP iniciado e começar a cadastrar, editar e deletar os dados.
