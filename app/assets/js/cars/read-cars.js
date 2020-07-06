@@ -60,7 +60,7 @@ function showProducts(){
 
         $("#page-content").html(read_products_html);
 
-        changePageTitle("Test DEV - Mini API de Carros");
+        changePageTitle("Test-DEV - Mini API de Carros");
 
     });
 }
