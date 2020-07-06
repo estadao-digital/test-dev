@@ -1,3 +1,11 @@
+Configuração
+==============================
+Criar um banco de dados com o nome "carros", importar o arquivo sql localizado na raiz,
+
+Se necessário, alterar o caminho da home_url no arquivo config/core, linha 6,
+
+Se necessário, alterar os caminhos nos arquivos js em app/assets/js/cars/...
+
 Teste para desenvolvedor do Estadão
 ==============================
 
