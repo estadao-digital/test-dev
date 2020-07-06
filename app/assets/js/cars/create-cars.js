@@ -9,7 +9,7 @@ $(document).ready(function(){
                 var form_data=JSON.stringify($(this).serializeObject());
 
                 $.ajax({
-                    url: _url + "/api/carro/create.php",
+                    url: _url + "carros/create",
                     type : "POST",
                     contentType : 'application/json',
                     data : form_data,
@@ -26,7 +26,7 @@ $(document).ready(function(){
                 return false;
             });
 
-            $.getJSON(_url + "/api/marca/read.php", function(data){
+            $.getJSON(_url + "marcas", function(data){
 
                 var marcas_options_html=`<select name='marca_id' class='form-control'>`;
                 $.each(data.records, function(key, val){

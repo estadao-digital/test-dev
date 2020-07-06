@@ -5,7 +5,7 @@ $(document).ready(function(){
         const _url = window.location.href;
         var id = $(this).attr('data-id');
 
-        $.getJSON(_url + "/api/carro/read_one.php?id=" + id, function(data){
+        $.getJSON(_url + "carros/read-only?id=" + id, function(data){
 
             var read_one_car_html=` 
           
@@ -15,6 +15,11 @@ $(document).ready(function(){
             
             <table class='table table-bordered table-hover'>             
                
+               <tr>
+                    <td>Marca</td>
+                    <td>` + data.marca_name + `</td>
+                </tr>
+                
                 <tr>
                     <td class='w-30-pct'>Modelo</td>
                     <td class='w-70-pct'>` + data.modelo + `</td>
@@ -24,12 +29,7 @@ $(document).ready(function(){
                     <td>Ano</td>
                     <td>` + data.ano + `</td>
                 </tr>
-                     
-                <tr>
-                    <td>Marca</td>
-                    <td>` + data.marca_name + `</td>
-                </tr>
-             
+                
             </table>`;
 
             $("#page-content").html(read_one_car_html);

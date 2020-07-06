@@ -5,14 +5,14 @@ $(document).ready(function(){
         const _url = window.location.href;
         var id = $(this).attr('data-id');
 
-        $.getJSON(_url + "/api/carro/read_one.php?id=" + id, function(data){
+        $.getJSON(_url + "carros/read-only?id=" + id, function(data){
 
             var modelo = data.modelo;
             var ano = data.ano;
             var marca_id = data.marca_id;
             var marca_name = data.marca_name;
 
-            $.getJSON(_url + "/api/marca/read.php", function(data){
+            $.getJSON(_url + "marcas", function(data){
 
                 var marcas_options_html=`<select name='marca_id' class='form-control'>`;
 
@@ -74,7 +74,7 @@ $(document).ready(function(){
         var form_data=JSON.stringify($(this).serializeObject());
 
         $.ajax({
-            url: _url + "/api/carro/update.php",
+            url: _url + "carros/update",
             type : "POST",
             contentType : 'application/json',
             data : form_data,

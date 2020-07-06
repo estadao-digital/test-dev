@@ -17,7 +17,6 @@ $carro = new Carro($db);
 $data = json_decode(file_get_contents("php://input"));
 
 $carro->id = $data->id;
-
 $carro->modelo = $data->modelo;
 $carro->ano = $data->ano;
 $carro->marca_id = $data->marca_id;

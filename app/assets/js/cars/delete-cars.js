@@ -24,7 +24,7 @@ $(document).ready(function(){
                 if(result==true){
 
                     $.ajax({
-                        url: _url + "/api/carro/delete.php",
+                        url: _url + "carros/delete",
                         type : "POST",
                         dataType : 'json',
                         data : JSON.stringify({ id: car_id }),

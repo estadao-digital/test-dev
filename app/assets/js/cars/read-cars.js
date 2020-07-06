@@ -12,7 +12,7 @@ function showProducts(){
 
     const _url = window.location.href;
 
-    $.getJSON(_url + "/api/carro/read.php", function(data){
+    $.getJSON(_url + "carros", function(data){
 
         var read_products_html=`
         

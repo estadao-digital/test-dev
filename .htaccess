@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+
+    # RewriteRule
+    RewriteRule ^carros/create\/?$ api/carro/create.php [QSA,L,NC]
+    RewriteRule ^carros\/?$ api/carro/read.php [QSA,L,NC]
+    RewriteRule ^carros/read-only\/?$ api/carro/read_one.php?id=$1 [QSA,L,NC]
+    RewriteRule ^carros/update\/?$ api/carro/update.php [QSA,L,NC]
+    RewriteRule ^carros/delete\/?$ api/carro/delete.php [QSA,L,NC]
+    RewriteRule ^marcas\/?$ api/marca/read.php [QSA,L,NC]
+</IfModule>
