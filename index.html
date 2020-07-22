@@ -2,22 +2,36 @@
 <html class="no-js" lang="">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Teste</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Place favicon.ico in the root directory -->
+    <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
+    <div id="tabela">
+        <div id="titulotabela"></div>
+        <div id="corpotabela">
+            <div id="criarconteudo"></div>
+            <div id="informativo"></div>
+            <div id="conteudotabela"></div>
+        </div>
+    </div>
 
-  <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/carregar.js"></script>
+    <script src="js/atualizar.js"></script>
+    <script>
+        acao(0, 'carregar', 'null', 'null', 'null');
+    </script>
 </body>
 
 </html>

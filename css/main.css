@@ -1,0 +1,332 @@
+/**
+ * Adaptando as dimensões ao ambiente usado pelo usuário.
+*/
+
+@media ( max-width: 576px) {
+    #tabela {
+        width: 95%;
+    }
+    .card_carro {
+        width: 100%;
+    }
+    .botao {
+        width: 95%;
+        margin: 0.5% auto;
+    }
+    #novo_modelo {
+        width: 95%;
+        margin: 0.5% 2.5%;
+    }
+    #nova_marca,
+    #novo_ano {
+        width: 45%;
+        margin: 0.5% 2.5%;
+        float: left;
+    }
+    #botao_cadastrar {
+        width: 95%;
+        margin: 0.5% 2.5%;
+    }
+    #novo_modelo label,
+    #nova_marca label,
+    #novo_ano label {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .novo_campo {
+        width: 95%;
+        margin: 0.5% auto;
+    }
+}
+
+@media ( min-width: 577px) and ( max-width: 768px) {
+    #tabela {
+        width: 540px;
+    }
+    .card_carro {
+        width: 240px;
+    }
+    .botao {
+        width: 95%;
+        margin: 0.5% auto;
+    }
+    #novo_modelo {
+        width: 95%;
+        margin: 0.5% 2.5%;
+    }
+    #nova_marca,
+    #novo_ano {
+        width: 45%;
+        margin: 0.5% 2.5%;
+        float: left;
+    }
+    #botao_cadastrar {
+        width: 95%;
+        margin: 0.5% 2.5%;
+    }
+    #novo_modelo label,
+    #nova_marca label,
+    #novo_ano label {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .novo_campo {
+        width: 95%;
+        margin: 0.5% auto;
+    }
+}
+
+@media ( min-width: 769px) and ( max-width: 992px) {
+    #tabela {
+        width: 720px;
+    }
+    .card_carro {
+        width: 220px;
+    }
+    .botao {
+        width: 95%;
+        margin: 0.5% auto;
+    }
+    #novo_modelo {
+        width: 95%;
+        margin: 0.5% 2.5%;
+    }
+    #nova_marca,
+    #novo_ano {
+        width: 45%;
+        margin: 0.5% 2.5%;
+        float: left;
+    }
+    #botao_cadastrar {
+        width: 95%;
+        margin: 0.5% 2.5%;
+    }
+    #novo_modelo label,
+    #nova_marca label,
+    #novo_ano label {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .novo_campo {
+        width: 95%;
+        margin: 0.5% auto;
+    }
+}
+
+@media ( min-width: 993px) and ( max-width: 1200px) {
+    #tabela {
+        width: 960px;
+    }
+    .card_carro {
+        width: 220px;
+    }
+    .botao {
+        width: 45%;
+        margin: 0.5%;
+    }
+    #novo_modelo {
+        width: 30%;
+        margin: 0.5% auto;
+        float: left;
+    }
+    #nova_marca {
+        width: 30%;
+        margin: 0.5% auto;
+        float: left;
+    }
+    #novo_ano {
+        width: 15%;
+        margin: 0.5% auto;
+        float: left;
+    }
+    #ano_novo {
+        width: 35%;
+    }
+    #botao_cadastrar {
+        width: 25%;
+        margin: 0.5% auto;
+        float: left;
+    }
+}
+
+@media ( min-width: 1201px) {
+    #tabela {
+        width: 1140px;
+    }
+    .card_carro {
+        width: 208px;
+    }
+    .botao {
+        width: 45%;
+        margin: 0.5%;
+    }
+    #novo_modelo,
+    #nova_marca,
+    #novo_ano,
+    #botao_cadastrar {
+        width: 24%;
+        margin: 0.5% auto;
+        float: left;
+    }
+}
+
+
+/**
+ * Padronizando a estilização.
+*/
+
+body {
+    background: rgb(140, 255, 244);
+    background: radial-gradient(circle, rgba(140, 255, 244, 1) 0%, rgba(31, 218, 225, 1) 61%, rgba(28, 139, 202, 1) 100%);
+}
+
+#tabela {
+    margin: 2.5% auto;
+}
+
+#titulotabela {
+    width: 100%;
+}
+
+#corpotabela {
+    width: 100%;
+}
+
+#criarconteudo {
+    width: 95%;
+    margin: 2.5% auto;
+    float: left;
+    border-bottom: 1px solid black;
+    border-radius: 0px 0px 2px 2px;
+}
+
+#informativo {
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+
+#conteudotabela {
+    width: 95%;
+    margin: 2.5% auto;
+    float: left;
+}
+
+.card_carro {
+    border: 1px solid black;
+    margin: 2px;
+    float: left;
+    border-radius: 2px 2px 2px 2px;
+}
+
+.modelo_carro {
+    width: 100%;
+    float: left;
+}
+
+.marca_carro {
+    width: 50%;
+    float: left;
+}
+
+.ano_carro {
+    width: 50%;
+    float: left;
+}
+
+.botoes_de_acao {
+    width: 100%;
+    float: left;
+    margin: 2% auto;
+    text-align: center;
+}
+
+.modelo_campo {
+    width: 90%;
+    margin-left: 2%;
+    border: 1px solid black;
+    border-radius: 2px 2px 2px 2px;
+    color: #191919;
+}
+
+.marca_campo {
+    width: 90%;
+    margin-left: 5%;
+    border: 1px solid black;
+    border-radius: 2px 2px 2px 2px;
+    color: #191919;
+}
+
+.ano_campo {
+    width: 50%;
+    margin-left: 25%;
+    border: 1px solid black;
+    border-radius: 2px 2px 2px 2px;
+    color: #191919;
+}
+
+.novo_campo {
+    border: 1px solid black;
+    border-radius: 2px 2px 2px 2px;
+    color: #191919;
+}
+
+.modelo_carro label,
+.marca_carro label,
+.ano_carro label {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: #131313;
+}
+
+#novo_modelo label,
+#nova_marca label,
+#novo_ano label {
+    font-weight: bold;
+    color: #131313;
+}
+
+.botao {
+    border: 1px solid black;
+    border-radius: 2px 2px 2px 2px;
+    color: #191919;
+    background: rgb(133, 189, 191);
+    background: linear-gradient(0deg, rgba(133, 189, 191, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.botao:hover {
+    background: rgb(84, 126, 128);
+    background: linear-gradient(0deg, rgba(84, 126, 128, 1) 0%, rgba(72, 253, 241, 1) 100%);
+    color: #f2f2f2;
+}
+
+.botao:disabled {
+    background: rgb(140, 255, 244);
+    background: radial-gradient(circle, rgba(140, 255, 244, 1) 0%, rgba(31, 218, 225, 1) 61%, rgba(28, 139, 202, 1) 100%);
+    color: #f2f2f2;
+}
+
+.alert-sucesso {
+    width: 95%;
+    color: black;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 2%;
+    background: rgb(59, 180, 47);
+    background: linear-gradient(0deg, rgba(59, 180, 47, 1) 0%, rgba(138, 255, 131, 1) 100%);
+}
+
+.alert-erro {
+    width: 95%;
+    color: black;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 2%;
+    background: rgb(180, 47, 47);
+    background: linear-gradient(0deg, rgba(180, 47, 47, 1) 0%, rgba(255, 131, 131, 1) 100%);
+}
