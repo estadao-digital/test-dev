@@ -6,7 +6,6 @@
 
     switch ($url[0]) {
         case 'home':
-            echo 'teste';
             include 'home.html';
             break;
             

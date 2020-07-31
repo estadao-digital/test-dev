@@ -29,19 +29,19 @@
             break;
 
         case 'POST':
-            $marca = filter_input(INPUT_POST, 'marca', FILTER_DEFAULT);
-            $modelo = filter_input(INPUT_POST, 'modelo', FILTER_DEFAULT);
-            $ano = filter_input(INPUT_POST, 'ano', FILTER_DEFAULT, FILTER_VALIDATE_INT);
+            $params = json_decode(file_get_contents("php://input"));
 
             $car = new Carro();
-            // $car->id = 1;
-            $car->marca = $marca;
-            $car->modelo = $modelo;
-            $car->ano = $ano;
-            
-            if ($car->save()) {
+            $car->marca = $params->marca;
+            $car->modelo = $params->modelo;
+            $car->ano = $params->ano;
+
+            $response = $car->save();
+
+            if ($response) {
                 http_response_code(201);
-                die('Registro adicionado');
+                header('Content-Type: application/json');
+                die($response);
             } else {
                 http_response_code(400);
                 die('Erro ao processar requisicao');
@@ -52,9 +52,6 @@
         case 'PUT':
             try {
                 $id = filter_var($id, FILTER_DEFAULT, FILTER_VALIDATE_INT);
-                $marca = filter_input(INPUT_POST, 'marca', FILTER_DEFAULT);
-                $modelo = filter_input(INPUT_POST, 'modelo', FILTER_DEFAULT);
-                $ano = filter_input(INPUT_POST, 'ano', FILTER_DEFAULT, FILTER_VALIDATE_INT);
     
                 $car = new Carro();
     
@@ -64,10 +61,13 @@
                     $car->marca = $params->marca;
                     $car->modelo = $params->modelo;
                     $car->ano = $params->ano;
+
+                    $response = $car->update();
                     
-                    if ($car->update()) {
+                    if ($response) {
                         http_response_code(200);
-                        die('Informacoes atualizadas');
+                        header('Content-Type: application/json');
+                        die($response);
                     } else {
                         http_response_code(400);
                         die('Erro ao processar requisicao');
@@ -88,13 +88,10 @@
         case 'DELETE':
             try {
                 $id = filter_var($id, FILTER_DEFAULT, FILTER_VALIDATE_INT);
-                $marca = filter_input(INPUT_POST, 'marca', FILTER_DEFAULT);
-                $modelo = filter_input(INPUT_POST, 'modelo', FILTER_DEFAULT);
-                $ano = filter_input(INPUT_POST, 'ano', FILTER_DEFAULT, FILTER_VALIDATE_INT);
     
                 $car = new Carro();
     
-                if ($car->find($id)) {                    
+                if ($car->find($id)) {
                     if ($car->delete()) {
                         http_response_code(200);
                         die('Registro removido');

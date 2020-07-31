@@ -1,0 +1,3 @@
+div.dataTables_wrapper div.dataTables_filter input {
+    height: calc(.8em + .5rem + 2px) !important;
+}

@@ -1,1 +1,1 @@
-{"carros":{"0":{"id":1,"marca":"Honda","modelo":"Fit","ano":2014},"2":{"id":3,"marca":"Fiat","modelo":"Uno","ano":"2011"},"3":{"id":4,"marca":"Honda","modelo":"Fit","ano":"2014"}}}
+{"carros":[{"id":1,"marca":"Chevrolet","modelo":"Corsa","ano":2007},{"id":2,"marca":"Renault","modelo":"Sandero","ano":2013},{"id":3,"marca":"Fiat","modelo":"Uno","ano":2011}]}

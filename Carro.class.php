@@ -9,42 +9,37 @@
         public $modelo;
         public $ano;
 
-        protected $db;
-
-        public function __construct () {
-
-        }
-
         public function save() {
             try {
-                $this->db = json_decode(file_get_contents('./database/db.json'));
+                $db = json_decode(file_get_contents('./database/db.json'));
 
-                $id = !empty($this->id) ? $this->id : $this->nextId($this->db->carros);
+                $id = !empty($this->id) ? $this->id : $this->nextId($db->carros);
     
-                $this->db->carros[] = [
+                $carro = [
                     'id' => $id,
                     'marca' => $this->marca,
                     'modelo' => $this->modelo,
                     'ano' => intval($this->ano),
                 ];
-    
-                file_put_contents('./database/db.json', json_encode($this->db));
 
-                return true;
+                $db->carros[] = $carro;
+                file_put_contents('./database/db.json', json_encode($db));
+
+                return json_encode($carro);
 
             } catch (Exception $e) {
-                return false;
+                return $e->getMessage();
             } catch (Error $e) {
-                return false;
+                return $e->getMessage();
             }
         }
 
         public function find(int $id) {
             try {
-                $this->db = json_decode(file_get_contents('./database/db.json'));
+                $db = json_decode(file_get_contents('./database/db.json'));
 
                 $status = false;
-                foreach ($this->db->carros as $carro) {
+                foreach ($db->carros as $carro) {
                     if ($carro->id === $id) {
                         $this->id = $carro->id;
                         $this->marca = $carro->marca;
@@ -86,9 +81,9 @@
 
         public function getAll() {
             try {
-                $this->db = json_decode(file_get_contents('./database/db.json'));
+                $db = json_decode(file_get_contents('./database/db.json'));
 
-                return json_encode($this->db->carros);
+                return json_encode($db->carros);
             } catch (Exception $e) {
                 return false;
             } catch (Error $e) {
@@ -98,9 +93,9 @@
 
         public function update() {
             try {
-                $this->db = json_decode(file_get_contents('./database/db.json'));
+                $db = json_decode(file_get_contents('./database/db.json'));
 
-                foreach ($this->db->carros as $carro) {
+                foreach ($db->carros as $carro) {
                     if ($carro->id === $this->id) {
                         $carro->marca = $this->marca;
                         $carro->modelo = $this->modelo;
@@ -110,9 +105,14 @@
                     }
                 }
 
-                file_put_contents('./database/db.json', json_encode($this->db));
+                file_put_contents('./database/db.json', json_encode($db));
 
-                return true;
+                return json_encode([
+                    'id' => $this->id,
+                    'marca' => $this->marca,
+                    'modelo' => $this->modelo,
+                    'ano' => $this->ano
+                ]);
 
             } catch (Exception $e) {
                 return false;
@@ -123,17 +123,16 @@
 
         public function delete() {
             try {
-                $this->db = json_decode(file_get_contents('./database/db.json'));
+                $db = json_decode(file_get_contents('./database/db.json'), true);
 
-                foreach ($this->db->carros as $key => $carro) {
-                    if ($carro->id === $this->id) {
-                        unset($this->db->carros[$key]);
-
+                foreach ($db['carros'] as $key => $carro) {
+                    if ($carro['id'] === $this->id) {
+                        array_splice($db['carros'], $key, 1);
                         break;
                     }
                 }
 
-                file_put_contents('./database/db.json', json_encode($this->db));
+                file_put_contents('./database/db.json', json_encode($db));
 
                 return true;
 
@@ -145,7 +144,8 @@
         }
 
         private function nextId(array $table) {
-            return $table[count($table)-1]->id + 1;
+            $atual = !empty($table) ? $table[count($table)-1]->id : 0;
+            return $atual + 1;
         }
     }
 ?>

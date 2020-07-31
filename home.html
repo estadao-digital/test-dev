@@ -11,13 +11,336 @@
   <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="css/main.css">
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
 <body>
+  <main style="height: 100%;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12 mt-4 mb-2 text-center">
+          <h3>Carros</h3>
+        </div>
+        <div class="col-md-12">
+          <table class="table table-hover border-bottom mb-2" id="car-list">
+            <thead class="thead-dark">
+              <tr>
+                  <th>ID</th>
+                  <th>Marca</th>
+                  <th>Modelo</th>
+                  <th>Ano</th>
+                  <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
 
+  <!-- Modal -->
+  <div class="modal fade" id="carroModal" tabindex="-1" role="dialog" aria-labelledby="carroModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Novo Carro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="form-carro">
+            <input type="hidden" id="id" name="id">
+            <div class="form-group">
+              <label for="marca">Marca</label>
+              <select class="form-control" id="marca" name="marca">
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Volkswagen">Volkswagen</option>
+                <option value="Fiat">Fiat</option>
+                <option value="Renault">Renault</option>
+                <option value="Ford">Ford</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Jeep">Jeep</option>
+                <option value="Honda">Honda</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Citroen">Citroen</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="Peugeot">Peugeot</option>
+                <option value="Chery">Chery</option>
+                <option value="BMW">BMW</option>
+                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                <option value="Kia">Kia</option>
+                <option value="Audi">Audi</option>
+                <option value="Volvo">Volvo</option>
+                <option value="Land Rover">Land Rover</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="modelo">Modelo</label>
+              <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Gol, Fit, Uno...">
+            </div>
+            <div class="form-group">
+              <label for="ano">Ano</label>
+              <input type="text" class="form-control" id="ano" name="ano" placeholder="1999">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" id="btn-save">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/dataTables.bootstrap4.min.js"></script>
+  <script src="js/sweetalert2.all.min.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    var customTable;
+    var tableRow;
+    var method;
+
+    $(document).ready(function($) {
+        $.noConflict();
+        customTable = $('#car-list').DataTable({
+            language: {
+                "decimal":        "",
+                "emptyTable":     "Nenhum dado disponível",
+                "info":           "Exibindo de _START_ ate _END_ de _TOTAL_ registros",
+                "infoEmpty":      "Exibindo de 0 ate 0 de 0 registros",
+                "infoFiltered":   "(filtrado de _MAX_ registros no total)",
+                "infoPostFix":    "",
+                "thousands":      ",",
+                "lengthMenu":     "Exibir _MENU_ registros",
+                "loadingRecords": "Carregando...",
+                "processing":     "Processando...",
+                "search":         "Pesquisar:",
+                "zeroRecords":    "Nenhum registro encontrado",
+                "paginate": {
+                    "first":      "<<",
+                    "last":       ">>",
+                    "next":       ">",
+                    "previous":   "<"
+                },
+                "aria": {
+                    "sortAscending":  ": activate to sort column ascending",
+                    "sortDescending": ": activate to sort column descending"
+                }
+            }
+        });
+
+        $('#car-list_filter').append('<button class="btn btn-sm btn-primary ml-3" id="btn-add" style="float: right;">ADD CARRO</button>');
+
+        $.ajax({
+          type: 'GET',
+          url: 'carros',
+          dataType: 'JSON',
+          cache: false,
+          success: function (response) {
+            for (let x in response) {
+              let row = [
+                response[x].id,
+                response[x].marca,
+                response[x].modelo,
+                response[x].ano,
+                `<span class="text-primary btn-edit mr-2" data-id="${response[x].id}" style="font-size: 18px; cursor: pointer;">Editar</span>
+                <span class="text-danger btn-delete" data-id="${response[x].id}" style="font-size: 18px; cursor: pointer;">Remover</span>`,
+              ];
+              customTable.row.add(row).draw();
+            }
+          },
+          error: function (error) {
+            console.log(error);
+            Swal.fire({
+              icon: 'error',
+              text: 'Erro inesperado',
+            });
+          }
+        });
+
+        $('#btn-save').on('click', function (e) {
+          $('#carroModal').modal('hide');
+
+          let itemId = $('#id').val();
+          let payload = {
+            marca: $('#marca').val(),
+            modelo: $('#modelo').val(),
+            ano: $('#ano').val(),
+          };
+
+          $.ajax({
+            type: method,
+            url: `carros/${itemId}`,
+            dataType: 'JSON',
+            cache: false,
+            data: JSON.stringify(payload),
+            contentType: 'application/json',
+            beforeSend: () => {
+              Swal.fire({
+                  title: 'Carregando...',
+                  allowOutsideClick: false,
+                  allowEscapeKey: false,
+                  allowEnterKey: false,
+                  showConfirmButton: false,
+                  html: `
+                      <div class="spinner-border text-info" role="status">
+                          <span class="sr-only">Loading...</span>
+                      </div>
+                  `
+              });
+            },
+            success: function (response) {
+              if (method === 'POST') {
+                let row = [
+                  response.id,
+                  response.marca,
+                  response.modelo,
+                  response.ano,
+                  `<span class="text-primary btn-edit mr-2" data-id="${response.id}" style="font-size: 18px; cursor: pointer;">Editar</span>
+                  <span class="text-danger btn-delete" data-id="${response.id}" style="font-size: 18px; cursor: pointer;">Remover</span>`,
+                ];
+                customTable.row.add(row).draw();
+              } else {
+                let row = [
+                  response.id,
+                  response.marca,
+                  response.modelo,
+                  response.ano,
+                  `<span class="text-primary btn-edit mr-2" data-id="${response.id}" style="font-size: 18px; cursor: pointer;">Editar</span>
+                  <span class="text-danger btn-delete" data-id="${response.id}" style="font-size: 18px; cursor: pointer;">Remover</span>`,
+                ];
+                customTable.row(tableRow).remove();
+                customTable.row.add(row).draw();
+              }
+
+              Swal.fire({
+                icon: 'success',
+                text: 'Informações salva!',
+              });
+            },
+            error: function (error) {
+              console.log(error);
+              Swal.fire({
+                icon: 'error',
+                text: 'Erro inesperado',
+              });
+            }
+          });
+        });
+
+        $('#btn-add').on('click', function (e) {
+          method = 'POST';
+          $('#form-carro')[0].reset();
+          $('#carroModal').modal('show');
+        });
+
+        $(document).on('click', '.btn-edit', function (e) {
+          method = 'PUT';
+          tableRow = $(e.target).closest('tr');
+          let itemId = $(e.target).attr('data-id');
+
+          $.ajax({
+            type: 'GET',
+            url: `carros/${itemId}`,
+            dataType: 'JSON',
+            cache: false,
+            beforeSend: () => {
+              Swal.fire({
+                  title: 'Carregando...',
+                  allowOutsideClick: false,
+                  allowEscapeKey: false,
+                  allowEnterKey: false,
+                  showConfirmButton: false,
+                  html: `
+                      <div class="spinner-border text-info" role="status">
+                          <span class="sr-only">Loading...</span>
+                      </div>
+                  `
+              });
+            },
+            success: function (response) {
+              Swal.close();
+
+              $('#id').val(response.id);
+              $('#marca').val(response.marca);
+              $('#modelo').val(response.modelo);
+              $('#ano').val(response.ano);
+
+              $('#carroModal').modal('show');
+            },
+            error: function (error) {
+              console.log(error);
+              Swal.fire({
+                icon: 'error',
+                text: 'Erro inesperado',
+              });
+            }
+          });
+        });
+
+        $(document).on('click', '.btn-delete', function (e) {
+          tableRow = $(e.target).closest('tr');
+          let itemId = $(e.target).attr('data-id');
+
+          Swal.fire({
+              icon: 'warning',
+              title: 'Tem certeza?',
+              text: "Você realmente quer excluir este registro?",
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Sim, sem dúvidas!',
+              cancelButtonText: 'Não',
+          }).then((result) => {
+              if (result.value) {
+                  $.ajax({
+                      type: 'DELETE',
+                      url: `carros/${itemId}`,
+                      cache: false,
+                      beforeSend: () => {
+                          Swal.fire({
+                              title: 'Carregando...',
+                              allowOutsideClick: false,
+                              allowEscapeKey: false,
+                              allowEnterKey: false,
+                              showConfirmButton: false,
+                              html: `
+                                  <div class="spinner-border text-info" role="status">
+                                      <span class="sr-only">Loading...</span>
+                                  </div>
+                              `
+                          });
+                      },
+                      success: function (response) {
+                          customTable.row(tableRow).remove().draw();
+                          Swal.fire({
+                              icon: 'success',
+                              text: 'Registro removido!',
+                          });
+                      },
+                      error: function (error) {
+                          console.log(error);
+                          Swal.fire({
+                              icon: 'error',
+                              text: 'Erro inesperado',
+                          });
+                      }
+                  });
+              }
+          });
+        });
+    });
+  </script>
 </body>
 
 </html>
