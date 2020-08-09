@@ -23,9 +23,10 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-// $app->withFacades();
+$app->withFacades();
 
 // $app->withEloquent();
+
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,24 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
+$app->singleton('filesystem', function ($app) {
+    return $app->loadComponent(
+        'filesystems',
+        Illuminate\Filesystem\FilesystemServiceProvider::class,
+        'filesystem'
+    );
+});
+
+$app->singleton(
+    App\Services\JWTSimple::class,
+    App\Services\JWTSimple::class
+);
+
+$app->singleton(
+    App\Services\DatabaseRepository::class,
+    App\Services\DatabaseRepository::class
+);
+
 /*
 |--------------------------------------------------------------------------
 | Register Config Files
@@ -60,7 +79,7 @@ $app->singleton(
 */
 
 $app->configure('app');
-
+$app->configure('filesystems');
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
@@ -76,9 +95,10 @@ $app->configure('app');
 //     App\Http\Middleware\ExampleMiddleware::class
 // ]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+$app->routeMiddleware([
+    // 'auth' => App\Http\Middleware\Authenticate::class,
+    'auth' => App\Http\Middleware\AuthenticateCustom::class,
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -110,6 +130,7 @@ $app->router->group([
     'namespace' => 'App\Http\Controllers',
 ], function ($router) {
     require __DIR__.'/../routes/web.php';
+    require __DIR__.'/../routes/api.php';
 });
 
 return $app;
