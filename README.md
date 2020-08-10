@@ -24,11 +24,13 @@ git clone https://github.com/mcneillbr/test-dev.git
 
 # Execução
 ```
-php -S localhost:80 -t public
+$ cd /home/projeto
+$ composer install
+$ php -S localhost:80 -t public
 ```
 ##### Nota
 ```
-Necessário perimissão de escrita na pasta storage
+Necessário perimissão de escrita na pasta /home/projeto/storage
 Local arquivo JSON:
-storage\app\vehicles.json
+/home/projeto/storage/app/vehicles.json
 ```
