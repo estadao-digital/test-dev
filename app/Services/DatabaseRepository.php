@@ -35,8 +35,8 @@ class DatabaseRepository
             $contents = $this->disk->get(static::DB_File_Name);
 //            return json_decode($contents, true);
             $serializer = Serializer::create()->build();
-            $object = $serializer->deserialize($contents, 'array<App\Models\Vehicle>', 'json');
-            return $object;
+            $vehicles = $serializer->deserialize($contents, 'array<App\Models\Vehicle>', 'json');
+            return $vehicles;
         } catch (Exception $ex) {
             Log::critical($ex->getMessage());
         }
@@ -57,7 +57,7 @@ class DatabaseRepository
     public function store($data)
     {
         $vehicles = $this->getAll();
-        $vehicle = new Vehicle(Uuid::uuid4(), $data['model'], $data['year']);
+        $vehicle = new Vehicle(Uuid::uuid4(), $data['model'], $data['year'], $data['image']);
         $vehicles[] = $vehicle;
         $this->saveDB($vehicles);
         return $vehicle;
@@ -73,6 +73,7 @@ class DatabaseRepository
         $vehicle = $vehicles[$vehicleId];
         $vehicle->setModel($data['model']);
         $vehicle->setYear($data['year']);
+        $vehicle->setImage($data['image']);
         $this->saveDB($vehicles);
         return $vehicles[$vehicleId];
     }

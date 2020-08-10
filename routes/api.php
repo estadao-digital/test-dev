@@ -6,9 +6,9 @@ use \App\Services\JWTSimple;
 
 $router->group(['prefix' => 'api/v1'], function () use ($router) {
     /**
-     * authenticated routes 'middleware' => 'auth'
+     * authenticated routes 
      */
-    $router->group([], function () use ($router) {
+    $router->group(['middleware' => 'auth'], function () use ($router) {
         $router->get('car', ['as' => 'car-all', 'uses' => 'CarController@index']);
         $router->get('car/{id}', ['as' => 'car-find', 'uses' => 'CarController@show']);
         $router->post('car/create', ['as' => 'car-create', 'uses' => 'CarController@store']);

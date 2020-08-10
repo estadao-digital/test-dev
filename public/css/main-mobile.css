@@ -1,0 +1,12 @@
+/* smartphones, Android phones, landscape iPhone */
+@media (max-width:480px) { 
+    header {
+        height: 90px;
+    }
+
+    .car-add button {
+        font-size: 22px;
+        width: 70px;
+        height: 70px;
+      }
+ }

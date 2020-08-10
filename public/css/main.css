@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+html {
+  margin: 0px;
+  padding: 0px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  overflow-wrap: break-word;
+  font-synthesis: inherit;
+  font-variant: normal;
+  font-weight: normal;
+  background: #ffffff;
+  color: #333333;
+}
+
+header {
+  background: rgb(195, 89, 91);
+  background: linear-gradient(
+    90deg,
+    rgba(195, 89, 91, 1) 0%,
+    rgba(228, 121, 123, 1) 10%,
+    rgba(208, 102, 139, 1) 35%,
+    rgba(177, 58, 100, 1) 80%,
+    rgba(199, 92, 129, 1) 100%
+  );
+  height: 120px;
+}
+
+header img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+}
+
+div.container {
+  margin: 0px;
+  padding: 0px;
+}
+
+div.car-cards {
+  display: block;
+}
+
+div.car-card-arrow-left,
+.car-card-arrow-right {
+  font-size: 2.1rem;
+  color: rgba(128, 128, 128, 0.5);
+  cursor: pointer;
+}
+div.car-card-arrow-left:hover,
+.car-card-arrow-right:hover {
+  color: rgba(128, 128, 128, 0.9);
+}
+
+.car-card-container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.car-card-list {
+  display: flex;
+  margin: 0px auto;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: flex-start;
+  justify-items: flex-start;
+  align-items: flex-start;
+  margin: 10px;
+  padding: 0px;
+  width: auto;
+}
+
+.car-card {
+  display: grid;
+  grid-template-rows: auto auto 40px;
+  grid-template-columns: 1fr;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  max-width: 300px;
+  min-height: 260px;
+  background-color: #e9e2d6;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.car-card-active {
+  border: 2px solid #745c34;
+}
+
+.car-card figure {
+  margin: auto;
+  padding: 0px;
+  width: 280px;
+  height: auto;
+}
+
+.car-card figure img {
+  border: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.car-card-action {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.car-card-action button {
+  border-radius: 10px;
+  background-color: transparent;
+  border: none;
+  font-family: "Font Awesome 5 Free";
+  font-size: 18px;
+  text-decoration: none;
+  color: #2e2e2e;
+  cursor: pointer;
+}
+
+.car-card-action button:hover {
+  background-color: #d7ad66;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+}
+
+.car-card-action button:active {
+  background-color: #e9e2d6;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+}
+
+.car-add {
+  display: block;
+  margin: 10px;
+}
+
+.car-add button {
+  font-size: 26px;
+  background-color: rgba(234, 227, 215, 0.7);
+  border: 1px solid #eae3d7;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100wv;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9998;
+}
+
+#modal {
+  display: none;
+  position: absolute;
+  top: calc(35% + 0px);
+  left: calc(50% + 0px);
+  transform: translate(-50%, -50%);
+  margin: 0px;
+  padding: 20px;
+  width: 350px;
+  height: auto;
+  z-index: 9999;
+  background-color: #cba055;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.modal-title {
+  margin: 15px auto 25px;
+  padding: 0px;
+  font-size: 21px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.modal-body {
+  margin: 0px auto;
+  padding: 0px;
+  width: 300px;
+}
+.modal-footer {
+  margin: 0px;
+  padding: 15px;
+}
+#msgStatus {
+  font-size: 0.88rem;
+  line-height: 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  color: #1e1101;
+}
+.frm-control {
+  margin: 10px 0px;
+  padding: 0px;
+}
+
+.frm-control label {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #2e2e2e;
+  width: 70px;
+}
+
+.frm-control input {
+  display: inline-block;
+  border: 1px solid moccasin;
+  font-size: 14px;
+  width: 190px;
+}
+
+.frm-actions {
+  margin: 30px auto 5px;
+  padding: 0px;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+}

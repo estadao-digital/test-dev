@@ -28,20 +28,27 @@ class Vehicle implements JsonSerializable
      * @Type("int")
      */
     private $year;
+    /**
+     * @var string $model vehicle image in base64
+     * @Type("string")
+     */
+    private $image;
 
     /**
      * Vehicle constructor.
      * @param $id
      * @param $model
      * @param $year
+     * @param $image
      *
      * @return void
      */
-    public function __construct($id, $model, $year)
+    public function __construct($id, $model, $year, $image = null)
     {
         $this->id = $id;
         $this->model = $model;
         $this->year = $year;
+        $this->image = $image;
     }
 
     /**
@@ -64,6 +71,17 @@ class Vehicle implements JsonSerializable
         return $this->model;
     }
 
+    
+    /**
+     *  Returns image vehicle
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
     /**
      *  Returns year of manufacture vehicle
      *
@@ -79,35 +97,47 @@ class Vehicle implements JsonSerializable
      *
      * @param string $id
      *
-     * @return string
+     * @return void
      */
     public function setId($id)
     {
-        return $this->id = $id;
+        $this->id = $id;
     }
 
     /**
      * Set vehicle model
      *
-     * @param string $id
+     * @param string $model
      *
-     * @return string
+     * @return void
      */
     public function setModel($model)
     {
-        return $this->model = $model;
+        $this->model = $model;
     }
+
+    /**
+     * Set vehicle image
+     *
+     * @param string $image
+     *
+     * @return void
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }    
 
     /**
      * Set vehicle year
      *
-     * @param string $id
+     * @param string $year
      *
-     * @return string
+     * @return void
      */
     public function setYear($year)
     {
-        return $this->year = $year;
+        $this->year = $year;
     }
 
     /**
@@ -120,7 +150,8 @@ class Vehicle implements JsonSerializable
         return [
             'id' => $this->id,
             'model' => $this->model,
-            'year' => $this->year
+            'year' => $this->year,
+            'image' => $this->image
         ];
     }
 }
