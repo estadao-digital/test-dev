@@ -25,7 +25,7 @@ class CarsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Car::create($request->all());
     }
 
     /**
@@ -36,7 +36,7 @@ class CarsController extends Controller
      */
     public function show($id)
     {
-        //
+        return Car::findOrFail($id);
     }
 
     /**
@@ -48,7 +48,8 @@ class CarsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $car = Car::findOrfail($id);
+        $car->update($request->all());
     }
 
     /**
@@ -59,6 +60,7 @@ class CarsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $car = Car::findOrfail($id);
+        $car->delete();
     }
 }
