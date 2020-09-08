@@ -4,8 +4,8 @@
 <code>docker-compose up</code>
 
 <p>Pegue o ID do seu container do bitnami/laravel:7-debian-10 </p>
-<code> docker ps </code
-<p> Acesso o container</p>
+<code> docker ps </code>
+<p> Acesse o container</p>
 
 <code> docker exec -it ID_DO_SEU_CONTAINER /bin/bash </code>
 
