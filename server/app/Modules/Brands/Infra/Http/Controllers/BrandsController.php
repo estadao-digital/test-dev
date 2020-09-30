@@ -10,57 +10,57 @@ use Exception;
 
 final class BrandsController
 {
-  public function index(Request $request, Response $response): Response
-  {
-    try {
-      $listBrands = new ListBrandsService();
+	public function index(Request $request, Response $response): Response
+	{
+		try {
+			$listBrands = new ListBrandsService();
 
-      $brands = $listBrands->execute();
+			$brands = $listBrands->execute();
 
-      $response->getBody()->write(json_encode([
-        'brands' => $brands,
-      ]));
+			$response->getBody()->write(json_encode([
+				'brands' => $brands,
+			]));
 
-      return $response->withStatus(200)->withHeader('Content-Type', 'application/json');
-    } catch (Exception $e) {
-      $response->getBody()->write(json_encode([
-        'error' => [
-          'status' => $e->getCode(),
-          'message' => $e->getMessage(),
-        ],
-      ]));
+			return $response->withStatus(200)->withHeader('Content-Type', 'application/json');
+		} catch (Exception $e) {
+			$response->getBody()->write(json_encode([
+				'error' => [
+					'status' => $e->getCode(),
+					'message' => $e->getMessage(),
+				],
+			]));
 
-      return $response->withStatus($e->getCode())->withHeader('Content-Type', 'application/json');
-    }
-  }
+			return $response->withStatus($e->getCode())->withHeader('Content-Type', 'application/json');
+		}
+	}
 
-  public function create(Request $request, Response $response): Response
-  {
-    try {
-      $data = (array) $request->getParsedBody();
+	public function create(Request $request, Response $response): Response
+	{
+		try {
+			$data = (array) $request->getParsedBody();
 
-      if (empty($data['name'])) {
-        throw new Exception('The field name is required', 400);
-      }
+			if (empty($data['name'])) {
+				throw new Exception('The field name is required', 400);
+			}
 
-      $createBrand = new CreateBrandService();
+			$createBrand = new CreateBrandService();
 
-      $brand = $createBrand->execute($data);
+			$brand = $createBrand->execute($data);
 
-      $response->getBody()->write(json_encode([
-        'brand' => $brand,
-      ]));
+			$response->getBody()->write(json_encode([
+				'brand' => $brand,
+			]));
 
-      return $response->withStatus(201)->withHeader('Content-Type', 'application/json');
-    } catch (Exception $e) {
-      $response->getBody()->write(json_encode([
-        'error' => [
-          'status' => $e->getCode(),
-          'message' => $e->getMessage(),
-        ],
-      ]));
+			return $response->withStatus(201)->withHeader('Content-Type', 'application/json');
+		} catch (Exception $e) {
+			$response->getBody()->write(json_encode([
+				'error' => [
+					'status' => $e->getCode(),
+					'message' => $e->getMessage(),
+				],
+			]));
 
-      return $response->withStatus($e->getCode())->withHeader('Content-Type', 'application/json');
-    }
-  }
+			return $response->withStatus($e->getCode())->withHeader('Content-Type', 'application/json');
+		}
+	}
 }

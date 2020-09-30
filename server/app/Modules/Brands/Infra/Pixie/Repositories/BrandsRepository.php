@@ -8,72 +8,72 @@ use Pixie;
 
 final class BrandsRepository implements BrandsRepositoryInterface
 {
-  protected $table;
+	protected $table;
 
-  public function __construct()
-  {
-    $this->table = 'brands';
-  }
+	public function __construct()
+	{
+		$this->table = 'brands';
+	}
 
-  public function all(): array
-  {
-    $data = Pixie::table($this->table)->get();
+	public function all(): array
+	{
+		$data = Pixie::table($this->table)->get();
 
-    $brands = [];
+		$brands = [];
 
-    foreach($data as $brand) {
-      $brands[] = new Brand(
-        $brand->id,
-        $brand->name
-      );
-    }
+		foreach ($data as $brand) {
+			$brands[] = new Brand(
+				$brand->id,
+				$brand->name
+			);
+		}
 
-    return $brands;
-  }
+		return $brands;
+	}
 
-  public function findById(int $id): ?Brand
-  {
-    $findBrand = Pixie::table($this->table)->find($id);
+	public function findById(int $id): ?Brand
+	{
+		$findBrand = Pixie::table($this->table)->find($id);
 
-    if (!$findBrand) {
-      return null;
-    }
+		if (!$findBrand) {
+			return null;
+		}
 
-    $brand = new Brand(
-      $findBrand->id,
-      $findBrand->name
-    );
+		$brand = new Brand(
+			$findBrand->id,
+			$findBrand->name
+		);
 
-    return $brand;
-  }
+		return $brand;
+	}
 
-  public function findByName(string $name): ?Brand
-  {
-    $findBrand = Pixie::table($this->table)->find($name, 'name');
+	public function findByName(string $name): ?Brand
+	{
+		$findBrand = Pixie::table($this->table)->find($name, 'name');
 
-    if (!$findBrand) {
-      return null;
-    }
+		if (!$findBrand) {
+			return null;
+		}
 
-    $brand = new Brand(
-      $findBrand->id,
-      $findBrand->name
-    );
+		$brand = new Brand(
+			$findBrand->id,
+			$findBrand->name
+		);
 
-    return $brand;
-  }
+		return $brand;
+	}
 
-  public function create(array $data): Brand
-  {
-    $brandId = Pixie::table($this->table)->insert($data);
+	public function create(array $data): Brand
+	{
+		$brandId = Pixie::table($this->table)->insert($data);
 
-    $createdBrand = Pixie::table($this->table)->find($brandId);
+		$createdBrand = Pixie::table($this->table)->find($brandId);
 
-    $brand = new Brand(
-      $createdBrand->id,
-      $createdBrand->name
-    );
+		$brand = new Brand(
+			$createdBrand->id,
+			$createdBrand->name
+		);
 
-    return $brand;
-  }
+		return $brand;
+	}
 }

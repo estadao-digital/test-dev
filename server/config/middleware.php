@@ -3,15 +3,15 @@
 use Slim\App;
 
 return function (App $app) {
-  $settings = $app->getContainer()->get('settings');
+	$settings = $app->getContainer()->get('settings');
 
-  $app->addBodyParsingMiddleware();
+	$app->addBodyParsingMiddleware();
 
-  $app->addRoutingMiddleware();
+	$app->addRoutingMiddleware();
 
-  $app->addErrorMiddleware(
-    $settings['displayErrorDetails'],
-    $settings['logErrors'],
-    $settings['logErrorDetails']
-  );
+	$app->addErrorMiddleware(
+		$settings['displayErrorDetails'],
+		$settings['logErrors'],
+		$settings['logErrorDetails']
+	);
 };

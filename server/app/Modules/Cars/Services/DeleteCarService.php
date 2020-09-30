@@ -7,24 +7,24 @@ use Exception;
 
 final class DeleteCarService
 {
-  protected $carsRepository;
+	protected $carsRepository;
 
-  public function __construct()
-  {
-    $this->carsRepository = new CarsRepository();
-  }
+	public function __construct()
+	{
+		$this->carsRepository = new CarsRepository();
+	}
 
-  public function execute(int $id): void
-  {
-    $findCar = $this->carsRepository->findById($id);
+	public function execute(int $id): void
+	{
+		$findCar = $this->carsRepository->findById($id);
 
-    if (!$findCar) {
-      throw new Exception(
-        sprintf('The car id \'%s\' does not exist.', $id),
-        400
-      );
-    }
+		if (!$findCar) {
+			throw new Exception(
+				sprintf('The car id \'%s\' does not exist.', $id),
+				400
+			);
+		}
 
-    $this->carsRepository->delete($id);
-  }
+		$this->carsRepository->delete($id);
+	}
 }

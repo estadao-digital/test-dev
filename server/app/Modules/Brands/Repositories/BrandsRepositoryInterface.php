@@ -6,11 +6,11 @@ use App\Modules\Brands\Infra\Pixie\Entities\Brand;
 
 interface BrandsRepositoryInterface
 {
-  function all(): array;
+	public function all(): array;
 
-  function findById(int $id): ?Brand;
+	public function findById(int $id): ?Brand;
 
-  function findByName(string $name): ?Brand;
+	public function findByName(string $name): ?Brand;
 
-  function create(array $data): Brand;
+	public function create(array $data): Brand;
 }

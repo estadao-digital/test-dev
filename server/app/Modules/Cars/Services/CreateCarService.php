@@ -10,43 +10,43 @@ use Exception;
 
 final class CreateCarService
 {
-  protected $brandsRepository;
+	protected $brandsRepository;
 
-  protected $carsRepository;
+	protected $carsRepository;
 
-  public function __construct()
-  {
-    $this->brandsRepository = new BrandsRepository();
+	public function __construct()
+	{
+		$this->brandsRepository = new BrandsRepository();
 
-    $this->carsRepository = new CarsRepository();
-  }
+		$this->carsRepository = new CarsRepository();
+	}
 
-  public function execute(array $data): Car
-  {
-    $brand_id = $data['brand_id'];
+	public function execute(array $data): Car
+	{
+		$brand_id = $data['brand_id'];
 
-    $findBrand = $this->brandsRepository->findById($brand_id);
+		$findBrand = $this->brandsRepository->findById($brand_id);
 
-    if (!$findBrand) {
-      throw new Exception(
-        sprintf('The brand id \'%s\' does not exist.', $brand_id),
-        400
-      );
-    }
+		if (!$findBrand) {
+			throw new Exception(
+				sprintf('The brand id \'%s\' does not exist.', $brand_id),
+				400
+			);
+		}
 
-    $model = $data['model'];
+		$model = $data['model'];
 
-    $findCar = $this->carsRepository->findByModel($model);
+		$findCar = $this->carsRepository->findByModel($model);
 
-    if ($findCar) {
-      throw new Exception(
-        sprintf('The model \'%s\' is already exist.', $model),
-        400
-      );
-    }
+		if ($findCar) {
+			throw new Exception(
+				sprintf('The model \'%s\' is already exist.', $model),
+				400
+			);
+		}
 
-    $car = $this->carsRepository->create($data);
+		$car = $this->carsRepository->create($data);
 
-    return $car;
-  }
+		return $car;
+	}
 }

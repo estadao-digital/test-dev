@@ -8,28 +8,28 @@ use Exception;
 
 final class CreateBrandService
 {
-  protected $brandsRepository;
+	protected $brandsRepository;
 
-  public function __construct()
-  {
-    $this->brandsRepository = new BrandsRepository();
-  }
+	public function __construct()
+	{
+		$this->brandsRepository = new BrandsRepository();
+	}
 
-  public function execute(array $data): Brand
-  {
-    $name = $data['name'];
+	public function execute(array $data): Brand
+	{
+		$name = $data['name'];
 
-    $findBrand = $this->brandsRepository->findByName($name);
+		$findBrand = $this->brandsRepository->findByName($name);
 
-    if ($findBrand) {
-      throw new Exception(
-        sprintf('The name \'%s\' is already exist.', $name),
-        400
-      );
-    }
+		if ($findBrand) {
+			throw new Exception(
+				sprintf('The name \'%s\' is already exist.', $name),
+				400
+			);
+		}
 
-    $brand = $this->brandsRepository->create($data);
+		$brand = $this->brandsRepository->create($data);
 
-    return $brand;
-  }
+		return $brand;
+	}
 }
