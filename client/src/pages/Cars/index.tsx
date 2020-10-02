@@ -6,11 +6,16 @@ import Layout from '../../layouts/Layout';
 
 import { Container, Wrapper, Header } from './styles';
 
+interface BrandDTO {
+  id: number;
+  name: string;
+}
 interface CarDTO {
   id: number;
   brand_id: number;
   model: string;
   year: string;
+  brand: BrandDTO;
 }
 
 const Cars: React.FC = () => {
@@ -86,7 +91,7 @@ const Cars: React.FC = () => {
                     <tr key={car.id}>
                       <td>{car.id}</td>
                       <td>{car.model}</td>
-                      <td>{car.brand_id}</td>
+                      <td>{car.brand.name}</td>
                       <td>{car.year}</td>
                       <td>
                         <button
