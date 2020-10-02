@@ -23,12 +23,20 @@ final class CarsRepository implements CarsRepositoryInterface
 		$cars = [];
 
 		foreach ($data as $car) {
-			$cars[] = new Car(
+			$newCar = new Car(
 				$car->id,
 				$car->brand_id,
 				$car->model,
 				$car->year
 			);
+
+			$cars[] = [
+				'id' => $newCar->id,
+				'brand_id' => $newCar->brand_id,
+				'model' => $newCar->model,
+				'year' => $newCar->year,
+				'brand' => $newCar->getBrand($newCar->brand_id),
+			];
 		}
 
 		return $cars;
