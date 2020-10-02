@@ -18,5 +18,21 @@ $database($app);
 $middleware = require __DIR__ . '/../config/middleware.php';
 $middleware($app);
 
+$app->options('/{routes:.+}', function ($request, $response, $args) {
+	return $response;
+});
+
+$app->add(function ($request, $handler) {
+	$response = $handler->handle($request);
+	return $response
+		  ->withHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
+		  ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+		  ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+});
+
 $routes = require __DIR__ . '/../config/routes.php';
 $routes($app);
+
+$app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function ($request, $response) {
+	throw new HttpNotFoundException($request);
+});
