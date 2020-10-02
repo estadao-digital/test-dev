@@ -6,15 +6,15 @@ use App\Modules\Cars\Infra\Pixie\Entities\Car;
 
 interface CarsRepositoryInterface
 {
-  function all(): array;
+	public function all(): array;
 
-  function findById(int $id): ?Car;
+	public function findById(int $id): ?Car;
 
-  function findByModel(string $model): ?Car;
+	public function findByModel(string $model): ?Car;
 
-  function create(array $data): Car;
+	public function create(array $data): Car;
 
-  function update(array $data, int $id): Car;
+	public function update(array $data, int $id): Car;
 
-  function delete(int $id): void;
+	public function delete(int $id): void;
 }
