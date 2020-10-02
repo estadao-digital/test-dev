@@ -2,6 +2,7 @@
 
 namespace App\Modules\Cars\Infra\Pixie\Entities;
 
+use App\Modules\Brands\Infra\Pixie\Repositories\BrandsRepository;
 use App\Modules\Brands\Infra\Pixie\Entities\Brand;
 
 final class Car
@@ -32,9 +33,13 @@ final class Car
 		return $this->brand_id;
 	}
 
-	public function getBrand(): Brand
+	public function getBrand($brand_id): Brand
 	{
-		return $this->brand;
+		$brandsRepository = new BrandsRepository();
+
+		$brand = $brandsRepository->findById($brand_id);
+
+		return $brand;
 	}
 
 	public function getModel(): string
