@@ -31,6 +31,12 @@ const Wrapper = styled.div`
       }
     }
 
+    > small {
+      margin-top: 0.4rem;
+      font-size: 1.4rem;
+      color: #cc3366;
+    }
+
     button {
       width: 100%;
       height: 50px;

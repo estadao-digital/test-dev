@@ -1,5 +1,6 @@
 import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import * as Yup from 'yup';
 
 import api from '../../services/api';
 import Layout from '../../layouts/Layout';
@@ -14,6 +15,7 @@ interface BrandDTO {
 const AddCar: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [brands, setBrands] = useState<BrandDTO[]>([]);
+  const [errors, setErrors] = useState<Yup.ValidationError[]>([]);
 
   const history = useHistory();
 
@@ -42,6 +44,23 @@ const AddCar: React.FC = () => {
       try {
         event.preventDefault();
 
+        const schema = Yup.object().shape({
+          brand_id: Yup.string().required('The brand is required.'),
+          model: Yup.string().required('The model is required.'),
+          year: Yup.string().required('The year is required.'),
+        });
+
+        await schema.validate(
+          {
+            model,
+            brand_id: brand,
+            year,
+          },
+          {
+            abortEarly: false,
+          },
+        );
+
         await api.post('/cars', {
           model,
           brand_id: brand,
@@ -50,7 +69,9 @@ const AddCar: React.FC = () => {
 
         history.push('/cars');
       } catch (err) {
-        throw new Error(err);
+        if (err instanceof Yup.ValidationError) {
+          setErrors(err.inner);
+        }
       }
     },
     [model, brand, year, history],
@@ -73,6 +94,12 @@ const AddCar: React.FC = () => {
               value={model}
               onChange={event => setModel(event.target.value)}
             />
+            {errors.map(
+              error =>
+                error.path === 'model' && (
+                  <small key={error.path}>{error.message}</small>
+                ),
+            )}
             <select
               name="brand"
               value={brand}
@@ -89,12 +116,24 @@ const AddCar: React.FC = () => {
                 </option>
               ))}
             </select>
+            {errors.map(
+              error =>
+                error.path === 'brand_id' && (
+                  <small key={error.path}>{error.message}</small>
+                ),
+            )}
             <input
               name="year"
               placeholder="Year"
               value={year}
               onChange={event => setYear(event.target.value)}
             />
+            {errors.map(
+              error =>
+                error.path === 'year' && (
+                  <small key={error.path}>{error.message}</small>
+                ),
+            )}
             <button type="submit">Save</button>
           </form>
         </Wrapper>
