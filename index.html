@@ -4,20 +4,115 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title></title>
+  <title>Car App! by Thiago Menezes</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Place favicon.ico in the root directory -->
+  <link rel="shortcut icon" href="img/favicon.ico" />
 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
 <body>
+  
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4">Car App!</h1>
+      <p class="lead">Crie seu catálogo de carros e saiba mais sobre o modelo desejado. Cadastre, visualize, altere e exclua carros a vontade.</p>
+      <hr class="my-4">
+      <p>HTML, CSS, PHP e JS</p>
+      <a id="btn-sobre" class="btn btn-primary btn-lg" role="button">Sobre</a>
+    </div>
+  </div>
+  
+  <div id="sobre" class="alert alert-info hide" role="alert" hidden>
+    <div class="container">
+      <h4 class="alert-heading">Sobre</h4>
+      <p>Desenvolvido por Thiago Calixto Menezes para Test-Dev. Outubro de 2020</p>
+      <hr>
+      <p class="mb-0">Tecnologias usadas: PHP, JavaScript, HTML e CSS. Single Page com CRUD integrado, conexão feita com mini API persistindo dados em um arquivo JSON.</p>
+    </div>
+  </div>
 
+  <div class="form-cadastrar">
+    <div class="container mb-3">
+      <div class="py-5 text-center">
+        <h3>Formulário de cadastro</h3>
+      </div>
+
+      <div class="alert alert-success" id="alerta-sucesso" role="alert" hidden>
+        Carro cadastrado com sucesso!
+      </div>
+
+      <form>
+        
+        <div class="form-group">
+          <label for="input-marca">Marca</label>
+          <select class="form-control" id="input-marca" placeholder="Selecione...">
+            <option value="" disabled selected>Selecione...</option>
+            <option value="1">Chevrolet</option>
+            <option value="2">Volkswagen</option>
+            <option value="3">Fiat</option>
+            <option value="4">Renault</option>
+            <option value="5">Ford</option>
+            <option value="6">Toyota</option>
+            <option value="7">Hyundai</option>
+            <option value="8">Jeep</option>
+            <option value="9">Honda</option>
+            <option value="10">Nissan</option>
+            <option value="11">Citroën</option>
+            <option value="12">Peugeot</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="input-modelo">Modelo</label>
+          <input type="text" class="form-control" id="input-modelo">
+        </div>
+
+        <div class="form-group">
+          <label for="input-ano">Ano</label>
+          <input type="text" class="form-control" id="input-ano">
+        </div>
+
+        <button class="btn btn-primary" id="btn-salvar-carro">Salvar</button>
+
+      </form>
+      
+    </div>
+  </div>
+  
+  <div class="container">
+  
+    <div class="py-5 text-center">
+      <h3>Catálogo de carros</h3>
+    </div>
+
+    <div class="row" id="lista-carros">
+
+    </div>
+
+  </div>
+
+  <div class="container">
+    <footer class="text-muted">
+      <div class="container">
+        <p>Criado por © Thiago, para Test-Dev</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/carro.js"></script>
+
 </body>
 
 </html>

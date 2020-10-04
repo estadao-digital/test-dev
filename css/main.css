@@ -1,0 +1,32 @@
+.jumbotron {
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.6)), url("../img/background.jpg");
+    background-size: cover;
+    color: white;
+    margin-bottom: 0;
+}
+
+.form-cadastrar {
+    background-color: #f3f8ff;
+    padding-bottom: 30px;
+}
+
+.input-edicao {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+#sobre {
+    opacity: 1;
+    transition: opacity 1s;
+    margin-bottom: 0%;
+}
+
+#sobre.hide {
+    opacity: 0;
+}
+
+.card-img-top:hover{
+    transform: scale(1.1);
+    transition: all .2s ease-in-out;
+}
