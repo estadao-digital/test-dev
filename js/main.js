@@ -1,6 +1,7 @@
 //Inicia o XMLHttpRequest para as requisições ajax
 var xhttp = new XMLHttpRequest();
 var carros;
+var marcas;
 if (!window.XMLHttpRequest) {
     // code for old IE browsers
     xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
@@ -11,11 +12,36 @@ pegaCarros();
 
 
 //Pega todos os carros e carrega na tela
+function pegaMarcas(){
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            marcas = JSON.parse(this.responseText);
+            carregaMarcas();
+        }
+    };
+    xhttp.open("GET", "/api.php/marcas", true);
+    xhttp.send();
+}
+
+//Carrega todas as marcas na tela
+function carregaMarcas() {
+    var out = '<option value="" disabled selected style="color: #bebebe;">Marca</option>';
+    var i;
+    for(i = 0; i < marcas.length; i++) {
+        out +=
+            '<option value="'+ marcas[i].Marca +'">'+ marcas[i].Marca +'</option>';
+    }
+    document.getElementById("input_marca").innerHTML = out;
+}
+
+//Pega todos os carros e carrega na tela
 function pegaCarros(){
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             carros = JSON.parse(this.responseText);
             carregaCarros();
+            //Pega todas as marcas
+            pegaMarcas();
         }
     };
     xhttp.open("GET", "/api.php/carros", true);

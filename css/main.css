@@ -33,6 +33,38 @@ input:focus{
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: #bebebe;
 }
+.select-css {
+    padding: .5rem 1rem;
+    line-height: 28px;
+    width: 96%;
+    border-radius: 20px;
+    background: #ffffff54;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 1rem;
+    display: block;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.select-css::-ms-expand {
+    display: none;
+}
+.select-css:hover {
+    border-color: #888;
+    color: #fff;
+}
+.select-css:focus-within {
+    border-color: #888;
+    color: #fff;
+}
+.select-css:focus {
+    color: #888;
+    outline: none;
+}
+.select-css option {
+    font-weight:normal;
+}
 .conteudo{
     width: 100%;
     margin-top: 5rem;
@@ -254,7 +286,7 @@ input:focus{
     .conteudo{
         margin-bottom: 6rem;
     }
-    input{
+    input,select{
         width: 87%;
     }
 }
