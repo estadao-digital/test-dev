@@ -13,11 +13,77 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body>
+<!-- NAVBAR -->
+<div id="navBar" class="navBar">
+  <div id="logo" class="logo"><strong>Test-dev</strong></div>
+  <div id="novo_carro" class="novo_carro mobile_hidden">
+    <div class="botao novo" style="margin-top: .25rem;" onclick="abreModalNovo()">Cadastrar Novo Carro</div>
+  </div>
+</div>
+<!-- NAVBAR -->
 
-  <script src="js/main.js"></script>
+<!-- CENTRO DA TELA -->
+<div id="conteudo" class="conteudo"></div>
+<!-- CENTRO DA TELA -->
+
+<!-- BOTÂO FLUTUANTE -->
+<div id="Botao_flutuante" class="botao_flutuante mobile_show" onclick="abreModalNovo()"><span>+</span></div>
+<!-- BOTÂO FLUTUANTE -->
+
+<!-- MODAL DE DELETAR -->
+<div id="modal_deleta" class="modal_deleta">
+  <div id="modal_header" class="modal_header">
+    Tem certeza?
+  </div>
+  <div id="modal_body" class="modal_body">
+
+  </div>
+  <div id="modal_footer" class="modal_footer">
+    <div class="botao editar" onclick="fechaModalDeletar()">Cancelar</div>
+    <div class="botao deletar" id="modal_deletar_deletar">Deletar</div>
+  </div>
+</div>
+<!-- MODAL DE DELETAR -->
+
+
+<!-- MODAL DE CRIAÇÃO/EDIÇÃO -->
+<div id="modal_novo" class="modal_deleta">
+  <div id="modal_novo_header" class="modal_header">
+    Novo Carro:
+  </div>
+  <div id="modal_novo_body" style="padding: 0rem 2rem;">
+    <div id="info" class="carro_info" style="width: 100%">
+      <div class="modal_inputs">
+        <div>
+          <input type="text" placeholder="Marca" id="input_marca">
+        </div>
+        <div>
+          <input type="text" placeholder="Modelo" id="input_modelo">
+        </div>
+        <div>
+          <input type="text" placeholder="Ano" id="input_ano">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modal_novo_footer" class="modal_footer">
+    <div class="botao deletar" onclick="fechaModalNovo()">Cancelar</div>
+    <div class="botao editar" id="salvar_carro" onclick="salvaNovoCarro()">Salvar</div>
+  </div>
+</div>
+<!-- MODAL DE CRIAÇÃO/EDIÇÃO -->
+
+<!-- FUNDO DOS MODAIS -->
+<div id="fundo_modal" class="fundo_modal"></div>
+<!-- FUNDO DOS MODAIS -->
+
+
+<script src="js/main.js"></script>
 </body>
 
 </html>
