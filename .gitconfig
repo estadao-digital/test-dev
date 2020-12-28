@@ -1,0 +1,13 @@
+; core variables
+[core]
+  ; Prenvent LF to CRLF eol conversion
+  eol = lf
+  autocrlf = input
+
+  editor = code
+
+; user variables
+[user]
+  ; Who am i?
+  name = "Juliana Demarque"
+  email = ju.dmrq@gmail.com
