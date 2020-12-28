@@ -1,37 +1,27 @@
 import * as React from 'react'
 
-function Form () {
+import { Form as BaseForm } from '../../base-components'
+import { MakersSelect, ModelName, ModelYear } from '.'
+
+function Form ({ isEditing }) {
   return (
-    <form id='new-addition' className='form-container'>
+    <BaseForm id='new-addition' className='form-container'>
       <fieldset>
-        <legend className='form-title'>New addition</legend>
+        <legend className='form-title'>
+          {!isEditing ? 'New addition' : 'Editing model'}
+        </legend>
 
-        <div className='select-input-group'>
-          <label className='input-label' htmlFor='maker-select'>
-            Who makes this model?
-          </label>
-          <select name='makerId' id='maker-select'>
-            <option value=''>Choose an option</option>
-          </select>
-        </div>
+        <MakersSelect />
 
-        <div className='text-input-group'>
-          <label className='input-label' htmlFor='model-name'>
-            What's its name?
-          </label>
-          <input id='model-name' name='model' type='text' />
-        </div>
+        <ModelName />
 
-        <div className='text-input-group'>
-          <label className='input-label' htmlFor='model-year'>
-            What is the model's year?
-          </label>
-          <input id='model-year' name='year' type='text' />
-        </div>
+        <ModelYear />
       </fieldset>
 
-      <button className='button'>Save entry</button>
-    </form>
+      <button className='button'>
+        {!isEditing ? 'Save entry' : 'Update entry'}
+      </button>
+    </BaseForm>
   )
 }
 
