@@ -37,10 +37,15 @@ class Cars
 
   public static function remove(int $id)
   {
-    $ids = array_column(self::$DATA, 'id');
-    $cursor = array_search($id, $ids);
+    $newData = array();
 
-    unset(self::$DATA[$cursor]);
+    foreach (self::$DATA as $car) {
+      if ($car->id !== $id) {
+        array_push($newData, $car);
+      }
+    }
+
+    self::$DATA = (array) $newData;
 
     self::save();
 
