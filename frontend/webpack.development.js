@@ -47,7 +47,13 @@ module.exports = {
     host: '0.0.0.0',
     hot: true,
     open: false,
-    port: 1234
+    port: 1234,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        pathRewrite: { '^/api': '' }
+      }
+    }
   },
   devtool: 'cheap-source-map',
   stats: 'minimal'
