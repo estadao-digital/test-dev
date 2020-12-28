@@ -1,14 +1,15 @@
 import * as React from 'react'
+import { useSelector } from 'react-redux'
 
 import { CardList, Form } from '../'
 
-function PageContent ({ content = {} }) {
-  const { cars, makers } = content
+function PageContent () {
+  const cars = useSelector(state => state.cars)
 
   return (
     <main className='max-width'>
-      <Form selectOptions={makers} />
-      <CardList listItems={cars} />
+      <Form />
+      {!!(cars.status === 'resolved') && <CardList listItems={cars.data} />}
     </main>
   )
 }

@@ -1,10 +1,20 @@
 import * as React from 'react'
+import { useDispatch as useReduxDispatch } from 'react-redux'
 
 import { CarsApi } from '../../api'
+import { refreshCarsList } from '../../store/thunks'
 
 function CardList ({ listItems }) {
+  const dispatch = useReduxDispatch()
+
   const handleRemove = async id => {
-    await CarsApi.removeEntry(id)
+    try {
+      await CarsApi.removeEntry(id)
+    } finally {
+      const newList = listItems.filter(({ id: carId }) => id !== carId)
+
+      dispatch(refreshCarsList({ data: newList }))
+    }
   }
 
   return (
