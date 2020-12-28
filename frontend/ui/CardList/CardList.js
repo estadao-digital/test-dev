@@ -1,25 +1,15 @@
 import * as React from 'react'
-import { useDispatch as useReduxDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
-import { CarsApi } from '../../api'
-import { refreshCarsList } from '../../store/thunks'
+import { AppContext } from '../../contexts'
 
-function CardList ({ listItems }) {
-  const dispatch = useReduxDispatch()
-
-  const handleRemove = async id => {
-    try {
-      await CarsApi.removeEntry(id)
-    } finally {
-      const newList = listItems.filter(({ id: carId }) => id !== carId)
-
-      dispatch(refreshCarsList({ data: newList }))
-    }
-  }
+function CardList () {
+  const { handleEdit, handleRemove } = React.useContext(AppContext)
+  const cars = useSelector(state => state.cars)
 
   return (
     <section className='list'>
-      {listItems.map(({ model, maker, year, id }) => (
+      {cars.data.map(({ model, maker, year, id }) => (
         <div className='list-item' key={id}>
           <div className='list-item__data'>
             <p className='list-item__text list-item__text--title'>{model}</p>
@@ -27,13 +17,10 @@ function CardList ({ listItems }) {
             <p className='list-item__text list-item__text--year'>{year}</p>
           </div>
           <div className='list-item__actions'>
-            <button
-              className='action'
-              onClick={() => console.log('{handleEdit}')}
-            >
+            <button className='action edit' onClick={() => handleEdit(id)}>
               Edit
             </button>
-            <button className='action' onClick={() => handleRemove(id)}>
+            <button className='action remove' onClick={() => handleRemove(id)}>
               Remove
             </button>
           </div>

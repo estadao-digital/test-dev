@@ -13,8 +13,47 @@ import AppContext from './'
 
 function AppContextProvider ({ children }) {
   const dispatch = useReduxDispatch()
+  const [isEditing, setIsEditing] = React.useState(false)
   const cars = useSelector(state => state.cars)
-  const makers = useSelector(state => state.makers)
+
+  const handleEdit = id => {
+    setIsEditing(cars.data.find(({ id: carId }) => id === carId))
+  }
+
+  const handleRemove = async id => {
+    try {
+      await CarsApi.removeEntry(id)
+    } finally {
+      const newList = cars.data.filter(({ id: carId }) => id !== carId)
+
+      dispatch(refreshCarsList({ data: newList }))
+    }
+  }
+
+  const handleSubmit = async ({ id, ...formData }) => {
+    let newItem
+
+    try {
+      if (id) {
+        const { data } = await CarsApi.updateEntry(id, formData)
+        newItem = data
+      } else {
+        const { data } = await CarsApi.createEntry(formData)
+        newItem = data
+      }
+    } finally {
+      let newList
+
+      if (id) {
+        const filteredList = cars.data.filter(({ id: carId }) => id !== carId)
+
+        dispatch(refreshCarsList({ data: [...filteredList, newItem] }))
+        setIsEditing(false)
+      } else {
+        dispatch(refreshCarsList({ data: [...cars.data, newItem] }))
+      }
+    }
+  }
 
   React.useEffect(() => {
     ;(async () => {
@@ -45,7 +84,9 @@ function AppContextProvider ({ children }) {
   }, [dispatch])
 
   return (
-    <AppContext.Provider value={{ cars, makers }}>
+    <AppContext.Provider
+      value={{ handleEdit, handleRemove, handleSubmit, isEditing }}
+    >
       {children}
     </AppContext.Provider>
   )

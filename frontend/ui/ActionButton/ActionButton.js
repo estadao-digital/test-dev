@@ -4,7 +4,7 @@ import { Button } from '../../base-components'
 
 function ActionButton ({ children, ...props }) {
   return (
-    <Button onClick={() => console.log(children)} {...props}>
+    <Button onClick={props.onClick} {...props}>
       {children}
     </Button>
   )

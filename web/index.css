@@ -160,3 +160,31 @@ input[type='text']:focus {
 .list-item__actions .action:first-of-type {
   margin-right: 12px;
 }
+
+.list-item__actions .edit {
+  padding: 4px 8px;
+  background-color: #3acda7;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+.list-item__actions .remove {
+  padding: 4px 8px;
+  background-color: transparent;
+  border: 0;
+  color: #5d5d5d;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+.list-item__actions .remove:hover {
+  color: #e33c1a;
+}
