@@ -46,7 +46,7 @@ Router::delete('/cars/([0-9]*)', function (Request $req, Response $res) {
 
   if ($car) {
     Cars::remove($car->id);
-    $res->status(204)->toJSON([]);
+    $res->status(204);
   } else {
     $res->status(404)->toJSON(['error' => 'Not Found']);
   }

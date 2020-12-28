@@ -17,6 +17,7 @@ function Home () {
       if (cars.data.length && makers.data.length) {
         const carsList = cars.data.map(({ id, makerId, ...car }) => ({
           ...car,
+          id,
           maker: makers.data.find(({ id }) => id === makerId).maker
         }))
 

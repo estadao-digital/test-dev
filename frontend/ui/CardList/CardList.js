@@ -1,6 +1,12 @@
 import * as React from 'react'
 
+import { CarsApi } from '../../api'
+
 function CardList ({ listItems }) {
+  const handleRemove = async id => {
+    await CarsApi.removeEntry(id)
+  }
+
   return (
     <section className='list'>
       {listItems.map(({ model, maker, year, id }) => (
@@ -17,17 +23,8 @@ function CardList ({ listItems }) {
             >
               Edit
             </button>
-            <button
-              className='action'
-              onClick={() => console.log('{handleRemove}')}
-            >
+            <button className='action' onClick={() => handleRemove(id)}>
               Remove
-            </button>
-            <button
-              className='action'
-              onClick={() => console.log('{handleView}')}
-            >
-              View
             </button>
           </div>
         </div>

@@ -7,9 +7,10 @@ function MakersSelect ({ makers = [] }) {
     <FormControl
       label={{
         id: 'maker-select',
-        textContent: 'Which company  manufactures this model?'
+        textContent: 'Which company makes this model?'
       }}
       options={makers}
+      placeholderLabel='Choose a manufacturer'
       type='select'
     />
   )
