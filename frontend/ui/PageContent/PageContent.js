@@ -2,11 +2,13 @@ import * as React from 'react'
 
 import { CardList, Form } from '../'
 
-function PageContent () {
+function PageContent ({ content = {} }) {
+  const { cars, makers } = content
+
   return (
     <main className='max-width'>
-      <Form />
-      <CardList />
+      <Form selectOptions={makers} />
+      <CardList listItems={cars} />
     </main>
   )
 }

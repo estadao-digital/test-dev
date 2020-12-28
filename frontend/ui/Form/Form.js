@@ -3,7 +3,7 @@ import * as React from 'react'
 import { Form as BaseForm } from '../../base-components'
 import { MakersSelect, ModelName, ModelYear } from '.'
 
-function Form ({ isEditing }) {
+function Form ({ isEditing, selectOptions }) {
   return (
     <BaseForm id='new-addition' className='form-container'>
       <fieldset>
@@ -11,7 +11,7 @@ function Form ({ isEditing }) {
           {!isEditing ? 'New addition' : 'Editing model'}
         </legend>
 
-        <MakersSelect />
+        <MakersSelect makers={selectOptions} />
 
         <ModelName />
 

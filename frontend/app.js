@@ -4,14 +4,18 @@ import 'raf/polyfill'
 
 import * as React from 'react'
 import { render } from 'react-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import { PageContent, PageHeader } from './ui'
+import ROUTES from './routes'
 
 const rootComponent = (
-  <>
-    <PageHeader />
-    <PageContent />
-  </>
+  <Router>
+    <Switch>
+      {ROUTES.map(props => (
+        <Route {...props} />
+      ))}
+    </Switch>
+  </Router>
 )
 const rootElement = document.getElementById('app')
 
