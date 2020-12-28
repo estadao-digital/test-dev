@@ -23,8 +23,8 @@ function CardList ({ listItems }) {
         <div className='list-item' key={id}>
           <div className='list-item__data'>
             <p className='list-item__text list-item__text--title'>{model}</p>
-            <p className='list-item__text'>{maker}</p>
-            <p className='list-item__text'>{year}</p>
+            <p className='list-item__text list-item__text--maker'>{maker}</p>
+            <p className='list-item__text list-item__text--year'>{year}</p>
           </div>
           <div className='list-item__actions'>
             <button

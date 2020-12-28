@@ -10,8 +10,8 @@ function FormControl ({ label, type, ...inputProps }) {
       </label>
       {
         {
-          text: <InputText {...inputProps} />,
-          select: <InputSelect {...inputProps} />
+          text: <InputText {...inputProps} id={label.id} />,
+          select: <InputSelect {...inputProps} id={label.id} />
         }[type]
       }
     </div>

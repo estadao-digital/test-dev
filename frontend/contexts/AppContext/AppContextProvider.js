@@ -13,7 +13,6 @@ import AppContext from './'
 
 function AppContextProvider ({ children }) {
   const dispatch = useReduxDispatch()
-  const state = useSelector(state => state)
   const cars = useSelector(state => state.cars)
   const makers = useSelector(state => state.makers)
 

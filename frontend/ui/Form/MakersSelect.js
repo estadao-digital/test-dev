@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 
 import { FormControl } from '../../base-components'
 
-function MakersSelect () {
+function MakersSelect ({ onChange }) {
   const makers = useSelector(state => state.makers)
 
   return (
@@ -12,9 +12,11 @@ function MakersSelect () {
         id: 'maker-select',
         textContent: 'Which company makes this model?'
       }}
+      name='makerId'
       options={makers.data}
       placeholderLabel='Choose a manufacturer'
       type='select'
+      onChange={onChange}
     />
   )
 }

@@ -1,9 +1,27 @@
 import * as React from 'react'
 
+import useFormReducer from '../../hooks/useFormReducer'
 import { Form as BaseForm } from '../../base-components'
 import { MakersSelect, ModelName, ModelYear } from '.'
 
-function Form ({ isEditing, selectOptions }) {
+function Form ({ formData, isEditing, selectOptions }) {
+  const initialState = {
+    makerId: null,
+    model: '',
+    year: ''
+  }
+  const [state, dispatch] = useFormReducer(formData || initialState)
+
+  const handleChange = value => {
+    dispatch(value)
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+
+    console.log(state)
+  }
+
   return (
     <BaseForm id='new-addition' className='form-container'>
       <fieldset>
@@ -11,14 +29,14 @@ function Form ({ isEditing, selectOptions }) {
           {!isEditing ? 'New addition' : 'Editing model'}
         </legend>
 
-        <MakersSelect makers={selectOptions} />
+        <MakersSelect makers={selectOptions} onChange={handleChange} />
 
-        <ModelName />
+        <ModelName onChange={handleChange} />
 
-        <ModelYear />
+        <ModelYear onChange={handleChange} />
       </fieldset>
 
-      <button className='button'>
+      <button className='button' onClick={handleSubmit}>
         {!isEditing ? 'Save entry' : 'Update entry'}
       </button>
     </BaseForm>

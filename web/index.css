@@ -127,8 +127,9 @@ input[type='text']:focus {
 }
 
 .list-item {
-  flex: 1 0 30%;
+  flex: 0 0 30%;
   margin: 4px;
+  margin-bottom: 16px;
   padding: 16px;
   background-color: #fafafa;
   border: 1px solid #999;
@@ -137,4 +138,25 @@ input[type='text']:focus {
 
 .list-item__text {
   margin: 0;
+  line-height: 150%;
+}
+
+.list-item__text--title {
+  font-size: 20px;
+}
+
+.list-item__text--maker {
+  font-size: 16px;
+}
+
+.list-item__text--year {
+  font-size: 12px;
+}
+
+.list-item__actions {
+  margin-top: 12px;
+}
+
+.list-item__actions .action:first-of-type {
+  margin-right: 12px;
 }

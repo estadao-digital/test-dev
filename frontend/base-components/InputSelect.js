@@ -1,8 +1,12 @@
 import * as React from 'react'
 
-function InputSelect ({ placeholderLabel, options, ...props }) {
+function InputSelect ({ onChange, options, placeholderLabel, ...props }) {
+  const handleChange = e => {
+    onChange({ [props.name]: e.target.value })
+  }
+
   return (
-    <select {...props}>
+    <select {...props} onChange={handleChange}>
       <option value=''>
         {!!placeholderLabel ? placeholderLabel : 'Choose an option'}
       </option>
