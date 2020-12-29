@@ -20,19 +20,21 @@ class Cars
     return $car;
   }
 
-  public static function edit(int $id, $data)
+  public static function edit($car, $data)
   {
     $ids = array_column(self::$DATA, 'id');
-    $cursor = array_search($id, $ids);
+    $cursor = array_search($car->id, $ids);
 
-    self::$DATA[$cursor] = array_merge(
-      (array) self::$DATA[$cursor],
+    $updated = array_merge(
+      (array) $car,
       (array) $data
     );
 
+    self::$DATA[$cursor] = $updated;
+
     self::save();
 
-    return self::$DATA[$cursor];
+    return $updated;
   }
 
   public static function remove(int $id)

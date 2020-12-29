@@ -34,7 +34,7 @@ Router::put('/cars/([0-9]*)', function (Request $req, Response $res) {
   $car = Cars::takeById($req->params[0]);
 
   if ($car) {
-    $updated = Cars::edit($car->id, $req->getJSON());
+    $updated = Cars::edit($car, $req->getJSON());
     $res->status(200)->toJSON($updated);
   } else {
     $res->status(404)->toJSON(['error' => 'Not Found']);

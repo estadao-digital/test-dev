@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { FormControl } from '../../base-components'
 
-function ModelYear ({ onChange }) {
+function ModelYear ({ onChange, value }) {
   return (
     <FormControl
       label={{
@@ -16,6 +16,7 @@ function ModelYear ({ onChange }) {
       required
       tabIndex='0'
       type='text'
+      value={value}
     />
   )
 }

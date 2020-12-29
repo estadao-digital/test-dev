@@ -6,13 +6,14 @@ import { Form as BaseForm } from '../../base-components'
 import { MakersSelect, ModelName, ModelYear } from '.'
 
 function Form ({ selectOptions }) {
+  const { handleSubmit, isEditing } = React.useContext(AppContext)
   const initialState = {
-    makerId: null,
+    makerId: undefined,
     model: '',
     year: ''
   }
-  const [state, dispatch] = useFormReducer(initialState)
-  const { handleSubmit, isEditing } = React.useContext(AppContext)
+  const init = () => isEditing || initialState
+  const [state, dispatch] = useFormReducer(initialState, init)
 
   const handleChange = value => {
     dispatch(value)
@@ -26,8 +27,14 @@ function Form ({ selectOptions }) {
 
     e.preventDefault()
     handleSubmit(isEditing ? { ...formData, id } : formData)
-    dispatch('init')
+    dispatch({ type: 'init' })
   }
+
+  React.useEffect(() => {
+    if (isEditing) {
+      dispatch({ type: 'init' })
+    }
+  }, [isEditing])
 
   return (
     <BaseForm id='new-addition' className='form-container'>
@@ -52,7 +59,7 @@ function Form ({ selectOptions }) {
           Save Entry
         </button>
       ) : (
-        <button className='button' onClick={e => onSubmit(e, isEditing)}>
+        <button className='button' onClick={e => onSubmit(e, isEditing.id)}>
           Update Entry
         </button>
       )}

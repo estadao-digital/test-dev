@@ -30,20 +30,23 @@ function AppContextProvider ({ children }) {
     }
   }
 
-  const handleSubmit = async ({ id, ...formData }) => {
+  const handleSubmit = async ({ id, makerId, model, year }) => {
     let newItem
+    const formData = {
+      makerId,
+      model,
+      year
+    }
 
     try {
       if (id) {
-        const { data } = await CarsApi.updateEntry(id, formData)
+        const data = await CarsApi.updateEntry(id, formData)
         newItem = data
       } else {
         const { data } = await CarsApi.createEntry(formData)
         newItem = data
       }
     } finally {
-      let newList
-
       if (id) {
         const filteredList = cars.data.filter(({ id: carId }) => id !== carId)
 
@@ -69,7 +72,8 @@ function AppContextProvider ({ children }) {
         const carsList = carsData.data.map(({ id, makerId, ...car }) => ({
           ...car,
           id,
-          maker: makersData.data.find(({ id }) => id === makerId).maker
+          maker: makersData.data.find(({ id }) => id === makerId).maker,
+          makerId
         }))
 
         const makersList = makersData.data.map(({ id, maker }) => ({
