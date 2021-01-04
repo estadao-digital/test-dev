@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "makerId": 12,
+        "model": "Corcel",
+        "year": "1974"
+    },
+    {
+        "id": 2,
+        "makerId": 47,
+        "model": "Fusca",
+        "year": "1965"
+    },
+    {
+        "id": 3,
+        "makerId": 16,
+        "model": "Azera",
+        "year": "2010"
+    },
+    {
+        "makerId": 15,
+        "model": "Civic",
+        "year": "2020",
+        "id": 4
+    }
+]
