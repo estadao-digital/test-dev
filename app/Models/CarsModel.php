@@ -11,9 +11,9 @@ class CarsModel{
         $this->db=new JsonDb("/json");
     }
 
-    public function index(){
+    public function list(){
        $return= $this->db->getAll("cars");
-       return ["success"=>true,"method"=>"index","data"=>Utilities::objectToArray($return)];
+       return ["success"=>true,"method"=>"list","data"=>Utilities::objectToArray($return)];
 
 
     }

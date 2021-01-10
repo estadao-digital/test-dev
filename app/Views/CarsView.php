@@ -1,12 +1,1 @@
-<?php
-
-namespace App\Views;
-
-use App\Views\Template\Header;
-
-class CarsView{
-
-    public static function index(){
-        Header::getHeader();
-    }
-}
+<div class="col-md-12 receive_content"></div>

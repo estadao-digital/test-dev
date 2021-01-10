@@ -41,7 +41,7 @@ class CarsControllerTest{
     }
 
     public function ShouldList_andReceiveJson(){
-        $list=$this->$carsController->index();
+        $list=$this->$carsController->list();
         if($list['data'][0]['id']!=""){
             $characterId=true;
         }

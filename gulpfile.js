@@ -4,7 +4,7 @@ var autoPrefixBrowserList = ['last 2 version', 'safari 5', 'ie 11', 'opera 12.1'
 
 // var jsonSass = require('gulp-json-scss');
 const gulp = require("gulp");
-const sass = require("gulp-sass");
+const sass = require("gulp-dart-sass");
 sass.compiler = require("node-sass");
 const gutil = require('gulp-util');
 

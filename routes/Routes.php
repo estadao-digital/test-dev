@@ -24,10 +24,10 @@ class Routes{
         $router = new Router();
         $router
         ->on('GET','/', function () {
-          echo CarsView::index();
+          $this->carsControllers->index();
           })
         ->on('GET','/api/cars', function () {
-          Output::JSON($this->carsControllers->index());
+          Output::JSON($this->carsControllers->list());
           })
         ->on('GET','/api/cars/show((/[a-zA-Z0-9-]+)?)', function ($id) {
           Output::JSON($this->carsControllers->show(str_replace("/","",$id)));

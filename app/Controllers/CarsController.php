@@ -6,6 +6,9 @@ namespace App\Controllers;
 use App\Validators\Validator;
 use App\Services\CarsService;
 use App\Models\CarsModel;
+use App\Views\Template\Template;
+use App\Views\Template\Footer;
+use App\Views\Template\Body;
 
 class CarsController{
     private $carsModel;
@@ -22,7 +25,11 @@ class CarsController{
     }
 
     public function index(){
-        return $this->carsModel->index();
+        Template::getTemplate("CarsView");
+    }
+    
+    public function list(){
+        return $this->carsModel->list();
     }
 
     public function store($data){
