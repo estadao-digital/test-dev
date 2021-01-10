@@ -8,10 +8,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">List Cars</a>
+          <a class="nav-link active list_car" aria-current="page" href="#">List Cars</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">New Car</a>
+          <a class="nav-link new_car" href="#">New Car</a>
         </li>
       </ul>
     </div>

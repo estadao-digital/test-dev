@@ -1,1 +1,1 @@
-<div class="col-md-12 receive_content"></div>
+<div class="col-md-12 receive_content p-5"></div>

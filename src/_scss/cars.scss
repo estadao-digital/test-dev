@@ -1,0 +1,13 @@
+.receive_content{
+    .cars_lines:nth-child(odd){
+        background-color: #e4e4e4;
+        
+    }
+   .head-cars{
+       @media(max-width: 767.9px){
+           display:none;
+       }
+       
+   }
+    
+}

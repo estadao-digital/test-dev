@@ -6,8 +6,10 @@ class Styles{
 
     public static function getStyles(){
         ?>
-       <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
-       <link href="assets/css/style.css" rel="stylesheet">
+       <link href="dist/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+       <link href="dist/vendor/fontawesome/fontawesome.min.css" rel="stylesheet" >
+       <link href="dist/css/cars.css" rel="stylesheet">
+       
         <?php
     }
 }

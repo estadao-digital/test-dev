@@ -4,8 +4,11 @@
 This API was made for a Estadão Test and I chose to develop everything without a framework because I think I can show my knowledge better about languages and patterns. Of Course, I could delivery fastly if I would choice a Framework as Laravel.
 Another thing is that I could get the brands and the model dynamically in the Fipe API, but I think that for this test I should focus only on the script received and feed only a brands table, wich i will use as static data.
 
-### API
+### API - Backend
 It is an open API, that is, we are not using an authentication method like Basic, Beared or JWT. You do not need to send authentication parameters in the header.
+For the tecnologies I'm using PHP
+
+##
 
 ### Don't forget
 As we are using Json as DB, dont forget to give permissions for json folder in root of this project
