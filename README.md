@@ -1,54 +1,169 @@
-Teste para desenvolvedor do Estadão
-==============================
+# Teste to Developer Estadão
 
-Olá candidato,
+### NOTES ABOUT THE PROCESS
+This API was made for a Estadão Test and I chose to develop everything without a framework because I think I can show my knowledge better about languages and patterns. Of Course, I could delivery fastly if I would choice a Framework as Laravel.
+Another thing is that I could get the brands and the model dynamically in the Fipe API, but I think that for this test I should focus only on the script received and feed only a brands table, wich i will use as static data.
 
-Esse teste consiste em 2 etapas para avaliarmos seu conhecimento em PHP e Front-End (HTML5, CSS e JavaScript)
+### API
+It is an open API, that is, we are not using an authentication method like Basic, Beared or JWT. You do not need to send authentication parameters in the header.
 
-Para realizar o teste, você deve dar um fork neste repositório e depois clona-lo na pasta <document_root> da máquina que está realizando o teste.
+### Don't forget
+As we are using Json as DB, dont forget to give permissions for json folder in root of this project
 
-Crie um branch com seu nome, e quando finalizar todo o desenvolvimento, você deverá enviar um pull-request com sua versão.
 
-O teste
---------
+### ENDPOINTS
+##### STORE
+###### ENDPOINT: {{base_url}}/api/cars/store
+###### METHOD: POST
+PARAMS:
+```
+ 'name' => ['required', 'minLen' => 2,'maxLen' => 150, 'alpha'], (string)
+ 'role' => ['required', 'alpha'], (string)
+ 'school' => ['required', 'minLen' => 2,'maxLen' => 150, 'alpha'], (string)
+ 'house' => ['required'], (string)
+ 'patronus' => ['required', 'alpha'] (string)
+```
+RESPONSE:
+````
+{
+    "success": true,
+    "method": "insert",
+    "data": [
+        {
+            "id": "4",
+            "name": "Harry Potter",
+            "role": "student",
+            "school": "Hogwarts School of Witchcraft and Wizardry",
+            "house": "1760529f-6d51-4cb1-bcb1-25087fce5bde",
+            "patronus": "stag"
+        }
+    ]
+}
+````
 
-### Back-End/PHP
+##### UPDATE
+###### ENDPOINT: {{base_url}}/api/cars/update/{{character_id}}
+###### METHOD: PUT
 
-A primeira etapa será o desenvolvimento **backend/PHP**:
 
-**Descrição:**
+PARAMS:
+```
+ 'name' => [ 'minLen' => 2,'maxLen' => 150, 'alpha'], (string)
+ 'role' => [ 'alpha'], (string)
+ 'school' => ['required', 'minLen' => 2,'maxLen' => 150, 'alpha'], (string)
+ 'house' =>  (string)
+ 'patronus' => ['alpha'] (string)
+```
+RESPONSE:
+````
+{
+    "success": true,
+    "method": "update",
+    "data": [
+        {
+            "id": "2",
+            "name": "Harry Potter",
+            "role": "student ",
+            "school": "Hogwarts School of Witchcraft and Wizardry",
+            "house": "1760529f-6d51-4cb1-bcb1-25087fce5bde",
+            "patronus": "stag"
+        }
+    ]
+}
+````
 
-- Você deverá desenvolver uma 'mini api' para que seja possível realizar operações CRUD do objeto Carro.
-> **Obs:**
-> - Você pode usar arquivo (txt, json) como banco de dados.
-> - Cada carro deve ter ID, Marca, Modelo, Ano.
+##### DELETE
+###### ENDPOINT: {{base_url}}/api/cars/delete/{{character_id}}
+###### METHOD: DELETE
 
-Sugerimos o retorno dessa 'mini api' nas seguinte urls:
+RESPONSE:
+````
+{
+    "success": true,
+    "method": "delete",
+    "data": {
+        "id": "1"
+    }
+}
+````
 
- - `/carros` - [GET] deve retornar todos os carros cadastrados.
- - `/carros` - [POST] deve cadastrar um novo carro.
- - `/carros/{id}`[GET] deve retornar o carro com ID especificado.
- - `/carros/{id}`[PUT] deve atualizar os dados do carro com ID especificado.
- - `/carros/{id}`[DELETE] deve apagar o carro com ID especificado.
+##### GET BY ID
+###### ENDPOINT: {{base_url}}/api/cars/show/{{character_id}}
+###### METHOD: GET
 
-### Front-End
+RESPONSE:
+````
+[
+    {
+        "id": "3",
+        "name": "Harry Potter",
+        "role": "student",
+        "school": "Hogwarts School of Witchcraft and Wizardry",
+        "house": "1760529f-6d51-4cb1-bcb1-25087fce5bde",
+        "patronus": "stag"
+    }
+]
+````
+##### LIST
+###### ENDPOINT: {{base_url}}/api/cars
+###### METHOD: GET
 
-Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Application) e nela deve ser possível:
+RESPONSE:
+````
+[
+    {
+        "id": "3",
+        "name": "Harry Potter",
+        "role": "student",
+        "school": "Hogwarts School of Witchcraft and Wizardry",
+        "house": "1760529f-6d51-4cb1-bcb1-25087fce5bde",
+        "patronus": "stag"
+    }
+]
+````
 
-- Ver a lista de carros cadastrados
-- Criar um novo carro
-- Editar um carro existente
-- Apagar um carro existente
+##### LIST BY CRITERIA
+###### ENDPOINT: {{base_url}}/api/cars?{{field}}={{value}}
+###### METHOD: GET
 
-> **Obs:**
-> - A página deve ser responsiva.
-> - A página deve funcionar 100% via AJAX, sem outros carregamentos de páginas.
-> - Ao criar/editar um carro, o campo "marca" deverá ser um `SELECT`
+Exemplo: {{base_url}}/api/cars?house=1760529f
+RESPONSE:
+````
+{
+    "success": true,
+    "method": "index",
+    "criteria": {
+        "key": "house",
+        "value": "1760529f"
+    },
+    "data": [
+         {
+            "id": "1",
+            "name": "emerson udovic ",
+            "role": "developer",
+            "school": "Hogwarts School of Witchcraft and Wizardry",
+            "house": "1760529f-6d51-4cb1-bcb1-25087fce5bde",
+            "patronus": "stag"
+        },
+        {
+            "id": "2",
+            "name": "Harry Potter",
+            "role": "student",
+            "school": "Hogwarts School of Witchcraft and Wizardry",
+            "house": "1760529f-6d51-4cb1-bcb1-25087fce5bde",
+            "patronus": "stag"
+        }
+    ]
+}
+````
 
-### Observações importantes:
+### Units Tests
+Its not usually or security to use an API route to tests, but to simple the process for analize, the endpoint "tests" was created.
+You else can test by the follow way:
 
-- Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
-- Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.
-- Você pode usar ferramentas de automação (Grunt, Gulp), mas deverá informar o uso completo para funcionamento do teste.
-- Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.
-- Será considerado ponto positivo o tempo gasto na realização do teste. Menos tempo e tudo funcionando conforme pedido será melhor avaliado.
+```php
+use App\Tests\Tests;
+
+Tests::runTests();
+
+```

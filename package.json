@@ -1,0 +1,25 @@
+{
+  "name": "estadao_globant-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "gulp-sourcemaps": "^2.6.5"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-azure-storage": "^0.11.1",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-sass": "^4.1.0",
+    "gulp-util": "^3.0.8",
+    "node-sass": "^5",
+    "vinyl-ftp": "^0.6.1"
+  },
+  "scripts": {
+    "build-scss": "node-sass _scss/ -o assets/css/ --recursive false",
+    "watch-scss": "node-sass --watch _scss/ -o assets/css/ --recursive false"
+  },
+  "author": "",
+  "license": "ISC"
+}
