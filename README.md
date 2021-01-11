@@ -1,4 +1,4 @@
-# Teste to Developer Estadão
+# Test to Developer Estadão
 
 ### NOTES ABOUT THE PROCESS
 This API was made for a Estadão Test and I chose to develop everything without a framework because I think I can show my knowledge better about languages and patterns. Of Course, I could delivery fastly if I would choice frameworks.
