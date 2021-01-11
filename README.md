@@ -1,54 +1,168 @@
-Teste para desenvolvedor do Estadão
-==============================
+# Test to Developer Estadão
 
-Olá candidato,
+### NOTES ABOUT THE PROCESS
+This API was made for a Estadão Test and I chose to develop everything without a framework because I think I can show my knowledge better about languages and patterns. Of Course, I could delivery fastly if I would choice frameworks.
 
-Esse teste consiste em 2 etapas para avaliarmos seu conhecimento em PHP e Front-End (HTML5, CSS e JavaScript)
+### API - Backend
+It is an open API, that is, we are not using an authentication method like Basic, Beared or JWT. You do not need to send authentication parameters in the header.
+About the tecnologies:
+PHP
+JSON
 
-Para realizar o teste, você deve dar um fork neste repositório e depois clona-lo na pasta <document_root> da máquina que está realizando o teste.
+### FRONTEND
+I decided not to use any framework to do this, but there is something to run, especially if you want to edit the js or scss files.
+The files before compilation are in the "src" folder and then in the "dist" folder.
+About the tecnologies:
+JS
+Jquery
+Scss
+HTML
+CSS
+Webpack
+Gulp
 
-Crie um branch com seu nome, e quando finalizar todo o desenvolvimento, você deverá enviar um pull-request com sua versão.
+Run:
+npm install -g gulp-cli
+npm install
 
-O teste
---------
+For prod:
+gulp sass-prod
+npm run build
 
-### Back-End/PHP
 
-A primeira etapa será o desenvolvimento **backend/PHP**:
+### Don't forget
+As we are using Json as DB, dont forget to give permissions for json folder in root of this project
 
-**Descrição:**
 
-- Você deverá desenvolver uma 'mini api' para que seja possível realizar operações CRUD do objeto Carro.
-> **Obs:**
-> - Você pode usar arquivo (txt, json) como banco de dados.
-> - Cada carro deve ter ID, Marca, Modelo, Ano.
+### ENDPOINTS
+##### STORE
+###### ENDPOINT: {{base_url}}/api/cars/store
+###### METHOD: POST
+PARAMS:
+```
+    'carro' => ['required', 'minLen' => 2,'maxLen' => 50],
+    'marca' => ['required', 'minLen' => 2,'maxLen' => 50],
+    'modelo' => ['required', 'minLen' => 2,'maxLen' => 50],
+    'ano' => ['required', 'minLen' =>4,'maxLen' => 4, 'numeric']
+```
+RESPONSE:
+````
+{
+    "success": true,
+    "method": "insert",
+    "data": {
+        "id": "d0970556f20f1a045ef3090bf9719bac",
+        "carro": "gol",
+        "marca": "volks",
+        "modelo": "GTI",
+        "ano": "1990"
+    }
+}
+````
 
-Sugerimos o retorno dessa 'mini api' nas seguinte urls:
+##### UPDATE
+###### ENDPOINT: {{base_url}}/api/cars/update/{{car_id}}
+###### METHOD: PUT
 
- - `/carros` - [GET] deve retornar todos os carros cadastrados.
- - `/carros` - [POST] deve cadastrar um novo carro.
- - `/carros/{id}`[GET] deve retornar o carro com ID especificado.
- - `/carros/{id}`[PUT] deve atualizar os dados do carro com ID especificado.
- - `/carros/{id}`[DELETE] deve apagar o carro com ID especificado.
 
-### Front-End
+PARAMS:
+```
+    'carro' => ['required', 'minLen' => 2,'maxLen' => 50],
+    'marca' => ['required', 'minLen' => 2,'maxLen' => 50],
+    'modelo' => ['required', 'minLen' => 2,'maxLen' => 50],
+    'ano' => ['required', 'minLen' =>4,'maxLen' => 4, 'numeric']
+```
+RESPONSE:
+````
+{
+    "success": true,
+    "method": "update",
+    "data": {
+        "id": "d0970556f20f1a045ef3090bf9719bac",
+        "carro": "gol",
+        "marca": "volks",
+        "modelo": "gts",
+        "ano": "2001"
+    }
+}
+````
 
-Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Application) e nela deve ser possível:
+##### DELETE
+###### ENDPOINT: {{base_url}}/api/cars/delete/{{car_id}}
+###### METHOD: DELETE
 
-- Ver a lista de carros cadastrados
-- Criar um novo carro
-- Editar um carro existente
-- Apagar um carro existente
+RESPONSE:
+````
+{
+    "success": true,
+    "method": "delete",
+    "data": {
+        "id": "1"
+    }
+}
+````
 
-> **Obs:**
-> - A página deve ser responsiva.
-> - A página deve funcionar 100% via AJAX, sem outros carregamentos de páginas.
-> - Ao criar/editar um carro, o campo "marca" deverá ser um `SELECT`
+##### GET BY ID
+###### ENDPOINT: {{base_url}}/api/cars/show/{{car_id}}
+###### METHOD: GET
 
-### Observações importantes:
+RESPONSE:
+````
+{
+    "success": true,
+    "method": "show",
+    "data": {
+        "id": "d0970556f20f1a045ef3090bf9719bac",
+        "carro": "gol",
+        "marca": "volks",
+        "modelo": "gts",
+        "ano": "2001"
+    }
+}
+````
+##### LIST
+###### ENDPOINT: {{base_url}}/api/cars
+###### METHOD: GET
 
-- Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
-- Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.
-- Você pode usar ferramentas de automação (Grunt, Gulp), mas deverá informar o uso completo para funcionamento do teste.
-- Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.
-- Será considerado ponto positivo o tempo gasto na realização do teste. Menos tempo e tudo funcionando conforme pedido será melhor avaliado.
+RESPONSE:
+````
+{
+    "success": true,
+    "method": "list",
+    "data": [
+        {
+            "id": "7b6c37a780ebee9fbd7efd7f0cde942b",
+            "carro": "Santa fé",
+            "marca": "HYUNDAI",
+            "modelo": "v6",
+            "ano": "2010"
+        },
+        {
+            "id": "4cdc7c2f3b2f97a98e9a49642597b2de",
+            "carro": "audi m3",
+            "marca": "AUDI",
+            "modelo": "im a test model",
+            "ano": "2021"
+        },
+        {
+            "id": "d0970556f20f1a045ef3090bf9719bac",
+            "carro": "gol",
+            "marca": "volks",
+            "modelo": "gts",
+            "ano": "2001"
+        }
+    ]
+}
+````
+
+
+### Units Tests
+Its not usually or security to use an API route to tests, but to simple the process for analize, the endpoint "tests" was created.
+You else can test by the follow way:
+
+```php
+use App\Tests\Tests;
+
+Tests::runTests();
+
+```

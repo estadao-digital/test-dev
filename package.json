@@ -1,0 +1,26 @@
+{
+  "name": "estadao_globant_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "gulp-sourcemaps": "^2.6.5",
+    "sweetalert2": "^10.13.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-util": "^3.0.8",
+    "node-sass": "^5",
+    "webpack": "^5.12.2",
+    "webpack-cli": "^4.3.1"
+  },
+  "scripts": {
+    "build-scss": "node-sass _scss/ -o assets/css/ --recursive false",
+    "watch-scss": "node-sass --watch _scss/ -o assets/css/ --recursive false",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC"
+}
