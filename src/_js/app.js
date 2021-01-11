@@ -5,21 +5,22 @@ class App{
         this.cars=new Cars();
         this.boot();
         
+        
     }
 
     boot(){
-         this.cars.listCars().then((res)=>{
-             if(res){
-                $(".edit_car").on("click",(e)=>{
-                    console.log(".edit_car");
-                })
-                $(".delete_car").on("click",(e)=>{
-                    console.log(".delete_car");
-                })
-               
-             }
+        $(".nav_list_car").on("click",(e)=>{
+            this.cars.listCars().then((res)=>{});
+        })
+        $(".new_car").on("click",(e)=>{
+            $("#carsModal").modal("show");
+
+            this.cars.renderNewCar().then((res)=>{
+            });
             
-        });
+        })
+         this.cars.listCars().then((res)=>{});
+         
       
     }
 }

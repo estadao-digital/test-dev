@@ -10,6 +10,7 @@ class Template{
         include "app/Views/Template/Header.php";
         include "app/Views/Template/Nav.php";
         include "app/Views/$view.php";
+        include "app/Views/Template/Modals.php";
         include "app/Views/Template/Footer.php";
     }
 }

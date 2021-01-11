@@ -34,7 +34,12 @@ class CarsModel{
 
     public function delete($id){
         $delete=$this->db->delete(["id"=>$id],"cars");
-        return ["success"=>true,"method"=>"delete","data"=>["id"=>$id]];
+        if($delete){
+            return ["success"=>true,"method"=>"delete","data"=>["id"=>$id]];
+        }else{
+            return ["success"=>false,"method"=>"delete","error"=>"id não encontrado "];
+        }
+        
 
     }
 

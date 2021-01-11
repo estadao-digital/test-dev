@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp-sourcemaps": "^2.6.5",
+    "sweetalert2": "^10.13.0"
   },
   "devDependencies": {
     "gulp": "^4.0.2",

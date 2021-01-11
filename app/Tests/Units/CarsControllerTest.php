@@ -40,29 +40,31 @@ class CarsControllerTest{
 
     }
 
-    public function ShouldList_andReceiveJson(){
-        $list=$this->$carsController->list();
-        if($list['data'][0]['id']!=""){
-            $characterId=true;
-        }
-        Tests::assertEquals(true,$characterId,"ShouldList_andReceiveJson");
-    }
-
     public function ShouldShow_andReceiveJson(){
+       
         $show=$this->$carsController->show($this->lastId);
-        if($show['data']['id']!=""){
+        if($show['success']){
             $characterId=true;
         }
         Tests::assertEquals(true,$characterId,"ShouldShow_andReceiveJson");
     }
 
+    public function ShouldList_andReceiveJson(){
+        $list=$this->$carsController->list();
+        if($list['success']){
+            $characterId=true;
+        }
+        Tests::assertEquals(true,$characterId,"ShouldList_andReceiveJson");
+    }
+
+   
+
     public function ShouldUpdate_andReceiveJson(){
         $params=[
             "carro"=>"Im a updated Unit Test Car"
         ];
-
+       
        $update=$this->$carsController->update($this->lastId,$params);
-       $expected=$insert['success'];
        $updatedName=$update['data']['carro'];
        Tests::assertEquals($params['carro'],$updatedName,"ShouldUpdate_andReceiveJson");
     }

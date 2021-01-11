@@ -57,71 +57,52 @@ class JsonDb{
         public function delete($cond = array() , $table = '')
         {
             $result = $this->obj2array($this->getAll($table));
-            $cond_array = array();
-            foreach($result as $key => $value)
-            {
-                if(array_intersect($value , $cond))
-                {
-                    array_push($cond_array , $key);
-                }
-            }
-            if(count($cond_array) > 0)
-            {
-                foreach ($cond_array as $value) 
-                {
-                    unset($result[$value]);
-                }
-                $result = $this->replace($result , $table);
-                if($result)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
+            $findIndex=array_search($cond['id'],array_column($result, 'id'));
+             
+            if(!is_int($findIndex)){
                 return false;
             }
+            $n_array=[];
+            foreach($result as $car){
+                if($car['id']!=$cond['id']){
+                    $n_array[]=$car;
+                }
+            }
+            if(is_array($n_array) && count($n_array)>0){
+                $result = $this->replace($n_array , $table);
+            }else{
+                $this->initDB($table);
+            }
+            return true;
+            
         }
     
      
          public function update($cond = array() , $content = array() , $table = '')
          {
             $result = $this->obj2array($this->getAll($table));
-            $cond_array = array();
-            foreach($result as $key => $value)
-            {
-                if(array_intersect($value , $cond))
-                {
-                    array_push($cond_array , $key);
-                }
-            }
-            if(count($cond_array) > 0)
-            {
-                foreach ($cond_array as $value) 
-                {
-                    foreach($content as $key => $v)
-                    {
-                        isset($result[$value][$key]) ? $result[$value][$key]= $v : null;
-                    }
-                }
-                $result = $this->replace($result , $table);
-                if($result)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
+            $findIndex=array_search($cond['id'],array_column($result, 'id'));
+             
+            if(!is_int($findIndex)){
                 return false;
             }
+            $n_array=[];
+            foreach($result as $car){
+                
+                if($car['id']==$cond['id']){
+                    foreach($content as $keyc => $cont){
+                        $car[$keyc]=$cont; 
+                    }
+                  
+                }
+                $n_array[]=$car;
+            }
+            if(is_array($n_array) && count($n_array)>0){
+                $result = $this->replace($n_array , $table);
+            }else{
+                $this->initDB($table);
+            }
+            return true;
          }
         
     
@@ -185,7 +166,7 @@ class JsonDb{
         private function replace($content = array() , $table = '')
         {
             $content = json_encode($content);
-    
+            
             $_path = str_replace('\\','/',$table);
             $_path .= '.json';
             $db_url = $this->__db.'/'.self::$__db_prefix.$_path;
@@ -199,6 +180,13 @@ class JsonDb{
             {
                 return false;
             }
+        }
+
+        public function initDB($_path){
+            $_path .= '.json';
+            $db_url = $this->__db.'/'.self::$__db_prefix.$_path;
+            
+            $result = file_put_contents($db_url, "{}");
         }
     
 

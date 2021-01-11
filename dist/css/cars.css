@@ -1,6 +1,35 @@
-.receive_content .cars_lines:nth-child(odd) {
-  background-color: #e4e4e4; }
+.navbar .menu-div {
+  -ms-flex-item-align: center;
+      align-self: center; }
 
 @media (max-width: 767.9px) {
+  .navbar .navbar-toggler {
+    width: 100%; } }
+
+.navbar .new_car {
+  padding-left: 0px; }
+
+.receive_content {
+  padding: 10%; }
+  @media (max-width: 767.9px) {
+    .receive_content {
+      padding: 0 10% 0 10%; } }
   .receive_content .head-cars {
-    display: none; } }
+    margin: 0;
+    padding: 10px;
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left; }
+    @media (max-width: 767.9px) {
+      .receive_content .head-cars {
+        display: none; } }
+  .receive_content .bg_even {
+    background-color: #f3f3f3; }
+  .receive_content .cars_lines {
+    border-bottom: 1px solid #dddddd; }
+    @media (max-width: 767.9px) {
+      .receive_content .cars_lines {
+        margin-top: 20px; } }
+  .receive_content .bg-custom {
+    background-color: #d6fbed;
+    font-weight: bold; }
