@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col s12 white">
+        <h1>Formulário do cliente <button class="btn waves-effect waves-light green right" onclick="Router.to('carro/lista')"><i class="material-icons">arrow_back</i></button></h1>
+
+        <div class="col s11">
+            <form id="form-carro" onsubmit="saveCarro(); return false;">
+                <input type="hidden" id="carro-id" name="id" value="">
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <select name="marca" id="carro-marca" required></select>
+                        <label for="carro-marca">Marca</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <input type="text" name="modelo" id="carro-modelo" required>
+                        <label for="modelo">Modelo</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <input type="number" name="ano" id="carro-ano" required>
+                        <label for="carro-ano">Ano</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <button class="btn green" type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        let params = Router.getParams();
+
+        let marcas = MarcaService.getMarcas((marcas) => {
+            marcas.forEach(marca => {
+                let option = `<option value="${marca.id}">${marca.nome.toUpperCase()}</option>`
+                $("#carro-marca").append(option);
+            });
+            $('#carro-marca').formSelect();
+        });
+
+        if (params && params.id) {
+            CarroService.getCarro(params.id, fillForm);
+        }
+
+    });
+
+    function saveCarro() {
+        let formdata = $('#form-carro').serialize();
+        let params = Router.getParams();
+
+        if (!params) {
+            CarroService.create(formdata, response => {
+                let toastHTML = '<span>*Carro salvo com sucesso!</span>';
+                M.toast({ html: toastHTML, classes: 'rounded' });
+            });
+        } else {
+            CarroService.update(params.id, formdata, () => {
+                let toastHTML = '<span>*Carro salvo com sucesso!</span>';
+                M.toast({ html: toastHTML, classes: 'rounded' });
+            });
+        }
+    }
+
+    function fillForm(data) {
+        $('#carro-id').val(data.id);
+        $('#carro-marca').val(data.marca.id);
+        $('#carro-modelo').val(data.modelo);
+        $('#carro-ano').val(data.ano);
+
+        M.updateTextFields();
+        $('#carro-marca').formSelect();
+    }
+</script>

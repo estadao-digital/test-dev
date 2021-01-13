@@ -1,0 +1,15 @@
+{
+    "name": "caio000/mosyle_challenge",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Caio de Freitas",
+            "email": "caiof.adriano@hotmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "src/"
+        }
+    }
+}
