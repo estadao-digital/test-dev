@@ -1,0 +1,23 @@
+{
+  "name": "test-dev",
+  "version": "1.0.0",
+  "description": "Teste para desenvolvedor do Estadão\r ==============================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caio000/test-dev.git"
+  },
+  "author": "Caio de Freitas Adriano <caiof.adriano@hotmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caio000/test-dev/issues"
+  },
+  "homepage": "https://github.com/caio000/test-dev#readme",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "materialize-css": "^1.0.0-rc.2"
+  }
+}

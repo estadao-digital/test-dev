@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="col s12">
+        <h1>Carros <button class="btn waves-effect waves-light green right" onclick="Router.to('carro/formulario')">Novo</button></h1>
+
+        <table class="responsive-table" id="table-carro">
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Ano</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal-delete" class="modal">
+    <div class="modal-content">
+        <h4>Excluir o carro?</h4>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Não</a>
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat btn-confirm">Sim</a>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(() => {
+        $('.modal').modal();
+
+        
+        CarroService.getCarros(fillTable);
+    });
+
+    function fillTable(data) {
+        $('#table-carro').find('tbody').empty();
+        data.forEach(carro => {
+
+            let row =
+                `<tr>
+                    <td>${carro.marca.nome}</td>
+                    <td>${carro.modelo}</td>
+                    <td>${carro.ano}</td>
+                    <td>
+                        <button onClick="edit('${carro.id}')" class="btn green">Editar</button>
+                        <button onClick="confirmDelete('${carro.id}')" class="btn red">Excluir</button>
+                    </td>
+                </tr>`;
+            $('#table-carro tbody').append(row);
+        });
+    }
+
+    function edit(id) {
+        Router.to('carro/formulario', {'id':id});
+    }
+
+    function confirmDelete(id) {
+        let modal = $('#modal-delete');
+        let instance = M.Modal.getInstance(modal);
+        modal.find('a.btn-confirm').on('click', function () {
+            CarroService.delete(id, function (response) {
+                let toastHTML = '<span>*Carro excluido com sucesso!</span>';
+                M.toast({ html: toastHTML, classes: 'rounded' });
+                modal.find('a.btn-confirm').unbind('click');
+
+                // reload table
+                CarroService.getCarros(fillTable);
+            });
+        });
+
+        instance.open();
+    };
+</script>
