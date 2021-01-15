@@ -1,5 +1,0 @@
-<?php
-/**
-* Classe do carro
-*/
-?>
