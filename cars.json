@@ -1,0 +1,44 @@
+{
+    "0": {
+        "id": 1,
+        "marca": "Ford",
+        "modelo": "Fiesta",
+        "ano": "2017"
+    },
+    "1": {
+        "id": 2,
+        "marca": "Ford",
+        "modelo": "Ka",
+        "ano": 2010
+    },
+    "2": {
+        "id": 3,
+        "marca": "GM",
+        "modelo": "Celta",
+        "ano": 2010
+    },
+    "3": {
+        "id": 4,
+        "marca": "GM",
+        "modelo": "\u00d4nix",
+        "ano": "2017"
+    },
+    "6": {
+        "marca": "Ford",
+        "modelo": "Escort",
+        "ano": "1985",
+        "id": 7
+    },
+    "8": {
+        "marca": "GM",
+        "modelo": "Gol GV",
+        "ano": "2015",
+        "id": 9
+    },
+    "10": {
+        "marca": "GM",
+        "modelo": "\u00d4nix Joy",
+        "ano": "2018",
+        "id": 11
+    }
+}

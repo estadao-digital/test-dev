@@ -1,0 +1,38 @@
+*{
+    font-family: sans-serif;
+}
+
+body{
+    flex: 0 0 100%;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.cell{
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+    padding: 20px;
+
+}
+label{
+    display: block;
+}
+.input{
+    display: block;
+
+}
+input, select{
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+table{
+    border: 1px solid gray;
+}
+tbody tr:nth-child(odd){
+    background-color: lightgray;
+}
