@@ -1,0 +1,59 @@
+version: '3'
+
+networks:
+  desafio-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 192.168.1.1/24
+
+services:
+
+  app:
+    container_name: app-desafio
+    image: rrooliveira/backendchallenge
+    restart: always
+    ports:
+      - "8083:8083"
+    networks:
+      - desafio-network
+    volumes:
+      - .:/var/www/html
+    tty: true
+
+  mysql:
+    container_name: mysql-desafio
+    image: rrooliveira/mysql
+    restart: always
+    tty: true
+    environment:
+      - MYSQL_DATABASE=desafio
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - "3306:3306"
+      - "33060:33060"
+    volumes:
+      - ./.docker/mysql/dbdata:/var/lib/mysql
+      - ./.docker/mysql/script:/docker-entrypoint-initdb.d
+    networks:
+      - desafio-network
+
+  mysql-testing:
+    container_name: mysql-testing
+    image: rrooliveira/mysql
+    restart: always
+    tty: true
+    environment:
+      - MYSQL_DATABASE=desafio
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - "33066:3306"
+      - "33069:33060"
+    volumes:
+      - ./.docker/mysql/dbdata-testing:/var/lib/mysql
+      - ./.docker/mysql/script:/docker-entrypoint-initdb.d
+    networks:
+      - desafio-network
