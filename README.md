@@ -1,54 +1,87 @@
-Teste para desenvolvedor do Estadão
-==============================
+## Aplicação
 
-Olá candidato,
+Esta aplicação realiza o cadastro de carros de acordo com a marca, modelo e ano.
 
-Esse teste consiste em 2 etapas para avaliarmos seu conhecimento em PHP e Front-End (HTML5, CSS e JavaScript)
+## Importante
 
-Para realizar o teste, você deve dar um fork neste repositório e depois clona-lo na pasta <document_root> da máquina que está realizando o teste.
+- As tabelas do banco de dados são as seguintes:
+    * users (Usuários da aplicação)
+    * cars (Cadastro dos carros)
+    * brands (Marca dos carros)
+    * Payload `{
+      "marca" : "7",
+      "modelo" : Onix,
+      "ano" : "2021"
+      }`
 
-Crie um branch com seu nome, e quando finalizar todo o desenvolvimento, você deverá enviar um pull-request com sua versão.
+## Ambiente
 
-O teste
---------
+Aplicação desenvolvida utilizando o Laravel versão 6, banco de dados Mysql, Swagger e Docker.
 
-### Back-End/PHP
+A porta para executar a aplicação é a 8083.
 
-A primeira etapa será o desenvolvimento **backend/PHP**:
+Foram criados 3 containers um para executar a  aplicação, sendo, `app-desafio` para a aplicação, `app-mysql` para o banco de dados e `app-mysql-testing` para execução dos testes.
 
-**Descrição:**
+## Instalação
 
-- Você deverá desenvolver uma 'mini api' para que seja possível realizar operações CRUD do objeto Carro.
-> **Obs:**
-> - Você pode usar arquivo (txt, json) como banco de dados.
-> - Cada carro deve ter ID, Marca, Modelo, Ano.
+Para executar a aplicação é necessário realizar os procedimentos abaixo:
 
-Sugerimos o retorno dessa 'mini api' nas seguinte urls:
+- Baixar o projeto
+- Renomear o arquivo `.env.example` para `.env`
+- Executar o comando para criar os cotainers Docker `docker-compose up -d`
+- Executar o comando para baixar as dependências `composer install`
+    * Ou via Docker, `docker-compose exec app composer install`
+- Executar o comando para gerar a nova chave do Laravel `php artisan key:generate`
+    * Ou via Docker, `docker-compose exec app php artisan key:generate`
+- Executar o comando para criar as tabelas do banco de dados `php artisan migrate`
+    * Ou via Docker, `docker-compose exec app php artisan migrate`
+- Executar o comando para popular o banco de dados `php artisan db:seed`
+    * Ou via Docker, `docker-compose exec app php artisan db:seed`
+- Excutar o comando para ativar a fila de processamento `php artisan queue:listen redis`
+    * Ou via Docker, `docker-compose exec app php artisan queue:listen redis`
 
- - `/carros` - [GET] deve retornar todos os carros cadastrados.
- - `/carros` - [POST] deve cadastrar um novo carro.
- - `/carros/{id}`[GET] deve retornar o carro com ID especificado.
- - `/carros/{id}`[PUT] deve atualizar os dados do carro com ID especificado.
- - `/carros/{id}`[DELETE] deve apagar o carro com ID especificado.
+## Endpoints
 
-### Front-End
+- Lista todos os usuários da aplicação. A senha de todos os usuários cadastrados é `password`
+    * http://localhost:8083/api/users
 
-Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Application) e nela deve ser possível:
+- Autenticação dos usuários
+    * http://localhost:8083/api/auth/login (Efetua o login)
+        * Payload `{ "email": "user_email", "password": "user_password" }`
+    * http://localhost:8083/api/auth/logout (Efetua logout)
+    * http://localhost:8083/api/auth/refresh (Atualiza os dados do token)
+    * http://localhost:8083/api/auth/me (Mostra informações do usuário)
 
-- Ver a lista de carros cadastrados
-- Criar um novo carro
-- Editar um carro existente
-- Apagar um carro existente
+- Listagem de todos os carros cadastrados (GET)
+    * http://localhost:8083/api/carros
 
-> **Obs:**
-> - A página deve ser responsiva.
-> - A página deve funcionar 100% via AJAX, sem outros carregamentos de páginas.
-> - Ao criar/editar um carro, o campo "marca" deverá ser um `SELECT`
+- Cadastro dos carros (POST)
+    * http://localhost:8083/api/carros
+        * Payload `{ "marca": 7, "modelo": "Celta", "ano": "2011" }`
+    
+- Dados do carro por ID específicado (GET)
+    * http://localhost:8083/api/carros/{id}
+    
+- Atualização dos dados do carro (PUT)
+    * http://localhost:8083/api/carros/{id}
+        * Payload `{ "marca": 7, "modelo": "Celta", "ano": "2021" }`
+    
+- Excluir cadastro do carro (DELETE)
+  * http://localhost:8083/api/carros/{id}
+    
+- SinglePage (Listagem, cadastro, alteração e exclusão dos carros)
+    * http://localhost:8083
 
-### Observações importantes:
+- Documentação
+    * http://localhost:8083/api/documentation (Documentação do endpoint).
 
-- Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
-- Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.
-- Você pode usar ferramentas de automação (Grunt, Gulp), mas deverá informar o uso completo para funcionamento do teste.
-- Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.
-- Será considerado ponto positivo o tempo gasto na realização do teste. Menos tempo e tudo funcionando conforme pedido será melhor avaliado.
+## Testes
+
+Para realizar os testes unitários execute o comando `composer tests-unit`
+* Ou via Docker, `docker-compose exec app composer tests-unit`
+
+
+## Desenvolvedor
+
+- Rodrigo Ruy Oliveira
+- Email: rro.oliveira@gmail.com
