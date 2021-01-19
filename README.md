@@ -1,5 +1,5 @@
-**Candidato: ** Luccas Beck Reis
-**Experiência com PHP/ Full-Stack: ** Sênior
+**Candidato:** Luccas Beck Reis
+**Experiência com PHP/ Full-Stack:** Sênior
 
 #### COMO EXECUTAR
 Criar um banco de dados chamado carrosdb e importar o arquivo carrosdb.sql presente na raiz.
