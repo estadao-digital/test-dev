@@ -23,4 +23,6 @@ https://www.loom.com/share/e3f99b45dcfe4e34bdd7a53ad54d3c63
 
 **MYSQL:** Também escolhi utilizar de uma conexão direta ao MySQL, mostrando assim minhas habilidades com PDO e minha maneira não invasiva de manipular um banco.
 
+Dentro do Model, em cada função do CRUD, incluí o arquivo Database.php, pode parecer mal otimizado, mas foi para apresentar a possibilidade de termos diferentes usuários/conexões ao BD. Cada um com sua própria permissão.
+
 Estou à disposição para quaisquer dúvidas, o projeto fora desenvolvido em praticamente 3:30, devido à estilização, uma vez que toda a comunicação estava funcionando em 3Hrs aprox.
