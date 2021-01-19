@@ -9,6 +9,10 @@ Por ser um projeto PHP, podes colocar tanto na pasta www quanto na pasta htdocs
 #### EXEMPLO DE FUNCIONAMENTO
 https://www.loom.com/share/6e0dc44b1eac4a4bb5089bc4a7192310
 
+#### EXEMPLO DE FUNCIONAMENTO COM RESPONSIVIDADE
+
+https://www.loom.com/share/e3f99b45dcfe4e34bdd7a53ad54d3c63
+
 #### DETALHES DO PROJETO
 
 **Arquitetura:** Multicamadas, semelhante à MVC, com models, no qual apresentam e descrevem a estrutura das entidades do sistema. Controller, no qual funciona como a descrita "mini API", a qual, baseado na request dada, executa uma ação diferente. Já a camada de visualização não está explícita, porém por ser SPA, o arquivo index cuida disso perfeitamente.
