@@ -1,54 +1,28 @@
-Teste para desenvolvedor do Estadão
-==============================
+**Candidato:** Luccas Beck Reis
 
-Olá candidato,
+**Experiência com PHP/ Full-Stack:** Sênior
 
-Esse teste consiste em 2 etapas para avaliarmos seu conhecimento em PHP e Front-End (HTML5, CSS e JavaScript)
+#### COMO EXECUTAR
+Criar um banco de dados chamado carrosdb e importar o arquivo carrosdb.sql presente na raiz.
+Por ser um projeto PHP, podes colocar tanto na pasta www quanto na pasta htdocs
 
-Para realizar o teste, você deve dar um fork neste repositório e depois clona-lo na pasta <document_root> da máquina que está realizando o teste.
+#### EXEMPLO DE FUNCIONAMENTO
+https://www.loom.com/share/6e0dc44b1eac4a4bb5089bc4a7192310
 
-Crie um branch com seu nome, e quando finalizar todo o desenvolvimento, você deverá enviar um pull-request com sua versão.
+#### EXEMPLO DE FUNCIONAMENTO COM RESPONSIVIDADE
 
-O teste
---------
+https://www.loom.com/share/e3f99b45dcfe4e34bdd7a53ad54d3c63
 
-### Back-End/PHP
+#### DETALHES DO PROJETO
 
-A primeira etapa será o desenvolvimento **backend/PHP**:
+**Arquitetura:** Multicamadas, semelhante à MVC, com models, no qual apresentam e descrevem a estrutura das entidades do sistema. Controller, no qual funciona como a descrita "mini API", a qual, baseado na request dada, executa uma ação diferente. Já a camada de visualização não está explícita, porém por ser SPA, o arquivo index cuida disso perfeitamente.
 
-**Descrição:**
+**Frameworks:** JQuery e Bootstrap. Ambos frameworks para frontend, otimizando não só as interações usuário/view, mas também aplicando responsividade e qualidade no código. Com o bootstrap, não precisei fazer um código CSS sequer, utilizei apenas classes do BS para este fim.
 
-- Você deverá desenvolver uma 'mini api' para que seja possível realizar operações CRUD do objeto Carro.
-> **Obs:**
-> - Você pode usar arquivo (txt, json) como banco de dados.
-> - Cada carro deve ter ID, Marca, Modelo, Ano.
+**PHP:** Decidi não utilizar Laravel, devido à facilidade de implementação de uma solução. Optei por fazer em PHP puro para apresentar meu conhecimento na linguagem, podendo, até, preparar uma REST API sem a necessidade de frameworks, do mesmo modo que procurei apresentar meu conhecimento em POO, além de desenvolvimento de algoritmos para o CRUD e tratamento de excessões.
 
-Sugerimos o retorno dessa 'mini api' nas seguinte urls:
+**MYSQL:** Também escolhi utilizar de uma conexão direta ao MySQL, mostrando assim minhas habilidades com PDO e minha maneira não invasiva de manipular um banco.
 
- - `/carros` - [GET] deve retornar todos os carros cadastrados.
- - `/carros` - [POST] deve cadastrar um novo carro.
- - `/carros/{id}`[GET] deve retornar o carro com ID especificado.
- - `/carros/{id}`[PUT] deve atualizar os dados do carro com ID especificado.
- - `/carros/{id}`[DELETE] deve apagar o carro com ID especificado.
+Dentro do Model, em cada função do CRUD, incluí o arquivo Database.php, pode parecer mal otimizado, mas foi para apresentar a possibilidade de termos diferentes usuários/conexões ao BD. Cada um com sua própria permissão.
 
-### Front-End
-
-Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Application) e nela deve ser possível:
-
-- Ver a lista de carros cadastrados
-- Criar um novo carro
-- Editar um carro existente
-- Apagar um carro existente
-
-> **Obs:**
-> - A página deve ser responsiva.
-> - A página deve funcionar 100% via AJAX, sem outros carregamentos de páginas.
-> - Ao criar/editar um carro, o campo "marca" deverá ser um `SELECT`
-
-### Observações importantes:
-
-- Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
-- Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.
-- Você pode usar ferramentas de automação (Grunt, Gulp), mas deverá informar o uso completo para funcionamento do teste.
-- Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.
-- Será considerado ponto positivo o tempo gasto na realização do teste. Menos tempo e tudo funcionando conforme pedido será melhor avaliado.
+Estou à disposição para quaisquer dúvidas, o projeto fora desenvolvido em praticamente 3:30, devido à estilização, uma vez que toda a comunicação estava funcionando em 3Hrs aprox.
