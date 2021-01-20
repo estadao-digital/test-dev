@@ -22,3 +22,4 @@ $router->get('/carro/{id}',     '\App\Http\Controllers\CarroController@carregar_
 $router->post('/carro',         '\App\Http\Controllers\CarroController@adicionar_carro');
 $router->put('/carro/{id}',     '\App\Http\Controllers\CarroController@editar_carro');
 $router->delete('/carro/{id}',  '\App\Http\Controllers\CarroController@deletar_carro');
+
