@@ -26,7 +26,10 @@ class Cars extends Component
     {
         $this->cars = Car::all();
         $this->brands = Brand::all();
-        $this->models = Model::all();
+
+        if ($this->brand_id) {
+            $this->models = Model::where('brand_id', $this->brand_id)->get();
+        }
 
         return view('livewire.cars');
     }

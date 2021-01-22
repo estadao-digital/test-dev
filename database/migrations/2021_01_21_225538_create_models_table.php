@@ -15,8 +15,10 @@ class CreateModelsTable extends Migration
     {
         Schema::create('models', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('brand_id');
             $table->string('name');
             $table->timestamps();
+            $table->foreign('brand_id')->references('id')->on('brands');
         });
     }
 

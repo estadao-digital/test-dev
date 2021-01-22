@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,9 +16,37 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        $this->call([
-            BrandSeeder::class,
-            ModelSeeder::class
-        ]);
+        // Simple array of brands and models
+        $items = [
+            'Fiat' => [
+                'Punto',
+                'Palio'
+            ],
+            'Ford' => [
+                'Fiesta',
+                'Ka'
+            ],
+            'Volkswagen' => [
+                'Gol',
+                'Fox',
+                'CrossFox'
+            ]
+        ];
+
+        // Create data
+        foreach ($items as $key => $item) {
+            $data = DB::table('brands')->insertGetId([
+                'name' => $key,
+                'created_at' => date("Y-m-d H:i:s")
+            ]);
+
+            foreach ($item as $value) {
+                DB::table('models')->insert([
+                    'brand_id' => $data,
+                    'name' => $value,
+                    'created_at' => date("Y-m-d H:i:s")
+                ]);
+            }
+        }
     }
 }

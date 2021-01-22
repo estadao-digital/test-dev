@@ -17,9 +17,11 @@
             <label for="brand">Model</label>
             <select class="form-control" wire:model="model_id" id="model">
                 <option value="">-</option>
-                @foreach($models as $model)
-                    <option value="{{ $model->id }}">{{ $model->name }}</option>
-                @endforeach
+                @if($models)
+                    @foreach($models as $model)
+                        <option value="{{ $model->id }}">{{ $model->name }}</option>
+                    @endforeach
+                @endif
             </select>
             @error('model_id') <span class="text-danger">{{ $message }}</span>@enderror
         </div>
