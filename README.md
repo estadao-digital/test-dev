@@ -6,4 +6,5 @@ Just run the bash to create local environment.
 $ bash run.sh
 ```
 
+In the screnshot folder there are some details of the API.
 
