@@ -1,5 +1,6 @@
 <?php
     $localBanco = 'banco';
+    $camposInteiros = Array('marca_id', 'ano');
 
     function pegaTuplaPorId(String $nomeTabela, int $id)
     {
@@ -27,9 +28,21 @@
     function criaTupla (String $nomeTabela, array $tupla) {
       $lista = pegaTabela($nomeTabela);
       $tupla['id'] = count($lista) + 1;
-      array_push($lista, $tupla);
+      array_push($lista, trataInteiros($tupla));
   
       consisteTabela($nomeTabela, $lista);
+    }
+
+    function trataInteiros ($tupla) {
+      global $camposInteiros;
+
+      foreach ($camposInteiros as $campo) {
+        if (isset($tupla[$campo])) {
+          $tupla[$campo] = (int) $tupla[$campo];
+        }
+      }
+
+      return $tupla;
     }
   
     function consisteTabela (String $nomeTabela, array $lista) {
@@ -39,8 +52,8 @@
     function editaTupla (String $nomeTabela, array $tuplaAlterada) {
       $lista = pegaTabela($nomeTabela);
       foreach($lista as $key=>$value) {
-        if ($value['id'] == $tuplaAlterada['id']){
-            $lista[$key] = $tuplaAlterada;
+        if ($value['id'] == (int) $tuplaAlterada['id']){
+            $lista[$key] = trataInteiros($tuplaAlterada);
             
             break;
         }
@@ -52,7 +65,7 @@
     function deletaTupla (String $nomeTabela, int $id) {
       $lista = pegaTabela($nomeTabela);
       foreach($lista as $key=>$value) {
-        if ($value['id'] == $id){
+        if ($value['id'] == (int) $id){
             unset($lista[$key]);
             
             break;
