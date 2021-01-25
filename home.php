@@ -17,12 +17,16 @@ $page = '
   <link rel="stylesheet" href="css/main.css">
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 </head>
 
 <body>
   <h1>Olá</h1>
-  <button onClick="mostraCarros();"></button>
-  <button onClick="mostraMarcas();"></button>
+  <input id="modelo_valor" type="text" placeholder="digite o modelo">
+  <div id="marcas_lista"></div>
+  <input id="ano_valor" type="text" placeholder="digite o ano">
+  <button onClick="adicionaCarro();">Cria</button>
+
   <script src="js/main.js"></script>
 </body>
 

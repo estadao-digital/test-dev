@@ -22,19 +22,19 @@ $router->get('/carros', function($request) {
 $router->post('/carros', function($request) {
     $carro = $request->getBody();
     criaTupla('carros', $carro);
-    return "OK";
+    return "CRIADO";
 });
 
 $router->post('/edita_carros', function($request) {
     $carro = $request->getBody();
     editaTupla('carros', $carro);
-    return "OK";
+    return "EDITADO";
 });
 
 $router->post('/deleta_carros', function($request) {
     $carro = $request->getBody();
     deletaTupla('carros', $carro['id']);
-    return "OK";
+    return "DELETADO";
 });
 
 $router->get('/marcas', function($request) {
