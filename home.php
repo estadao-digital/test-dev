@@ -21,8 +21,10 @@ $page = '
 </head>
 
 <body>
-  <h1>Olá</h1>
-  <div id="carros_container"></div>
+  <center class="page_container">
+    <h1>Carros</h1>
+    <div id="carros_container"></div>
+  </center>
 
   <script src="js/main.js"></script>
 </body>

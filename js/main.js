@@ -31,9 +31,9 @@ function axiosPost(rota, dados){
 
 function geraElementoCarro(carro, marcasPromise){
     count = $('.marca_id_valor').size() + 1
-    let elemento = `<div id="carro${count}">`+
+    let elemento = `<div class="input_container" id="carro${count}">`+
     `<input disabled class="modelo_valor" id="modelo${count}" type="text" value="${carro.modelo}">`+
-    `<select disabled value="${carro.marca_id}" class="marca_id_valor" id="marca_id${count}"></select>`+
+    `<select disabled value="${carro.marca_id}" class="marca_id_valor" id="marca_id${count}"><option>Marca</option></select>`+
     `<input disabled class="ano_valor" id="ano${count}" type="text" placeholder="digite o ano" value="${carro.ano}">`+
     `<button id="habilita${count}" class="habilita" onClick="habilitaEdicao(${count});">Edita</button>`+
     `<button id="edita${count}" class="edita" onClick="editaCarro(${count}, ${carro.id});">Confirma</button>`+
@@ -62,10 +62,10 @@ function refreshMarcas() {
 
 function geraCarroVazio() {
     count = $('.marca_id_valor').size() + 1
-    let elemento = `<div>`+
-    `<input class="modelo_valor" type="text" id="modelo${count}" placeholder="Insira o modelo">`+
-    `<select class="marca_id_valor" id="marca_id${count}"></select>`+
-    `<input class="ano_valor" type="text" id="ano${count}" placeholder="Insira o ano">`+
+    let elemento = `<div class="novo_input_container">`+
+    `<input class="modelo_valor" type="text" id="modelo${count}" placeholder="Modelo">`+
+    `<select class="marca_id_valor" id="marca_id${count}" value=""><option value="" disabled >Marca</option></select>`+
+    `<input class="ano_valor" type="text" id="ano${count}" placeholder="Ano">`+
     `<button onClick="adicionaCarro(${count})">Adiciona</button>`+
     '</div>'
     selectMarcas(marcasPromise, count)
@@ -91,7 +91,7 @@ const habilitaEdicao = numero => {
     const campos = ['modelo', 'ano', 'marca_id']
     campos.forEach(item => $(`#${item}${numero}`).removeAttr('disabled'))
     $(`#habilita${numero}`).css('display', 'none')
-    $(`#edita${numero}`).css('display', 'block')
+    $(`#edita${numero}`).css('display', 'inline')
 }
 
 const editaCarro = (numero, id) => {
