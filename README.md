@@ -1,3 +1,7 @@
+Para testá-lo, basta rodar o seguinte comando de terminal na pasta 'test-dev':
+
+$`php -S 127.0.0.1:8000` 
+
 Teste para desenvolvedor do Estadão
 ==============================
 

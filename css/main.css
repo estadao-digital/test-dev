@@ -1,0 +1,41 @@
+.edita{
+    display: none;
+}
+
+.page_container {
+    box-shadow: 1px 1px 3px 2px #ccc;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+input {
+    line-height: normal;
+    border: solid 1px #cecece;
+    padding: 10px 20px;
+    border-radius: 50px;
+    margin: 2%;
+}
+
+.modelo_valor {
+    max-width: 15%;
+}
+
+.ano_valor {
+    max-width: 10%;
+}
+
+.input_container {
+    float: left;
+}
+
+button, select {
+    padding: 12px 18px;
+    border-radius: 50px;
+    border: 0px;
+    box-shadow: 1px 1px 3px 2px #ccc;
+    margin: 0 1%;
+}
+
+select {
+    background-color: white;
+}
