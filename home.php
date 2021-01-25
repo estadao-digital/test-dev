@@ -22,10 +22,7 @@ $page = '
 
 <body>
   <h1>Olá</h1>
-  <input id="modelo_valor" type="text" placeholder="digite o modelo">
-  <div id="marcas_lista"></div>
-  <input id="ano_valor" type="text" placeholder="digite o ano">
-  <button onClick="adicionaCarro();">Cria</button>
+  <div id="carros_container"></div>
 
   <script src="js/main.js"></script>
 </body>

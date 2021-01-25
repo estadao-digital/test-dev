@@ -1,0 +1,8 @@
+.edita{
+    display: none;
+}
+
+select[readonly]{
+    pointer-events: none;
+    touch-action: none;
+}
