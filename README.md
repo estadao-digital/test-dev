@@ -45,8 +45,19 @@ Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Ap
 > - A página deve funcionar 100% via AJAX, sem outros carregamentos de páginas.
 > - Ao criar/editar um carro, o campo "marca" deverá ser um `SELECT`
 
-### Observações importantes:
+### Ambiente
 
+Esse teste com um ambiente Docker funcional, ou seja, basta rodar os comandos para subir o container da aplicação e acessar a URL do projeto no navegador.
+
+Para rodar o ambiente, é necessário ter o Docker Compose instalado, e rodar o seguinte comando:
+> docker-compose up -d nginx
+
+Após o ambiente subir, basta acessar a URL abaixo e começar a desenvolver:
+> http://localhost:8080
+
+### Observações importantes:
+- O teste só será considerado se rodar através do Docker.
+- Caso seja necessário, você pode alterar **qualquer** configuração do Docker. Atente-se apenas que o ambiente não precise de nenhuma configuração adicional.
 - Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
 - Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.
 - Você pode usar ferramentas de automação (Grunt, Gulp), mas deverá informar o uso completo para funcionamento do teste.
