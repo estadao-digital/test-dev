@@ -1,0 +1,69 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Gestão de Carros</li>
+  </ol>
+</nav>
+<div class="container">
+  <div class="card list-car">
+    <h5 class="card-header">Lista de Carros</h5>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" class="d-none">ID</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col" class="text-center">Ano</th>
+            <th scope="col" class="text-center">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars">
+            <td class="d-none">{{car.id}}</td>
+            <td>{{car.marca}}</td>
+            <td>{{car.modelo}}</td>
+            <td class="text-center">{{car.ano}}</td>
+            <td class="text-center">
+              <button type="button" class="btn btn-outline-primary btn-sm" (click)="editCar(car)">Editar</button>
+              <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteCar(car)">Deletar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card add-car">
+    <h5 class="card-header">Adicionar/Atualizar Carro</h5>
+    <div class="card-body">
+      <form id="add-form" (ngSubmit)="f.form.valid && saveCar(f)" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="model">Marca</label>
+          <select id="marca" class="form-control" [(ngModel)]="car.marca" id="marca" name="marca" #marca="ngModel">
+            <option *ngFor="let brand of brands" [value]="brand.id">
+              {{brand.marca}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="modelo">Modelo</label>
+          <input type="text" [(ngModel)]="car.modelo" id="modelo" name="modelo" #modelo="ngModel" required
+            class="form-control" [ngClass]="{ 'is-invalid': f.submitted && modelo.invalid }"
+            placeholder="Digite o Modelo">
+        </div>
+
+        <div class="form-group">
+          <label for="ano">Ano</label>
+          <input type="number" [(ngModel)]="car.ano" id="ano" name="ano" #ano="ngModel" required class="form-control"
+            [ngClass]="{ 'is-invalid': f.submitted && ano.invalid }" placeholder="Digite o Ano">
+        </div>
+
+        <div class="row justify-content-end">
+          <button type="reset" class="btn btn-outline-secondary btn-add-car" (click)="cleanForm(f)">Cancelar</button>
+          <button type="submit" class="btn btn-primary btn-add-car">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
