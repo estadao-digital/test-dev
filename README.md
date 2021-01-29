@@ -57,9 +57,8 @@ Após o ambiente subir, basta acessar a URL abaixo e começar a desenvolver:
 
 ### Observações importantes:
 - O teste só será considerado se rodar através do Docker.
-- Caso seja necessário, você pode alterar **qualquer** configuração do Docker. Atente-se apenas que o ambiente não precise de nenhuma configuração adicional.
+- Caso seja necessário, você pode alterar **qualquer** configuração do Docker. Atente-se apenas para que o ambiente não precise de nenhuma configuração adicional.
 - Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
 - Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.
 - Você pode usar ferramentas de automação (Grunt, Gulp), mas deverá informar o uso completo para funcionamento do teste.
 - Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.
-- Será considerado ponto positivo o tempo gasto na realização do teste. Menos tempo e tudo funcionando conforme pedido será melhor avaliado.
