@@ -12,3 +12,9 @@ Route::post('/login', 'AuthController@login');
 Route::get('/logout', 'AuthController@logout');
 Route::get('/registrar', 'RegisterController@create');
 Route::post('/registrar', 'RegisterController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('vue', 'HomeController@vue');

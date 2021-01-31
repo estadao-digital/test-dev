@@ -27,17 +27,18 @@
     23 => 'Facade\\Ignition\\IgnitionServiceProvider',
     24 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     25 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    26 => 'Carbon\\Laravel\\ServiceProvider',
-    27 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    28 => 'Tymon\\JWTAuth\\Providers\\LaravelServiceProvider',
+    26 => 'Laravel\\Ui\\UiServiceProvider',
+    27 => 'Carbon\\Laravel\\ServiceProvider',
+    28 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     29 => 'Tymon\\JWTAuth\\Providers\\LaravelServiceProvider',
-    30 => 'L5Swagger\\L5SwaggerServiceProvider',
-    31 => 'App\\Providers\\AppServiceProvider',
-    32 => 'App\\Providers\\AuthServiceProvider',
-    33 => 'App\\Providers\\EventServiceProvider',
-    34 => 'App\\Providers\\RouteServiceProvider',
-    35 => 'App\\Providers\\CarServiceProvider',
-    36 => 'App\\Providers\\BrandServiceProvider',
+    30 => 'Tymon\\JWTAuth\\Providers\\LaravelServiceProvider',
+    31 => 'L5Swagger\\L5SwaggerServiceProvider',
+    32 => 'App\\Providers\\AppServiceProvider',
+    33 => 'App\\Providers\\AuthServiceProvider',
+    34 => 'App\\Providers\\EventServiceProvider',
+    35 => 'App\\Providers\\RouteServiceProvider',
+    36 => 'App\\Providers\\CarServiceProvider',
+    37 => 'App\\Providers\\BrandServiceProvider',
   ),
   'eager' => 
   array (
@@ -173,6 +174,8 @@
     'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
+    'Laravel\\Ui\\AuthCommand' => 'Laravel\\Ui\\UiServiceProvider',
+    'Laravel\\Ui\\UiCommand' => 'Laravel\\Ui\\UiServiceProvider',
   ),
   'when' => 
   array (
@@ -213,6 +216,9 @@
     array (
     ),
     'Laravel\\Tinker\\TinkerServiceProvider' => 
+    array (
+    ),
+    'Laravel\\Ui\\UiServiceProvider' => 
     array (
     ),
   ),

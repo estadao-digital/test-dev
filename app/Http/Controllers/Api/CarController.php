@@ -42,7 +42,7 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::all();
+        $cars = Car::latest()->with('car_brand')->get();
         return response()->json($cars, 200);
     }
 

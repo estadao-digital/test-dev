@@ -11,7 +11,8 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Api'], function ($router) {
 });
 
 //Car Process With User Authentication
-Route::group(['middleware' => 'apiJwt', 'namespace' => 'Api'], function ($router) {
+//Route::group(['middleware' => 'apiJwt', 'namespace' => 'Api'], function ($router) {
+Route::group(['namespace' => 'Api'], function ($router) {
     Route::get('carros', 'CarController@index');
     Route::post('carros', 'CarController@store');
     Route::get('carros/{id}', 'CarController@show');
