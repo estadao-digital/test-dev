@@ -63,7 +63,8 @@
     }
 
     .d-card-content {
-        margin-top: -20px;        
+        margin-top: -20px;
+        padding: 30px 16px;
     }
 }
 
