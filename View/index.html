@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <title>Estadão Classificados</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Diego Miranda">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="O maior classificado de carros do Brasil é no Estadão!">
+    <link rel="shortcut icon" href="/statics/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/statics/images/apple-touch-icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="/statics/css/style.css">
+    <link rel="stylesheet" href="/statics/css/responsive.css">
+  </head>
+  <style>
+    
+  </style>
+  <body>
+    <div id="app">
+      <div>
+        <div class="d-flex flex-column flex-md-row align-items-center bg-white box-shadow d-header">
+          <h5 class="col-sm-6 my-0 mr-md-auto font-weight-normal"><img src="/statics/images/favicon.ico" alt=""> Estadão Classificados | Carros</h5>
+          <nav class="my-2 my-md-0 mr-md-3 d-header-links">
+            <button type="button" class="btn btn-primary button-update" @click="updateList()">
+              Atualizar lista
+            </button>
+            <button type="button" class="btn btn-success button-add" @click="addCar()">
+              Adicionar um carro
+            </button>
+          </nav>
+        </div>
+      </div>
+      <div>
+        <div class="pricing-header px-12 py-12 mx-auto text-center">
+          <div class="d-full-banner">
+            <img src="/statics/images/car-banner.jpg" alt="">
+          </div>
+          <div class="cd-flex flex-column flex-md-row align-items-center d-filter">
+            <div class="col-sm-8 input-group-lg">
+              <input type="text" v-model="search" class="form-control" placeholder="Busque por marca, modelo ou ano">
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-column flex-md-row align-items-center d-card-container">
+          <div class="d-card-content">
+            <div class="text-center" v-if="!filterCars.length"><h5>Sua busca não encontrou nenhum carro. Atualize a lista ou adicione um novo</h5></div>
+            <div class="card" v-for="car in filterCars" :key="car.id">
+              <img :src="car.image" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{ car.brand }} {{ car.model }} {{ car.year }}</h5>
+                <p class="card-text">{{ car.description }}</p>
+                <button type="button" class="btn btn-primary" @click="editCar(car.id)">Configurar</button>
+                <button type="button" class="btn btn-danger button-right" @click="deleteCar(car.id)">Remover</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="d-flex flex-column flex-md-row align-items-center bg-white border-top d-footer">
+        <nav class="my-2 my-md-0 mr-md-3">
+          <a class="p-2 text-dark" href="http://www.estadao.com.br/historico/index.htm">Grupo Estadão</a>
+          <a class="p-2 text-dark" href="https://www.estadao.com.br/classificados/jornal-do-carro">Jornal do Carro</a>
+          <a class="p-2 text-dark" href="https://www.estadao.com.br/classificados/emprego-carreiras">Emprego e Carreiras</a>
+          <a class="p-2 text-dark" href="https://www.estadao.com.br/classificados/imoveis">Imóveis</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="/statics/js/main.js"></script>
+</html>
