@@ -170,7 +170,7 @@ new Vue({
             </div>
             <div class="mb-3">
               <label for="year" class="form-label">Ano</label>
-              <input type="text" name="year" value="${this.data.year}" class="form-control" id="year">
+              <input type="tel" name="year" value="${this.data.year}" class="form-control" id="year">
             </div>
             <div class="mb-3">
               <label for="description" class="form-label">Descrição curta</label>
@@ -195,4 +195,8 @@ new Vue({
         })
       }
     }
-}) 
+})
+
+$(document).on('focus', '#year', () => {
+  $('#year').mask('0000')  
+})
