@@ -10,6 +10,10 @@
     .d-card-content {
         margin-top: -130px;        
     }
+
+    .not-found {
+        height: 700px!important;
+    }
 }
 
 @media only screen and (min-width: 425px) and (max-width: 768px) {
@@ -70,5 +74,9 @@
 
     .d-header h5 {
         font-size: 18px;
+    }
+
+    .not-found {
+        height: 400px;
     }
 }

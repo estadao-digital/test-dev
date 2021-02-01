@@ -82,3 +82,10 @@
 .text-left {
     text-align: left;
 }
+
+.not-found {
+    background: transparent no-repeat center;
+    background-size: cover;
+    background-image: url(/statics/images/page-not-found.jpg);
+    height: 800px;
+}
