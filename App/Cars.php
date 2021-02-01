@@ -35,6 +35,12 @@ class Cars
 
     public function get(int $id): void
     {
+        if (empty($this->findCar($id))) {
+            $this->response->json(['error' => 'Car not found'], 404);
+
+            return;
+        }
+        
         $this->response->json($this->findCar($id));
     }
 
