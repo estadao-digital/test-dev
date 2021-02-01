@@ -27,12 +27,6 @@ new Vue({
         this.data = this.default
         this.swal()
       },
-      updateList()
-      {
-        $.getJSON('http://localhost:8080/carros', (data) => {
-          this.cars = data
-        })
-      },
       editCar(id) {
         this.titleForm = 'Configurar Carro'
         this.setData(id).then(response => {
