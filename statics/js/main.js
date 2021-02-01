@@ -142,13 +142,27 @@ new Vue({
             </div>`
         }
 
+        let select = '<select name="brand" class="form-control" id="brand">'
+
+        const brands = ['Chevrolet', 'Fiat', 'Ford', 'Honda', 'Toyota', 'Volkswagen']
+
+        const data_brand = this.data.brand
+
+        brands.forEach(function(brand, key) {
+          const selected = (brand == data_brand) ? 'selected' : ''
+
+          select += `<option value="${brand}" ${selected}>${brand}</option>`
+        })
+
+        select += '</select>'
+
         return `
           <hr />
           <form id="formCar" enctype="multipart/form-data" method="POST" class="text-left">
             <input type="hidden" name="id" id="car-id" value="${this.data.id}" />
             <div class="mb-3">
               <label for="brand" class="form-label">Marca</label>
-              <input type="text" name="brand" value="${this.data.brand}" class="form-control" id="brand">
+              ${select}
             </div>
             <div class="mb-3">
               <label for="model" class="form-label">Modelo</label>

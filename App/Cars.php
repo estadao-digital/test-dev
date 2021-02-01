@@ -64,7 +64,7 @@ class Cars
 
         $this->file->update($cars);
 
-        $this->response->json($this->filterCarByBrand($cars, $car['brand']));
+        $this->response->json($cars);
     }
 
     public function update(int $id): void
@@ -96,7 +96,7 @@ class Cars
 
         $this->file->update($cars);
 
-        $this->response->json($this->filterCarByBrand($cars, $car['brand']));
+        $this->response->json($cars);
     }
 
     public function delete(int $id): void
@@ -118,23 +118,6 @@ class Cars
         $this->file->update($cars);
 
         $this->response->json($cars);
-    }
-
-    /**
-     * Ao criar/editar um carro, o campo "marca" deverá ser um SELECT
-     *
-     */
-    private function filterCarByBrand(array $data, string $brand): array
-    {
-        $results = [];
-
-        foreach ($data as $car) {
-            if ($car['brand'] === $brand) {
-                $results[] = $car;
-            }
-        }
-
-        return $results;
     }
 
     private function findCar(int $id): array
