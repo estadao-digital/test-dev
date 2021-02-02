@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "brand": "Chevrolet",
+        "model": "Onix RS",
+        "year": "2021",
+        "description": "O carro mais estiloso do Brasil com muita esportividade",
+        "image": "/statics/images/novo-onix-rs.jpg"
+    },
+    {
+        "id": 2,
+        "brand": "Volkswagen",
+        "model": "Gol",
+        "year": "2020",
+        "description": "Completo + chave canivete + IPVA 2021 pago + kit multimidia",
+        "image": "/statics/images/volkswagen-gol.jpg"
+    },
+    {
+        "id": 3,
+        "brand": "Fiat",
+        "model": "Argo",
+        "year": "2020",
+        "description": "Perfeito para suas trilhas",
+        "image": "/statics/images/fiat-argo.jpg"
+    },
+    {
+        "id": 4,
+        "brand": "Volkswagen",
+        "model": "Golf",
+        "year": "2021",
+        "description": "Completo + teto solar + motor TSI Turbo",
+        "image": "/statics/images/volkswagen-golf.jpg"
+    },
+    {
+        "id": 5,
+        "brand": "Chevrolet",
+        "model": "Cruze SS",
+        "year": "2021",
+        "description": "Completo + motor turbo + ON Start",
+        "image": "/statics/images/chevrolet-cruze-ss.jpg"
+    },
+    {
+        "id": 6,
+        "brand": "Toyota",
+        "model": "Corolla",
+        "year": "2021",
+        "description": "Completo + motor h\u00edbrido + painel panor\u00e2mico",
+        "image": "/statics/images/toyota-corolla.jpg"
+    },
+    {
+        "id": 7,
+        "brand": "Honda",
+        "model": "Civic",
+        "year": "2021",
+        "description": "Esportividade e divers\u00e3o com motor turbo",
+        "image": "/statics/images/honda-civic.jpg"
+    },
+    {
+        "id": 8,
+        "brand": "Ford",
+        "model": "Ka",
+        "year": "2021",
+        "description": "O compacto mais amado do Brasil",
+        "image": "/statics/images/ford-ka.jpg"
+    }
+]

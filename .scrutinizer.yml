@@ -1,0 +1,25 @@
+checks:
+  php:
+    code_rating: true
+    duplication: true
+
+before_commands:
+  - "composer install --no-interaction"
+
+filter:
+  excluded_paths:
+    - tests
+    - examples
+
+build:
+  environment:
+    php: "7.4"
+  nodes:
+    coverage:
+      tests:
+        override:
+          - php-scrutinizer-run
+          - command: "vendor/bin/phpunit --coverage-clover coverage.clover tests"
+            coverage:
+              file: coverage.clover
+              format: clover

@@ -1,0 +1,91 @@
+.d-header {
+    border-bottom: 1px solid #e5e9f2!important;
+    padding: 10px;
+}
+
+.button-add {
+    background-color: rgb(40, 167, 69);
+    border-color: rgb(40, 167, 69);
+}
+
+.button-update {
+    margin-right: 15px;
+}
+
+.d-header-links {
+    width: 100%;
+    text-align: right;
+}
+
+.d-full-banner img {
+    width: 100%;
+}
+
+.d-banner-title {
+    position: absolute;
+    top: 140px;
+    z-index: 999;
+    font-size: 40px;
+    color: #fff;
+    right: 45px;
+    text-shadow: 2px 2px 2px #000;
+}
+
+.d-filter {
+    z-index: 999;
+    position: absolute;
+    width: 100%;
+    top: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.d-filter input {
+    padding: 1rem 1rem!important;
+}
+
+.d-card-container {
+    justify-content: center;
+}
+
+.d-card-content {
+    margin-top: -250px;
+    z-index: 999;
+    background: #fff;
+    width: 95%;
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 8px 1px rgb(0 0 0 / 25%);
+}
+
+.d-card-content .card {
+    margin: 0 20px 20px 0;
+    display: inline-flex;
+    width: 17rem;
+    min-height: 370px;
+}
+
+.card .button-right {
+    float: right;
+}
+
+.d-card-content .card img {
+    height: 190px;
+}
+
+.d-footer {
+    padding: 20px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.not-found {
+    background: transparent no-repeat center;
+    background-size: cover;
+    background-image: url(/statics/images/page-not-found.jpg);
+    height: 800px;
+}
