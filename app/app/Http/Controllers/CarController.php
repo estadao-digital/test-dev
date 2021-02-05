@@ -88,14 +88,13 @@ class CarController extends BaseController
             return $this->sendError('Erro de validação.', $validator->errors());
         }
 
-        $car->brand_id = $input['brand_id'];
-        $car->model = $input['model'];
-        $car->year = $input['year'];
-        $car->description = $input['description'];
-        $car->amount = $input['amount'];
-       // $car->image = $input['image'];
-
-        if($this->exists($input['id'])){
+        if($car){
+            $car->brand_id = $input['brand_id'];
+            $car->model = $input['model'];
+            $car->year = $input['year'];
+            $car->description = $input['description'];
+            $car->amount = $input['amount'];
+           // $car->image = $input['image'];
             $car->save();
             return $this->sendResponse(new CarResource($car), 'Carro atualizado com sucesso.');
         }else{
@@ -148,8 +147,9 @@ class CarController extends BaseController
         }
     }
 
-    public function exists($id){
-        $car = $cars = Car::with('brand')->find($id);
+    public function exists($id)
+    {
+        $car = Car::with('brand')->find($id);
         if($car)
             return $car;
         else

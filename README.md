@@ -44,10 +44,6 @@ Acesse a URL abaixo para visualizar o dashboard de carros
 > http://localhost:8080/#/app/
 
 
-### Observações importantes:
-- O teste só será considerado se rodar através do Docker.
-- Caso seja necessário, você pode alterar **qualquer** configuração do Docker. Atente-se apenas para que o ambiente não precise de nenhuma configuração adicional.
-- Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
-- Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.
-- Você pode usar ferramentas de automação (Grunt, Gulp), mas deverá informar o uso completo para funcionamento do teste.
-- Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.
+### Testes:
+- É possível executar testes no end-pont  /api/cars execute o comando:
+>  php artisan test 
