@@ -1,49 +1,22 @@
 Teste para desenvolvedor do Estadão
 ==============================
 
-Olá candidato,
+Teste efetuado por Marco Túlio Lacerda usando Laravel 8 no back-end e Vue.js 2(CLI) no front-end 
+**Features back-end:**
+- Api com validação na entrada de dados
+- Upload da foto do veículo
+- Seed para auto inserção de dados para testar o sistema
 
-Esse teste consiste em 2 etapas para avaliarmos seu conhecimento em PHP e Front-End (HTML5, CSS e JavaScript)
+**Features front-end:**
+- Responsivo utilizando v-bootstrap
+- Validação de campos com vuelidate
+- Gerenciador de estado com vuex
+- Rotas
 
-Para realizar o teste, você deve dar um fork neste repositório e depois clona-lo na pasta <document_root> da máquina que está realizando o teste.
 
-Crie um branch com seu nome, e quando finalizar todo o desenvolvimento, você deverá enviar um pull-request com sua versão.
 
-O teste
+Executando o projeto
 --------
-
-### Back-End/PHP
-
-A primeira etapa será o desenvolvimento **backend/PHP**:
-
-**Descrição:**
-
-- Você deverá desenvolver uma 'mini api' para que seja possível realizar operações CRUD do objeto Carro.
-> **Obs:**
-> - Você pode usar arquivo (txt, json) como banco de dados.
-> - Cada carro deve ter ID, Marca, Modelo, Ano.
-
-Sugerimos o retorno dessa 'mini api' nas seguinte urls:
-
- - `/carros` - [GET] deve retornar todos os carros cadastrados.
- - `/carros` - [POST] deve cadastrar um novo carro.
- - `/carros/{id}`[GET] deve retornar o carro com ID especificado.
- - `/carros/{id}`[PUT] deve atualizar os dados do carro com ID especificado.
- - `/carros/{id}`[DELETE] deve apagar o carro com ID especificado.
-
-### Front-End
-
-Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Application) e nela deve ser possível:
-
-- Ver a lista de carros cadastrados
-- Criar um novo carro
-- Editar um carro existente
-- Apagar um carro existente
-
-> **Obs:**
-> - A página deve ser responsiva.
-> - A página deve funcionar 100% via AJAX, sem outros carregamentos de páginas.
-> - Ao criar/editar um carro, o campo "marca" deverá ser um `SELECT`
 
 ### Ambiente
 
@@ -52,8 +25,24 @@ Esse teste com um ambiente Docker funcional, ou seja, basta rodar os comandos pa
 Para rodar o ambiente, é necessário ter o Docker Compose instalado, e rodar o seguinte comando:
 > docker-compose up -d nginx
 
-Após o ambiente subir, basta acessar a URL abaixo e começar a desenvolver:
+O back-end precisa ter as dependencias para poder funcionar corretamente. Acesse o terminal do nginx e entre na pasta app com o seguinte comando:
+> cd app
+
+Para baixar as depêndencias digite:
+> composer install
+
+Agora é preciso criar a base de dados executando as migrations do laravel. Acesse o terminal do nginx  app :
+> php artisan migrate
+
+E logo após para preencher o banco com dados de testes
+> php artisan db:seed
+
+Agora basta acessar a URL abaixo para visualizar a página que lista os carros cadastrados
 > http://localhost:8080
+
+Acesse a URL abaixo para visualizar o dashboard de carros
+> http://localhost:8080/#/app/
+
 
 ### Observações importantes:
 - O teste só será considerado se rodar através do Docker.
