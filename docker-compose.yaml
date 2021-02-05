@@ -1,5 +1,23 @@
 version: "3.7"
 services:
+  mysql:
+    image: mysql:5.7
+    container_name: estadao-test-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'estadao_test'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - mysql:/var/lib/mysql
+    networks:
+      - app-network
+
   app:
     build:
       args:
@@ -32,6 +50,8 @@ services:
       XDEBUGINI_PATH: /usr/local/etc/php/conf.d/xdebug.ini
       XDEBUG_DEFAULT_ENABLE: 1
       XDEBUG_IDEKEY: PHPSTORM
+    networks:
+      - app-network
 
   nginx:
     image: nginx:alpine
@@ -46,3 +66,13 @@ services:
       - ./docker/nginx:/etc/nginx/conf.d/
     depends_on:
       - app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql:
+    driver: local
