@@ -6,11 +6,12 @@ Teste efetuado por Marco Túlio Lacerda usando Laravel 8 no back-end e Vue.js 2(
 - Api com validação na entrada de dados
 - Upload da foto do veículo
 - Seed para auto inserção de dados para testar o sistema
+- Teste automatizado da api de carros
 
 **Features front-end:**
 - Responsivo utilizando v-bootstrap
 - Validação de campos com vuelidate
-- Gerenciador de estado com vuex
+- Gerenciamento de estado com vuex
 - Rotas
 
 
@@ -45,5 +46,5 @@ Acesse a URL abaixo para visualizar o dashboard de carros
 
 
 ### Testes:
-- É possível executar testes no end-pont  /api/cars execute o comando:
+- É possível executar testes no end-pont  /api/cars execute o comando no terminal dentro da pasta app:
 >  php artisan test 
