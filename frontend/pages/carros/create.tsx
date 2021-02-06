@@ -1,3 +1,4 @@
+import { error } from 'console';
 import Link from 'next/link';
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import api from '../../services/api';
@@ -5,29 +6,42 @@ import api from '../../services/api';
 // import { Container } from './styles';
 
 
-interface CarsData {
-  _id : string,
-  marca : string
-  modelo : string
-  ano : string, 
-  message?: string 
-}
-
-
-
 const create = () => {
 
   const [message , setMessage] = useState('')
   const [formData , SetFormData] = useState({})
+  const [brand , setBrand] = useState([])
+
+useEffect(() => {
+  api.get('marcas').then(success => {
+    const {data} = success
+    setBrand(data)
+  })
+},[])
+  
+  
+  
+  const getSelectData = (event : ChangeEvent<HTMLSelectElement>) => {
+    event.persist()
+    SetFormData({ 
+      ...formData,
+      [event.target.name] : event.target.value
+    })
+  } 
+  
 
 
-  const getformData = (event : ChangeEvent<HTMLInputElement>) => {
+
+  const getInputData = (event : ChangeEvent<HTMLInputElement>) => {
     event.persist()
     SetFormData({ 
       ...formData,
       [event.target.name] : event.target.value
     })
   }
+
+
+
 
   const addCar = (event : FormEvent) => {
       event.preventDefault()
@@ -36,12 +50,16 @@ const create = () => {
         const {data } = success
         console.log(data)
          setMessage(`carro ${data.modelo} criado com sucesso` )
+      }).catch(error => {
+        setMessage(error + 'todos os campos são obrigatórios')
       }) 
   }
 
-
+console.log(formData)
   return (
-  <>
+  <main>
+    <div className="container">
+
    <div style={{'width' : '300px'}}>
     <h2>Adicionar Carro</h2>
     <form onSubmit={addCar}>
@@ -49,40 +67,44 @@ const create = () => {
         <legend>
           marca
         </legend>  
-        <input type="text" 
-         name="marca" 
-         style={{'width' : '100%'}}
-          onChange={getformData}
-         />
+        <select name="marca" className="form-control" onChange={getSelectData} >
+          <option>Selecione uma marca</option>
+          {brand.map(marca => <option key={marca[`_id`]}>{marca[`marca`]}</option>)}
+        </select>
       </fieldset>
       <fieldset>
         <legend>
           modelo
         </legend>  
-        <input type="text"   name="modelo" style={{'width' : '100%'}}    onChange={getformData}/>
+        <input type="text" className="form-control"  name="modelo"     onChange={getInputData}/>
       </fieldset>
        <fieldset>
         <legend>
           ano
         </legend>  
-        <input type="text"  name="ano" style={{'width' : '100%'}}    onChange={getformData}/>
+        <input type="text" className="form-control"  name="ano"     onChange={getInputData}/>
       </fieldset>
-        <button
-         style={{'width' : '100%' , 'margin' : '20px auto'}}
-      >editar</button>
+        <button className="btn btn-lg btn-success my-2"
+      >Adicionar</button>
 
+      <div className="row">
       {message && (
         <>
-        <Link href="/">
-          <a>voltar</a>
-        </Link>
+        <div className="alert alert-warning" role="alert">
+           {message}
+        </div>
         <br/>
-        {message}
+        <Link href="/">
+          <a className="btn btn-link">voltar</a>
+        </Link>
         </>
-      )}
+
+)}
+</div>
      </form> 
     </div>
-    </>
+    </div>
+    </main>
   );
 }
 

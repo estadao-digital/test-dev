@@ -38,49 +38,56 @@ const IndexPage = () => {
 
   return(
     <main>
-      <h1>Estadão car</h1>
-      <table>
-       <thead>
-         <tr>
-
-        <th>ID</th>
-        <th>Marca</th>
-        <th>Modelo</th>
-        <th>Ano</th>
-        <th>Editar</th>
-        <th>deletar</th>
-         </tr>
-      </thead>
-      <tbody>
-        {cars && cars.map(car => {
-          return(
-            <tr key={car._id}>
+      <div className="container">
+        <Link href="/carros/create">
+          <a className="btn btn-success my-2 "> Adicionar Novo Carro</a>
+        </Link>
+        <table className="table">
+        <thead>
+          <tr>
+          <th>ID</th>
+          <th>Marca</th>
+          <th>Modelo</th>
+          <th>Ano</th>
+          <th>Editar</th>
+          <th>deletar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cars && cars.map(car => {
+            return(
+              <tr key={car._id}>
+                  <td>
+                  {car._id}
+                </td>
                 <td>
-                 {car._id}
-              </td>
-              <td>
-                 {car.marca}
-              </td>
+                  {car.marca}
+                </td>
+                  <td>
+                  {car.modelo}
+                </td>
                 <td>
-                 {car.modelo}
-              </td>
-              <td>
-               {car.ano}
-              </td>
+                {car.ano}
+                </td>
+                  <td>
+                    <Link href={`carros/${car._id}`}>
+                        <a className="btn btn-primary">Editar</a>
+                    </Link>
+                </td>
                 <td>
-                  <Link href={`carros/${car._id}`}>
-                      <a>Editar</a>
-                  </Link>
-              </td>
-               <td>
-                  <button onClick={() => deleteCar(car._id)}>Deletar</button>
-              </td>
-            </tr>
-          )
-        })}
-        </tbody>
-      </table>
-      {message}
+                    <button className="btn btn-danger" onClick={() => deleteCar(car._id)}>Deletar</button>
+                </td>
+              </tr>
+            )
+          })}
+          </tbody>
+        </table>
+        {message && 
+       <div className="alert alert-success" role="alert">
+           {message}
+        </div>
+}
+      </div>
     </main>
 )
 }

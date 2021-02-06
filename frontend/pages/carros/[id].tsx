@@ -17,22 +17,46 @@ interface CarsData {
 const carros = ({ id }) => {
   const [cars, setCars]  = useState<CarsData>()
   const [message , setMessage] = useState('')
-  const [formData , SetFormData] = useState({})
+  const [formData , SetFormData] = useState({})  
+  const [brand , setBrand] = useState([])
 
   useEffect(() => {
-    api.get(`carros/${id}`).then(success => {
-      const {data} = success
-      setCars(data)
+    Promise.all([
+        api.get(`carros/${id}`),
+        api.get('marcas')
+    ])
+   .then(success => {
+      const cars = success[0].data
+      const brand = success[1].data
+      setCars(cars)
+      setBrand(brand)
     })
   },[])
 
-  const getformData = (event : ChangeEvent<HTMLInputElement>) => {
+  
+  
+  
+  const getSelectData = (event : ChangeEvent<HTMLSelectElement>) => {
+    event.persist()
+    SetFormData({ 
+      ...formData,
+      [event.target.name] : event.target.value
+    })  
+  } 
+  
+
+
+
+  const getInputData = (event : ChangeEvent<HTMLInputElement>) => {
     event.persist()
     SetFormData({ 
       ...formData,
       [event.target.name] : event.target.value
     })
   }
+
+
+
 
   const sendEdit = (event : FormEvent) => {
       event.preventDefault()
@@ -45,50 +69,58 @@ const carros = ({ id }) => {
 
 
   return (
-  <>
+  <main>
+   <div className="container">
   {cars && (
-   <div style={{'width' : '300px'}}>
+    <div style={{'width' : '300px'}}>
     <h2>editar  {cars.modelo}</h2>
     <form onSubmit={sendEdit}>
       <fieldset>
         <legend>
           marca
         </legend>  
-        <input type="text" defaultValue={cars.marca} 
-         name="marca" 
-         style={{'width' : '100%'}}
-          onChange={getformData}
-         />
+          <select name="marca"  defaultValue={cars.marca}  onChange={getSelectData} className="form-control">
+          <option>{cars.marca}</option>
+          {brand.map(marca => <option key={marca[`_id`]}>{marca[`marca`]}</option>)}
+        </select>
       </fieldset>
       <fieldset>
         <legend>
           modelo
         </legend>  
-        <input type="text" defaultValue={cars.modelo}  name="modelo" style={{'width' : '100%'}}    onChange={getformData}/>
+        <input type="text" defaultValue={cars.modelo}  name="modelo" className="form-control"    onChange={getInputData}/>
       </fieldset>
        <fieldset>
         <legend>
           ano
         </legend>  
-        <input type="text" defaultValue={cars.ano} name="ano" style={{'width' : '100%'}}    onChange={getformData}/>
+        <input type="text" defaultValue={cars.ano} name="ano" className="form-control"    onChange={getInputData}/>
       </fieldset>
         <button
-         style={{'width' : '100%' , 'margin' : '20px auto'}}
-      >editar</button>
+          className="btn btn-lg btn-success my-2"
+         >editar</button>
 
+        <div className="row">
       {message && (
         <>
+        <div className="alert alert-success" role="alert">
+           {message}
+        </div>
+        <div>
+
         <Link href="/">
-          <a>voltar</a>
+          <a className="btn btn-link">voltar</a>
         </Link>
-        <br/>
-        {message}
+        </div>
         </>
-      )}
+
+)}
+</div>
      </form> 
     </div>
     )}
-    </>
+    </div> 
+    </main>
   );
 }
 
