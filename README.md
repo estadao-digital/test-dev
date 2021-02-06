@@ -4,7 +4,7 @@ Olá Recrutador,
 
 - O teste foi relizado em Node js com typescript Mongobd
 
-Poderia ser Feito em PHP ! porem eu possuo conhecimentos mais solidos em Javascript e acredito que seja uma stack mais moderna
+Poderia ser Feito em PHP ! porem eu possuo conhecimentos mais solidos em Javascript por isso optei fazer nessa stack
 
 ## Backend
 
