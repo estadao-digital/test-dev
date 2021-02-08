@@ -3,11 +3,11 @@
   <p v-else-if="$fetchState.error">An error occurred :(</p>
   <div v-else>
     <div class="container">
-    <b-container fluid>
-       <b-table responsive striped hover :items="cars" :fields="fields"></b-table>
-    </b-container>
-  </div>
-    <button @click="$fetch">Refresh</button>
+      <b-container fluid>
+        <b-table responsive striped hover :items="cars" :fields="fields"></b-table>
+      </b-container>
+      <button @click="$fetch">Refresh</button>
+    </div>
   </div>
 </template>
 

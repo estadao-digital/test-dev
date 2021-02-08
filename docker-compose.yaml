@@ -5,7 +5,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: lumen
+    container_name: backend-lumen
     links:
       - db
     ports:
@@ -47,7 +47,7 @@ services:
     build: 
       context: ./frontend
       dockerfile: ./Dockerfile
-    container_name: estadao-website
+    container_name: frontend-nuxt
     restart: always
     ports:
       - '80:80'
