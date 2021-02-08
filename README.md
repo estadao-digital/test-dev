@@ -40,11 +40,11 @@ Gere uma chave para o arquivo de configuração do laravel com o seguinte comand
 
 Defina a conexão com o banco de dados. Altere o nome do arquivo .env.example para .env e configure o banco com os seguintes dados:
 
-DB_CONNECTION=mysql
-DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=estadao
-DB_USERNAME=root
+DB_CONNECTION=mysql<br />
+DB_HOST=db<br />
+DB_PORT=3306<br />
+DB_DATABASE=estadao<br />
+DB_USERNAME=root<br />
 DB_PASSWORD=root
 
 Agora é preciso criar a base de dados executando as migrations do laravel. Acesse o terminal do nginx  app :
