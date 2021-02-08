@@ -21,7 +21,7 @@ Executando o projeto
 
 ### Ambiente
 
-Esse teste com um ambiente Docker funcional, ou seja, basta rodar os comandos para subir o container da aplicação e acessar a URL do projeto no navegador.
+Esse teste funciona com um ambiente Docker funcional, ou seja, basta rodar os comandos para subir o container da aplicação e acessar a URL do projeto no navegador.
 
 Para rodar o ambiente, é necessário ter o Docker Compose instalado, e rodar o seguinte comando:
 > docker-compose up -d nginx
@@ -47,19 +47,19 @@ DB_DATABASE=estadao<br />
 DB_USERNAME=root<br />
 DB_PASSWORD=root
 
-Agora é preciso criar a base de dados executando as migrations do laravel. Acesse o terminal do nginx  app :
+Agora é preciso criar as tabelas da base de dados executando as migrations do laravel:
 > php artisan migrate
 
-E logo após execute o comando abaixo para preencher o banco de dados com dados de testes
+E logo após execute o comando abaixo para preencher o banco de dados com dados de testes:
 > php artisan db:seed
 
-Acessar a URL abaixo para visualizar a página que lista os carros cadastrados
+Acessar a URL abaixo para visualizar a página que lista os carros cadastrados:
 > http://localhost:8080
 
-Acesse a URL abaixo para visualizar o dashboard de carros
+Acesse a URL abaixo para visualizar o dashboard de carros:
 > http://localhost:8080/#/app/
 
 
 ### Testes:
-- É possível executar testes no end-pont  /api/cars execute o comando no terminal dentro da pasta app:
+- É possível executar testes no end-pont  /api/cars execute o comando no terminal:
 >  php artisan test 
