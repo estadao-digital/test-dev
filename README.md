@@ -26,19 +26,34 @@ Esse teste com um ambiente Docker funcional, ou seja, basta rodar os comandos pa
 Para rodar o ambiente, é necessário ter o Docker Compose instalado, e rodar o seguinte comando:
 > docker-compose up -d nginx
 
-O back-end precisa ter as dependencias para poder funcionar corretamente. Acesse o terminal do nginx e entre na pasta app com o seguinte comando:
+O back-end precisa ter as dependencias para poder funcionar corretamente. Todos os comandos a seguir devem ser executados na imagem estadao-test-dev-app. No terminal digite:
+> docker exec -it estadao-test-dev-app bash
+
+Entre na pasta app com o seguinte comando:
 > cd app
 
-Para baixar as depêndencias digite:
+Para baixar as depêndencias do projeto digite:
 > composer install
+
+Gere uma chave para o arquivo de configuração do laravel com o seguinte comando
+>php artisan key:generate
+
+Defina a conexão com o banco de dados. Altere o nome do arquivo .env.example para .env e configure o banco com os seguintes dados:
+
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=estadao
+DB_USERNAME=root
+DB_PASSWORD=root
 
 Agora é preciso criar a base de dados executando as migrations do laravel. Acesse o terminal do nginx  app :
 > php artisan migrate
 
-E logo após para preencher o banco com dados de testes
+E logo após execute o comando abaixo para preencher o banco de dados com dados de testes
 > php artisan db:seed
 
-Agora basta acessar a URL abaixo para visualizar a página que lista os carros cadastrados
+Acessar a URL abaixo para visualizar a página que lista os carros cadastrados
 > http://localhost:8080
 
 Acesse a URL abaixo para visualizar o dashboard de carros
