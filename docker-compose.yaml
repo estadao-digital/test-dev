@@ -1,78 +1,62 @@
-version: "3.7"
+version: '3.7'
+
 services:
-  mysql:
-    image: mysql:5.7
-    container_name: estadao-test-mysql
-    restart: always
+  lumen:    
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: lumen
+    links:
+      - db
+    ports:
+      - '8000:8000'
+    expose:
+      - '8000'
     environment:
-      MYSQL_DATABASE: 'estadao_test'
-      MYSQL_USER: 'user'
-      MYSQL_PASSWORD: 'password'
-      MYSQL_ROOT_PASSWORD: 'password'
+      APP_ENV: local
+      APP_DEBUG: 'true'
+      APP_KEY: ddsds2345t67y7udnpsdf9wjn903r034ht04hygt04h
+      DB_CONNECTION: mysql
+      DB_HOST: estadao_db
+      DB_DATABASE: estadao_test
+      DB_USERNAME: root
+      DB_PASSWORD: password
+    networks:
+      - estadao
+    depends_on:
+      - db
+
+  db:
+    image: mysql
+    container_name: estadao_db
     ports:
       - '3306:3306'
     expose:
       - '3306'
-    volumes:
-      - mysql:/var/lib/mysql
-    networks:
-      - app-network
-
-  app:
-    build:
-      args:
-        user: estadao
-        uid: 1000
-      context: ./
-      dockerfile: docker/Dockerfile
-    image: estadao-test-dev
-    healthcheck:
-      interval: 10s
-      timeout: 3s
-      retries: 3
-      start_period: 30s
-    container_name: estadao-test-dev-app
-    restart: unless-stopped
-    working_dir: /var/www/
-    volumes:
-      - ./:/var/www
     environment:
-      APPLICATION_ENV: development
-      XDEBUG_INSTALL: 1
-      XDEBUG_CONFIG: "remote_host=host.docker.internal"
-      XDEBUG_REMOTE_ENABLE: "on"
-      XDEBUG_REMOTE_AUTOSTART: 1
-      XDEBUG_REMOTE_CONNECT_BACK: 0
-      XDEBUG_REMOTE_HANDLER: dbgp
-      XDEBUG_PROFILER_ENABLE: 1
-      XDEBUG_PROFILER_OUTPUT_DIR: /var/www/html/xdebug.log
-      XDEBUG_REMOTE_PORT: 9003
-      XDEBUGINI_PATH: /usr/local/etc/php/conf.d/xdebug.ini
-      XDEBUG_DEFAULT_ENABLE: 1
-      XDEBUG_IDEKEY: PHPSTORM
-    networks:
-      - app-network
-
-  nginx:
-    image: nginx:alpine
-    container_name: estadao-test-dev-nginx
-    restart: unless-stopped
-    expose:
-      - 9003
-    ports:
-      - 8080:80
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: estadao_test
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
     volumes:
-      - ./:/var/www
-      - ./docker/nginx:/etc/nginx/conf.d/
-    depends_on:
-      - app
+      - ./backend/resources/mysql/db_init.sql:/docker-entrypoint-initdb.d/schema.sql
     networks:
-      - app-network
+      - estadao
 
-networks:
-  app-network:
-    driver: bridge
+  nuxt:
+    build: 
+      context: ./frontend
+      dockerfile: ./Dockerfile
+    container_name: estadao-website
+    restart: always
+    ports:
+      - '80:80'
+    networks:
+      - estadao
 
 volumes:
-  mysql:
-    driver: local
+  mysql_data: { driver: local }
+
+networks:
+  estadao:
+    driver: bridge
