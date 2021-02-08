@@ -13,10 +13,10 @@
 
 
 $router->group(['prefix' => 'carros'], function () use ($router) {
-    // - `/carros` - [GET] deve retornar todos os carros cadastrados. 
-    $router->post('/', 'CarController@createCar');
-
     // - `/carros` - [POST] deve cadastrar um novo carro.
+    $router->post('/', 'CarController@createCar');
+    
+    // - `/carros` - [GET] deve retornar todos os carros cadastrados. 
     $router->get('/', 'CarController@index');
 
     // - `/carros/{id}`[GET] deve retornar o carro com ID especificado.

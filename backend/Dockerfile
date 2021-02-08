@@ -22,6 +22,4 @@ WORKDIR /src
 
 RUN chmod -R 777 storage
 
-# RUN php artisan migrate && php artisan db:seed
-
 CMD php -S 0.0.0.0:8000 -t public

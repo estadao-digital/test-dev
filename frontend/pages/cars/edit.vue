@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="container">
+      <b-container fluid>
         <h3 class="text-center">Edit Car</h3>
         <div class="row">
             <div class="col-md-6">
@@ -16,6 +17,7 @@
                 </form>
             </div>
         </div>
+      </b-container>
     </div>
 </template>
 

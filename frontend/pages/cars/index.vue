@@ -40,13 +40,7 @@
                 cars: []
             }
         },
-        created() {
-            this.axios
-                .get('http://localhost:8000/carros')
-                .then(response => {
-                    this.cars = response.data;
-                });
-        },
+
         methods: {
             deletecar(id) {
                 this.axios
