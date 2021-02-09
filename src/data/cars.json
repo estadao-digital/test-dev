@@ -1,0 +1,76 @@
+[
+  {
+    "id": "0802202001",
+    "title": "Peugeot Expert minibus 1.6 (11l) Td Blue Hdi 5p",
+    "descript": "Peugeot Expert é aqui na Center Vans e Micros!",
+    "mark": "Peugeot",
+    "model": "2020",
+    "price": "159.900",
+    "img": "car01.webp"
+  },
+  {
+    "id": "0802202002",
+    "title": "JAC J5 1.5 16V GASOLINA 4P MANUAL",
+    "descript": "CARRO, PERFEITA CONSERVAÇÃO E PROCEDÊNCIA!!!",
+    "mark": "JAC",
+    "model": "2013",
+    "price": "27.900",
+    "img": "car02.webp"
+  },
+  {
+    "id": "0802202003",
+    "title": "Ford Ka 1.0 MPI 8V FLEX 2P MANUAL",
+    "descript":
+      "Saiba mais sobre a Carflix em nosso site, e entre em contato com um de nossos consultores para agendar uma visita e conhecer esse veículo.",
+    "mark": "Ford",
+    "model": "2010",
+    "price": "14.290",
+    "img": "car03.webp"
+  },
+  {
+    "id": "0802202004",
+    "title": "Hyundai HR 2.5 Hd Cab. Curta S/ Carroceria Tci 2p",
+    "descript": "Hyundai HR é aqui na Center Vans e Micros!",
+    "mark": "Hyundai",
+    "model": "2021",
+    "price": "124.900",
+    "img": "car04.webp"
+  },
+  {
+    "id": "08022020011",
+    "title": "Peugeot Expert minibus 1.6 (11l) Td Blue Hdi 5p",
+    "descript": "Peugeot Expert é aqui na Center Vans e Micros!",
+    "mark": "Peugeot",
+    "model": "2020",
+    "price": "159.900",
+    "img": "car01.webp"
+  },
+  {
+    "id": "08022020022",
+    "title": "JAC J5 1.5 16V GASOLINA 4P MANUAL",
+    "descript": "CARRO, PERFEITA CONSERVAÇÃO E PROCEDÊNCIA!!!",
+    "mark": "JAC",
+    "model": "2013",
+    "price": "27.900",
+    "img": "car02.webp"
+  },
+  {
+    "id": "08022020033",
+    "title": "Ford Ka 1.0 MPI 8V FLEX 2P MANUAL",
+    "descript":
+      "Saiba mais sobre a Carflix em nosso site, e entre em contato com um de nossos consultores para agendar uma visita e conhecer esse veículo.",
+    "mark": "Ford",
+    "model": "2010",
+    "price": "14.290",
+    "img": "car03.webp"
+  },
+  {
+    "id": "08022020044",
+    "title": "Hyundai HR 2.5 Hd Cab. Curta S/ Carroceria Tci 2p",
+    "descript": "Hyundai HR é aqui na Center Vans e Micros!",
+    "mark": "Hyundai",
+    "model": "2021",
+    "price": "124.900",
+    "img": "car04.webp"
+  }
+]
