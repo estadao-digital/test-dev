@@ -1,0 +1,76 @@
+{
+  "app": {
+    "developed": "Gabriel M.",
+    "language": "pt_BR",
+    "name": "Test"
+  },
+  "connection": {
+    "keepAlive": false,
+    "onlyNonWWW": false,
+    "onlySecure": false,
+    "onlyWWW": false
+  },
+  "cryptography": {
+    "default": "KRUPABOX_CRYPTOGRAPHY_KEY_DEFAULT"
+  },
+  "database": {
+    "cache": {
+      "file": false,
+      "redis": true
+    },
+    "driver": "mysqli",
+    "host": "db",
+    "migration": true,
+    "password": "root",
+    "sid": "test",
+    "username": "root"
+  },
+  "front": {
+    "base": "",
+    "polyfill": {
+      "blob": true,
+      "canvas": true,
+      "legacyBrowser": true,
+      "ecmaScript5": true,
+      "ecmaScript6": true,
+      "ecmaScript7": true,
+      "html5": true,
+      "keyboard": true,
+      "typedArray": true,
+      "url": true,
+      "web": true,
+      "webAudio": true,
+      "xhr": true,
+      "promise": true,
+      "prefix": false
+    },
+    "support": {
+      "render": true,
+      "validate": true,
+      "webgl": false,
+      "screenshot": false,
+      "gyroscope": false,
+      "prefix": false,
+      "react": false
+    }
+  },
+  "output": {
+    "deflate": true,
+    "gzip": true
+  },
+  "redis": {
+    "host": "redis",
+    "port": "6379"
+  },
+  "render": {
+    "cache": {
+      "file": false,
+      "redis": true
+    }
+  },
+  "server": {
+    "environment": "development",
+    "sidPaths": {},
+    "timezone": "America @ Sao Paulo"
+  }
+}
