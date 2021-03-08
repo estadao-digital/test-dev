@@ -1,64 +1,76 @@
-Teste para desenvolvedor do Estadão
-==============================
+# Gabriel Morgado
 
-Olá candidato,
+#### O que foi utilizado?
+- KrupaBOX (framework backend)
+- Twig (template HTML)
+- Metronic (template)
+- KrupaJS (framework frontend)
+- MySQL (banco de dados)
 
-Esse teste consiste em 2 etapas para avaliarmos seu conhecimento em PHP e Front-End (HTML5, CSS e JavaScript)
+#### Banco de dados
+- Criar banco de dados com nome 'test'
+- Criar credenciais (usuário: 'root' | senha: 'root')
+- O migration é automático no primeiro acesso
 
-Para realizar o teste, você deve dar um fork neste repositório e depois clona-lo na pasta <document_root> da máquina que está realizando o teste.
+#### Host
+- Apache
+- PHP 7.4
+- Mod Rewrite ativado
+- Redis
 
-Crie um branch com seu nome, e quando finalizar todo o desenvolvimento, você deverá enviar um pull-request com sua versão.
+### Teste
+- CRUD simples para adicionar/remover/atualizar/deletar carro
+- Carro contém marca, modelo e ano
+- Marcas são de um fork do banco de dados FIPE (em .json)
 
-O teste
---------
+# Acesso
+- http://localhost
 
-### Back-End/PHP
+# Endpoints (API Restfull)
+- Todos os endpoints podem receber qualquer tipo de dado.
+- Ex: form-data, x-www-form-urlencoded ou raw (JSON, YAML, XML).
+- O backend automaticamente entende o tipo de dado e converte. 
 
-A primeira etapa será o desenvolvimento **backend/PHP**:
+#### Listar todos carros
+- http://localhost/api/car
+- Método: GET
 
-**Descrição:**
+#### Adicionar carro
+- http://localhost/api/car/add
+- Método: GET
+- Objeto: {brandId: 1, model: 'Civic', year: 2000}
 
-- Você deverá desenvolver uma 'mini api' para que seja possível realizar operações CRUD do objeto Carro.
-> **Obs:**
-> - Você pode usar arquivo (txt, json) como banco de dados.
-> - Cada carro deve ter ID, Marca, Modelo, Ano.
+#### Retornar carro específico
+- http://localhost/api/car/{id} (ex: http://localhost/api/car/1)
+- Método: GET
 
-Sugerimos o retorno dessa 'mini api' nas seguinte urls:
+#### Atualizar carro específico
+- http://localhost/api/car/{id} (ex: http://localhost/api/car/1)
+- Método: POST
+- Objeto: {brandId: 1, model: 'Civic', year: 2000}
 
- - `/carros` - [GET] deve retornar todos os carros cadastrados.
- - `/carros` - [POST] deve cadastrar um novo carro.
- - `/carros/{id}`[GET] deve retornar o carro com ID especificado.
- - `/carros/{id}`[PUT] deve atualizar os dados do carro com ID especificado.
- - `/carros/{id}`[DELETE] deve apagar o carro com ID especificado.
+#### Remover carro específico
+- http://localhost/api/car/{id} (ex: http://localhost/api/car/1)
+- Método: DELETE
 
-### Front-End
+# Detalhes
 
-Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Application) e nela deve ser possível:
+#### Banco de dados
+- É possível alterar as credenciais do banco de dados em /Application/Config/Application.json
+- Models do banco de dados estão em /Application/Server/Model/
 
-- Ver a lista de carros cadastrados
-- Criar um novo carro
-- Editar um carro existente
-- Apagar um carro existente
+#### Controladores
+- Controladores HMVC do backend estão em /Application/Server/Controller/
+- Controladores HMVC do frontend estão em /Application/Client/Controller/
 
-> **Obs:**
-> - A página deve ser responsiva.
-> - A página deve funcionar 100% via AJAX, sem outros carregamentos de páginas.
-> - Ao criar/editar um carro, o campo "marca" deverá ser um `SELECT`
+#### Router
+- Router do backend está em /Application/Server/Event/OnRoute.php
+- Router do frontend está em /Application/Client/Event/OnRoute.php
 
-### Ambiente
+#### HTML
+- Views (Twig) está em /Application/Client/View/
+- Template (Metronic) está em /Application/Client/Public/packages/metronic/
 
-Esse teste com um ambiente Docker funcional, ou seja, basta rodar os comandos para subir o container da aplicação e acessar a URL do projeto no navegador.
-
-Para rodar o ambiente, é necessário ter o Docker Compose instalado, e rodar o seguinte comando:
-> docker-compose up -d nginx
-
-Após o ambiente subir, basta acessar a URL abaixo e começar a desenvolver:
-> http://localhost:8080
-
-### Observações importantes:
-- O teste só será considerado se rodar através do Docker.
-- Caso seja necessário, você pode alterar **qualquer** configuração do Docker. Atente-se apenas para que o ambiente não precise de nenhuma configuração adicional.
-- Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
-- Você pode usar frameworks, tanto para o front-end, quanto para o back-end, mas um código limpo será melhor avaliado.
-- Você pode usar ferramentas de automação (Grunt, Gulp), mas deverá informar o uso completo para funcionamento do teste.
-- Será considerado ponto positivo no teste a utilização de JS puro, orientação a objetos, design patterns e rotinas para testes.
+#### Assets
+- SCSSs estão em /Application/Client/Public/assets/scss/ (compilado automaticamente)
+- Imagens estão em /Application/Client/Public/img/

@@ -1,0 +1,25 @@
+.app-loading {
+   background-color: #364150;
+   z-index: 9999999;
+   position: fixed;
+   top: 0px;
+   bottom: 0px;
+   left: 0px;
+   right: 0px;
+
+   transition: opacity ease 0.5s;
+
+   .loader {
+     left: calc((100% / 2) - 64px);
+     top: calc((100% / 2) - 64px);
+     position: fixed;
+   }
+ }
+
+.hidden {
+  display: none;
+}
+
+.nopointer {
+  pointer-events: none;
+}

@@ -1,0 +1,50 @@
+<html>
+    <body>
+        {% template car-modal %}
+            <div data-modal="car" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">{% if car.carId > 0 %}Editar carro{% else %}Adicionar carro{% endif %}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-2 form-padding">
+                                    <label>Identificador</label>
+                                    <input type="text" class="form-control" placeholder="" value="{{ car.carId }}" disabled>
+                                </div>
+                                <div class="col-md-3 form-padding">
+                                    <label for="car-brand">Marca</label><br>
+                                    <select data-input="car-brandid" name="car-brand" class="form-select">
+                                        <option>Selecionar</option>
+                                        {% for brandId, name in brands %}
+                                            <option value="{{ brandId }}" {% if car.brandId == brandId %}selected{% endif %}>{{ name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-md-4 form-padding">
+                                    <label>Modelo</label>
+                                    <input data-input="car-model" type="text" class="form-control" placeholder="812 Superfast" value="{{ car.model }}" maxlength="128" {% if user.userId > 0 %}disabled{% endif %}>
+                                </div>
+                                <div class="col-md-3 form-padding">
+                                    <label>Ano</label>
+                                    <input data-input="car-year" type="number" class="form-control" value="{{ car.year }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            {% if car.carId > 0 %}
+                                <button data-button="car-remove" type="button" class="btn btn-danger">Remover</button>
+                            {% endif %}
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button data-button="car-modal" type="button" class="btn btn-primary">{% if car.carId > 0 %}Atualizar{% else %}Adicionar{% endif %}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endtemplate %}
+    </body>
+</html>

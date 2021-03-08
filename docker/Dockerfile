@@ -1,13 +1,15 @@
-FROM php:7.4-fpm
+FROM php:7.4-apache
 
 # Arguments defined in docker-compose.yml
 ARG user
 ARG uid
 
+# Enable .htaccess (mod_rewrite)
+RUN apt-get update && a2enmod rewrite
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
-    curl \
     libpng-dev \
     libonig-dev \
     libxml2-dev \
@@ -19,6 +21,7 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
+RUN pecl install redis && docker-php-ext-enable redis
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd mysqli zip
 
 # Instalação e configuração do XDebug

@@ -1,0 +1,14 @@
+.swal2-container {
+  z-index: 9999998 !important;
+}
+
+.form-padding { padding-bottom: 20px; }
+
+.row-animation {
+  opacity:    0;
+  transition: all .15s ease-in-out;
+
+  &.delete {
+    transition: all 1s ease-in-out;
+  }
+}

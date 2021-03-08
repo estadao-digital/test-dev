@@ -1,0 +1,88 @@
+<html>
+    <body>
+        <include src="Global/Assets.html.twig"></include>
+        <include src="Car/Edit.html.twig"></include>
+
+        <div data-wrapper="car-modal"></div>
+
+        <div class="page-wrapper">
+            <!-- BEGIN CONTAINER -->
+            <div class="page-container">
+                <!-- BEGIN SIDEBAR -->
+                <include src="Global/Menu/Sidebar.html.twig"></include>
+
+                <!-- BEGIN CONTENT -->
+                <div class="page-content-wrapper">
+                    <!-- BEGIN CONTENT BODY -->
+
+                    <div class="page-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- BEGIN SAMPLE TABLE PORTLET-->
+                                <div class="portlet light bordered">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="icon-social-dribbble font-green"></i>
+                                            <span class="caption-subject font-green bold uppercase">Carros</span>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="table-scrollable">
+                                                    <table class="table table-hover table-striped">
+                                                        <thead>
+                                                            <th></th>
+                                                            <th>Marca</th>
+                                                            <th>Modelo</th>
+                                                            <th>Ano</th>
+                                                        </thead>
+                                                        <tbody data-wrapper="car">
+                                                            {% for car in cars %}
+                                                                <tr data-carid="{{ car.carId }}" class="row-animation">
+                                                                    <td data-wrapper="car-carid">#{{ car.carId }}</td>
+                                                                    <td data-wrapper="car-brand">{{ car.brand }}</td>
+                                                                    <td data-wrapper="car-model">{{ car.model }}</td>
+                                                                    <td data-wrapper="car-year">{{ car.year }}</td>
+                                                                    <td style="text-align: center;">
+                                                                        <button data-button="car-edit" data-carid="{{ car.carId }}" class="btn" style="width: 100%;">Editar</button>
+                                                                    </td>
+                                                                </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                    {% template car %}
+                                                        <tr data-carid="{{ car.carId }}" class="row-animation">
+                                                            <td data-wrapper="car-carid">#{{ car.carId }}</td>
+                                                            <td data-wrapper="car-brand">{{ car.brand }}</td>
+                                                            <td data-wrapper="car-model">{{ car.model }}</td>
+                                                            <td data-wrapper="car-year">{{ car.year }}</td>
+                                                            <td style="text-align: center;">
+                                                                <button data-button="car-edit" data-carid="{{ car.carId }}" class="btn" style="width: 100%;">Editar</button>
+                                                            </td>
+                                                        </tr>
+                                                    {% endtemplate %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div style="text-align: right">
+                                            <button data-button="car-add" type="button" class="btn btn-success">Adicionar</button>
+                                        </div>
+                                    </div>
+                                    <!-- END SAMPLE TABLE PORTLET-->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END PAGE BAR -->
+                    </div>
+                    <!-- END CONTENT -->
+                </div>
+                <!-- END CONTAINER -->
+                <!-- BEGIN FOOTER -->
+                <include src="Global/Menu/Footer.html.twig"></include>
+                <!-- END FOOTER -->
+            </div>
+        </div>
+    </body>
+</html>
