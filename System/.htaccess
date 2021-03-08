@@ -1,0 +1,22 @@
+
+# Disable GZIP because KrupaBOX already deals with it
+SetEnv no-gzip 1
+
+# Redirect requests to index kernel
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	Deny from all # Block all System direct acces
+	RewriteBase /
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ index.php?/$1 [L]
+</IfModule>
+
+#AddDefaultCharset UTF-8
+
+#<IfModule authz_core_module>
+#    Require all denied
+#</IfModule>
+#<IfModule !authz_core_module>
+#    Deny from all
+#</IfModule>
