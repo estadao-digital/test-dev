@@ -1,0 +1,13 @@
+syntax: glob
+.hg/
+.svn/
+.cvs/
+.idea/
+.cache/
+.data/
+.build/
+.composer/
+.tmp/
+.DS_Store
+.*/
+docker/var/lib/mysql
