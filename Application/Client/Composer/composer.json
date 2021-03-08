@@ -1,0 +1,13 @@
+{
+    "name": "root/composer",
+    "authors": [
+        {
+            "name": "Krupabox",
+            "email": "contact@krupabox.io"
+        },
+        "config": {
+            "vendor-dir": "../../.composer/server"
+        }
+    ],
+    "require": {}
+}
