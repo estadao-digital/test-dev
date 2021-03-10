@@ -15,9 +15,9 @@ services:
       start_period: 30s
     container_name: estadao-test-dev-app
     restart: unless-stopped
-    working_dir: /var/www/
+    working_dir: /var/www/lumen
     volumes:
-      - ./:/var/www
+      - ./lumen:/var/www/lumen
     environment:
       APPLICATION_ENV: development
       XDEBUG_INSTALL: 1
@@ -32,17 +32,42 @@ services:
       XDEBUGINI_PATH: /usr/local/etc/php/conf.d/xdebug.ini
       XDEBUG_DEFAULT_ENABLE: 1
       XDEBUG_IDEKEY: PHPSTORM
+    networks:
+      - nginx-proxy
+
+  node:
+    image: node
+    tty: true
+    container_name: estadao-test-dev-node
+    restart: unless-stopped
+    working_dir: /var/www/vuejs
+    volumes:
+      - ./vuejs:/var/www/vuejs
+    networks:
+      - nginx-proxy
 
   nginx:
     image: nginx:alpine
     container_name: estadao-test-dev-nginx
+    tty: true
     restart: unless-stopped
-    expose:
-      - 9003
     ports:
-      - 8080:80
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
     volumes:
       - ./:/var/www
       - ./docker/nginx:/etc/nginx/conf.d/
     depends_on:
       - app
+    networks:
+      - nginx-proxy
+    environment:
+      - VIRTUAL_PORT=80
+      - VIRTUAL_HOST=estadao.local
+    expose:
+      - 9003
+
+networks:
+  nginx-proxy:
+    driver: bridge
