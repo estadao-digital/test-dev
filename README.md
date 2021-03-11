@@ -21,6 +21,6 @@ docker-compose exec node npm install
 Acesse a URL `http://localhost` para executar o projeto
 
 **Informações adicionais**
-A programação frontend foi construída em VueJS e atende através da porta 80. O backend foi feito utilzando Lumen Framework e atende através da porta 81. Como instruído no teste, utilizei como banco de dados um arquivo json localizado em `lumen/storage/app/cars.json`.
+A programação frontend foi construída em VueJS e atende através da porta 80. O backend foi feito utilizando Lumen Framework e atende através da porta 81. Como instruído, utilizei como banco de dados um arquivo json localizado em `lumen/storage/app/cars.json`.
 
 **Obs.:** Verifique se a porta 80, 8080 e 81 estão disponíveis no sistema para que não haja conflitos entre as portas do docker.
