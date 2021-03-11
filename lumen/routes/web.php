@@ -16,3 +16,9 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/carros/{id}', ['uses' => '\App\Http\Controllers\CarController@get']);
+$router->get('/carros', ['uses' => '\App\Http\Controllers\CarController@getAll']);
+$router->post('/carros', ['uses' => '\App\Http\Controllers\CarController@store']);
+$router->put('/carros/{id}', ['uses' => '\App\Http\Controllers\CarController@update']);
+$router->delete('/carros/{id}', ['uses' => '\App\Http\Controllers\CarController@destroy']);
