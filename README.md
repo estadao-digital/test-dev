@@ -1,4 +1,16 @@
-Teste para desenvolvedor do Estadão
+Teste para desenvolvedor do Estadão - Jonathan Rodrigues
+
+1 - Execute o arquivo [docker-composer.yaml](docker-composer.yaml) para a instalação do ambiente com o banco de dados, é necessário ter o docker-compose instalado.
+````
+docker-compose up -d
+````
+2 - Importe o [script sql](script.sql)no banco SLICEIT instalado no container mysql-container, a senha root está localizado no script [docker-compose](docker-composer.yaml)
+
+3 - Altere a variável host da classe de [conexão do banco de dados](classes/conexao.php)
+
+
+
+
 ==============================
 
 Olá candidato,

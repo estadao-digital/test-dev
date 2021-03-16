@@ -1,5 +1,16 @@
 version: "3.7"
 services:
+  db:
+    image: mysql
+    container_name: mysql-container
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+     - MYSQL_ROOT_PASSWORD= "SliceIT"
+     - MYSQL_DATABASE= SLICEIT
+    volumes:
+      - ./db:/var/lib/mysql
+    restart: always
+
   app:
     build:
       args:
