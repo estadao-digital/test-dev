@@ -67,9 +67,9 @@ Após o ambiente subir, basta acessar a URL abaixo e começar a desenvolver:
 ### Resultado do teste:
 ### Back-End/PHP
 Rode o comando no terminal na raiz da aplicação:
-    ``` sh
-    composer install
-    ```
+```sh
+    composer install    
+```
 
 - `/marcas` - [GET] retorna todas as marcas.
 - `/carros` - [GET] retornar todos os carros cadastrados.
