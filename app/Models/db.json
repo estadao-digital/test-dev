@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "marca": "HONDA",
+        "modelo": "CIVIC",
+        "ano": 2012
+    },
+    {
+        "id": 2,
+        "marca": "HONDA",
+        "modelo": "CITY",
+        "ano": 2013
+    },
+    {
+        "id": 3,
+        "marca": "FORD",
+        "modelo": "FOCUS",
+        "ano": 1334
+    },
+    {
+        "id": 4,
+        "marca": "ford",
+        "modelo": "ka sedan",
+        "ano": 1334
+    },
+    {
+        "id": 5,
+        "marca": "FORD",
+        "modelo": "FIESTA",
+        "ano": "1231"
+    },
+    {
+        "id": 6,
+        "marca": "ford",
+        "modelo": "ka sedan",
+        "ano": 1334
+    },
+    {
+        "id": 7,
+        "marca": "ford",
+        "modelo": "ka sedan",
+        "ano": 1334
+    },
+    {
+        "id": 8,
+        "marca": "ford",
+        "modelo": "ka sedan",
+        "ano": 1334
+    },
+    {
+        "id": 9,
+        "marca": "ford",
+        "modelo": "ka sedan",
+        "ano": 1334
+    },
+    {
+        "id": 10,
+        "marca": "ford",
+        "modelo": "ka sedan",
+        "ano": 1334
+    }
+]

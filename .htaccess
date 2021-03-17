@@ -4,5 +4,5 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
 
-    # RewriteRule
+    #RewriteRule ^ index.php [L]
 </IfModule>
