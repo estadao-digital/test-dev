@@ -1,4 +1,21 @@
-Teste para desenvolvedor do Estadão
+Teste para desenvolvedor do Estadão - Jonathan Rodrigues
+==============================
+
+1 - Execute o arquivo [docker-composer.yaml](docker-composer.yaml) para a instalação do ambiente com o banco de dados, é necessário ter o docker-compose instalado.
+````
+docker-compose up -d
+````
+2- Você agora está pronto para acessar do teste, acesse em
+````
+[localhost:8080](localhost:8080)
+````
+
+Todo veiculo cadastrado é amarzenado por um arquivo [carros.json](db/carros.json);
+A lista das marcas do veiculo se encontra em um arquivo [marcas.json](db/marcas.json);
+
+
+
+O TESTE
 ==============================
 
 Olá candidato,
