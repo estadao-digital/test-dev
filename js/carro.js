@@ -19,8 +19,8 @@ function listaCarro(){
                                       <td>${modelo}</td>
                                       <td>${ano}</td>
                                       <td>
-                                        <button type="button" onClick = "editarCarro(${id})" class="btn btn-outline-primary waves-effect waves-light"><i class="fas fa-edit"></i></button>
-                                        <button type="button" onClick = "deleteCarro(${id})" class="btn btn-outline-danger waves-effect waves-light"><i class="fas fa-trash"></i></button>
+                                        <button type="button" onClick = "editarCarro('${id}')" class="btn btn-outline-primary waves-effect waves-light"><i class="fas fa-edit"></i></button>
+                                        <button type="button" onClick = "deleteCarro('${id}')" class="btn btn-outline-danger waves-effect waves-light"><i class="fas fa-trash"></i></button>
                                       </td>
                                     </tr>`);
       }
@@ -106,9 +106,9 @@ $(document).ready(function(){
   event.preventDefault();
   var formDados = new FormData($(this)[0]);
     let check = true
-    let marca          = $(`#marca`).val().trim();
-    let modelo         = $(`#modelo`).val().trim();
-    let ano            = $(`#ano`).val().trim();
+    let marca          = $(`#marca`).val();
+    let modelo         = $(`#modelo`).val();
+    let ano            = $(`#ano`).val();
     let idCarro        = $(`#id_carro`).val()
 
     if(marca =="0") {

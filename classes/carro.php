@@ -14,14 +14,18 @@
   }
 
   function addCarro(){
+    if($this->id == NULL){$id = uniqid();}
+    else{$id = $$this->id;}
+
     $array = array(
-      'id'     => uniqid(),
+      'id'     => $id,
       'marca'  => $this->marca,
       'modelo' => $this->modelo,
       'ano'    => $this->ano,
     );
     $json = file_get_contents("db/carros.json");
     $json = json_decode($json,true);
+    if($json['0']==NULL) $json = array();
     array_push($json,$array);
     $json_editado = file_put_contents('db/carros.json',json_encode($json));
     $array = array("msg" =>"Carro cadastrado com Sucesso", "id"=>$id);
@@ -39,7 +43,7 @@
       array_push($ArrayCarros,$value);
   }
   $json_editado = file_put_contents('db/carros.json',json_encode($ArrayCarros));
-  $array = array("msg" =>"Carro atualizado com Sucesso", "id"=>$value['id']);
+  $array = array("msg" =>"Carro deletado com Sucesso", "id"=>$this->id);
   return json_encode($array);
   }
 
