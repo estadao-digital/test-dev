@@ -7,7 +7,7 @@ docker-compose up -d
 ````
 2- Você agora está pronto para acessar do teste, acesse em
 ````
-[localhost:8080](localhost:8080)
+localhost:8080
 ````
 
 Todo veiculo cadastrado é amarzenado por um arquivo [carros.json](db/carros.json);
