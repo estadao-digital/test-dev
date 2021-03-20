@@ -1,0 +1,271 @@
+[{
+  "id": "1",
+  "descricao": "Audi"
+}, {
+  "id": "2",
+  "descricao": "BMW"
+}, {
+  "id": "3",
+  "descricao": "Citro\u00ebn"
+}, {
+  "id": "4",
+  "descricao": "Fiat"
+}, {
+  "id": "5",
+  "descricao": "Ford"
+}, {
+  "id": "6",
+  "descricao": "GM - Chevrolet"
+}, {
+  "id": "7",
+  "descricao": "Honda"
+}, {
+  "id": "8",
+  "descricao": "Hyundai"
+}, {
+  "id": "9",
+  "descricao": "Kia Motors"
+}, {
+  "id": "10",
+  "descricao": "Mercedes-Benz"
+}, {
+  "id": "11",
+  "descricao": "Mitsubishi"
+}, {
+  "id": "12",
+  "descricao": "Nissan"
+}, {
+  "id": "13",
+  "descricao": "Peugeot"
+}, {
+  "id": "14",
+  "descricao": "Renault"
+}, {
+  "id": "15",
+  "descricao": "Suzuki"
+}, {
+  "id": "16",
+  "descricao": "Toyota"
+}, {
+  "id": "17",
+  "descricao": "Volvo"
+}, {
+  "id": "18",
+  "descricao": "VolksWagen"
+}, {
+  "id": "19",
+  "descricao": "Acura"
+}, {
+  "id": "20",
+  "descricao": "Agrale"
+}, {
+  "id": "21",
+  "descricao": "Alfa Romeo"
+}, {
+  "id": "22",
+  "descricao": "AM Gen"
+}, {
+  "id": "23",
+  "descricao": "Asia Motors"
+}, {
+  "id": "24",
+  "descricao": "ASTON MARTIN"
+}, {
+  "id": "25",
+  "descricao": "Baby"
+}, {
+  "id": "26",
+  "descricao": "BRM"
+}, {
+  "id": "27",
+  "descricao": "Bugre"
+}, {
+  "id": "28",
+  "descricao": "Cadillac"
+}, {
+  "id": "29",
+  "descricao": "CBT Jipe"
+}, {
+  "id": "30",
+  "descricao": "CHANA"
+}, {
+  "id": "31",
+  "descricao": "CHANGAN"
+}, {
+  "id": "32",
+  "descricao": "CHERY"
+}, {
+  "id": "33",
+  "descricao": "Chrysler"
+}, {
+  "id": "34",
+  "descricao": "Cross Lander"
+}, {
+  "id": "35",
+  "descricao": "Daewoo"
+}, {
+  "id": "36",
+  "descricao": "Daihatsu"
+}, {
+  "id": "37",
+  "descricao": "Dodge"
+}, {
+  "id": "38",
+  "descricao": "EFFA"
+}, {
+  "id": "39",
+  "descricao": "Engesa"
+}, {
+  "id": "40",
+  "descricao": "Envemo"
+}, {
+  "id": "41",
+  "descricao": "Ferrari"
+}, {
+  "id": "42",
+  "descricao": "Fibravan"
+}, {
+  "id": "43",
+  "descricao": "FOTON"
+}, {
+  "id": "44",
+  "descricao": "Fyber"
+}, {
+  "id": "45",
+  "descricao": "GEELY"
+}, {
+  "id": "46",
+  "descricao": "GREAT WALL"
+}, {
+  "id": "47",
+  "descricao": "Gurgel"
+}, {
+  "id": "48",
+  "descricao": "HAFEI"
+}, {
+  "id": "49",
+  "descricao": "HITECH ELECTRIC"
+}, {
+  "id": "50",
+  "descricao": "Isuzu"
+}, {
+  "id": "51",
+  "descricao": "IVECO"
+}, {
+  "id": "52",
+  "descricao": "JAC"
+}, {
+  "id": "53",
+  "descricao": "Jaguar"
+}, {
+  "id": "54",
+  "descricao": "Jeep"
+}, {
+  "id": "55",
+  "descricao": "JINBEI"
+}, {
+  "id": "56",
+  "descricao": "JPX"
+}, {
+  "id": "57",
+  "descricao": "Lada"
+}, {
+  "id": "58",
+  "descricao": "LAMBORGHINI"
+}, {
+  "id": "59",
+  "descricao": "Land Rover"
+}, {
+  "id": "60",
+  "descricao": "Lexus"
+}, {
+  "id": "61",
+  "descricao": "LIFAN"
+}, {
+  "id": "62",
+  "descricao": "LOBINI"
+}, {
+  "id": "63",
+  "descricao": "Lotus"
+}, {
+  "id": "64",
+  "descricao": "Mahindra"
+}, {
+  "id": "65",
+  "descricao": "Maserati"
+}, {
+  "id": "66",
+  "descricao": "Matra"
+}, {
+  "id": "67",
+  "descricao": "Mazda"
+}, {
+  "id": "68",
+  "descricao": "Mclaren"
+}, {
+  "id": "69",
+  "descricao": "Mercury"
+}, {
+  "id": "70",
+  "descricao": "MG"
+}, {
+  "id": "71",
+  "descricao": "MINI"
+}, {
+  "id": "72",
+  "descricao": "Miura"
+}, {
+  "id": "73",
+  "descricao": "Plymouth"
+}, {
+  "id": "74",
+  "descricao": "Pontiac"
+}, {
+  "id": "75",
+  "descricao": "Porsche"
+}, {
+  "id": "76",
+  "descricao": "RAM"
+}, {
+  "id": "77",
+  "descricao": "RELY"
+}, {
+  "id": "78",
+  "descricao": "Rolls-Royce"
+}, {
+  "id": "79",
+  "descricao": "Rover"
+}, {
+  "id": "80",
+  "descricao": "Saab"
+}, {
+  "id": "81",
+  "descricao": "Saturn"
+}, {
+  "id": "82",
+  "descricao": "Seat"
+}, {
+  "id": "83",
+  "descricao": "SHINERAY"
+}, {
+  "id": "84",
+  "descricao": "smart"
+}, {
+  "id": "85",
+  "descricao": "SSANGYONG"
+}, {
+  "id": "86",
+  "descricao": "Subaru"
+}, {
+  "id": "87",
+  "descricao": "TAC"
+}, {
+  "id": "88",
+  "descricao": "Troller"
+}, {
+  "id": "89",
+  "descricao": "Wake"
+}, {
+  "id": "90",
+  "descricao": "Walk"
+}]
