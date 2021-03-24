@@ -1,3 +1,23 @@
+### Rodando o Sistema:
+Backend: Lumen : (https://lumen.laravel.com)
+FrontEnd: utilizando Ajax
+
+```bash
+## Foi criado uma nova configuração para rodar o Lumen 
+
+$  cat docker/nginx/laravel.conf 
+
+## Gerenciar Pacotes da API
+$ cd api
+$ composer install
+
+```
+## para acessar o sistema basta > http://localhost:8080
+## para acessar a API > http://localhost:8081/carros
+
+### VALEW!!!, MUITO OBRIGADO!!!
+
+==============================
 Teste para desenvolvedor do Estadão
 ==============================
 
