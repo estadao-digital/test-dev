@@ -1,0 +1,18 @@
+.editar{
+  display: none;
+}
+.visualizar{
+  display: none;
+}
+.criar{
+  display: none;
+}
+.novo{
+  display: none;
+}
+.btn-novo{
+  cursor: pointer;
+}
+.btn-home{
+  cursor: pointer;
+}

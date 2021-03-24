@@ -84,57 +84,38 @@
         <div class="form-group">
           <input type="hidden" class="visualizar-id" disabled>
 
-          <label for="formGroupMarcar">Marcar</label>
-          <input type="text" class="form-control visualizar-marca" id="formGroupMarcar" placeholder="Marcar" disabled>
+          <label for="visualizarFormGroupMarcar">Marcar</label>
+          <input type="text" class="form-control visualizar-marca" id="visualizarFormGroupMarcar" placeholder="Marcar" disabled>
         </div>
         <div class="form-group">
-          <label for="formGroupModelo">Modelo</label>
-          <input type="text" class="form-control visualizar-modelo" id="formGroupModelo" placeholder="Modelo" disabled>
+          <label for="visualizarFormGroupModelo">Modelo</label>
+          <input type="text" class="form-control visualizar-modelo" id="visualizarFormGroupModelo" placeholder="Modelo" disabled>
         </div>
         <div class="form-group">
-          <label for="formGroupAno">Ano</label>
-          <input type="number" class="form-control visualizar-ano" id="formGroupAno" placeholder="Ano" disabled>
+          <label for="visualizarFormGroupAno">Ano</label>
+          <input type="number" class="form-control visualizar-ano" id="visualizarFormGroupAno" placeholder="Ano" disabled>
         </div>
     </div>
 
     <div class="novo">
         <div class="form-group">
-          <label for="formGroupMarcar">Marcar</label>
-          <input type="text" class="form-control novo-marca" id="formGroupMarcar" placeholder="Marcar" onchange='novoMarcaCarro(this.value)'>
+          <label for="novoFormGroupMarcar">Marcar</label>
+          <input type="text" class="form-control novo-marca" id="novoFormGroupMarcar" placeholder="Marcar" onchange='novoMarcaCarro(this.value)'>
         </div>
         <div class="form-group">
-          <label for="formGroupModelo">Modelo</label>
-          <input type="text" class="form-control novo-modelo" id="formGroupModelo" placeholder="Modelo" onchange='novoModeloCarro(this.value)'>
+          <label for="novoFormGroupModelo">Modelo</label>
+          <input type="text" class="form-control novo-modelo" id="novoFormGroupModelo" placeholder="Modelo" onchange='novoModeloCarro(this.value)'>
         </div>
         <div class="form-group">
-          <label for="formGroupAno">Ano</label>
-          <input type="number" class="form-control novo-ano" id="formGroupAno" placeholder="Ano" onchange='novoAnoCarro(this.value)'>
+          <label for="novoFormGroupAno">Ano</label>
+          <input type="number" class="form-control novo-ano" id="novoFormGroupAno" placeholder="Ano" onchange='novoAnoCarro(this.value)'>
         </div>
       <button type="submit" class="btn btn-primary" onclick="salvarCarro()">Salvar</button>
     </div>
   </div>
-
+    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <style>
-      .editar{
-        display: none;
-      }
-      .visualizar{
-        display: none;
-      }
-      .criar{
-        display: none;
-      }
-      .novo{
-        display: none;
-      }
-      .btn-novo{
-        cursor: pointer;
-      }
-      .btn-home{
-        cursor: pointer;
-      }
-    </style>
+
 </body>
 
 </html>

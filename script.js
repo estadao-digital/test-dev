@@ -41,6 +41,7 @@ function deletarCarro(evt){
         var carros = JSON.parse(xhr.responseText);
         if (xhr.readyState == 4 && xhr.status == "200") {
             carregarCarros();
+            alert('Deletado Com Sucesso!!!');
         } else {
             console.error(carros);
         }
@@ -69,7 +70,6 @@ function editarCarro(evt){
             document.querySelector(".editar-marca").setAttribute('value',  carros['marca']);
             document.querySelector(".editar-modelo").setAttribute('value',  carros['modelo']);
             document.querySelector(".editar-ano").setAttribute('value',  carros['ano']);
-   
         } else {
             console.error(carros);
         }
@@ -133,14 +133,18 @@ function salvarCarro(){
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
     xhr.onload = function () {
         var carros = JSON.parse(xhr.responseText);
-        if (xhr.readyState == 4 && xhr.status == "201") {
-            console.table(carros);
-            document.querySelector(".novo-marca").setAttribute('value',  '');
-            document.querySelector(".novo-modelo").setAttribute('value',  '');
-            document.querySelector(".novo-ano").setAttribute('value',  '');
+
+        if (xhr.readyState == 4 && xhr.status == "201" || xhr.readyState == 4 && xhr.status == "200" ) {
+            // console.table(carros);
+            alert('Salvo Com Sucesso!!!');  
+            document.querySelector(".novo-marca").value = '';
+            document.querySelector(".novo-modelo").value = '';
+            document.querySelector(".novo-ano").value = '';
         } else {
             console.error(carros);
         }
+
+
     }
     xhr.send(json);
 }
@@ -163,6 +167,7 @@ function atualizarCarro(){
     	var carros = JSON.parse(xhr.responseText);
     	if (xhr.readyState == 4 && xhr.status == "200") {
     		// console.table(carros);
+            alert('Atualizado Com Sucesso!!!');
     	} else {
     		console.error(carros);
     	}
