@@ -19,14 +19,14 @@
 
 // $router->group(['prefix'=>'api/v1'], function() use($router){
 //     $router->get('/carros', 'CarController@index');
-//     $router->post('/carro', 'CarController@create');
-//     $router->get('/carro/{id}', 'CarController@show');
-//     $router->put('/carro/{id}', 'CarController@update');
-//     $router->delete('/carro/{id}', 'CarController@destroy');
+//     $router->post('/carros', 'CarController@create');
+//     $router->get('/carros/{id}', 'CarController@show');
+//     $router->put('/carros/{id}', 'CarController@update');
+//     $router->delete('/carros/{id}', 'CarController@destroy');
 // });
 
 $router->get('/carros', 'CarController@index');
-$router->post('/carro', 'CarController@create');
-$router->get('/carro/{id}', 'CarController@show');
-$router->put('/carro/{id}', 'CarController@update');
-$router->delete('/carro/{id}', 'CarController@destroy');
+$router->post('/carros', 'CarController@create');
+$router->get('/carros/{id}', 'CarController@show');
+$router->put('/carros/{id}', 'CarController@update');
+$router->delete('/carros/{id}', 'CarController@destroy');
