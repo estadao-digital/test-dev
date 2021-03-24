@@ -71,7 +71,7 @@ class Car extends Model
                 $result = true;
             }
         }
-
+        $json = array_values($json);
         file_put_contents($path, json_encode($json));
 
         return $result;
