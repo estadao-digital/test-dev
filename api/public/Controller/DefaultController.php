@@ -7,7 +7,7 @@
 namespace App\Controller;
 
 /**
- * Class App
+ * Class DefaultController
  * 
  * @package App\Controller
  */
