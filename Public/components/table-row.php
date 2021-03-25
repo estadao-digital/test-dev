@@ -5,14 +5,14 @@
             <label for="checkbox1"></label>
         </span>
     </td> -->
-    <td>Thomas Hardy</td>
-    <td>thomashardy@mail.com</td>
-    <td>89 Chiaroscuro Rd, Portland, USA</td>
-    <td>(171) 555-2222</td>
+    <td>ABC-1234</td>
+    <td>Santana CG</td>
+    <td class='d-none d-sm-table-cell'>VW</td>
+    <td class='d-none d-sm-table-cell'>1986</td>
     <td>
-        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
+        <a href="#editEmployeeModal" class="edit" data-bs-toggle="modal"><i class="material-icons" data-toggle="tooltip"
                 title="Edit">&#xE254;</i></a>
-        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons"
+        <a href="#deleteEmployeeModal" class="delete" data-bs-toggle="modal"><i class="material-icons"
                 data-toggle="tooltip" title="Delete">&#xE872;</i></a>
     </td>
 </tr>
