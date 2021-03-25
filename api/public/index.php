@@ -1,3 +1,9 @@
 <?php
+require __DIR__ . '/../vendor/autoload.php';
 
-echo "<h1>API!</h1>";
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
