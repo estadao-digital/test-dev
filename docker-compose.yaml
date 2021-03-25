@@ -41,6 +41,7 @@ services:
       - 9003
     ports:
       - 8080:80
+      - 8090:90
     volumes:
       - ./:/var/www
       - ./docker/nginx:/etc/nginx/conf.d/
