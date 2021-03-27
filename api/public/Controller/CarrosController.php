@@ -9,16 +9,18 @@ namespace App\Controller;
 use App\Core\Controller;
 
 /**
- * Class DefaultController
+ * Class CarrosController
  * 
  * @package App\Controller
  */
-class DefaultController extends Controller
+class CarrosController extends Controller
 {
     /**
-     * Method initial index
+     * Return all data
      * 
-     * @return void
+     * @return string
      */
-    public function index(): void {}
+    public function index(): string {
+        
+    }
 }
