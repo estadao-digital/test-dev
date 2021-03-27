@@ -6,12 +6,14 @@
 
 namespace App\Controller;
 
+use App\Core\Controller;
+
 /**
  * Class DefaultController
  * 
  * @package App\Controller
  */
-class DefaultController
+class DefaultController extends Controller
 {
     /**
      * Method initial index

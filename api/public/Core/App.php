@@ -26,18 +26,28 @@ class App
     /**
      * @var bool
      */
-    protected $page404;
+    protected $controllerNotFound;
     
     /**
      * @var array
      */
     protected $params;
 
+    /**
+     * @var string
+     */
+    const CONTROLLER_NOT_FOUND = 'controllerNotFound';
+
+    /**
+     * @var string
+     */
+    const METHOD_NOT_FOUND = 'methodNotFound';
+
     public function __construct()
     {
         $parseUrl = $this->parseUrl();
 
-        $this->page404 = false;
+        $this->controllerNotFound = false;
 
         $this->getController($parseUrl);
         $this->getMethod($parseUrl);
@@ -53,7 +63,7 @@ class App
      */
     private function parseUrl(): array
     {
-        return explode('/', substr(filter_input(INPUT_SERVER, 'REQUEST_URI'), 1));
+        return explode('/', substr($_SERVER['REQUEST_URI'], 1));
     }
 
     /**
@@ -65,17 +75,17 @@ class App
      */
     private function getController($url = []): void
     {
-        $nameController = 'Default';        
+        $nameController = 'Default';
 
         if (isset($url[0]) && !empty($url[0])) {        
             if (file_exists(__DIR__ . '/../Controller/' . ucfirst($url[0]) . 'Controller.php')) {
                 $nameController = ucfirst($url[0]);
             } else {
-                $this->page404 = true;
+                $this->controllerNotFound = true;
             }
         }
 
-        $class = "\App\Controller\\{$nameController}Controller";
+        $class = "\App\Controller\\{$nameController}Controller";        
         
         $this->controller = new $class;
     }
@@ -91,12 +101,12 @@ class App
     {
         $nameMethod = 'index';
 
-        if (isset($url[1]) && !empty($url[1])) {
-            if (method_exists($this->controller, $url[1]) && !$this->page404) {
-                $nameMethod = $url[1];
-            } else {
-                $nameMethod = 'notFound';
-            }
+        if ($this->controllerNotFound) {
+            $nameMethod = self::CONTROLLER_NOT_FOUND;
+        } else {
+            if (isset($url[1]) && !empty($url[1])) {            
+                $nameMethod = (method_exists($this->controller, $url[1])) ? $url[1] : self::METHOD_NOT_FOUND;
+            }        
         }
 
         $this->method = $nameMethod;

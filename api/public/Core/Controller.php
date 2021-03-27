@@ -6,6 +6,8 @@
 
 namespace App\Core;
 
+use App\Core\HandleJson;
+
 /**
  * Class Controller
  * 
@@ -30,13 +32,23 @@ class Controller
     }
 
     /**
-     * Returns if the method or class is not found
+     * Returns if the controller is not found
+     * 
+     * @return void 
+     */
+    public function controllerNotFound(): void
+    {
+        echo HandleJson::response(HandleJson::STATUS_NOT_FOUND, 'Controller Not Found!');
+    }
+
+    /**
+     * Returns if the method is not found
      * 
      * @return void
      */
-    public function notFound(): void
-    {
-        // To do
+    public function methodNotFound(): void
+    {        
+        echo HandleJson::response(600, 'Method Not Found!');
     }
 
     /**
