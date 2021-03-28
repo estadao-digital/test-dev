@@ -28,6 +28,11 @@ class HandleJson
      */
     const STATUS_NOT_FOUND = 404;
 
+     /**
+     * @var int
+     */
+    const STATUS_METHOD_ALLOWED = 405;
+
     /**
      * @var int
      */
@@ -58,6 +63,7 @@ class HandleJson
             self::STATUS_OK => '200 OK',
             self::STATUS_BAD_REQUEST => '400 Bad Request',
             self::STATUS_NOT_FOUND => '404 Not Found',
+            self::STATUS_METHOD_ALLOWED => '405 Method Not Allowed',
             self::STATUS_UNPROCESSABLE_ENTITY => '422 Unprocessable Entity',
             self::STATUS_INTERNAL_SERVER_ERROR => '500 Internal Server Error'
         ];

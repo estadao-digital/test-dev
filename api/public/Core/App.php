@@ -43,18 +43,37 @@ class App
      */
     const METHOD_NOT_FOUND = 'methodNotFound';
 
-    public function __construct()
+    // Novos atributos
+
+    public function __construct(Router $router)
     {
-        $parseUrl = $this->parseUrl();
+        // $parseUrl = $this->parseUrl();
 
-        $this->controllerNotFound = false;
+        // $this->controllerNotFound = false;
 
-        $this->getController($parseUrl);
-        $this->getMethod($parseUrl);
-        $this->getParams($parseUrl);
+        // $this->getController($parseUrl);
+        // $this->getMethod($parseUrl);
+        // $this->getParams($parseUrl);
 
-        call_user_func_array([$this->controller, $this->method], $this->params);
+        // call_user_func_array([$this->controller, $this->method], $this->params);
+
+        // Alterando a estratégia por meio de rotas
+        
+        $router->resolve();
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Get params this url
