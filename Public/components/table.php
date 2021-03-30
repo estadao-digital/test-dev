@@ -16,9 +16,9 @@
     </thead>
 
     <tbody>
-        <?php include './components/table-row.php'; ?>
+        <?php include './Public/components/table-row.php'; ?>
 
-        <?php include './components/table-row.php'; ?>
+        <?php include './Public/components/table-row.php'; ?>
 
     </tbody>
 </table>
