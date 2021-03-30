@@ -1,0 +1,16 @@
+{
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "coffeecode/router":"1.0.*",
+        "coffeecode/datalayer": "1.1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Src\\": "Src/"
+        },
+        "files": [
+            "config.php"
+        ]
+    }
+    
+}
