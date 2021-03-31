@@ -8,6 +8,7 @@ namespace App\Core;
 
 use App\Config\Routes;
 use App\Core\HandleJson;
+use App\Core\Request;
 
 /**
  * Class Router
@@ -16,6 +17,19 @@ use App\Core\HandleJson;
  */
 class Router
 {   
+    /**
+     * @var Request
+     */
+    private $request;
+
+    /**
+     * @var string
+     */
+    private $propertyName;
+
+    /**
+     * @var array
+     */
     private $httpMethodsAllow = [
         'GET',
         'POST',
@@ -23,13 +37,17 @@ class Router
         'DELETE'
     ];
 
+    function __construct(Request $request)
+    {
+        $this->request = $request;
+    }    
+
     public function __call($name, $args)
     {
         list($route, $method) = $args;        
 
         if (!in_array(strtoupper($name), $this->httpMethodsAllow)) {
-            $this->invalidMethodHandler();
-            return false;
+            echo HandleJson::response(HandleJson::STATUS_METHOD_ALLOWED, 'Invalid Method!');
         }
 
         $this->{strtolower($name)}[$this->formatRoute($route)] = $method;
@@ -37,28 +55,82 @@ class Router
 
     public function resolve()
     {
-        $this->loadRoutes();
+        if (!$this->loadRoutes()) {
+            return false;
+        }
+
+        $this->propertyName = strtolower($this->request->requestMethod);
+
+        $this->methodDictionary = $this->{$this->propertyName};
+        
+        $this->formatedRoute = $this->formatRoute(parse_url($this->request->requestUri)['path']);
+
+        if (property_exists($this, $this->propertyName)) {
+            $this->handleMethodDictionary();
+            
+            if (array_key_exists($this->formatedRoute, $this->methodDictionary)) {
+                $method = $this->methodDictionary[$this->formatedRoute];
+    
+                echo call_user_func_array($method, [$this->request]);
+            }
+        }
+    }
+    
+    /**
+     * Handle Method Dictionary of routes
+     * 
+     * @return void
+     */
+    private function handleMethodDictionary(): void
+    {
+        $methodDictionaryKeys = array_keys($this->methodDictionary);
+        
+        foreach($methodDictionaryKeys as $methodDictionaryKey) {
+            $expFormatedRoute = explode('/', $this->formatedRoute);
+            $expMethodDictionaryKey = explode('/', $methodDictionaryKey);
+
+            if (count($expFormatedRoute) == count($expMethodDictionaryKey)) {
+                $isMatch = false;
+
+                foreach($expMethodDictionaryKey as $index => $item) {
+                    preg_match('/\{(.*?)\}/s', $item, $matches);
+                    
+                    if ($matches) {
+                        $isMatch = true;
+                        $expMethodDictionaryKey[$index] = $expFormatedRoute[$index];
+                    }
+                }
+
+                if ($isMatch) {
+                    $methodDictionaryNewKey = implode('/', $expMethodDictionaryKey);
+                    
+                    $this->methodDictionary[$methodDictionaryNewKey] = $this->methodDictionary[$methodDictionaryKey];
+                    
+                    unset($this->methodDictionary[$methodDictionaryKey]);
+                }
+            }
+        }
     }
 
     /**
      * Load all routes
      * 
-     * @return void
+     * @return bool
      */
-    private function loadRoutes(): void
-    {
-        $path = __DIR__ . '/../Config/';
-        
-        $file = $path . 'Routes.php';
+    private function loadRoutes(): bool
+    {        
+        $file = __DIR__ . '/../Config/Routes.php';
 
         if (!file_exists($file)) {
-            // TODO
-            return;
+            echo HandleJson::response(HandleJson::STATUS_NOT_FOUND, 'Routes File Not Found!');
+            return false;
         }
 
         $route = $this;
 
         require $file;
+
+        return true;
     }
 
     /**
@@ -71,25 +143,5 @@ class Router
     {
         $result = rtrim($route, '/');
         return ($result === '') ? '/' : $result;
-    }
-
-    /**
-     * Handles the error when it is an invalid method
-     * 
-     * @return void
-     */
-    private function invalidMethodHandler(): void
-    {
-        echo HandleJson::response(HandleJson::STATUS_METHOD_ALLOWED, 'Invalid Method!');
-    }
-
-    /**
-     * Handles the error when it is a standard request
-     * 
-     * @return void
-     */
-    private function defaultRequestHandler(): void
-    {        
-        echo HandleJson::response(HandleJson::STATUS_NOT_FOUND, 'Default Request Not Found!');
     }
 }
