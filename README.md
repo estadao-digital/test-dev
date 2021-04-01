@@ -8,10 +8,12 @@
 
 > \$ docker-compose up -d nginx
 
-aguardar um pouco ate instalar as dependências
-caso de algum erro cheque se o docker recebeu as permissoes necessarias da pasta do projeto
+Aguardar um pouco ate instalar as dependências.
+Caso de algum erro cheque se o docker recebeu as permissões necessrias da pasta do projeto
 
 aqui estava dando erro só funcionou depois que apliquei esse comando
+sudo chown -R $USER:$USER ~/Projetos/testes/test-dev
+obs: caso esteja no linux
 
     API:
     http://localhost:8080/carros
