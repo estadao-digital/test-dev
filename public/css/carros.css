@@ -1,0 +1,151 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 1;
+    border-radius: 6px;
+    background: white;
+    overflow: hidden;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+table * {
+    position: relative;
+}
+
+table td, table th {
+    padding-left: 8px;
+}
+
+table thead tr {
+    height: 60px;
+    background: #FFED86;
+    font-size: 16px;
+}
+
+table tbody tr {
+    height: 48px;
+    border-bottom: 1px solid #FFED86;
+}
+
+table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+table td, table th {
+    text-align: left;
+}
+
+table td.l, table th.l {
+    text-align: right;
+}
+
+table td.c, table th.c {
+    text-align: center;
+}
+
+table td.r, table th.r {
+    text-align: center;
+}
+
+@media screen and (max-width: 35.5em) {
+    table {
+        display: block;
+    }
+
+    table > *, table tr, table td, table th {
+        display: block;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tbody tr {
+        height: auto;
+        padding: 8px 0;
+    }
+
+    table tbody tr td {
+        padding-left: 30%;
+        margin-bottom: 12px;
+    }
+
+    table tbody tr td:before {
+        position: absolute;
+        font-weight: 700;
+        width: 40%;
+        left: 10px;
+        top: 0;
+    }
+
+    table tbody tr td:nth-child(1):before {
+        content: "MARCA";
+    }
+
+    table tbody tr td:nth-child(2):before {
+        content: "MODELO";
+    }
+
+    table tbody tr td:nth-child(3):before {
+        content: "ANO";
+    }
+}
+
+body {
+    font: 400 14px 'Calibri','Arial';
+    padding: 20px;
+}
+
+blockquote {
+    color: white;
+    text-align: center;
+}
+
+.button {
+    padding: 5px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: white; 
+    color: black;
+    border: 2px solid #99e268;
+}
+
+.button:hover {
+    padding: 5px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #99e268;
+    color: white;
+}
+
+.edit, .include {
+    background-color: white; 
+    color: black;
+    border: 2px solid #FFED86;
+}
+
+.edit:hover, .include:hover {
+    background-color: #FFED86;
+    color: black;
+}
+
+.exclude {
+    background-color: white; 
+    color: black;
+    border: 2px solid #c35a4c;
+}
+
+.exclude:hover {
+    background-color: #c35a4c;
+    color: white;
+}
