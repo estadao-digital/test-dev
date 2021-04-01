@@ -33,6 +33,17 @@ services:
       XDEBUG_DEFAULT_ENABLE: 1
       XDEBUG_IDEKEY: PHPSTORM
 
+  app_react:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    entrypoint: .docker/entrypoint.sh
+    ports:
+      - 3001:3000
+    working_dir: /home/node/app/front
+    volumes:
+      - ./:/home/node/app
+
   nginx:
     image: nginx:alpine
     container_name: estadao-test-dev-nginx
@@ -46,3 +57,4 @@ services:
       - ./docker/nginx:/etc/nginx/conf.d/
     depends_on:
       - app
+      - app_react

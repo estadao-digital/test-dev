@@ -2,13 +2,16 @@
 
 > **Executar teste:**
 >
+> Ajustei o docker agora só rodar o comando
+>
 > - após rodar o docker.
 
 > \$ docker-compose up -d nginx
 
-> cd front
+aguardar um pouco ate instalar as dependências
+caso de algum erro cheque se o docker recebeu as permissoes necessarias da pasta do projeto
 
-> \$ docker-compose up -d
+aqui estava dando erro só funcionou depois que apliquei esse comando
 
     API:
     http://localhost:8080/carros
