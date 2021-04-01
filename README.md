@@ -1,4 +1,23 @@
-Teste para desenvolvedor do Estadão
+# Teste para desenvolvedor do Estadão
+
+> **Executar teste:**
+>
+> - após rodar o docker.
+
+> \$ docker-compose up -d nginx
+
+> cd front
+
+> \$ docker-compose up -d
+
+    API:
+    http://localhost:8080/carros
+
+    Front
+    http://localhost:3001
+
+> Fiz com Lumen e ReactJS de acordo com recomendação da Fernanda.
+
 ==============================
 
 Olá candidato,
@@ -9,8 +28,7 @@ Para realizar o teste, você deve dar um fork neste repositório e depois clona-
 
 Crie um branch com seu nome, e quando finalizar todo o desenvolvimento, você deverá enviar um pull-request com sua versão.
 
-O teste
---------
+## O teste
 
 ### Back-End/PHP
 
@@ -19,17 +37,18 @@ A primeira etapa será o desenvolvimento **backend/PHP**:
 **Descrição:**
 
 - Você deverá desenvolver uma 'mini api' para que seja possível realizar operações CRUD do objeto Carro.
-> **Obs:**
-> - Você pode usar arquivo (txt, json) como banco de dados.
-> - Cada carro deve ter ID, Marca, Modelo, Ano.
+  > **Obs:**
+  >
+  > - Você pode usar arquivo (txt, json) como banco de dados.
+  > - Cada carro deve ter ID, Marca, Modelo, Ano.
 
 Sugerimos o retorno dessa 'mini api' nas seguinte urls:
 
- - `/carros` - [GET] deve retornar todos os carros cadastrados.
- - `/carros` - [POST] deve cadastrar um novo carro.
- - `/carros/{id}`[GET] deve retornar o carro com ID especificado.
- - `/carros/{id}`[PUT] deve atualizar os dados do carro com ID especificado.
- - `/carros/{id}`[DELETE] deve apagar o carro com ID especificado.
+- `/carros` - [GET] deve retornar todos os carros cadastrados.
+- `/carros` - [POST] deve cadastrar um novo carro.
+- `/carros/{id}`[GET] deve retornar o carro com ID especificado.
+- `/carros/{id}`[PUT] deve atualizar os dados do carro com ID especificado.
+- `/carros/{id}`[DELETE] deve apagar o carro com ID especificado.
 
 ### Front-End
 
@@ -41,6 +60,7 @@ Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Ap
 - Apagar um carro existente
 
 > **Obs:**
+>
 > - A página deve ser responsiva.
 > - A página deve funcionar 100% via AJAX, sem outros carregamentos de páginas.
 > - Ao criar/editar um carro, o campo "marca" deverá ser um `SELECT`
@@ -50,12 +70,15 @@ Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Ap
 Esse teste com um ambiente Docker funcional, ou seja, basta rodar os comandos para subir o container da aplicação e acessar a URL do projeto no navegador.
 
 Para rodar o ambiente, é necessário ter o Docker Compose instalado, e rodar o seguinte comando:
+
 > docker-compose up -d nginx
 
 Após o ambiente subir, basta acessar a URL abaixo e começar a desenvolver:
+
 > http://localhost:8080
 
 ### Observações importantes:
+
 - O teste só será considerado se rodar através do Docker.
 - Caso seja necessário, você pode alterar **qualquer** configuração do Docker. Atente-se apenas para que o ambiente não precise de nenhuma configuração adicional.
 - Você não deve se prender aos arquivos do repositório. Fique a vontade para criar outros.
