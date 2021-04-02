@@ -23,6 +23,10 @@ class CarrosController extends Controller
      */
     public function index(): string {
         
-        return HandleJson::response(HandleJson::STATUS_OK, ['teste']);
+        $car = $this->model('Carro');
+
+        $data = $car->findAll();
+
+        return HandleJson::response(HandleJson::STATUS_OK, $data);
     }
 }

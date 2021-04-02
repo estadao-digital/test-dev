@@ -1,0 +1,33 @@
+<?php
+/**
+ * @author      Anderson de Souza <anderson17ads@hotmail.com.br>
+ * @license     https://opensource.org/licenses/mit-license.php MIT License
+ */
+
+namespace App\Core\Database;
+
+/**
+ * Class DatabaseJson
+ * 
+ * @package App\Core\Database
+ */
+class DatabaseJson implements DatabaseInterface
+{
+    /**
+     * Find all records
+     * 
+     * @return array
+     */
+    public function findAll(): array
+    {
+        return [];
+    }
+
+    /**
+     * Find a record by id
+     */
+    public function findById($id = null): array
+    {
+        return [];
+    }
+}

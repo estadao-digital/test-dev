@@ -22,13 +22,19 @@ class Controller
      * 
      * @return object
      */
-    public function model($model = null): object
+    public function model($model = null): ?object
     {
-        if (!is_null($model)) {                    
-            $class = "App\Model\\{$model}";
+        if (!is_null($model)) {
+            $path = __DIR__ . '/../Model';
+            $file = "{$path}/{$model}.php";
             
-            return new $class();
+            if (file_exists($file)) {
+                $class = "App\Model\\{$model}";            
+                return new $class();
+            }
         }
+
+        return null;
     }
 
     /**
