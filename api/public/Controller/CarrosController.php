@@ -7,6 +7,7 @@
 namespace App\Controller;
 
 use App\Core\Controller;
+use App\Core\HandleJson;
 
 /**
  * Class CarrosController
@@ -16,11 +17,12 @@ use App\Core\Controller;
 class CarrosController extends Controller
 {
     /**
-     * Return all data
+     * Return all cars
      * 
      * @return string
      */
     public function index(): string {
         
+        return HandleJson::response(HandleJson::STATUS_OK, ['teste']);
     }
 }

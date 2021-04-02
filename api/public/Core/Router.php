@@ -61,19 +61,69 @@ class Router
 
         $this->propertyName = strtolower($this->request->requestMethod);
 
-        $this->methodDictionary = $this->{$this->propertyName};
-        
-        $this->formatedRoute = $this->formatRoute(parse_url($this->request->requestUri)['path']);
-
         if (property_exists($this, $this->propertyName)) {
-            $this->handleMethodDictionary();
+            $this->methodDictionary = $this->{$this->propertyName};            
             
-            if (array_key_exists($this->formatedRoute, $this->methodDictionary)) {
-                $method = $this->methodDictionary[$this->formatedRoute];
-    
-                echo call_user_func_array($method, [$this->request]);
+            $this->formatedRoute = $this->formatRoute(parse_url($this->request->requestUri)['path']);
+            
+            $this->handleMethodDictionary();
+
+            $this->renderContent();
+        }
+    }
+
+    private function renderContent()
+    {
+        if (array_key_exists($this->formatedRoute, $this->methodDictionary)) {
+            $method = $this->methodDictionary[$this->formatedRoute];
+            $type = gettype($method);
+
+            switch ($type) {
+                case 'object':
+                    echo call_user_func_array($method, [$this->request]);
+                    break;
+
+                case 'string':
+                    echo $this->handleController($method);
+                    break;
             }
         }
+    }
+    
+    /**
+     * Handle Controller content
+     * 
+     * @param string $method
+     * 
+     * @return string
+     */
+    private function handleController($method): string
+    {
+        preg_match('/@/', $method, $matches);
+
+        if ($matches) {
+            $expMethod = explode('@', $method);
+
+            list($controllerClass, $controllerMethod) = $expMethod;
+            
+            if ($controllerClass && $controllerMethod) {
+                $path = __DIR__ . '/../Controller';
+                $file = "{$path}/{$controllerClass}.php";
+
+                if (!file_exists($file)) {
+                    return HandleJson::response(HandleJson::STATUS_NOT_FOUND, 'Controller Not Found!');
+                } else {
+                    $class = "\App\Controller\\{$controllerClass}";
+                    $controller = new $class;
+
+                    if (method_exists($controller, $controllerMethod)) {
+                        return $controller->index();
+                    }
+                }
+            }
+        }
+
+        return '';
     }
     
     /**

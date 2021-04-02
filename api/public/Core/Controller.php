@@ -32,68 +32,6 @@ class Controller
     }
 
     /**
-     * Returns if the controller is not found
-     * 
-     * @return void 
-     */
-    public function controllerNotFound(): void
-    {
-        echo HandleJson::response(HandleJson::STATUS_NOT_FOUND, 'Controller Not Found!');
-    }
-
-    /**
-     * Returns if the method is not found
-     * 
-     * @return void
-     */
-    public function methodNotFound(): void
-    {        
-        echo HandleJson::response(600, 'Method Not Found!');
-    }
-
-    /**
-     * Returns true if request method is post
-     * 
-     * @return bool
-     */
-    public function isPost(): bool
-    {
-        if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * Returns true if request method is put
-     * 
-     * @return bool
-     */
-    public function isPut(): bool
-    {        
-        if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
-            return (isset($_POST['_METHOD']) == 'PUT') ? true : false;
-        }
-
-        return false;
-    }
-
-    /**
-     * Returns true if request method is delete
-     * 
-     * @return bool
-     */
-    public function isDelete(): bool
-    {        
-        if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
-            return (isset($_POST['_METHOD']) == 'DELETE') ? true : false;
-        }
-
-        return false;
-    }
-
-    /**
      * Return params
      * 
      * @return string

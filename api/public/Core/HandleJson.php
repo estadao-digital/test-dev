@@ -74,7 +74,7 @@ class HandleJson
 
         return json_encode([
             'status' => $code < 300,
-            'message' => $message
+            'data' => $message
         ]);
     }
 }
