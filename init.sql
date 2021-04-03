@@ -1,5 +1,10 @@
 
-CREATE TABLE IF NOT EXISTS `Carros` (
+DROP TABLE IF EXISTS `Carros`;
+DROP TABLE IF EXISTS `Marcas`;
+DROP TABLE IF EXISTS `Modelos`;
+
+
+CREATE TABLE `Carros` (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `placa` varchar(8) NOT NULL,
   `modelo_id` int(2) NOT NULL,
@@ -9,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `Carros` (
 
 
 CREATE TABLE `Marcas` (
-  `id` int(2) NOT NULL,
+  `id` int(2) NOT NULL AUTO_INCREMENT,
   `nome` varchar(160) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
