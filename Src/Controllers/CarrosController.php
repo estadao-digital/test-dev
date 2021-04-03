@@ -7,16 +7,18 @@
     namespace Src\Controllers;
 
     use Src\Models\Carro;
+    use Src\Validation\Validation;
 
     class CarrosController extends Controller
     {
 
         public static function home()
         {
-            // self::return( () );
+            
             require 'Public/template.php';
 
         }
+
 
         public static function index(){
             $carro = new Carro();
@@ -28,12 +30,13 @@
 
         }
 
+
         public static function store()
         {
             $carro = new Carro();
-            $carro->placa = 'ABC-1D11';
-            $carro->modelo = 2;
-            $carro->ano = 2018;
+            $carro->placa   = Validation::request('placa', ['placa']);
+            $carro->modelo  = Validation::request('modelo_id', ['integer']);
+            $carro->ano     = Validation::request('ano', ['anoVeiculo']);
 
             $id = $carro->save();
 
@@ -42,6 +45,7 @@
                 'Carro adicionado com sucesso'
             );
         }
+
 
         public static function show($data)
         {
@@ -57,6 +61,7 @@
                 );  
         }
 
+
         public static function edit($data)
         {
             $carro = new Carro();
@@ -65,9 +70,9 @@
             if (empty($carro->id))
                 self::returnNotFound('Não localizado veiculo para este ID');
 
-            $carro->placa = 'ABC-1D11';
-            $carro->modelo = 2;
-            $carro->ano = 2018;
+            $carro->placa   = Validation::request('placa', ['placa']);
+            $carro->modelo  = Validation::request('modelo_id', ['integer']);
+            $carro->ano     = Validation::request('ano', ['anoVeiculo']);
 
             $id = $carro->save();
 
@@ -76,6 +81,7 @@
                 'Carro adicionado com sucesso'
             );
         }
+
 
         public static function destroy($data)
         {
