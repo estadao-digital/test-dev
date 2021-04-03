@@ -51,7 +51,12 @@
 
         static function returnNotFound(string $msg = '')
         {
-            seLf::return(NULL, $msg, self::NOT_FOUND);
+            self::return(null, $msg, self::NOT_FOUND);
+        }
+
+        static function returnUnprocessable(string $msg = '')
+        {
+            self::return(null, $msg, self::UNPROCESSABLE);
         }
     }
 
