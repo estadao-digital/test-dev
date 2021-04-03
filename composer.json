@@ -1,8 +1,14 @@
 {
-    "require-dev": {
-        "phpunit/phpunit": "^9.0",
-        "coffeecode/router":"1.0.*",
-        "coffeecode/datalayer": "1.1.*"
+    "name": "nunes/test-dev",
+    "authors": [
+        {
+            "name": "nunes",
+            "email": "jonathan.nsdk@gmail.com"
+        }
+    ],
+    "require": {
+        "coffeecode/datalayer": "^1.1",
+        "coffeecode/router": "^1.0"
     },
     "autoload": {
         "psr-4": {
@@ -12,5 +18,4 @@
             "config.php"
         ]
     }
-    
 }
