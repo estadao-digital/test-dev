@@ -84,8 +84,10 @@ export const buildTable = {
     whenOpenEditModel: (a, carro) => {
         a.addEventListener('click', function(e){
             e.preventDefault();
-            document.getElementById('input-placa').value = carro.placa;
-            document.getElementById('input-ano').value = carro.ano;
+            document.getElementById('edit-placa').value = carro.placa;
+            document.getElementById('edit-ano').value = carro.ano;
+            document.getElementById('edit-marca').value = carro.Marca.id;
+            document.getElementById('edit-modelo').setAttribute('data-modelo-id', carro.Modelo.id);
         })
     }
 }

@@ -9,19 +9,23 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label>Placa</label>
-						<input type="text" class="form-control" required>
+						<input type="text" id='add-placa' class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label>Marca</label>
-						<input type="email" class="form-control" required>
+						<select class='form-select' name='marca_id' id='add-marca'>
+							
+						</select>
 					</div>
 					<div class="form-group">
 						<label>Modelo</label>
-						<textarea class="form-control" required></textarea>
+						<select class='form-select' id='add-modelo' name='modelo_id' >
+							
+						</select>
 					</div>
 					<div class="form-group">
 						<label>Ano</label>
-						<input type="number" class="form-control" required>
+						<input type="number" id='add-ano' class="form-control" required>
 					</div>
 				</div>
 				<div class="modal-footer">
