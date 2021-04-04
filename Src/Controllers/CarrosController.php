@@ -49,8 +49,7 @@
 
         public static function show($data)
         {
-            $carro = new Carro();
-            $carro->findById($data['id']);
+            $carro = (new Carro())->findById($data['id']);
 
             if (empty($carro->id))
                 self::returnNotFound('Não localizado veiculo para este ID');
@@ -64,8 +63,7 @@
 
         public static function edit($data)
         {
-            $carro = new Carro();
-            $carro->findById($data['id']);
+            $carro = (new Carro())->findById($data['id']);
 
             if (empty($carro->id))
                 self::returnNotFound('Não localizado veiculo para este ID');
@@ -85,8 +83,9 @@
 
         public static function destroy($data)
         {
-            $carro = new Carro();
-            $carro->findById($data['id']);
+            
+            $carro = (new Carro())->findById($data['id']);
+            
             if (empty($carro->id))
                 self::returnNotFound('Não localizado veiculo para este ID');
 

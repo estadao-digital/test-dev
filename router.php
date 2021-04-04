@@ -23,6 +23,11 @@
     $router->post('/Carros', 'CarrosController:store');
 
 
+    $router->get('/Marcas', 'MarcasController:index');
+
+    $router->get('/Modelos', 'ModelosController:index');
+
+    $router->get('/Modelos/{marca_id}', 'ModelosController:show');
     
 
 

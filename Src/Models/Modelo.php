@@ -12,15 +12,27 @@
         }
 
         public function getAll(){
-            $objects = $this->find()->fetch(true);
-            
-            $list = [];
-
-            foreach($objects as $obj){
-                $list[] = $obj->data();
+            $modelos = $this->find()->fetch(true);
+            $lista = [];
+            /** @var $modelo Modelo */
+            foreach ($modelos as $modelo)
+            {
+                $lista[] =  $modelo->data();
             }
+            return $lista;
+        }
 
-            return $list;     
+        public function getByMarca($marca_id)
+        {
+            $modelos = $this
+                ->find("marca_id = :marca_id", "marca_id={$marca_id}")
+                ->fetch(true);
+            /** @var $modelo Modelo */
+            foreach ($modelos as $modelo)
+            {
+                $lista[] =  $modelo->data();
+            }
+            return $lista;
         }
 
         public function marca(): Marca

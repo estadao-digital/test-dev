@@ -44,9 +44,9 @@
             self::return($data, $msg, self::CREATED);
         }
 
-        static function returnNoContent(mixed $data, string $msg = '')
+        static function returnNoContent(string $msg = '')
         {
-            self::return($data, $msg, self::NOCONTENT);
+            self::return(null, $msg, self::NOCONTENT);
         }
 
         static function returnNotFound(string $msg = '')
