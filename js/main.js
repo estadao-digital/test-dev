@@ -16,6 +16,14 @@ function getModelos(id){
     return axios( HOST + '/Modelos/' + id);
 }
 
+function postCarro(data){
+    return axios.post(HOST + '/Carros', data);
+}
+
+function deleteCarro(id){
+    return axios.delete( HOST + '/Carros/' + id);
+}
+
 const deleteModal = document.getElementById('deleteModal');
 const bootstrapModalDelete = new bootstrap.Modal(deleteModal, {keyboard: false});
 
@@ -31,24 +39,41 @@ const selectEditModelo = editModal.querySelector('#edit-modelo');
 const selecAddMarca = addModal.querySelector('#add-marca');
 const selectAddModelo = addModal.querySelector('#add-modelo');
 
-let deleteForm = document.getElementById('deleteForm');
+const deleteForm = document.getElementById('deleteForm');
 
 deleteForm.addEventListener('submit', function(e){
     e.preventDefault();
     
     let id = deleteModal.getAttribute('data-bs-id');
 
-    axios.delete( HOST + '/Carros/' + id)
+    deleteCarro(id)
         .then( (resposta) => {
-            console.log(resposta.data);
-            getCarros();
+            refreshCarros();
             bootstrapModalDelete.hide();
         });
 });
 
 
+const addForm = addModal.querySelector('form');
 
-editModal.addEventListener('shown.bs.modal', function (event) {
+addForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    let data = {
+        placa: addForm.querySelector('#add-placa').value,
+        modelo_id: selectAddModelo.value,
+        ano: addForm.querySelector('#add-ano').value
+    };
+    postCarro(data)
+        .then( (response) => {
+            refreshCarros();
+            bootstrapModalAdd.hide();
+        });
+
+});
+
+
+
+editModal.addEventListener('shown.bs.modal', function () {
     getModelos(selecEditMarca.value)
         .then((response) => {
             buildSelect(selectEditModelo, response.data.data);
@@ -63,6 +88,12 @@ selecEditMarca.addEventListener('change', function(){
         });
 });
 
+addModal.addEventListener('shown.bs.modal', function(){
+    getModelos(selecAddMarca.value)
+        .then((response) => {
+            buildSelect(selectAddModelo, response.data.data);
+        });
+});
 
 selecAddMarca.addEventListener('change', function(){
     getModelos(selecAddMarca.value)
@@ -72,9 +103,7 @@ selecAddMarca.addEventListener('change', function(){
 });
 
 
-
-getCarros()
-    .then(response =>  buildTable.populate(response.data.data) );
+refreshCarros();
 
 getMarcas()
     .then( (response) =>{
@@ -83,7 +112,10 @@ getMarcas()
     });
 
 
-
+function refreshCarros(){
+    getCarros()
+        .then(response =>  buildTable.populate(response.data.data) );
+}
 function buildSelect(select, data)
 {
     select.innerHTML = '';
