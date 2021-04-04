@@ -9,10 +9,6 @@
         </tr>
     </thead>
 
-    <tbody>
-        <?php include './Public/components/table-row.php'; ?>
-
-        <?php include './Public/components/table-row.php'; ?>
-
-    </tbody>
+    <tbody></tbody>
+    
 </table>

@@ -1,111 +1,37 @@
-import {service} from './service.js';
+import {buildTable} from './build-table.js';
 
-let data = service.get2('/Carros');
+const HOST = 'http://localhost:8080';
 
-data.then( (data) => {
-    tablePopulate(data);
-});
+getCarros();
 
-
-function tablePopulate(json)
-{
-    const table = document.getElementById('table');
-    const tbody = table.getElementsByTagName('tbody')[0];
-    tbody.innerText = '';
-    for(let carro of json)
-    {
-        let row = tableRow(carro);
-        tbody.appendChild(row);
-    }
-    
+function getCarros(){
+    axios( HOST + '/Carros')
+        .then(resposta =>  buildTable.populate(resposta.data.data) ) ;
 }
 
 
-function tableRow(carro)
-{
-    const row = document.createElement('tr');
-    const tdPlaca = document.createElement('td');
-    tdPlaca.innerHTML = carro.placa;
-    row.appendChild(tdPlaca);
+const deleteModal = document.getElementById('deleteModal');
+const bootstrapModalDelete = new bootstrap.Modal(deleteModal, {keyboard: false});
 
-    const tdModelo = document.createElement('td');
-    tdModelo.innerHTML = carro.Modelo.nome;
-    row.appendChild(tdModelo);
+const addModal = document.getElementById('addModal');
+const bootstrapModalAdd = new bootstrap.Modal(addModal, {keyboard: false});
 
-
-    const tdMarca = document.createElement('td');
-    tdMarca.className = 'd-none d-sm-table-cell';
-    tdMarca.innerHTML = carro.Marca.nome;
-    row.appendChild(tdMarca);
-
-    const tdAno = document.createElement('td');
-    tdAno.className = 'd-none d-sm-table-cell';
-    tdAno.innerHTML = carro.ano;
-    row.appendChild(tdAno);
-
-    const tdAction = document.createElement('td');
-    tdAction.appendChild( createEditButton(carro) );
-    tdAction.appendChild( createDeleteButton(carro) );
-    row.appendChild(tdAction);
-
-    return row;
-}
-
-
-function createEditButton(carro){
-    const a = document.createElement('a');
-    a.setAttribute('href', '#editModal');
-    a.setAttribute('data-bs-toggle', 'modal');
-    a.setAttribute('data-bs-id', carro.id);
-    a.className = 'edit';
-    const i = document.createElement('i');
-    i.setAttribute('data-toggle', 'tooltip')
-    i.setAttribute('title', 'Editar')
-    i.className = 'material-icons';
-    i.innerHTML = '&#xE254;';
-    a.appendChild(i);
-    whenOpenEditModel(a, carro);
-    return a;
-}
-
-
-function createDeleteButton(carro){
-    const a = document.createElement('a');
-    a.setAttribute('href', '#deleteModal');
-    a.setAttribute('data-bs-toggle', 'modal');
-    a.setAttribute('data-bs-id', carro.id);
-    a.className = 'delete';
-    const i = document.createElement('i');
-    i.setAttribute('data-toggle', 'tooltip')
-    i.setAttribute('title', 'Deletar')
-    i.className = 'material-icons';
-    i.innerHTML = '&#xE872;';
-    a.appendChild(i);
-    whenOpenDeleteModel(a, carro);
-    return a;
-}
-
-function whenOpenDeleteModel(a, carro){
-    a.addEventListener('click', function(e){
-        e.preventDefault();
-        let modal = document.getElementById('deleteModal');
-        modal.setAttribute('data-bs-id', carro.id);
-        document.getElementById('span-placa').innerHTML = carro.placa;
-    })
-}
- 
-function whenOpenEditModel(a, carro){
-    a.addEventListener('click', function(e){
-        e.preventDefault();
-        document.getElementById('input-placa').value = carro.placa;
-        document.getElementById('input-ano').value = carro.ano;
-    })
-}
+const editModal = document.getElementById('editModal');
+const bootstrapModalEdit = new bootstrap.Modal(editModal, {keyboard: false});
 
 
 let deleteForm = document.getElementById('deleteForm');
 deleteForm.addEventListener('submit', function(e){
     e.preventDefault();
-    console.log('delete inpedido');
+    
+    let id = deleteModal.getAttribute('data-bs-id');
+
+    axios.delete( HOST + '/Carros/' + id)
+        .then( (resposta) => {
+            console.log(resposta.data);
+            getCarros();
+            bootstrapModalDelete.hide();
+        });
 });
 
+editModal.addEventListener('show.bs.modal', function (event) {}
