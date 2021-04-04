@@ -8,7 +8,7 @@
     {
         public function __construct()
         {
-            parent::__construct('Carros', ['placa', 'modelo_id', 'ano']);
+            parent::__construct('Carros', ['placa', 'modelo_id', 'ano'], 'id', false);
         }
 
         public function getAll(){

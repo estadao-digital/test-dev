@@ -39,7 +39,7 @@
             self::return($data, $msg, self::OK);
         }
 
-        static function returnCreated(mixed $data, string $msg = '')
+        static function returnCreated($data, string $msg = '')
         {
             self::return($data, $msg, self::CREATED);
         }

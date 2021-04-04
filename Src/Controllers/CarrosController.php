@@ -14,9 +14,7 @@
 
         public static function home()
         {
-            
             require 'Public/template.php';
-
         }
 
 
@@ -33,12 +31,17 @@
 
         public static function store()
         {
+            $_REQUEST = (array) json_decode(file_get_contents("php://input") );
+            
             $carro = new Carro();
-            $carro->placa   = Validation::request('placa', ['placa']);
-            $carro->modelo  = Validation::request('modelo_id', ['integer']);
-            $carro->ano     = Validation::request('ano', ['anoVeiculo']);
-
+            $carro->placa       = Validation::request('placa', ['placa']);
+            $carro->modelo_id   = Validation::request('modelo_id', ['integer']);
+            $carro->ano         = Validation::request('ano', ['anoVeiculo']);
+    
             $id = $carro->save();
+            if($carro->fail()){
+                echo $carro->fail()->getMessage();
+            }
 
             self::returnCreated(
                 ['id' => $id],
@@ -72,10 +75,9 @@
             $carro->modelo  = Validation::request('modelo_id', ['integer']);
             $carro->ano     = Validation::request('ano', ['anoVeiculo']);
 
-            $id = $carro->save();
+            $carro->save();
 
             self::returnNoContent(
-                ['id' => $id],
                 'Carro adicionado com sucesso'
             );
         }
