@@ -39,6 +39,7 @@
             $carro->ano         = Validation::request('ano', ['anoVeiculo']);
     
             $id = $carro->save();
+
             if($carro->fail()){
                 echo $carro->fail()->getMessage();
             }
@@ -73,9 +74,9 @@
             if (empty($carro->id))
                 self::returnNotFound('Não localizado veiculo para este ID');
 
-            $carro->placa   = Validation::request('placa', ['placa']);
-            $carro->modelo_id  = Validation::request('modelo_id', ['integer']);
-            $carro->ano     = Validation::request('ano', ['anoVeiculo']);
+            $carro->placa       = Validation::request('placa', ['placa']);
+            $carro->modelo_id   = Validation::request('modelo_id', ['integer']);
+            $carro->ano         = Validation::request('ano', ['anoVeiculo']);
 
             $carro->save();
             if($carro->fail()){
@@ -83,7 +84,7 @@
             }
 
             self::returnNoContent(
-                'Carro aterado com sucesso'
+                'Carro alterado com sucesso!'
             );
         }
 
@@ -97,8 +98,7 @@
                 self::returnNotFound('Não localizado veiculo para este ID');
 
             $carro->destroy();
-            self::returnNoContent('Veiculo removido com sucesso');
-                
+            self::returnNoContent('Veiculo removido com sucesso!');  
         }
 
     }
