@@ -84,6 +84,8 @@ export const buildTable = {
     whenOpenEditModel: (a, carro) => {
         a.addEventListener('click', function(e){
             e.preventDefault();
+            let modal = document.getElementById('editModal');
+            modal.setAttribute('data-bs-id', carro.id);
             document.getElementById('edit-placa').value = carro.placa;
             document.getElementById('edit-ano').value = carro.ano;
             document.getElementById('edit-marca').value = carro.Marca.id;

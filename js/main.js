@@ -1,28 +1,7 @@
-import {buildTable} from './build-table.js';
-
-const HOST = 'http://localhost:8080';
-
+import { buildTable } from './build-table.js';
+import { Api } from './api.js';
 
 
-function getCarros(){
-    return axios( HOST + '/Carros')
-}
-
-function getMarcas(){
-    return axios( HOST + '/Marcas');
-}
-
-function getModelos(id){
-    return axios( HOST + '/Modelos/' + id);
-}
-
-function postCarro(data){
-    return axios.post(HOST + '/Carros', data);
-}
-
-function deleteCarro(id){
-    return axios.delete( HOST + '/Carros/' + id);
-}
 
 const deleteModal = document.getElementById('deleteModal');
 const bootstrapModalDelete = new bootstrap.Modal(deleteModal, {keyboard: false});
@@ -41,12 +20,19 @@ const selectAddModelo = addModal.querySelector('#add-modelo');
 
 const deleteForm = document.getElementById('deleteForm');
 
+const addForm = addModal.querySelector('form');
+
+const editForm = editModal.querySelector('form');
+
+
+
+
 deleteForm.addEventListener('submit', function(e){
     e.preventDefault();
     
     let id = deleteModal.getAttribute('data-bs-id');
 
-    deleteCarro(id)
+    Api.deleteCarro(id)
         .then( (resposta) => {
             refreshCarros();
             bootstrapModalDelete.hide();
@@ -54,7 +40,6 @@ deleteForm.addEventListener('submit', function(e){
 });
 
 
-const addForm = addModal.querySelector('form');
 
 addForm.addEventListener('submit', function(e){
     e.preventDefault();
@@ -63,7 +48,7 @@ addForm.addEventListener('submit', function(e){
         modelo_id: selectAddModelo.value,
         ano: addForm.querySelector('#add-ano').value
     };
-    postCarro(data)
+    Api.postCarro(data)
         .then( (response) => {
             refreshCarros();
             bootstrapModalAdd.hide();
@@ -73,8 +58,25 @@ addForm.addEventListener('submit', function(e){
 
 
 
+editForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    let id = editModal.getAttribute('data-bs-id');
+    let data = {
+        placa: editForm.querySelector('#edit-placa').value,
+        modelo_id: selectEditModelo.value,
+        ano: editForm.querySelector('#edit-ano').value
+    };  
+    Api.putCarro(id, data)
+        .then( (response) => {
+            refreshCarros();
+            bootstrapModalEdit.hide();
+        });
+})
+
+
+
 editModal.addEventListener('shown.bs.modal', function () {
-    getModelos(selecEditMarca.value)
+    Api.getModelos(selecEditMarca.value)
         .then((response) => {
             buildSelect(selectEditModelo, response.data.data);
             selectEditModelo.value = selectEditModelo.getAttribute('data-modelo-id');
@@ -82,21 +84,21 @@ editModal.addEventListener('shown.bs.modal', function () {
 });
 
 selecEditMarca.addEventListener('change', function(){
-    getModelos(selecEditMarca.value)
+    Api.getModelos(selecEditMarca.value)
         .then((response) => {
             buildSelect(selectEditModelo, response.data.data);
         });
 });
 
 addModal.addEventListener('shown.bs.modal', function(){
-    getModelos(selecAddMarca.value)
+    Api.getModelos(selecAddMarca.value)
         .then((response) => {
             buildSelect(selectAddModelo, response.data.data);
         });
 });
 
 selecAddMarca.addEventListener('change', function(){
-    getModelos(selecAddMarca.value)
+    Api.getModelos(selecAddMarca.value)
         .then((response) => {
             buildSelect(selectAddModelo, response.data.data);
         });
@@ -105,7 +107,7 @@ selecAddMarca.addEventListener('change', function(){
 
 refreshCarros();
 
-getMarcas()
+Api.getMarcas()
     .then( (response) =>{
         buildSelect(selecEditMarca, response.data.data);
         buildSelect(selecAddMarca, response.data.data)
@@ -113,7 +115,7 @@ getMarcas()
 
 
 function refreshCarros(){
-    getCarros()
+    Api.getCarros()
         .then(response =>  buildTable.populate(response.data.data) );
 }
 function buildSelect(select, data)
