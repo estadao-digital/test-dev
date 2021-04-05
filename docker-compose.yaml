@@ -32,17 +32,33 @@ services:
       XDEBUGINI_PATH: /usr/local/etc/php/conf.d/xdebug.ini
       XDEBUG_DEFAULT_ENABLE: 1
       XDEBUG_IDEKEY: PHPSTORM
-
+      
+  composer:
+    container_name: composer
+    restart: unless-stopped
+    build:
+      args:
+        user: composer
+        uid: 1001
+      context: ./
+      dockerfile: docker/Dockerfile
+    working_dir: /var/www  
+    volumes:
+      - ./:/var/www
+    command: sh post-run.sh
+        
   nginx:
     image: nginx:alpine
     container_name: estadao-test-dev-nginx
     restart: unless-stopped
     expose:
-      - 9003
+      - 9003 
     ports:
       - 8080:80
+      - 8081:81
     volumes:
       - ./:/var/www
       - ./docker/nginx:/etc/nginx/conf.d/
     depends_on:
       - app
+      - composer

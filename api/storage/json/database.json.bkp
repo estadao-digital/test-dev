@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "marca": "Audi",
+        "modelo": "A1",
+        "ano": 2010
+    },
+    {
+        "id": 2,
+        "marca": "BMW",
+        "modelo": "Série 1 M",
+        "ano": 2011
+    },
+    {
+        "id": 3,
+        "marca": "Audi",
+        "modelo": "A3",
+        "ano": 2003
+    },
+    {
+        "id": 4,
+        "marca": "BMW",
+        "modelo": "Série 3 Cabrio",
+        "ano": 2012
+    },
+    {
+        "id": 5,
+        "marca": "Citroën",
+        "modelo": "C3",
+        "ano": 2003
+    },
+    {
+        "id": 6,
+        "marca": "Dodge",
+        "modelo": "Journey",
+        "ano": 2012
+    },
+    {
+        "id": 7,
+        "marca": "Fiat",
+        "modelo": "Palio",
+        "ano": 2015
+    }
+]

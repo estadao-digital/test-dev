@@ -1,3 +1,47 @@
+############### TESTE ####################
+Executar Docker :  
+
+# adicionei um container no Docker para rodar o composer, com isso basta executar com: 
+# aguarde o composer gerenciar as dependências 
+
+
+```bash
+$  docker-compose up -d nginx  
+# ou casdocker-compose up --build -d nginx  
+```
+
+URL Front: http://localhost:8080
+URL ApI: http://localhost:8081/carros
+
+Executar Testes, executar os testes dento do docker 
+```bash
+$  cd api 
+./vendor/bin/phpunit tests 
+````
+
+###################################
+
+
+### Rodando o Sistema:
+Backend: Lumen : (https://lumen.laravel.com)
+FrontEnd: utilizando Ajax
+
+```bash
+## Foi criado uma nova configuração para rodar o Lumen 
+
+$  cat docker/nginx/laravel.conf 
+
+## Gerenciar Pacotes da API
+$ cd api
+$ composer install
+
+```
+## para acessar o sistema basta > http://localhost:8080
+## para acessar a API > http://localhost:8081/carros
+
+### VALEW!!!, MUITO OBRIGADO!!!
+
+==============================
 Teste para desenvolvedor do Estadão
 ==============================
 
