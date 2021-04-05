@@ -66,19 +66,24 @@
 
         public static function edit($data)
         {
+            $_REQUEST = (array) json_decode(file_get_contents("php://input") );
+            
             $carro = (new Carro())->findById($data['id']);
 
             if (empty($carro->id))
                 self::returnNotFound('Não localizado veiculo para este ID');
 
             $carro->placa   = Validation::request('placa', ['placa']);
-            $carro->modelo  = Validation::request('modelo_id', ['integer']);
+            $carro->modelo_id  = Validation::request('modelo_id', ['integer']);
             $carro->ano     = Validation::request('ano', ['anoVeiculo']);
 
             $carro->save();
+            if($carro->fail()){
+                echo $carro->fail()->getMessage();
+            }
 
             self::returnNoContent(
-                'Carro adicionado com sucesso'
+                'Carro aterado com sucesso'
             );
         }
 
