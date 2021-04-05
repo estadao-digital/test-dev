@@ -33,7 +33,7 @@
                 is_numeric($p[5]) &&
                 is_numeric($p[6]) ):
 
-                $_REQUEST[$nome] = strtoupper($p);
+                $_REQUEST[$nome] = strtoupper($p[0] . $p[1] . $p[2] . '-' . $p[3] . $p[4] . $p[5] . $p[6] );
             
             else:
                 Controller::returnUnprocessable("Campo $nome não é uma placa válida");
