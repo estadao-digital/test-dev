@@ -1,5 +1,4 @@
 
-
 const infoToast     = document.querySelector('#infoToast');
 const successToast  = document.querySelector('#successToast');
 const warningToast  = document.querySelector('#warningToast');

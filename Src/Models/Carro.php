@@ -16,6 +16,12 @@
             
             $list = [];
 
+            /** 
+             * O coffeeCode opta por não usar joins nas ,
+             * Com ele cada linha de retorno é um objeto,
+             * então aqui estamos adicionando os objets de Marca e Modelo 
+             * para cada Carro
+             */
             foreach($objects as $obj){
                 /** @var $modelo Modelo */
                 /** @var $marca Marca */

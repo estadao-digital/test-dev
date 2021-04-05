@@ -16,7 +16,7 @@
 
             self::returnOk(
                 $modelo->getAll(),
-                'Busca por Marcas'
+                'Busca por Modelos'
             );
         }
 

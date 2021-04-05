@@ -3,6 +3,9 @@
 
     /**
      * Classe para as regras de Validação
+     * 
+     * a cada nova regra de validação 'CPF, Email, Telefone...', 
+     * adicionamos como um método dessa classe 
      */
 
     namespace Src\Validation;
@@ -24,7 +27,7 @@
         {
             $p = str_replace('-', '', $_REQUEST[$nome]);
 
-            if( strlen($p) == 7 &&
+            if ( strlen($p) == 7 &&
                 ctype_alpha($p[0]) &&
                 ctype_alpha($p[1]) &&
                 ctype_alpha($p[2]) &&
@@ -44,7 +47,7 @@
         {
             self::integer($nome);
 
-            if( $_REQUEST[$nome] < self::CARRO_MAIS_ANTIGO_BRASIL 
+            if ( $_REQUEST[$nome] < self::CARRO_MAIS_ANTIGO_BRASIL 
                 || $_REQUEST[$nome] > (new \DateTime('+1 Year'))->format('Y'))
                 Controller::returnUnprocessable("Verifique o valor de $nome!");
         }
