@@ -2,8 +2,8 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<form>
-				<div class="modal-header">
-					<h4 class="modal-title">Novo Veículo</h4>
+				<div class="modal-header text-white bg-success">
+					<h4 class="modal-title">Adicionar Veículo</h4>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 				</div>
 				<div class="modal-body">

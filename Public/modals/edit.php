@@ -2,7 +2,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<form>
-				<div class="modal-header">
+				<div class="modal-header text-dark bg-info">
 					<h4 class="modal-title">Editar Veículo</h4>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
 				</div>
