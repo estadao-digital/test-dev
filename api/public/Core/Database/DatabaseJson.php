@@ -25,6 +25,11 @@ class DatabaseJson implements DatabaseInterface
      * @var array
      */
     private $entity;
+
+    /**
+     * @var string
+     */
+    private $entityFile;
     
     /**
      * DatabaseJson construct
@@ -42,7 +47,9 @@ class DatabaseJson implements DatabaseInterface
                 exit;
             }
 
-            $this->entity = json_decode(file_get_contents($this->path . "/{$entity}.json"), true);
+            $this->entityFile = "{$this->path}/{$entity}.json";
+
+            $this->entity = json_decode(file_get_contents($this->entityFile), true);
         } else {
             echo HandleJson::response(HandleJson::STATUS_NOT_FOUND, 'Database Path or Entity is Empty!');
             exit;
@@ -61,10 +68,45 @@ class DatabaseJson implements DatabaseInterface
 
     /**
      * Find a record by id
+     * 
+     * @param int $id
+     * 
+     * @return array
      */
-    public function findById($id = null): array
+    public function findById($id = 0): array
     {
         return $this->findField($this->entity, 'id', $id);
+    }
+
+    /**
+     * Create record
+     * 
+     * @param array $data
+     * 
+     * @return array
+     */
+    public function create($data = []): array
+    {
+        if ($data) {
+            $lastId = $this->getLastId($this->entity);
+            $data['id'] = ++$lastId;
+            
+            array_push($this->entity, $data);
+        
+            if (file_put_contents($this->entityFile, json_encode($this->entity))) {
+                return [
+                    'error' => false,
+                    'message' => 'Successfully created',
+                    'data' => $data
+                ];
+            }
+        }
+        
+        return [
+            'error' => true,
+            'message' => 'Error creating data',
+            'data' => []
+        ];
     }
 
     /**
@@ -74,7 +116,7 @@ class DatabaseJson implements DatabaseInterface
      * @param string $field
      * @param int|string $value
      */
-    private function findField($data, $field = 'id', $value = 0): array
+    private function findField($data = [], $field = 'id', $value = 0): array
     {
         if ($data) {
             return array_filter(
@@ -86,5 +128,23 @@ class DatabaseJson implements DatabaseInterface
         }
 
         return [];
+    }
+
+    /**
+     * Get last id
+     * 
+     * @param array
+     * 
+     * @return int
+     */
+    private function getLastId($data = []): int
+    {
+        if ($data) {
+            return array_reduce($data, function ($a, $b) {                
+                return $a > $b['id'] ? $a : $b['id'];
+            });            
+        }
+
+        return 0;
     }
 }

@@ -32,6 +32,19 @@ interface DatabaseInterface
 
     /**
      * Find a record by id
+     * 
+     * @param int $id
+     * 
+     * @return array
      */
-    public function findById($id = null): array;
+    public function findById($id): array;
+
+    /**
+     * Create record
+     * 
+     * @param array $data
+     * 
+     * @return array
+     */
+    public function create($data): array;
 }

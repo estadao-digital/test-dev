@@ -47,9 +47,25 @@ class Model
 
     /**
      * Find a record by id
+     * 
+     * @param int $id
+     * 
+     * @return array
      */
-    public function findById($id = null): array
+    public function findById($id): array
     {
         return $this->db->findById($id);
+    }
+
+    /**
+     * Create record
+     * 
+     * @param array $data
+     * 
+     * @return array
+     */
+    public function create($data = []): array
+    {
+        return $this->db->create($data);
     }
 }

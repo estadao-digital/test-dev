@@ -37,7 +37,10 @@ class CarrosController extends Controller
      */
     public function index(): string 
     {
-        return HandleJson::response(HandleJson::STATUS_OK, $this->model->findAll());
+        return HandleJson::response(
+            HandleJson::STATUS_OK, 
+            $this->model->findAll()
+        );
     }
 
     /**
@@ -47,6 +50,31 @@ class CarrosController extends Controller
      */
     public function view(): string 
     {        
-        return HandleJson::response(HandleJson::STATUS_OK, $this->model->findById($this->request->getParam()));
+        return HandleJson::response(
+            HandleJson::STATUS_OK, 
+            $this->model->findById($this->request->getParam())
+        );
+    }
+
+    /**
+     * Create car
+     * 
+     * @return string
+     */
+    public function create(): string 
+    {
+        $created = $this->model->create($this->request->getBody());
+        
+        if (!$created['error']) {
+            return HandleJson::response(
+                HandleJson::STATUS_OK, 
+                $created
+            );
+        }
+
+        return HandleJson::response(
+            HandleJson::STATUS_NOT_FOUND, 
+            $created['message']
+        );
     }
 }
