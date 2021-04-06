@@ -8,6 +8,7 @@ namespace App\Controller;
 
 use App\Core\Controller;
 use App\Core\HandleJson;
+use App\Core\Request;
 
 /**
  * Class CarrosController
@@ -17,16 +18,35 @@ use App\Core\HandleJson;
 class CarrosController extends Controller
 {
     /**
+     * @var object
+     */
+    private $model;
+
+    /**
+     * Used to start objects in the constructor
+     */
+    public function init()
+    {
+        $this->model = $this->model('Carro');
+    }
+
+    /**
      * Return all cars
      * 
      * @return string
      */
-    public function index(): string {
-        
-        $car = $this->model('Carro');
+    public function index(): string 
+    {
+        return HandleJson::response(HandleJson::STATUS_OK, $this->model->findAll());
+    }
 
-        $data = $car->findAll();
-
-        return HandleJson::response(HandleJson::STATUS_OK, $data);
+    /**
+     * Return the car by id
+     * 
+     * @return string
+     */
+    public function view(): string 
+    {        
+        return HandleJson::response(HandleJson::STATUS_OK, $this->model->findById($this->request->getParam()));
     }
 }

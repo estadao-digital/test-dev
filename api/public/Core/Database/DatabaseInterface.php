@@ -6,6 +6,8 @@
 
 namespace App\Core\Database;
 
+use App\Config\Database;
+
 /**
  * Interface DatabaseInterface
  * 
@@ -13,6 +15,14 @@ namespace App\Core\Database;
  */
 interface DatabaseInterface
 {
+    /**
+     * DatabaseJson construct
+     * 
+     * @param Database $config
+     * @param string $entity
+     */
+    public function __construct(Database $config, $entity = '');
+
     /**
      * Find all records
      * 

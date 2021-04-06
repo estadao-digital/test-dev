@@ -14,6 +14,17 @@ namespace App\Core\Database;
 class DatabaseMysql implements DatabaseInterface
 {
     /**
+     * DatabaseMysql construct
+     * 
+     * @param Database $config
+     * @param string $entity
+     */
+    public function __construct(Database $config, $entity = '')
+    {
+        // TODO
+    }
+
+    /**
      * Find all records
      * 
      * @return array

@@ -20,10 +20,19 @@ class Model
      */
     private $db;
 
+    /**
+     * @var string
+     */
+    protected $entity;
+
+    /**
+     * Model Construct
+     */
     public function __construct()
 	{
-		$database = new Database;
-		$this->db = $database->conn;
+		$database = new Database($this->entity);
+		
+        $this->db = $database->conn;
 	}
     
     /**

@@ -37,10 +37,15 @@ class Router
         'DELETE'
     ];
 
-    function __construct(Request $request)
+    /**
+     * Router construct
+     * 
+     * @param Request $request
+     */
+    public function __construct(Request $request)
     {
         $this->request = $request;
-    }    
+    }
 
     public function __call($name, $args)
     {
@@ -53,26 +58,36 @@ class Router
         $this->{strtolower($name)}[$this->formatRoute($route)] = $method;
     }
 
-    public function resolve()
+    /**
+     * Resolve routes
+     * 
+     * @return string
+     */
+    public function resolve(): ?string
     {
-        if (!$this->loadRoutes()) {
-            return false;
+        if ($this->loadRoutes()) {
+            $this->propertyName = strtolower($this->request->requestMethod);
+
+            if (property_exists($this, $this->propertyName)) {
+                $this->methodDictionary = $this->{$this->propertyName};            
+                
+                $this->formatedRoute = $this->formatRoute(parse_url($this->request->requestUri)['path']);
+                
+                $this->handleMethodDictionary();
+
+                $this->renderContent();
+            }
         }
 
-        $this->propertyName = strtolower($this->request->requestMethod);
-
-        if (property_exists($this, $this->propertyName)) {
-            $this->methodDictionary = $this->{$this->propertyName};            
-            
-            $this->formatedRoute = $this->formatRoute(parse_url($this->request->requestUri)['path']);
-            
-            $this->handleMethodDictionary();
-
-            $this->renderContent();
-        }
+        return '';
     }
 
-    private function renderContent()
+    /**
+     * Render Content
+     * 
+     * @return string
+     */
+    private function renderContent(): ?string
     {
         if (array_key_exists($this->formatedRoute, $this->methodDictionary)) {
             $method = $this->methodDictionary[$this->formatedRoute];
@@ -88,6 +103,8 @@ class Router
                     break;
             }
         }
+
+        return '';
     }
     
     /**
@@ -97,9 +114,9 @@ class Router
      * 
      * @return string
      */
-    private function handleController($method): string
+    private function handleController($method): ?string
     {
-        preg_match('/@/', $method, $matches);
+        preg_match('/@/', $method, $matches);        
 
         if ($matches) {
             $expMethod = explode('@', $method);
@@ -114,10 +131,10 @@ class Router
                     return HandleJson::response(HandleJson::STATUS_NOT_FOUND, 'Controller Not Found!');
                 } else {
                     $class = "\App\Controller\\{$controllerClass}";
-                    $controller = new $class;
+                    $controller = new $class($this->request);
 
                     if (method_exists($controller, $controllerMethod)) {
-                        return $controller->index();
+                        return $controller->{$controllerMethod}();
                     }
                 }
             }

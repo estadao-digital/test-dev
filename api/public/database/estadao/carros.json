@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "marca": "Ford",
+        "modelo": "Ka",
+        "ano": 2011
+    },
+    {
+        "id": 2,
+        "marca": "Volkswagen",
+        "modelo": "Gol",
+        "ano": 2005
+    }
+]

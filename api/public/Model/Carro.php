@@ -15,5 +15,8 @@ use App\Core\Model;
  */
 class Carro extends Model
 {
-    
+     /**
+     * @var string
+     */
+    protected $entity = 'carros';
 }

@@ -16,20 +16,18 @@ use App\Core\HandleJson;
  */
 class Database
 {
+    /**
+     * @var object
+     */
     public $conn;
 
-    public function __construct()
-    {    
-        $this->connect();
-    }
-
     /**
-     * Connects to the database
+     * Database construct
      * 
-     * @return void;
+     * @param string $entity
      */
-    public function connect(): void
-	{
+    public function __construct($entity)
+    {
         $config = new \App\Config\Database;
 
         if ($config->default['datasource']) {
@@ -42,7 +40,7 @@ class Database
 
             $class = "App\Core\Database\\{$config->default['datasource']}";
 
-            $this->conn = new $class;
+            $this->conn = new $class($config, $entity);
         } else {
             echo HandleJson::response(HandleJson::STATUS_NOT_FOUND, 'Datasource Empty!');
             exit;

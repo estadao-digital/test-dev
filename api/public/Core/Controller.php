@@ -7,6 +7,7 @@
 namespace App\Core;
 
 use App\Core\HandleJson;
+use App\Core\Request;
 
 /**
  * Class Controller
@@ -15,6 +16,29 @@ use App\Core\HandleJson;
  */
 class Controller
 {
+     /**
+     * @var Request
+     */
+    protected $request;
+
+    /**
+     * Controller construct
+     * 
+     * @param Request $request
+     */
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+
+        $this->init();
+    }
+
+    /**
+     * Used to start objects in the constructor without 
+     * having to use the child class construct
+     */
+    public function init() {}
+
     /**
      * Instantiate the model
      * 
@@ -35,31 +59,5 @@ class Controller
         }
 
         return null;
-    }
-
-    /**
-     * Return params
-     * 
-     * @return string
-     */
-    public function params(): string
-    {
-        $request = explode('/', $_SERVER['REQUEST_URI']);
-
-        return (isset($request[3])) ? $request[3] : null;
-    }
-
-    /**
-     * Return id of params
-     * 
-     * @return string
-     */
-    public function getParamsId(): string
-    {
-        $params = $this->params();
-
-        if (!is_null($params)) {
-            return explode('?', $params)[0];            
-        }
     }
 }

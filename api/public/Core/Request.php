@@ -13,6 +13,9 @@ namespace App\Core;
  */
 class Request
 {
+    /**
+     * Request construct
+     */
     public function __construct()
     {
         $this->createObjectsServer();        
@@ -77,5 +80,26 @@ class Request
        }
 
         return [];
+    }
+
+    /**
+     * Get Params
+     * 
+     * @return string
+     */
+    public function getParams(): string
+    {
+        return parse_url($this->queryString)['path'];
+    }
+
+    /**
+     * Get Param
+     * 
+     * @return string
+     */
+    public function getParam(): string
+    {
+        $params = explode('/', parse_url($this->requestUri)['path']);
+        return $params ? end($params) : '';
     }
 }
