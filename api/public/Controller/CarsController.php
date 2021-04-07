@@ -11,11 +11,11 @@ use App\Core\HandleJson;
 use App\Core\Request;
 
 /**
- * Class CarrosController
+ * Class CarsController
  * 
  * @package App\Controller
  */
-class CarrosController extends Controller
+class CarsController extends Controller
 {
     /**
      * @var object
@@ -27,7 +27,7 @@ class CarrosController extends Controller
      */
     public function init()
     {
-        $this->model = $this->model('Carro');
+        $this->model = $this->model('Car');
     }
 
     /**

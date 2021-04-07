@@ -1,11 +1,8 @@
 <?php
 
-$route->get('/carros', 'CarrosController@index');
-$route->get('/carros/{id}', 'CarrosController@view');
-$route->post('/carros', 'CarrosController@create');
-$route->put('/carros/{id}', 'CarrosController@update');
-$route->delete('/carros/{id}', 'CarrosController@delete');
-
-$route->post('/carros/{id}', function ($request) {
-    return json_encode($request->getBody());
-});
+// Cars
+$route->get('/carros', 'CarsController@index');
+$route->get('/carros/{id}', 'CarsController@view');
+$route->post('/carros', 'CarsController@create');
+$route->put('/carros/{id}', 'CarsController@update');
+$route->delete('/carros/{id}', 'CarsController@delete');

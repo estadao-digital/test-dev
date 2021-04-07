@@ -49,7 +49,14 @@ class DatabaseJson implements DatabaseInterface
 
             $this->entityFile = "{$this->path}/{$entity}.json";
 
-            $this->entity = json_decode(file_get_contents($this->entityFile), true);
+            if (!file_exists($this->entityFile)) {
+                echo HandleJson::response(HandleJson::STATUS_NOT_FOUND, 'Entity Not Found!');
+                exit;
+            }
+
+            $content = json_decode(file_get_contents($this->entityFile), true);
+
+            $this->entity = $content ? $content : [];
         } else {
             echo HandleJson::response(HandleJson::STATUS_NOT_FOUND, 'Database Path or Entity is Empty!');
             exit;

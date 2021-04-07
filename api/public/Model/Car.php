@@ -9,14 +9,14 @@ namespace App\Model;
 use App\Core\Model;
 
 /**
- * Class Carro
+ * Class Car
  * 
  * @package App\Model
  */
-class Carro extends Model
+class Car extends Model
 {
      /**
      * @var string
      */
-    protected $entity = 'carros';
+    protected $entity = 'cars';
 }
