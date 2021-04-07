@@ -68,4 +68,17 @@ class Model
     {
         return $this->db->create($data);
     }
+
+    /**
+     * Update record
+     * 
+     * @param array $data
+     * @param int $id
+     * 
+     * @return array
+     */
+    public function update($data = [], $id): array
+    {
+        return $this->db->update($data, $id);
+    }
 }

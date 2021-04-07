@@ -110,19 +110,56 @@ class DatabaseJson implements DatabaseInterface
     }
 
     /**
-     * Find field in entity
+     * Update record
      * 
      * @param array $data
+     * @param int $id
+     * 
+     * @return array
+     */
+    public function update($data = [], $id = 0): array
+    {
+        if ($data && $id) {
+            $find = $this->find('id', $id);
+
+            if ($find) {
+                $data['id'] = $id;
+                $this->entity[key($find)] = $data;
+
+                if (file_put_contents($this->entityFile, json_encode($this->entity))) {
+                    return [
+                        'error' => false,
+                        'message' => 'Successfully updated',
+                        'data' => $data
+                    ];
+                }
+            }
+        }
+        
+        return [
+            'error' => true,
+            'message' => 'Error updating data',
+            'data' => []
+        ];
+    }
+
+    /**
+     * Find entity
+     *      
      * @param string $field
      * @param int|string $value
+     * 
+     * @return array
      */
-    private function findField($data = [], $field = 'id', $value = 0): array
+    private function find($field = 'id', $value = 0): array
     {
-        if ($data) {
+        if ($this->entity) {
             return array_filter(
-                $data,
+                $this->entity,
                 function ($e) use ($field, $value) {
-                    return $e[$field] == $value;
+                    if (isset($e[$field])) {
+                        return $e[$field] == $value;
+                    }
                 }
             );
         }
@@ -133,14 +170,12 @@ class DatabaseJson implements DatabaseInterface
     /**
      * Get last id
      * 
-     * @param array
-     * 
      * @return int
      */
-    private function getLastId($data = []): int
+    private function getLastId(): int
     {
-        if ($data) {
-            return array_reduce($data, function ($a, $b) {                
+        if ($this->entity) {
+            return array_reduce($this->entity, function ($a, $b) {                
                 return $a > $b['id'] ? $a : $b['id'];
             });            
         }

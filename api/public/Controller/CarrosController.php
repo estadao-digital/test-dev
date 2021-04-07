@@ -77,4 +77,29 @@ class CarrosController extends Controller
             $created['message']
         );
     }
+
+    /**
+     * Update car
+     * 
+     * @return string
+     */
+    public function update(): string 
+    {
+        $updated = $this->model->update(
+            $this->request->getBody(), 
+            $this->request->getParam()
+        );
+        
+        if (!$updated['error']) {
+            return HandleJson::response(
+                HandleJson::STATUS_OK, 
+                $updated
+            );
+        }
+
+        return HandleJson::response(
+            HandleJson::STATUS_NOT_FOUND, 
+            $updated['message']
+        );
+    }
 }

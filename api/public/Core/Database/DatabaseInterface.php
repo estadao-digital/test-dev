@@ -47,4 +47,14 @@ interface DatabaseInterface
      * @return array
      */
     public function create($data): array;
+
+    /**
+     * Update record
+     * 
+     * @param array $data
+     * @param int $id
+     * 
+     * @return array
+     */
+    public function update($data, $id): array;
 }
