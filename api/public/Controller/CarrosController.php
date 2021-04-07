@@ -102,4 +102,26 @@ class CarrosController extends Controller
             $updated['message']
         );
     }
+
+    /**
+     * Delete car
+     * 
+     * @return string
+     */
+    public function delete(): string 
+    {
+        $deleted = $this->model->delete($this->request->getParam());
+        
+        if (!$deleted['error']) {
+            return HandleJson::response(
+                HandleJson::STATUS_OK, 
+                $deleted
+            );
+        }
+
+        return HandleJson::response(
+            HandleJson::STATUS_NOT_FOUND, 
+            $deleted['message']
+        );
+    }
 }

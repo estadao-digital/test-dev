@@ -75,7 +75,7 @@ class DatabaseJson implements DatabaseInterface
      */
     public function findById($id = 0): array
     {
-        return $this->findField($this->entity, 'id', $id);
+        return $this->find('id', $id);
     }
 
     /**
@@ -93,7 +93,7 @@ class DatabaseJson implements DatabaseInterface
             
             array_push($this->entity, $data);
         
-            if (file_put_contents($this->entityFile, json_encode($this->entity))) {
+            if ($this->save()) {
                 return [
                     'error' => false,
                     'message' => 'Successfully created',
@@ -126,7 +126,7 @@ class DatabaseJson implements DatabaseInterface
                 $data['id'] = $id;
                 $this->entity[key($find)] = $data;
 
-                if (file_put_contents($this->entityFile, json_encode($this->entity))) {
+                if ($this->save()) {
                     return [
                         'error' => false,
                         'message' => 'Successfully updated',
@@ -139,6 +139,36 @@ class DatabaseJson implements DatabaseInterface
         return [
             'error' => true,
             'message' => 'Error updating data',
+            'data' => []
+        ];
+    }
+
+    /**
+     * Delete record
+     * 
+     * @param int $id
+     * 
+     * @return array
+     */
+    public function delete($id = 0): array
+    {
+        $find = $this->find('id', $id);
+
+        if ($find) {
+            unset($this->entity[key($find)]);
+
+            if ($this->save()) {
+                return [
+                    'error' => false,
+                    'message' => 'Successfully delete',
+                    'data' => []
+                ];
+            }
+        }
+        
+        return [
+            'error' => true,
+            'message' => 'Error deleting data',
             'data' => []
         ];
     }
@@ -181,5 +211,15 @@ class DatabaseJson implements DatabaseInterface
         }
 
         return 0;
+    }
+
+    /**
+     * Save data
+     * 
+     * @return bool
+     */
+    private function save(): bool
+    {
+        return file_put_contents($this->entityFile, json_encode($this->entity));
     }
 }

@@ -57,4 +57,13 @@ interface DatabaseInterface
      * @return array
      */
     public function update($data, $id): array;
+
+    /**
+     * Delete a record
+     * 
+     * @param int $id
+     * 
+     * @return array
+     */
+    public function delete($id): array;
 }

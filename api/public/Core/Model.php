@@ -81,4 +81,16 @@ class Model
     {
         return $this->db->update($data, $id);
     }
+
+    /**
+     * Delete a record
+     * 
+     * @param int $id
+     * 
+     * @return array
+     */
+    public function delete($id): array
+    {
+        return $this->db->delete($id);
+    }
 }
