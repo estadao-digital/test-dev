@@ -2,7 +2,7 @@ import React from 'react'
 import MenuItem from './menuItem'
 import MenuTree from './menuTree'
 
-export default props => (
+export default () => (
     <ul className='sidebar-menu'>
         <MenuItem path='/' label='Dashboard' icon='dashboard' />
         <MenuTree label='Carros' icon='car'> 
