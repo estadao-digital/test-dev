@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  web:
+    container_name: estadao-test-dev-web
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+      - './:/app'
+      - '/app/node_modules'
+    ports:
+      - '8080:3000'
+    environment:
+      - NODE_ENV=development

@@ -6,7 +6,7 @@ services:
         user: estadao
         uid: 1000
       context: ./
-      dockerfile: docker/Dockerfile
+      dockerfile: docker/php/Dockerfile
     image: estadao-test-dev
     healthcheck:
       interval: 10s
@@ -40,7 +40,6 @@ services:
     expose:
       - 9003
     ports:
-      - 8080:80
       - 8090:90
     volumes:
       - ./:/var/www
