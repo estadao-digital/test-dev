@@ -5,12 +5,12 @@ import Header from 'components/Header'
 import SideBar from 'components/SideBar'
 import Footer from 'components/Footer'
 
-export default () => (
+export default props => (
     <div className="wrapper">
         <Header />
         <SideBar />
         <div className='content-wrapper'> 
-            <h1>Conteúdo Aqui</h1>
+            {props.children}
         </div>
         <Footer />
     </div>
