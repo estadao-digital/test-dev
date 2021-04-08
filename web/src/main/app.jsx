@@ -1,9 +1,9 @@
 import '../common/template/dependencies'
 import React from 'react'
 
-import Header from '../common/template/header'
-import SideBar from '../common/template/sideBar'
-import Footer from '../common/template/footer'
+import Header from 'components/Header'
+import SideBar from 'components/SideBar'
+import Footer from 'components/Footer'
 
 export default () => (
     <div className="wrapper">
