@@ -1,0 +1,1 @@
+export const CARS_FETCHED = 'CARS_FETCHED'
