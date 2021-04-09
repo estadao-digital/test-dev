@@ -8,7 +8,6 @@ import { getList } from 'actions/carsActions'
 
 export default () => {
     const dispatch = useDispatch()
-
     const { list } = useSelector(state => state.cars)
 
     useEffect(() => dispatch(getList()), [])
