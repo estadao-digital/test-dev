@@ -7,7 +7,7 @@ import promise from 'redux-promise'
 import multi from 'redux-multi'
 import thunk from 'redux-thunk'
 
-import reducers from './store/reducers'
+import reducers from 'reducers'
 import Routes from './main/routes'
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 

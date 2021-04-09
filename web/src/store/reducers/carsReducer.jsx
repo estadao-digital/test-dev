@@ -1,4 +1,4 @@
-import * as types from '../types/carsType'
+import * as types from 'types/carsType'
 
 const INITIAL_STATE = {
     list: []

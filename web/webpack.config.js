@@ -18,7 +18,10 @@ module.exports = {
             jquery: 'modules/admin-lte/plugins/jQuery/jquery-2.2.3.min.js',
             bootstrap: 'modules/admin-lte/bootstrap/js/bootstrap.js',
             components: __dirname + '/src/components',
-            services: __dirname + '/src/services'
+            services: __dirname + '/src/services',
+            actions: __dirname + '/src/store/actions',
+            types: __dirname + '/src/store/types',
+            reducers: __dirname + '/src/store/reducers'
         }
     },
     plugins: [ 
