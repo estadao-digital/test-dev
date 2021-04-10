@@ -6,6 +6,10 @@
 
 namespace App\Core;
 
+use App\Core\Router;
+use App\Core\Request;
+use App\Core\Cors;
+
 /**
  * Class App
  * 
@@ -13,8 +17,18 @@ namespace App\Core;
  */
 class App
 {
-    public function __construct(Router $router)
-    {   
+    /**
+     * App construct
+     * 
+     */
+    public function __construct()
+    {
+        // Initializes cors
+        $cors = new Cors();
+        $cors->resolve();
+
+        // Initializes the routes
+        $router = new Router(new Request);
         $router->resolve();
     }
 }
