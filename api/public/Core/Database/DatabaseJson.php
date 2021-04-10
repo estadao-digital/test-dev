@@ -81,8 +81,9 @@ class DatabaseJson implements DatabaseInterface
      * @return array
      */
     public function findById($id = 0): array
-    {
-        return $this->find('id', $id);
+    {        
+        $data = array_values($this->find('id', $id));
+        return $data ? $data[0] : [];
     }
 
     /**
