@@ -1,16 +1,13 @@
-import * as types from 'types/carsType'
+import * as types from 'types/brandsType'
 
 const INITIAL_STATE = {
-    list: [],
-    save: false
+    list: []
 }
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case types.CARS_FETCHED:
+        case types.BRANDS_FETCHED:
             return { ...state, list: action.payload.data }
-        case types.CARS_SAVE:
-            return { ...state, save: action.payload }
         default:
             return state
     }

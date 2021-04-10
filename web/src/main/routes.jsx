@@ -10,7 +10,7 @@ import {
 import App from './app'
 import Dashboard from 'components/Dashboard'
 import Cars from 'components/Cars'
-import CarsAdd from 'components/Cars/carsAdd'
+import CarsForm from 'components/Cars/carsForm'
 
 export default () => (
     <HashRouter>
@@ -18,7 +18,7 @@ export default () => (
             <Switch>
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/cars" component={Cars} />
-                <Route exact path="/cars/add" component={CarsAdd} />
+                <Route exact path="/cars/add" component={CarsForm} />
                 <Redirect from='*' to='/' />
             </Switch>
         </App>

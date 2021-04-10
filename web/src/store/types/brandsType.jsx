@@ -1,0 +1,1 @@
+export const BRANDS_FETCHED = 'BRANDS_FETCHED'
