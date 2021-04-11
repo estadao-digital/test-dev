@@ -228,6 +228,9 @@ class DatabaseJson implements DatabaseInterface
      */
     private function save(): bool
     {
-        return file_put_contents($this->entityFile, json_encode($this->entity));
+        return file_put_contents(
+            $this->entityFile, 
+            json_encode(array_values($this->entity))
+        );
     }
 }
