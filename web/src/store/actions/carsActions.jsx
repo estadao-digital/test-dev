@@ -1,6 +1,7 @@
  import http from 'services/http'
  import * as types from 'types/carsType'
  import { toastr } from 'react-redux-toastr'
+ import { reset as resetForm, initialize } from 'redux-form'
 
 export const getList = () => {
     return dispatch => {
@@ -38,4 +39,20 @@ export const create = data => {
                 ])
             })
     }
+}
+
+export const view = id => {  
+    return http.get(`/carros/${id}`)
+        .then(response => {
+            const data = response.data.data
+
+            if (data.length <= 0) toastr.error('Erro', 'Ocorreu um erro ao tentar recuperar o veículo!')
+            
+            return [
+                initialize('carsForm', data)
+            ]
+        })
+        .catch(e => {
+            toastr.error('Erro', 'Ocorreu um erro ao tentar recuperar o veículo!')
+        })
 }

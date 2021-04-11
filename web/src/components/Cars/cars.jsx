@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 import Content from 'components/Content'
 import ContentHeader from 'components/Content/contentHeader'
@@ -8,10 +9,15 @@ import { getList } from 'actions/carsActions'
 
 export default () => {
     const dispatch = useDispatch()
+    const history = useHistory()
     const { list } = useSelector(state => state.cars)
 
     useEffect(() => dispatch(getList()), [])
 
+    const update = id => {
+        history.push(`/cars/edit/${id}`)
+    }
+ 
     const renderRows = () => {
         return list.map(item => (
             <tr key={item.id}>
@@ -19,7 +25,8 @@ export default () => {
                 <td>{item.modelo}</td>
                 <td>{item.ano}</td>
                 <td>
-                    <button 
+                    <button
+                        onClick={() => update(item.id)} 
                         className='btn btn-warning'>
                         <i className='fa fa-pencil'></i>
                     </button>

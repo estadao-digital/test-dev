@@ -11,3 +11,23 @@ button {
 .table-actions {
     width: 150px;
 }
+
+.content {
+    padding-bottom: 35px;
+}
+
+.form-group span {
+    border: none;
+    font-weight: 700;
+    color: #700;
+    font-size: 16px;
+}
+
+.form-group span:before {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    content: '\F06A';
+    margin-right: 5px;
+}

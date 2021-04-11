@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case types.BRANDS_FETCHED:
-            return { ...state, list: action.payload.data }
+            return { ...state, list: action.payload }
         default:
             return state
     }

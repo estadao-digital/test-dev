@@ -16,9 +16,26 @@ export default () => (
     <HashRouter>
         <App>
             <Switch>
-                <Route exact path="/" component={Dashboard} />
-                <Route exact path="/cars" component={Cars} />
-                <Route exact path="/cars/add" component={CarsForm} />
+                <Route 
+                    exact 
+                    path="/" 
+                    component={Dashboard} />
+                
+                <Route 
+                    exact 
+                    path="/cars" 
+                    component={Cars} />
+                
+                <Route 
+                    exact 
+                    path="/cars/add" 
+                    component={() => <CarsForm type="add" />} />
+                
+                <Route 
+                    exact 
+                    path="/cars/edit/:id" 
+                    component={() => <CarsForm type="edit" />} />
+                
                 <Redirect from='*' to='/' />
             </Switch>
         </App>

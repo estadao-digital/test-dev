@@ -3,26 +3,29 @@ import Grid from 'components/Layout/grid'
 import If from 'components/Operator/if'
 
 export default props => {
+    const {
+        input,
+        label,        
+        name,
+        cols,
+        children,
+        meta: { touched, error, warning }
+    } = props
+
     return (
-        <Grid cols={props.cols}>
+        <Grid cols={cols}>
             <div className='form-group'>
-                <If test={props.label}>
-                    <label htmlFor={props.name}>{props.label}</label>
+                <If test={label}>
+                    <label htmlFor={name}>{label}</label>
                 </If>
                 
-                <select {...props.input} className='form-control'>
-                    <If test={props.defaultName}>
-                        <option value={props.defaultValue}>
-                            {props.defaultName}
-                        </option>
-                    </If>
-
-                    {props.options && props.options.map((item, index) => (
-                        <option key={index} value={item.value}>
-                            {item.name}
-                        </option>
-                    ))}
+                <select {...input} className='form-control'>
+                   {children}
                 </select>
+
+                {touched &&
+                    ((error && <span>{error}</span>) ||
+                    (warning && <span>{warning}</span>))}
             </div>
         </Grid>
     )
