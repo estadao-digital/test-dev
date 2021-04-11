@@ -21,24 +21,47 @@ export const getList = () => {
     }
 }
 
-export const create = data => {    
+const save = (data, type) => {
+    const handleProperty = {
+        create: {
+            action: 'post',
+            messageSuccess: 'Carro cadastrado com sucesso!',
+            messageError: 'Ocorreu um erro ao cadastrar o carro!',
+            url: '/carros'
+        },
+        update: {
+            action: 'put',
+            messageSuccess: 'Carro alterado com sucesso!',
+            messageError: 'Ocorreu um erro ao alterar o carro!',
+            url: `/carros/${data.id}`
+        }
+    }
+
     return dispatch => {
-        http.post('/carros', data)
+        http[handleProperty[type].action](handleProperty[type].url, data)
             .then(response => {
-                toastr.success('Sucesso', 'Carro cadastrado com sucesso!')
+                toastr.success('Sucesso', handleProperty[type].messageSuccess)
 
                 dispatch([
                     { type: types.CARS_SAVE, payload: true }
                 ])
             })
             .catch(e => {
-                toastr.error('Erro', 'Ocorreu um erro ao cadastrar o carro!')
+                toastr.error('Erro', handleProperty[type].messageError)
 
                 dispatch([
                     { type: types.CARS_SAVE, payload: e.response.data }
                 ])
             })
     }
+}
+
+export const create = data => {    
+    return save(data, 'create')
+}
+
+export const update = data => {    
+    return save(data, 'update')
 }
 
 export const view = id => {  

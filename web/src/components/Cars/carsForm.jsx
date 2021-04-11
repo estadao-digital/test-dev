@@ -10,22 +10,37 @@ import Input from 'components/Form/input'
 import Select from 'components/Form/select'
 import { required, maxLength } from 'components/Form/validation'
 
-import { create, view } from 'actions/carsActions'
+import { create, update, view } from 'actions/carsActions'
 import { getList as getBrands } from 'actions/brandsActions'
+
+const handleProperty = {
+    add: {
+        headerSmall: 'Cadastrar',
+        btn: 'Incluir',
+        action: data => create(data)
+    },
+    edit: {
+        headerSmall: 'Editar',
+        btn: 'Salvar',
+        action: data => update(data)
+    }
+}
+
+const maxLength4 = maxLength(4)
 
 const CarsForm = props => {
     const dispatch = useDispatch()
     const history = useHistory()
     const params = useParams()
     
-    const { handleSubmit, valid } = props
+    const { handleSubmit, valid, type } = props
     const { save } = useSelector(state => state.cars)
     const brands = useSelector(state => state.brands.list)
 
     // Save
     const handleSave = data => {
         dispatch([
-            create(data)
+            handleProperty[type].action(data)
         ])
     }
 
@@ -35,7 +50,7 @@ const CarsForm = props => {
 
     // View
     const handleView = () => {
-        if (props.type == 'edit') {
+        if (type == 'edit') {
             let { id } = params
             dispatch(view(id))
         }
@@ -49,7 +64,10 @@ const CarsForm = props => {
 
     return (
         <div>
-            <ContentHeader title='Carros' small='Adicionar' />
+            <ContentHeader 
+                title='Carros' 
+                small={handleProperty[type].headerSmall} />
+
             <Content>
                 <form role='form' onSubmit={handleSubmit(handleSave)}>
                     <div className='box-body'>
@@ -81,7 +99,7 @@ const CarsForm = props => {
                             type='number'
                             label='Ano' 
                             cols='12 4'
-                            validate={[required, maxLength(4)]} 
+                            validate={[required, maxLength4]} 
                             placeholder='Informe o ano' />                                        
                     </div>
 
@@ -90,7 +108,7 @@ const CarsForm = props => {
                             type='submit' 
                             disabled={!valid}
                             className='btn btn-primary'>
-                            Incluir
+                            {handleProperty[type].btn}
                         </button>                        
                     </Grid>
                 </form>
