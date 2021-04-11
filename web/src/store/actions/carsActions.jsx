@@ -69,13 +69,27 @@ export const view = id => {
         .then(response => {
             const data = response.data.data
 
-            if (data.length <= 0) toastr.error('Erro', 'Ocorreu um erro ao tentar recuperar o veículo!')
+            if (data.length <= 0) toastr.error('Erro', 'Ocorreu um erro ao tentar recuperar o carro!')
             
             return [
                 initialize('carsForm', data)
             ]
         })
         .catch(e => {
-            toastr.error('Erro', 'Ocorreu um erro ao tentar recuperar o veículo!')
+            toastr.error('Erro', 'Ocorreu um erro ao tentar recuperar o carro!')
+        })
+}
+
+export const remove = id => {
+    return http.delete(`/carros/${id}`)
+        .then(response => {
+            toastr.success('Sucesso', 'Carro removido com sucesso!')
+
+            return [
+                getList()
+            ]
+        })
+        .catch(e => {
+            toastr.error('Erro', 'Ocorreu um erro ao tentar remover o carro!')
         })
 }

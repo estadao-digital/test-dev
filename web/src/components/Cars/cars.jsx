@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import Content from 'components/Content'
 import ContentHeader from 'components/Content/contentHeader'
 
+import { remove } from 'actions/carsActions'
 import { getList } from 'actions/carsActions'
 
 export default () => {
@@ -14,8 +15,12 @@ export default () => {
 
     useEffect(() => dispatch(getList()), [])
 
-    const update = id => {
+    const handleUpdate = id => {
         history.push(`/cars/edit/${id}`)
+    }
+
+    const handleDelete = id => {
+        dispatch([remove(id)])
     }
  
     const renderRows = () => {
@@ -26,11 +31,13 @@ export default () => {
                 <td>{item.ano}</td>
                 <td>
                     <button
-                        onClick={() => update(item.id)} 
+                        onClick={() => handleUpdate(item.id)} 
                         className='btn btn-warning'>
                         <i className='fa fa-pencil'></i>
                     </button>
-                    <button className='btn btn-danger'>
+                    <button
+                        onClick={() => handleDelete(item.id)} 
+                        className='btn btn-danger'>
                         <i className='fa fa-trash-o'></i>
                     </button>
                 </td>
