@@ -8,7 +8,19 @@ services:
     volumes:
       - './:/app'
       - '/app/node_modules'
-    ports:
-      - '8080:3000'
     environment:
       - NODE_ENV=development
+  
+  nginx:
+    image: nginx:alpine
+    container_name: estadao-test-dev-web-nginx
+    restart: unless-stopped
+    expose:
+      - 9003
+    ports:
+      - 8080:80
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d/
+    depends_on:
+      - web

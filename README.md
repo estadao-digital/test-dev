@@ -49,10 +49,22 @@ Para a segunda etapa do teste, você deverá desenvolver uma SPA (Single Page Ap
 
 Esse teste com um ambiente Docker funcional, ou seja, basta rodar os comandos para subir o container da aplicação e acessar a URL do projeto no navegador.
 
-Para rodar o ambiente, é necessário ter o Docker Compose instalado, e rodar o seguinte comando:
-> docker-compose up -d nginx
+O teste foi separado em dois Docker's, um foi para a API (PHP) e outro para o FRONT (React). Segue os comandos para cada ambiente:
 
-Após o ambiente subir, basta acessar a URL abaixo e começar a desenvolver:
+- API (PHP)
+> - Entrar na pasta **api**
+> - docker-compose up -d --build
+
+- FRONT (React)
+> - Entrar na pasta **web**
+> - docker-compose up -d --build
+
+Após o ambiente subir, basta acessar a URL dos ambientes abaixo e começar a desenvolver:
+
+- API (PHP)
+> http://localhost:8090
+
+- FRONT (React)
 > http://localhost:8080
 
 ### Observações importantes:
