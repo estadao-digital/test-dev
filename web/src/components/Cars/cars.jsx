@@ -5,8 +5,7 @@ import { useHistory } from 'react-router-dom'
 import Content from 'components/Content'
 import ContentHeader from 'components/Content/contentHeader'
 
-import { remove } from 'actions/carsActions'
-import { getList } from 'actions/carsActions'
+import { remove, getList } from 'actions/carsActions'
 
 export default () => {
     const dispatch = useDispatch()
@@ -15,13 +14,8 @@ export default () => {
 
     useEffect(() => dispatch(getList()), [])
 
-    const handleUpdate = id => {
-        history.push(`/cars/edit/${id}`)
-    }
-
-    const handleDelete = id => {
-        dispatch([remove(id)])
-    }
+    const handleUpdate = id => history.push(`/cars/edit/${id}`)
+    const handleDelete = id => dispatch([remove(id)])
  
     const renderRows = () => {
         return list.map(item => (
