@@ -54,6 +54,9 @@ O teste foi separado em dois Docker's, um foi para a API (PHP) e outro para o FR
 - API (PHP)
 > - Entrar na pasta **api**
 > - docker-compose up -d --build
+> - Entrar dentro do container **app**
+> - docker-compose exec app bash
+> - Depois rodar o comando: **composer install**
 
 - FRONT (React)
 > - Entrar na pasta **web**
