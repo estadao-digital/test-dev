@@ -2,6 +2,7 @@ api/vendor
 *.log
 
 # dependencies web
+/web/package-lock.json
 /web/node_modules
 /web/.pnp
 /web/.pnp.js
