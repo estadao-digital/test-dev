@@ -4,7 +4,7 @@ services:
   app:
     image: wyveo/nginx-php-fpm:php74
     ports: 
-      - "8095:80"
+      - "8080:80"
     volumes: 
       - ./:/usr/share/nginx
     networks: 
