@@ -1,3 +1,26 @@
+INSTRUÇÕES:
+1) A aplicação foi realizada com o laravel 8.x
+2) As rotas indicadas está na apiResource do laravel
+3) O frontend foi construído em Vue.js
+
+**Banco de dados:**
+
+Foi utilizado o banco de dados mysql configurado no .env do laravel.
+
+Para construir o banco deve seguir os passos:
+
+* Entrar no container mysql-teste (docker container exec -it mysql-teste bash)
+* Dentro container executar ***mysql - p***  (será solicitada a senha : 100200 configurada no docker-composer.yaml)
+* Criar o banco: ***create database teste***;
+
+**Aplicação:** 
+
+* Entrar no container estadao-test-dev-app (docker container exec -it estadao-test-dev-app bash)
+* Dentro container executar: ***php artisan migrate*** para construir as tabelas necessárias.
+* Dentro do diretório root da aplicação também contém um arquivo dump.sql com a estrutura do banco se preferirem realizar o restore do banco.
+
+==================================================================
+
 Teste para desenvolvedor do Estadão
 ==============================
 
