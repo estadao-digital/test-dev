@@ -1,3 +1,20 @@
+INSTRUÇÕES::
+1) A aplicação foi realizada com o laravel 8.x
+2) O backend está ma apiResource do laravel
+3) O frontend foi construido em VueJs
+
+** Banco de dados
+Foi utilizado o banco de dados mysql configurado no .env do laravel
+(segue o .env.example versionado)
+
+Para construir o banco deve seguir os passos:
+-> Entrar no container mysql-teste (docker container exec -it mysql-teste bash)
+-> Dentro container executar mysql - p (será solicitada a senha : 100200 **configurada no docker-composer.yaml)
+-> Criar o banco: create database teste;
+
+** Aplicação
+Rodar o comando php artisan migrate para construir as tabelas necessárias
+
 Teste para desenvolvedor do Estadão
 ==============================
 

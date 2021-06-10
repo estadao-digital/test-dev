@@ -20,19 +20,6 @@ services:
       - ./:/var/www
     environment:
       APPLICATION_ENV: development
-      XDEBUG_INSTALL: 1
-      XDEBUG_CONFIG: "remote_host=host.docker.internal"
-      XDEBUG_REMOTE_ENABLE: "on"
-      XDEBUG_REMOTE_AUTOSTART: 1
-      XDEBUG_REMOTE_CONNECT_BACK: 0
-      XDEBUG_REMOTE_HANDLER: dbgp
-      XDEBUG_PROFILER_ENABLE: 1
-      XDEBUG_PROFILER_OUTPUT_DIR: /var/www/html/xdebug.log
-      XDEBUG_REMOTE_PORT: 9003
-      XDEBUGINI_PATH: /usr/local/etc/php/conf.d/xdebug.ini
-      XDEBUG_DEFAULT_ENABLE: 1
-      XDEBUG_IDEKEY: PHPSTORM
-
   nginx:
     image: nginx:alpine
     container_name: estadao-test-dev-nginx
@@ -46,3 +33,14 @@ services:
       - ./docker/nginx:/etc/nginx/conf.d/
     depends_on:
       - app
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-teste
+    #restart: always
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_ROOT_PASSWORD=100200
+      - MYSQL_USER=alpha
+      - MYSQL_PASSWORD=100200
+    ports:
+      - 3306:3306      
