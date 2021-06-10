@@ -2015,6 +2015,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2051,6 +2058,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -38443,11 +38456,25 @@ var render = function() {
                       _vm._v("Escolha uma marca")
                     ]),
                     _vm._v(" "),
-                    _c("option", [_vm._v("FIAT")]),
+                    _c("option", [_vm._v("Fiat")]),
                     _vm._v(" "),
-                    _c("option", [_vm._v("HUNDAI")]),
+                    _c("option", [_vm._v("Toyota")]),
                     _vm._v(" "),
-                    _c("option", [_vm._v("FORD")])
+                    _c("option", [_vm._v("Volkswagen")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Ford")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Honda")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Hyundai")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Nissan")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Chevrolet")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Kia")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Ford")])
                   ]
                 )
               ]),
@@ -38597,13 +38624,25 @@ var render = function() {
                   [
                     _c("option", [_vm._v(_vm._s(_vm.car.brand))]),
                     _vm._v(" "),
-                    _c("option", [_vm._v("FIAT")]),
+                    _c("option", [_vm._v("Fiat")]),
                     _vm._v(" "),
-                    _c("option", [_vm._v("VOLKS")]),
+                    _c("option", [_vm._v("Toyota")]),
                     _vm._v(" "),
-                    _c("option", [_vm._v("HUNDAI")]),
+                    _c("option", [_vm._v("Volkswagen")]),
                     _vm._v(" "),
-                    _c("option", [_vm._v("FORD")])
+                    _c("option", [_vm._v("Ford")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Honda")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Hyundai")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Nissan")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Chevrolet")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Kia")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Ford")])
                   ]
                 )
               ]),

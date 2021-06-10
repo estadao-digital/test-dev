@@ -17,9 +17,16 @@
             <label class="required">Marca</label>
             <select v-model="car.brand" class="form-control" required>
               <option disabled>Escolha uma marca</option>
-              <option>FIAT</option>
-              <option>HUNDAI</option>
-              <option>FORD</option>
+              <option>Fiat</option>
+              <option>Toyota</option>
+              <option>Volkswagen</option>
+              <option>Ford</option>
+              <option>Honda</option>
+              <option>Hyundai</option>
+              <option>Nissan</option>
+              <option>Chevrolet</option>
+              <option>Kia</option>
+              <option>Ford</option>
             </select>
           </div>
 
