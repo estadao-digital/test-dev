@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+    <div class="container">
+        <h1>Carros</h1>
+        <form id="forms">
+            <input type="hidden" name="car_id" id="car_id">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Modelo</label>
+                <input type="text" class="form-control" id="car_name" name="car_name" aria-describedby="emailHelp"
+                    placeholder="Modelo">
+                <small id="car_name" class="form-text text-muted">Digite o modelo do veículo.</small>
+            </div>
+            <div class="form-group">
+                <label for="car_price">Preço</label>
+                <input type="text" class="form-control" id="car_price" name="car_price">
+                <small id="car_name" class="form-text text-muted">Digite o preço do veículo.</small>
+            </div>
+            <div class="form-group">
+                <label for="car_year">Ano</label>
+                <input type="text" class="form-control" id="car_year" name="car_year">
+                <small id="car_name" class="form-text text-muted">Digite o ano do veículo.</small>
+            </div>
+            <div class="form-group">
+                <select class="form-select" id="car_brand" name="car_brand" aria-label="Default select example">
+                    <option selected>...</option>
+                    <option value="1">Volkswagen</option>
+                    <option value="2">Ford</option>
+                    <option value="3">Mercedes</option>
+                    <option value="4">BMW</option>
+                  </select>
+                  <small id="car_brand" class="form-text text-muted">Selecione a marca do veículo.</small>
+            </div>            
+            <button id="envio" type="button" onclick="createCar(event);" class="btn btn-primary left">Enviar</button>
+
+        </form>
+    </div>
+    <div class="container">
+        <center>
+            <button id="seeCars" type="button" onclick="seeCars(event);" class="btn btn-primary">Ver lista de carros
+                cadastrados</button>
+        </center>
+    </div>
+    <div class="container">
+        <table class="table" id="dashTable">
+            <thead>
+                <tr>
+                    <th>Modelo</th>
+                    <th>Ano</th>
+                    <th>Preço</th>
+                    <th>Marca</th>
+                    <th>Opçoes</th>
+                </tr>
+            </thead>
+            <tbody id="dashTbody">
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+<script>
+    var request;
+    function cleanFields() {
+        document.getElementById("car_id").value = "";
+        document.getElementById("car_name").value = "";
+        document.getElementById("car_price").value = "";
+        document.getElementById("car_year").value = "";
+        document.getElementById("car_brand").value = "";
+    }
+    function cleanTable() {
+        var table = document.getElementById("dashTable");
+        for (var i = table.rows.length - 1; i > 0; i--) {
+            table.deleteRow(i);
+        }
+    }
+    function seeCars() {
+        cleanTable();
+        var r = "";
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+            var carReturn = this.responseText;
+            var array = JSON.parse(carReturn);
+            array.forEach(function (object) {
+                var t = document.getElementById("dashTable");
+                r = document.createElement("TR");
+                r.innerHTML += `
+                                <tr>                                                
+                                <td>${object.car_name}</td>
+                                <td>${object.car_year}</td>
+                                <td>${object.car_price}</td>
+                                <td>${object.marca}</td>
+                                <td><button class='btn btn-danger' onclick="removeCar(${object.id})">Deletar</button>
+                                <button  class='btn btn-secondary'  onclick="editCar(${object.id})">Editar</button></td>
+                            </tr>
+                                    `
+                t.tBodies[0].appendChild(r)
+
+            });
+        }
+        xhttp.open("GET", "http://localhost/testDev/test-dev/v1/api.php");
+        xhttp.send();
+    }
+    function createCar() {
+        event.preventDefault();
+        var editar = 0;
+        const xhttp = new XMLHttpRequest();
+        if (document.getElementById("car_id").value) {
+            var car_idV = document.getElementById("car_id").value;
+        }
+
+        var car_nameV = document.getElementById("car_name").value;
+        var car_priceV = document.getElementById("car_price").value;
+        var car_yearV = document.getElementById("car_year").value;
+        var car_brandV = document.getElementById("car_brand").value;
+        //var car_brandV = 1;
+        if (car_idV) {
+            var params = { id: car_idV, car_name: car_nameV, car_price: car_priceV, car_year: car_yearV, car_brand: car_brandV };
+            editar = 1;
+        } else {
+            var params = { car_name: car_nameV, car_price: car_priceV, car_year: car_yearV, car_brand: car_brandV };
+        }
+
+
+        xhttp.onload = function () {
+            var carReturn = this.responseText;
+            var array = JSON.parse(carReturn);
+            array.forEach(function (object) {
+                console.log(object.car_name);
+            });
+        }
+        if (editar == 1) {
+            xhttp.open("PUT", "http://localhost/testDev/test-dev/v1/api.php", true);
+        } else {
+            xhttp.open("POST", "http://localhost/testDev/test-dev/v1/api.php", true);
+        }
+
+        xhttp.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
+
+        xhttp.send(JSON.stringify(params));
+        xhttp.onreadystatechange = function () {//Call a function when the state changes.
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                console.log(xhttp.responseText);
+            }
+        }
+        seeCars();
+        cleanFields();
+    }
+    function removeCar(id) {
+        var result = confirm("Confirma o canceclamento?");
+        if (result == true) {
+            const xhttp = new XMLHttpRequest();
+            event.preventDefault();
+            xhttp.open("DELETE", `http://localhost/testDev/test-dev/v1/api.php?id=${id}`, true);
+            xhttp.send();
+        }
+        cleanTable();
+    }
+
+    function editCar(id) {
+        event.preventDefault();
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "http://localhost/testDev/test-dev/v1/api.php?id=" + id);
+        xhttp.send();
+        xhttp.onload = function () {
+            var carReturn = this.responseText;
+            var array = JSON.parse(carReturn);
+            array.forEach(function (object) {
+                document.getElementById("car_id").value = id;
+                document.getElementById("car_name").value = object.car_name;
+                document.getElementById("car_price").value = object.car_price;
+                document.getElementById("car_year").value = object.car_year;
+                document.getElementById("car_brand").value = object.car_brand;
+            });
+        }
+        cleanFields();
+    }
+
+
+</script>
