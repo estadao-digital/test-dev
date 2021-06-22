@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+input:active,
+input:visited,
+input:focus {
+    outline: none;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.c-pointer {
+    cursor: pointer;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.f-direction-column {
+    flex-direction: column;
+}
+
+.j-content-center {
+    justify-content: center;
+}
+
+.j-content-space-between {
+    justify-content: space-between;
+}
+
+.j-content-flex-end {
+    justify-content: flex-end;
+}
+
+.al-items-center {
+    align-items: center;
+}
+
+.container-geral {
+    width: 100vw;
+    min-height: 100vh;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#c5deea+0,8abbd7+31,066dab+100;Web+2.0+Blue+3D+%231 */
+    background: #c5deea; /* Old browsers */
+    background: -moz-linear-gradient(top,  #c5deea 0%, #8abbd7 31%, #066dab 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c5deea', endColorstr='#066dab',GradientType=0 ); /* IE6-9 */
+}
+
+.container {
+    padding: 25px;
+    background: #fff;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 10px
+}
+
+.container-form input,
+.container-form select {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 0;
+    border-bottom: 1px solid #ddd
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+}
+
+.container-form input[type='submit'],
+.btn {
+    background: #0a4f76;
+    color: #fff;
+    border-radius: 10px;
+    transition: 0.5s all;
+    cursor: pointer;
+}
+
+.container-form input[type='submit']:hover,
+.btn:hover {
+    background: #1878af;
+}
+
+.line-carro {
+    border-bottom: 1px solid #000;
+    padding: 10px;
+}
