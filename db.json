@@ -1,0 +1,44 @@
+{
+  "carros": [
+    {
+      "id": "1",
+      "marca": "Audi",
+      "modelo": "A4",
+      "ano": "2020"
+    },
+    {
+      "id": "2",
+      "marca": "Mercedes",
+      "modelo": "A190",
+      "ano": "2002"
+    },
+    {
+      "id": "3",
+      "marca": "BMW",
+      "modelo": "X1",
+      "ano": "2018"
+    }
+  ],
+  "marcas": [
+    {
+      "id": "1",
+      "nome": "Mercedes"
+    },
+    {
+      "id": "2",
+      "nome": "BMW"
+    },
+    {
+      "id": "3",
+      "nome": "Audi"
+    },
+    {
+      "id": "4",
+      "nome": "Ferrari"
+    },
+    {
+      "id": "5",
+      "nome": "Fiat"
+    }
+  ]
+}
