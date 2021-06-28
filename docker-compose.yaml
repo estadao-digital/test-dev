@@ -17,7 +17,7 @@ services:
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
-      - ./:/var/www
+      - ./build/:/var/www
     environment:
       APPLICATION_ENV: development
       XDEBUG_INSTALL: 1
@@ -42,7 +42,7 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./:/var/www
+      - ./build/:/var/www
       - ./docker/nginx:/etc/nginx/conf.d/
     depends_on:
       - app
