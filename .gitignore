@@ -1,0 +1,2 @@
+docker/nginx/host.cert
+docker/nginx/nopassword.key

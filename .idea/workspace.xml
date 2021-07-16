@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e92c82e-3e89-408b-9c4a-a0cdfc6e6267" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/api/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/database/json/carros.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/database/json/carros.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/front/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,6 +165,9 @@
       <workItem from="1617287726056" duration="23000" />
       <workItem from="1617293572041" duration="6876000" />
       <workItem from="1617300780613" duration="13000" />
+      <workItem from="1617628735158" duration="15000" />
+      <workItem from="1617998097168" duration="744000" />
+      <workItem from="1618074966563" duration="265000" />
     </task>
     <servers />
   </component>
