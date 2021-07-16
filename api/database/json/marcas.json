@@ -1,0 +1,632 @@
+[
+    {
+        "title": "AUDI",
+        "fipe_name": "Audi",
+        "order": 2,
+        "key": "audi-6",
+        "id": 6
+    },
+    {
+        "title": "BMW",
+        "fipe_name": "BMW",
+        "order": 2,
+        "key": "bmw-7",
+        "id": 7
+    },
+    {
+        "title": "CITROEN",
+        "fipe_name": "Citroën",
+        "order": 2,
+        "key": "citroen-13",
+        "id": 13
+    },
+    {
+        "title": "FIAT",
+        "fipe_name": "Fiat",
+        "order": 2,
+        "key": "fiat-21",
+        "id": 21
+    },
+    {
+        "title": "FORD",
+        "fipe_name": "Ford",
+        "order": 2,
+        "key": "ford-22",
+        "id": 22
+    },
+    {
+        "title": "CHEVROLET",
+        "fipe_name": "GM - Chevrolet",
+        "order": 2,
+        "key": "gm-chevrolet-23",
+        "id": 23
+    },
+    {
+        "title": "HONDA",
+        "fipe_name": "Honda",
+        "order": 2,
+        "key": "honda-25",
+        "id": 25
+    },
+    {
+        "title": "HYUNDAI",
+        "fipe_name": "Hyundai",
+        "order": 2,
+        "key": "hyundai-26",
+        "id": 26
+    },
+    {
+        "title": "KIA",
+        "fipe_name": "Kia Motors",
+        "order": 2,
+        "key": "kia-motors-31",
+        "id": 31
+    },
+    {
+        "title": "MERCEDES-BENZ",
+        "fipe_name": "Mercedes-Benz",
+        "order": 2,
+        "key": "mercedes-benz-39",
+        "id": 39
+    },
+    {
+        "title": "MITSUBISHI",
+        "fipe_name": "Mitsubishi",
+        "order": 2,
+        "key": "mitsubishi-41",
+        "id": 41
+    },
+    {
+        "title": "NISSAN",
+        "fipe_name": "Nissan",
+        "order": 2,
+        "key": "nissan-43",
+        "id": 43
+    },
+    {
+        "title": "PEUGEOT",
+        "fipe_name": "Peugeot",
+        "order": 2,
+        "key": "peugeot-44",
+        "id": 44
+    },
+    {
+        "title": "RENAULT",
+        "fipe_name": "Renault",
+        "order": 2,
+        "key": "renault-48",
+        "id": 48
+    },
+    {
+        "title": "SUZUKI",
+        "fipe_name": "Suzuki",
+        "order": 2,
+        "key": "suzuki-55",
+        "id": 55
+    },
+    {
+        "title": "TOYOTA",
+        "fipe_name": "Toyota",
+        "order": 2,
+        "key": "toyota-56",
+        "id": 56
+    },
+    {
+        "title": "VOLVO",
+        "fipe_name": "Volvo",
+        "order": 2,
+        "key": "volvo-58",
+        "id": 58
+    },
+    {
+        "title": "VOLKSWAGEN",
+        "fipe_name": "VW - VolksWagen",
+        "order": 2,
+        "key": "vw-volkswagen-59",
+        "id": 59
+    },
+    {
+        "title": "ACURA",
+        "fipe_name": "Acura",
+        "order": 1,
+        "key": "acura-1",
+        "id": 1
+    },
+    {
+        "title": "AGRALE",
+        "fipe_name": "Agrale",
+        "order": 1,
+        "key": "agrale-2",
+        "id": 2
+    },
+    {
+        "title": "ALFA ROMEO",
+        "fipe_name": "Alfa Romeo",
+        "order": 1,
+        "key": "alfa-romeo-3",
+        "id": 3
+    },
+    {
+        "title": "AM GEN",
+        "fipe_name": "AM Gen",
+        "order": 1,
+        "key": "am-gen-4",
+        "id": 4
+    },
+    {
+        "title": "ASIA MOTORS",
+        "fipe_name": "Asia Motors",
+        "order": 1,
+        "key": "asia-motors-5",
+        "id": 5
+    },
+    {
+        "title": "ASTON MARTIN",
+        "fipe_name": "ASTON MARTIN",
+        "order": 1,
+        "key": "aston-martin-189",
+        "id": 189
+    },
+    {
+        "title": "BABY",
+        "fipe_name": "Baby",
+        "order": 1,
+        "key": "baby-207",
+        "id": 207
+    },
+    {
+        "title": "BRM",
+        "fipe_name": "BRM",
+        "order": 1,
+        "key": "brm-8",
+        "id": 8
+    },
+    {
+        "title": "BUGRE",
+        "fipe_name": "Bugre",
+        "order": 1,
+        "key": "bugre-123",
+        "id": 123
+    },
+    {
+        "title": "CADILLAC",
+        "fipe_name": "Cadillac",
+        "order": 1,
+        "key": "cadillac-10",
+        "id": 10
+    },
+    {
+        "title": "CBT JIPE",
+        "fipe_name": "CBT Jipe",
+        "order": 1,
+        "key": "cbt-jipe-11",
+        "id": 11
+    },
+    {
+        "title": "CHANA",
+        "fipe_name": "CHANA",
+        "order": 1,
+        "key": "chana-136",
+        "id": 136
+    },
+    {
+        "title": "CHANGAN",
+        "fipe_name": "CHANGAN",
+        "order": 1,
+        "key": "changan-182",
+        "id": 182
+    },
+    {
+        "title": "CHERY",
+        "fipe_name": "CHERY",
+        "order": 1,
+        "key": "chery-161",
+        "id": 161
+    },
+    {
+        "title": "CHRYSLER",
+        "fipe_name": "Chrysler",
+        "order": 1,
+        "key": "chrysler-12",
+        "id": 12
+    },
+    {
+        "title": "CROSS LANDER",
+        "fipe_name": "Cross Lander",
+        "order": 1,
+        "key": "cross-lander-14",
+        "id": 14
+    },
+    {
+        "title": "DAEWOO",
+        "fipe_name": "Daewoo",
+        "order": 1,
+        "key": "daewoo-15",
+        "id": 15
+    },
+    {
+        "title": "DAIHATSU",
+        "fipe_name": "Daihatsu",
+        "order": 1,
+        "key": "daihatsu-16",
+        "id": 16
+    },
+    {
+        "title": "DODGE",
+        "fipe_name": "Dodge",
+        "order": 1,
+        "key": "dodge-17",
+        "id": 17
+    },
+    {
+        "title": "EFFA",
+        "fipe_name": "EFFA",
+        "order": 1,
+        "key": "effa-147",
+        "id": 147
+    },
+    {
+        "title": "ENGESA",
+        "fipe_name": "Engesa",
+        "order": 1,
+        "key": "engesa-18",
+        "id": 18
+    },
+    {
+        "title": "ENVEMO",
+        "fipe_name": "Envemo",
+        "order": 1,
+        "key": "envemo-19",
+        "id": 19
+    },
+    {
+        "title": "FERRARI",
+        "fipe_name": "Ferrari",
+        "order": 1,
+        "key": "ferrari-20",
+        "id": 20
+    },
+    {
+        "title": "FIBRAVAN",
+        "fipe_name": "Fibravan",
+        "order": 1,
+        "key": "fibravan-149",
+        "id": 149
+    },
+    {
+        "title": "FOTON",
+        "fipe_name": "FOTON",
+        "order": 1,
+        "key": "foton-190",
+        "id": 190
+    },
+    {
+        "title": "FYBER",
+        "fipe_name": "Fyber",
+        "order": 1,
+        "key": "fyber-170",
+        "id": 170
+    },
+    {
+        "title": "GEELY",
+        "fipe_name": "GEELY",
+        "order": 1,
+        "key": "geely-199",
+        "id": 199
+    },
+    {
+        "title": "GREAT WALL",
+        "fipe_name": "GREAT WALL",
+        "order": 1,
+        "key": "great-wall-153",
+        "id": 153
+    },
+    {
+        "title": "GURGEL",
+        "fipe_name": "Gurgel",
+        "order": 1,
+        "key": "gurgel-24",
+        "id": 24
+    },
+    {
+        "title": "HAFEI",
+        "fipe_name": "HAFEI",
+        "order": 1,
+        "key": "hafei-152",
+        "id": 152
+    },
+    {
+        "title": "HITECH ELECTRIC",
+        "fipe_name": "HITECH ELECTRIC",
+        "order": 1,
+        "key": "hitech-electric-214",
+        "id": 214
+    },
+    {
+        "title": "ISUZU",
+        "fipe_name": "Isuzu",
+        "order": 1,
+        "key": "isuzu-27",
+        "id": 27
+    },
+    {
+        "title": "IVECO",
+        "fipe_name": "IVECO",
+        "order": 1,
+        "key": "iveco-208",
+        "id": 208
+    },
+    {
+        "title": "JAC",
+        "fipe_name": "JAC",
+        "order": 1,
+        "key": "jac-177",
+        "id": 177
+    },
+    {
+        "title": "JAGUAR",
+        "fipe_name": "Jaguar",
+        "order": 1,
+        "key": "jaguar-28",
+        "id": 28
+    },
+    {
+        "title": "JEEP",
+        "fipe_name": "Jeep",
+        "order": 1,
+        "key": "jeep-29",
+        "id": 29
+    },
+    {
+        "title": "JINBEI",
+        "fipe_name": "JINBEI",
+        "order": 1,
+        "key": "jinbei-154",
+        "id": 154
+    },
+    {
+        "title": "JPX",
+        "fipe_name": "JPX",
+        "order": 1,
+        "key": "jpx-30",
+        "id": 30
+    },
+    {
+        "title": "LADA",
+        "fipe_name": "Lada",
+        "order": 1,
+        "key": "lada-32",
+        "id": 32
+    },
+    {
+        "title": "LAMBORGHINI",
+        "fipe_name": "LAMBORGHINI",
+        "order": 1,
+        "key": "lamborghini-171",
+        "id": 171
+    },
+    {
+        "title": "LAND ROVER",
+        "fipe_name": "Land Rover",
+        "order": 1,
+        "key": "land-rover-33",
+        "id": 33
+    },
+    {
+        "title": "LEXUS",
+        "fipe_name": "Lexus",
+        "order": 1,
+        "key": "lexus-34",
+        "id": 34
+    },
+    {
+        "title": "LIFAN",
+        "fipe_name": "LIFAN",
+        "order": 1,
+        "key": "lifan-168",
+        "id": 168
+    },
+    {
+        "title": "LOBINI",
+        "fipe_name": "LOBINI",
+        "order": 1,
+        "key": "lobini-127",
+        "id": 127
+    },
+    {
+        "title": "LOTUS",
+        "fipe_name": "Lotus",
+        "order": 1,
+        "key": "lotus-35",
+        "id": 35
+    },
+    {
+        "title": "MAHINDRA",
+        "fipe_name": "Mahindra",
+        "order": 1,
+        "key": "mahindra-140",
+        "id": 140
+    },
+    {
+        "title": "MASERATI",
+        "fipe_name": "Maserati",
+        "order": 1,
+        "key": "maserati-36",
+        "id": 36
+    },
+    {
+        "title": "MATRA",
+        "fipe_name": "Matra",
+        "order": 1,
+        "key": "matra-37",
+        "id": 37
+    },
+    {
+        "title": "MAZDA",
+        "fipe_name": "Mazda",
+        "order": 1,
+        "key": "mazda-38",
+        "id": 38
+    },
+    {
+        "title": "MCLAREN",
+        "fipe_name": "Mclaren",
+        "order": 1,
+        "key": "mclaren-211",
+        "id": 211
+    },
+    {
+        "title": "MERCURY",
+        "fipe_name": "Mercury",
+        "order": 1,
+        "key": "mercury-40",
+        "id": 40
+    },
+    {
+        "title": "MG",
+        "fipe_name": "MG",
+        "order": 1,
+        "key": "mg-167",
+        "id": 167
+    },
+    {
+        "title": "MINI",
+        "fipe_name": "MINI",
+        "order": 1,
+        "key": "mini-156",
+        "id": 156
+    },
+    {
+        "title": "MIURA",
+        "fipe_name": "Miura",
+        "order": 1,
+        "key": "miura-42",
+        "id": 42
+    },
+    {
+        "title": "PLYMOUTH",
+        "fipe_name": "Plymouth",
+        "order": 1,
+        "key": "plymouth-45",
+        "id": 45
+    },
+    {
+        "title": "PONTIAC",
+        "fipe_name": "Pontiac",
+        "order": 1,
+        "key": "pontiac-46",
+        "id": 46
+    },
+    {
+        "title": "PORSCHE",
+        "fipe_name": "Porsche",
+        "order": 1,
+        "key": "porsche-47",
+        "id": 47
+    },
+    {
+        "title": "RAM",
+        "fipe_name": "RAM",
+        "order": 1,
+        "key": "ram-185",
+        "id": 185
+    },
+    {
+        "title": "RELY",
+        "fipe_name": "RELY",
+        "order": 1,
+        "key": "rely-186",
+        "id": 186
+    },
+    {
+        "title": "ROLLS-ROYCE",
+        "fipe_name": "Rolls-Royce",
+        "order": 1,
+        "key": "rolls-royce-195",
+        "id": 195
+    },
+    {
+        "title": "ROVER",
+        "fipe_name": "Rover",
+        "order": 1,
+        "key": "rover-49",
+        "id": 49
+    },
+    {
+        "title": "SAAB",
+        "fipe_name": "Saab",
+        "order": 1,
+        "key": "saab-50",
+        "id": 50
+    },
+    {
+        "title": "SATURN",
+        "fipe_name": "Saturn",
+        "order": 1,
+        "key": "saturn-51",
+        "id": 51
+    },
+    {
+        "title": "SEAT",
+        "fipe_name": "Seat",
+        "order": 1,
+        "key": "seat-52",
+        "id": 52
+    },
+    {
+        "title": "SHINERAY",
+        "fipe_name": "SHINERAY",
+        "order": 1,
+        "key": "shineray-183",
+        "id": 183
+    },
+    {
+        "title": "SMART",
+        "fipe_name": "smart",
+        "order": 1,
+        "key": "smart-157",
+        "id": 157
+    },
+    {
+        "title": "SSANGYONG",
+        "fipe_name": "SSANGYONG",
+        "order": 1,
+        "key": "ssangyong-125",
+        "id": 125
+    },
+    {
+        "title": "SUBARU",
+        "fipe_name": "Subaru",
+        "order": 1,
+        "key": "subaru-54",
+        "id": 54
+    },
+    {
+        "title": "TAC",
+        "fipe_name": "TAC",
+        "order": 1,
+        "key": "tac-165",
+        "id": 165
+    },
+    {
+        "title": "TROLLER",
+        "fipe_name": "Troller",
+        "order": 1,
+        "key": "troller-57",
+        "id": 57
+    },
+    {
+        "title": "WAKE",
+        "fipe_name": "Wake",
+        "order": 1,
+        "key": "wake-163",
+        "id": 163
+    },
+    {
+        "title": "WALK",
+        "fipe_name": "Walk",
+        "order": 1,
+        "key": "walk-120",
+        "id": 120
+    }
+]
