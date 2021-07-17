@@ -1,0 +1,33 @@
+.ripple {
+    background-position: center;
+    transition: background 0.3s;
+    margin: auto;
+    background-color: rgb(255,90,96);
+    border: none;
+    border-radius: 2px;
+    height: 56px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: white;
+    box-shadow: 0 0 4px #999;
+    outline: none;
+    border-radius: 10px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .ripple:hover {
+    background: #ff7164 radial-gradient(circle, transparent 1%, #ff7164 1%) center/15000%;
+  }
+  .ripple:active {
+    background-color: rgb(255,90,96);
+    background-size: 100%;
+    transition: background 0s;
+  }
+  .ripple svg{
+      width: 25px;
+      height: 25px;
+  }
+
+  
