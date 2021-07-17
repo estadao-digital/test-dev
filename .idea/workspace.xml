@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4e92c82e-3e89-408b-9c4a-a0cdfc6e6267" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/api/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/api/vendor/prettus/l5-repository" />
+      <path value="$PROJECT_DIR$/api/vendor/prettus/laravel-validation" />
+      <path value="$PROJECT_DIR$/api/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/api/vendor/laravelista/lumen-vendor-publish" />
+      <path value="$PROJECT_DIR$/api/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/api/vendor/composer" />
+      <path value="$PROJECT_DIR$/api/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/api/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/api/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/api/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/api/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/api/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/api/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/api/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/api/vendor/nikic/fast-route" />
+      <path value="$PROJECT_DIR$/api/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/api/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/api/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/api/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/api/vendor/laravel/lumen-framework" />
+      <path value="$PROJECT_DIR$/api/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/api/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/api/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/api/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/api/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/api/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/api/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/api/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/api/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/api/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/api/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/api/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/api/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/api/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/events" />
+      <path value="$PROJECT_DIR$/api/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/translation" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/queue" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/bus" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/config" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/broadcasting" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/support" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/auth" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/database" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/view" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/validation" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/collections" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/cache" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/filesystem" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/macroable" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/log" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/container" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/hashing" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/pagination" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/session" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/pipeline" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/encryption" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/http" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/testing" />
+      <path value="$PROJECT_DIR$/api/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/console" />
+      <path value="$PROJECT_DIR$/api/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/api/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/api/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/api/vendor/phpdocumentor/type-resolver" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1qZWiwW1ddv3Tr8Fatup81nJblP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/front" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4e92c82e-3e89-408b-9c4a-a0cdfc6e6267" name="Default Changelist" comment="" />
+      <created>1617287724145</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617287724145</updated>
+      <workItem from="1617287726056" duration="23000" />
+      <workItem from="1617293572041" duration="6876000" />
+      <workItem from="1617300780613" duration="13000" />
+      <workItem from="1617628735158" duration="15000" />
+      <workItem from="1617998097168" duration="744000" />
+      <workItem from="1618074966563" duration="265000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
