@@ -1,0 +1,72 @@
+{
+    "packages": [
+        {
+            "name": "pecee/simple-router",
+            "version": "4.3.6.1",
+            "version_normalized": "4.3.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/skipperbent/simple-php-router.git",
+                "reference": "e5552a88cfd482099772ec09cfb154b5cba02461"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/skipperbent/simple-php-router/zipball/e5552a88cfd482099772ec09cfb154b5cba02461",
+                "reference": "e5552a88cfd482099772ec09cfb154b5cba02461",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1",
+                "phpstan/phpstan": "^0",
+                "phpstan/phpstan-deprecation-rules": "^0",
+                "phpstan/phpstan-phpunit": "^0",
+                "phpstan/phpstan-strict-rules": "^0",
+                "phpunit/phpunit": "^7"
+            },
+            "time": "2021-06-15T08:16:25+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Pecee\\": "src/Pecee/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Sessingø",
+                    "email": "simon.sessingoe@gmail.com"
+                }
+            ],
+            "description": "Simple, fast PHP router that is easy to get integrated and in almost any project. Heavily inspired by the Laravel router.",
+            "keywords": [
+                "framework",
+                "input-handler",
+                "laravel",
+                "pecee",
+                "php",
+                "request-handler",
+                "route",
+                "router",
+                "routing",
+                "routing-engine",
+                "simple-php-router",
+                "url-handling"
+            ],
+            "support": {
+                "issues": "https://github.com/skipperbent/simple-php-router/issues",
+                "source": "https://github.com/skipperbent/simple-php-router/issues"
+            },
+            "install-path": "../pecee/simple-router"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

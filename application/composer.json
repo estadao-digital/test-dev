@@ -1,0 +1,11 @@
+{
+  "autoload": {
+    "psr-4": {
+      "App\\": "app",
+      "Core\\": "core"
+    }
+  },
+  "require": {
+    "pecee/simple-router": "4.3.6.1"
+  }
+}
