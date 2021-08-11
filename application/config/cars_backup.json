@@ -1,0 +1,68 @@
+[
+  {
+    "id": "1",
+    "brand": "Toyota",
+    "model": "Corolla Altis Hybrid",
+    "year": "2020"
+  },
+  {
+    "id": "2",
+    "brand": "Volkswagen",
+    "model": "T-Cross",
+    "year": "2021"
+  },
+  {
+    "id": "3",
+    "brand": "Ford",
+    "model": "Mustang",
+    "year": "2020"
+  },
+  {
+    "id": "4",
+    "brand": "Honda",
+    "model": "Civic",
+    "year": "2019"
+  },
+  {
+    "id": "5",
+    "brand": "Mitsubishi",
+    "model": "Pajero",
+    "year": "2010"
+  },
+  {
+    "id": "6",
+    "brand": "Chevrolet",
+    "model": "Prisma",
+    "year": "2019"
+  },
+  {
+    "id": "7",
+    "brand": "Fiat",
+    "model": "Strada Adventure",
+    "year": "2021"
+  },
+  {
+    "id": "8",
+    "brand": "Renault",
+    "model": "Duster Iconic CVT",
+    "year": "2019"
+  },
+  {
+    "id": "9",
+    "brand": "Jeep",
+    "model": "Compass",
+    "year": "2022"
+  },
+  {
+    "id": "10",
+    "brand": "Nissan",
+    "model": "Frontier",
+    "year": "2021"
+  },
+  {
+    "id": "11",
+    "brand": "Ferrari Test",
+    "model": "Model Test",
+    "year": "2016"
+  }
+]
