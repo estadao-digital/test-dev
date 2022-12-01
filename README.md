@@ -1,13 +1,14 @@
 Teste para desenvolvedor do Estadão
 ==============================
 
-Olá candidato,
+Olá avaliador(a),
 
-Esse teste consiste em 2 etapas para avaliarmos seu conhecimento em PHP e Front-End (HTML5, CSS e JavaScript)
+Para execução deste teste serão necessários alguns passos:
+1. Primeiro levantamos o ambiente em docker com o comando: `cd crud_car/backend && vendor/bin/sail up -d`;
+1. Alimentamos o banco de dados executando o arquivo em python: `feed_backend.py`;
+1. Rodamos o frontend com: `cd crud_car/frontend && npm run`;
 
-Para realizar o teste, você deve dar um fork neste repositório e depois clona-lo na pasta <document_root> da máquina que está realizando o teste.
-
-Crie um branch com seu nome, e quando finalizar todo o desenvolvimento, você deverá enviar um pull-request com sua versão.
+Para consumo da API, pode-se utilizar o arquivo de <i>collections</i> `collection_crud_car.json`.
 
 O teste
 --------
