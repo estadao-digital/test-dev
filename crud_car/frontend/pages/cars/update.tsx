@@ -1,10 +1,37 @@
-import { Button, Form, FormLabel } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { FaCheck } from "react-icons/fa";
 
 const UpdateCar: NextPage = () => {
+
+  const router = useRouter()
+  const { id } = router.query
+  const url: string = `http://0.0.0.0/api/carros/${id}`
+  const [loading, setLoading] = useState(false)
+  const [data, setData] = useState(null)
+
+  const fetchData = async (url: RequestInfo) => {
+    try {
+      setLoading(true)
+
+      const response = await fetch(url, {
+        "method": "GET"
+      })
+
+      const data = await response.json()
+      if (!data) throw 'No car found!'
+      setData(data)
+
+    } catch (error) {
+      console.log("error: ", error);
+    }
+    finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <div className="form-container">
-      <h1>New Car</h1>
+      <h1>Update Car</h1>
       <Form method="post" action="http://0.0.0.0/api/carros">
         <label for="brand">Car Brand: </label>
         <input type="text" id="brand" name="brand" />

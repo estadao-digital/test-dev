@@ -19,3 +19,17 @@ a {
   width: 100vw;
   text-align: center;
 }
+
+.card {
+  &-car {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 1rem;
+  }
+
+  &-buttons>a {
+    margin-right: 1rem;
+  }
+}
