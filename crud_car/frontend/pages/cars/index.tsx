@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { Button } from 'react-bootstrap';
 import { FaCar, FaPlus } from 'react-icons/fa';
+import CustomLoading from '../loading';
 
 const Cars: NextPage = (url: RequestInfo = "http://0.0.0.0/api/carros", method: string = "get") => {
 
@@ -62,7 +63,7 @@ const Cars: NextPage = (url: RequestInfo = "http://0.0.0.0/api/carros", method: 
         </thead>
         <tbody className='table-body'>
           {loading && !data && <tr className="container">
-            <td colSpan={4}>Loading</td>
+            <td colSpan={4}>{CustomLoading()}</td>
           </tr>
           }
 

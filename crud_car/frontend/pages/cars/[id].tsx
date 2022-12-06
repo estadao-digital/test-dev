@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import { FaArrowAltCircleLeft, FaTrash } from "react-icons/fa";
 import { FiRefreshCw } from "react-icons/fi";
 import CustomHead from "../head";
+import CustomLoading from "../loading";
 
 export const CarCard = () => {
   const router = useRouter()
@@ -43,7 +44,7 @@ export const CarCard = () => {
     {CustomHead("Single car")}
     <div className="container">
 
-      {loading && !data && <div className='container'><p>loading</p></div>
+      {loading && !data && CustomLoading()
       }
       {
         data && <div className="card-car" >
