@@ -1,0 +1,29 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "next": "13.0.5",
+    "nextjs-cors": "^2.1.2",
+    "react": "18.2.0",
+    "react-bootstrap": "^2.6.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.7.1",
+    "sass": "^1.56.1"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.10",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.9",
+    "eslint": "8.28.0",
+    "eslint-config-next": "13.0.5",
+    "typescript": "4.9.3"
+  }
+}
