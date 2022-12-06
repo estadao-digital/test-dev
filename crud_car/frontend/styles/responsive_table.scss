@@ -1,77 +1,108 @@
 $breakpoint: 768px;
 
 .table {
-    margin-bottom: 0 !important;
-    width: 100%;
+  margin-bottom: 0 !important;
+  width: 100%;
 
-    thead {
-        tr>th {
-            color: gray;
-            font-size: 11px;
-        }
+  thead {
+    tr {
+      th {
+        color: gray;
+        font-size: 11px;
+
+      }
+
+      :last-child {
+        text-align: center;
+      }
     }
+  }
 
-    tbody {
-        tr {
-            color: darkgray;
-            font-size: 9px;
+  tbody {
+    tr {
+      color: darkgray;
+      font-size: 9px;
 
-            &:nth-of-type(odd) {
-                background-color: #eee;
-            }
-        }
+      &:nth-of-type(odd) {
+        background-color: #eee;
+      }
     }
+  }
 }
 
 td,
 th {
-    font-size: 32px;
-    border: none !important;
+  font-size: 32px;
+  border: none !important;
+
 }
 
 .table-hover {
 
-    tbody {
-        tr:hover {
-            background-color: darken(darkgray, 20%) !important;
-            color: lightgray !important;
-            box-shadow: 2px 2px 6px;
-            transition: linear;
-            transition-duration: 150ms;
-            transition-property: all;
-        }
+  tbody {
+    tr:hover {
+      background-color: darken(darkgray, 20%) !important;
+      color: lightgray !important;
+      box-shadow: 2px 2px 6px;
+      transition: linear;
+      transition-duration: 150ms;
+      transition-property: all;
     }
+  }
 }
 
 @media all and (max-width: $breakpoint) {
-    table {
-        border: 0;
+  table {
+    border: 0;
 
-        thead {
-            display: none;
-        }
-
-        tr {
-            display: flex;
-            flex-direction: column;
-            border-bottom: 1em solid darken(gray, 15%);
-        }
-
-        td {
-            display: block;
-            text-align: right;
-
-            &::before {
-                content: attr(data-label);
-                float: left;
-                text-transform: uppercase;
-                font-weight: 700;
-                // color: gray;
-
-                &:hover {
-                    color: lightgray;
-                }
-            }
-        }
+    thead {
+      display: none;
     }
+
+    tr {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1em solid darken(gray, 15%);
+    }
+
+    td {
+      display: block;
+      text-align: right;
+
+      &::before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: 700;
+
+        &:hover {
+          color: lightgray;
+        }
+      }
+
+      .car-details-link {
+        svg {
+          width: auto;
+          height: 48px;
+          ;
+        }
+
+      }
+
+    }
+  }
+
+}
+
+
+.car-details-link {
+  svg {
+    width: 100%;
+  }
+
+  :hover {
+    color: white !important;
+    fill: white !important;
+  }
+
 }

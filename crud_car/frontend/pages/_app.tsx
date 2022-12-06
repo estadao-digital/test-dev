@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import '../styles/globals.scss'
 import "../styles/responsive_table.scss"
 import "../styles/form.scss"

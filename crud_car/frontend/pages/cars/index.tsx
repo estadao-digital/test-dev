@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head';
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { Button } from 'react-bootstrap';
 import { FaCar, FaPlus } from 'react-icons/fa';
 
 const Cars: NextPage = (url: RequestInfo = "http://0.0.0.0/api/carros", method: string = "get") => {
@@ -48,7 +49,7 @@ const Cars: NextPage = (url: RequestInfo = "http://0.0.0.0/api/carros", method: 
         />
       </Head>
       <div className='new-car-nav'>
-        <p className='' data-label='Add New Car' colSpan={4}><Link href={{ pathname: "cars/new" }}>Add New Car {FaPlus()}{FaCar()}</Link></p>
+        <Link href={{ pathname: "cars/new" }}><Button> Add New Car {FaPlus()}{FaCar()} </Button> </Link>
       </div>
       <table className="table table-stripped table-hover">
         <thead className="table-head">
@@ -61,7 +62,7 @@ const Cars: NextPage = (url: RequestInfo = "http://0.0.0.0/api/carros", method: 
         </thead>
         <tbody className='table-body'>
           {loading && !data && <tr className="container">
-            <td colSpan={3}>Loading</td>
+            <td colSpan={4}>Loading</td>
           </tr>
           }
 
@@ -73,10 +74,14 @@ const Cars: NextPage = (url: RequestInfo = "http://0.0.0.0/api/carros", method: 
                 <td data-label="Model">{car.model}</td>
                 <td data-label="Year">{car.year}</td>
                 <td data-label="Details">
-                  <Link href={{ pathname: `cars/${car.id}`, query: { method: "GET" } }}> <FaCar /></Link>
+                  <Link className='car-details-link' href={{ pathname: `cars/${car.id}`, query: { method: "GET" } }}> <FaCar /></Link>
                 </td>
               </tr>
             ))
+          }
+          {!loading && !data && <tr className="container">
+            <td colSpan={4}>No Cars Found</td>
+          </tr>
           }
         </tbody>
       </table>
