@@ -47,7 +47,7 @@ export const CarCard = () => {
       {loading && !data && CustomLoading()
       }
       {
-        data && <div className="card-car" >
+        !loading && data && <div className="card-car" >
           <h1 className="card-title">{data.brand}</h1>
           <h3 className="card-content">{`${data.model} - ${data.year}`}</h3>
           <p>Updated on {data.updated_at.replace(".000000Z", "").replace("T", " at ")}</p>

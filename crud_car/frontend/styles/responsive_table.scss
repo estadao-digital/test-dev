@@ -51,6 +51,15 @@ th {
   }
 }
 
+.car-actions {
+  display: flex;
+  justify-content: center;
+
+  a {
+    margin-left: 1rem;
+  }
+}
+
 @media all and (max-width: $breakpoint) {
   table {
     border: 0;
@@ -80,18 +89,27 @@ th {
         }
       }
 
-      .car-details-link {
-        svg {
-          width: auto;
-          height: 48px;
-          ;
+      .car {
+        &-details-link {
+          svg {
+            width: auto;
+            height: 48px;
+            ;
+          }
+
         }
 
+        &-actions {
+          display: flex !important;
+        }
       }
 
     }
   }
 
+  .car-actions {
+    justify-content: flex-end !important;
+  }
 }
 
 
@@ -102,7 +120,6 @@ th {
 
   :hover {
     color: white !important;
-    fill: white !important;
   }
 
 }

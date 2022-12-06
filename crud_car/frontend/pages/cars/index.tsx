@@ -3,7 +3,8 @@ import Head from 'next/head';
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { Button } from 'react-bootstrap';
-import { FaCar, FaPlus } from 'react-icons/fa';
+import { FaCar, FaEye, FaPlus, FaTrash } from 'react-icons/fa';
+import { FiRefreshCw } from 'react-icons/fi';
 import CustomLoading from '../loading';
 
 const Cars: NextPage = (url: RequestInfo = "http://0.0.0.0/api/carros", method: string = "get") => {
@@ -36,6 +37,27 @@ const Cars: NextPage = (url: RequestInfo = "http://0.0.0.0/api/carros", method: 
     fetchData(url, method)
   }, []);
 
+  const confirmDelet = async () => {
+    let message = ''
+    try {
+      response = await fetch(url, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" }
+      })
+
+      if (response.status === 200) {
+        message = "Car deleted successfully."
+      }
+
+    } catch (error) {
+      message = error;
+      throw error;
+    } finally {
+      alert(message)
+      router.push(`/`)
+    }
+  }
+
   return (
     <>
       <Head>
@@ -50,7 +72,7 @@ const Cars: NextPage = (url: RequestInfo = "http://0.0.0.0/api/carros", method: 
         />
       </Head>
       <div className='new-car-nav'>
-        <Link href={{ pathname: "cars/new" }}><Button> Add New Car {FaPlus()}{FaCar()} </Button> </Link>
+        <Link href={{ pathname: "cars/new" }}><Button> Add New Car <FaPlus /> <FaCar /></Button> </Link>
       </div>
       <table className="table table-stripped table-hover">
         <thead className="table-head">
@@ -58,7 +80,7 @@ const Cars: NextPage = (url: RequestInfo = "http://0.0.0.0/api/carros", method: 
             <th>Brand</th>
             <th>Model</th>
             <th>Year</th>
-            <th>Details</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody className='table-body'>
@@ -74,8 +96,12 @@ const Cars: NextPage = (url: RequestInfo = "http://0.0.0.0/api/carros", method: 
                 <td data-label="Brand">{car.brand}</td>
                 <td data-label="Model">{car.model}</td>
                 <td data-label="Year">{car.year}</td>
-                <td data-label="Details">
-                  <Link className='car-details-link' href={{ pathname: `cars/${car.id}`, query: { method: "GET" } }}> <FaCar /></Link>
+                <td data-label="Actions">
+                  <div className='car-actions'>
+                    <Link className='car-details-link' href={{ pathname: `cars/${car.id}`, query: { method: "GET" } }}> <FaEye /></Link>
+                    <Link className='car-details-link' href={{ pathname: `cars/update`, query: { id: `${car.id}` } }}> <FiRefreshCw /></Link>
+                    <Link className='car-details-link' onClick={ }> <FaTrash /></Link>
+                  </div>
                 </td>
               </tr>
             ))
