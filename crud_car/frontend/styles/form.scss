@@ -1,0 +1,9 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .btn {
+        align-self: flex-end;
+    }
+}
