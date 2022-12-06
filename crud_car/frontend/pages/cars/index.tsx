@@ -1,16 +1,43 @@
-import type { NextPage } from 'next'
-import Head from 'next/head';
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react'
-import { Button } from 'react-bootstrap';
-import { FaCar, FaEye, FaPlus, FaTrash } from 'react-icons/fa';
+import { Button, Modal } from 'react-bootstrap';
+import { FaCar, FaCheck, FaEye, FaPlus, FaTrash } from 'react-icons/fa';
 import { FiRefreshCw } from 'react-icons/fi';
+import CustomAlert from '../alert';
+import CustomHead from '../head';
 import CustomLoading from '../loading';
 
-const Cars: NextPage = (url: RequestInfo = "http://0.0.0.0/api/carros", method: string = "get") => {
+const Cars = (url: RequestInfo = "http://0.0.0.0/api/carros", method: string = "get") => {
 
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState(null)
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const router = useRouter();
+
+
+  const confirmDelet = async (e, url) => {
+    setShow(false)
+    setLoading(true)
+    let message = null
+    try {
+      const response = await fetch(url, { method: "DELETE" })
+
+      if (response.status === 200) {
+        CustomAlert({ message: "Car deleted successfully.", variant: "success" })
+      }
+
+    } catch (error) {
+      message = error;
+      CustomAlert({ message: error, variant: "danger" })
+      throw error;
+    } finally {
+      setLoading(false)
+      router.reload()
+    }
+  }
 
   const fetchData = async (url: RequestInfo, method: string) => {
     try {
@@ -26,51 +53,41 @@ const Cars: NextPage = (url: RequestInfo = "http://0.0.0.0/api/carros", method: 
 
 
     } catch (error) {
-      console.log(error);
+      CustomAlert({ message: error, variant: "danger" });
     }
     finally {
       setLoading(false)
     }
   }
 
+  const ModalConfirm = (props: any) => {
+    return (
+      <>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>{props.title}</Modal.Title>
+          </Modal.Header>
+
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="danger" onClick={(e) => confirmDelet(e, `http://0.0.0.0/api/carros/${props.carId}`)} ><FaCheck /></Button>
+          </Modal.Footer>
+
+        </Modal>
+      </>)
+  }
+
   useEffect(() => {
     fetchData(url, method)
   }, []);
 
-  const confirmDelet = async () => {
-    let message = ''
-    try {
-      response = await fetch(url, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" }
-      })
 
-      if (response.status === 200) {
-        message = "Car deleted successfully."
-      }
-
-    } catch (error) {
-      message = error;
-      throw error;
-    } finally {
-      alert(message)
-      router.push(`/`)
-    }
-  }
 
   return (
     <>
-      <Head>
-        <title>CRUD Car</title>
-        <meta name="description" content="Teste para o Estadão" />
-        <link rel="icon" href="/favicon.svg" />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-          crossorigin="anonymous"
-        />
-      </Head>
+      {CustomHead("CRUD Car")}
       <div className='new-car-nav'>
         <Link href={{ pathname: "cars/new" }}><Button> Add New Car <FaPlus /> <FaCar /></Button> </Link>
       </div>
@@ -100,7 +117,11 @@ const Cars: NextPage = (url: RequestInfo = "http://0.0.0.0/api/carros", method: 
                   <div className='car-actions'>
                     <Link className='car-details-link' href={{ pathname: `cars/${car.id}`, query: { method: "GET" } }}> <FaEye /></Link>
                     <Link className='car-details-link' href={{ pathname: `cars/update`, query: { id: `${car.id}` } }}> <FiRefreshCw /></Link>
-                    <Link className='car-details-link' onClick={ }> <FaTrash /></Link>
+
+                    <span className='car-details-link' onClick={handleShow}>
+                      <FaTrash />
+                      <ModalConfirm title={`Delete ${car.brand} - ${car.model}?`} carId={car.id} />
+                    </span>
                   </div>
                 </td>
               </tr>

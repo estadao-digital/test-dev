@@ -55,7 +55,8 @@ th {
   display: flex;
   justify-content: center;
 
-  a {
+  a,
+  span {
     margin-left: 1rem;
   }
 }
@@ -122,4 +123,5 @@ th {
     color: white !important;
   }
 
+  cursor: pointer;
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import CustomLoading from "../loading";
+import CustomAlert from "../alert";
 
 
 
@@ -35,14 +36,13 @@ const UpdateCar: NextPage = () => {
       })
 
       if (response.status === 200) {
-        message = "Car updated successfully."
+        CustomAlert({ message: "Car deleted successfully.", variant: "success" })
       }
 
     } catch (error) {
-      message = error;
+      CustomAlert({ message: error, variant: "danger" })
       throw error;
     } finally {
-      alert(message)
       router.push(`/`)
     }
 
@@ -83,7 +83,7 @@ const UpdateCar: NextPage = () => {
         {!loading && carData &&
           <div>
 
-            <Form method="post" action="http://0.0.0.0/api/carros">
+            <Form>
               <label htmlFor="brand">Car Brand: </label>
               <input type="text" id="brand" name="brand" defaultValue={carData.brand} />
               <br />
